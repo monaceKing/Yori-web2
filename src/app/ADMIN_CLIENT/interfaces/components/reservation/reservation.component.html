@@ -1,0 +1,227 @@
+<div class="container">
+    <div class="first" *ngIf="!showDetails">
+    <div>
+            <h2 class="titre">Réservations</h2>
+            <div class="filtre">
+                <div class="labels">
+                    <label *ngFor="let label of labels; let i = index"
+                           [ngClass]="getLabelClass(i)"
+                           [attr.for]="label.for"
+                           (click)="toggleCheckboxes()">
+                      {{ label.text }}
+                    </label>
+                  </div>
+              <div class="inputs">
+                  <select id="statut" [(ngModel)]="selectedStatut">
+                      <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
+                  </select>
+
+                  <input type="date" id="dateDebut" [(ngModel)]="dateDebut" />
+                  <input type="date" id="dateFin" [(ngModel)]="dateFin" />
+                  <button type="button" class="select" (click)="afficherFiltre()">Plus de filtres</button>
+                  <button type="button" class="voir">Voir les résultats</button>
+              </div>
+              <div *ngIf="openFiltre" class="checkbox">
+                <div class="checkbox-container">
+                  <div>
+                    <label for="">Statut de la réservation</label>
+                  </div>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="tous" /> Tous
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="reservation" /> Réservation
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="arrivees" /> Arrivées
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="departures" /> Départs
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="sejour-en-cours" /> Séjour en cours
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="a-venir" /> A venir
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="annulees" /> Annulées
+                  </label>
+                </div>
+                <div class="all-search">
+                  <div>
+                    <label for="search" class="lab-search">Mots-clés</label>
+                  </div>
+                  <div>
+                    <input type="search" name="search" class="input-search">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="resultats-info">
+                <div>
+                    {{ selectedStatut }}
+                ({{ getClientsFiltres().length }})
+                </div>
+                <button class="printPage" (click)="printPage()">
+                    <mat-icon>
+                    print
+                    </mat-icon>
+                    Imprimer la liste des réservations
+                </button>
+            </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom du client</th>
+            <th>Arrivée</th>
+            <th>Départ</th>
+            <th>Hébergement</th>
+            <th>Réservé le</th>
+            <th>Statuts</th>
+            <th>Tarif</th>
+            <th>Commission</th>
+            <th>Durée</th>
+            <th>Numéro de réservation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let client of paginatedClients">
+            <td>{{ client.nom }} <br> {{client.personne}} personne(s) </td>
+            <td>{{ client.arrivee }}</td>
+            <td>{{ client.depart }}</td>
+            <td>{{ client.hebergement }}</td>
+            <td>{{ client.reserveLe }}</td>
+            <td>{{ client.statuts }}</td>
+            <td>{{ client.tarif }}</td>
+            <td>{{ client.commission }}</td>
+            <td>{{ client.duree }}</td>
+            <td><a class="open-div2" (click)="afficherDetails(client)">{{ client.numeroReservation }}</a></td>
+        </tr>
+        <tr>
+            <td colspan="10" class="td-pag">
+                <div>
+                    <button class="btn-pag" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">&lt; Précédent</button>|
+                    <span>Page</span>
+                    |<button class="btn-pag" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Suivant &gt;</button>
+                    <select id="itemsPerPage" (change)="onItemsPerPageChange($event)">
+                        <option *ngFor="let option of itemsPerPageOptions" [value]="option">Afficher {{ option }} réservations</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="totaux">
+        <p>Total Commission : <strong>{{ totalCommission() | currency }}</strong></p>
+        <p>Total Tarif : <strong>{{ totalTarif() | currency }}</strong></p>
+    </div>
+    </div>
+
+
+    <div *ngIf="showDetails">
+        <div class="retour">
+            <h2>Détails de la réservation</h2>
+            <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
+        </div>
+        <span class="span">
+            <button class="printPage2" (click)="printPage()">
+                <mat-icon>
+                print
+                </mat-icon>
+                Imprimer la liste des réservations
+            </button>
+        </span>
+        <div *ngIf="selectedClient.statuts == 'Annulées'" class="fact-annulee">
+            <mat-icon style="color: brown;">
+                error
+            </mat-icon>
+            Réservation annulée
+        </div>
+        <table class="table2">
+            <tr>
+                <td>Date d'arrivée</td>
+                <td>Nom du client :</td>
+            </tr>
+            <tr>
+                <td>{{ selectedClient.arrivee }}</td>
+                <td>{{ selectedClient.nom }}</td>
+            </tr>
+            <tr>
+                <td>Date de départ</td>
+                <td>Pays de résidence</td>
+            </tr>
+            <tr>
+                <td>{{ selectedClient.depart }}</td>
+                <td>gab</td>
+            </tr>
+            <tr>
+                <td>Durée de la reservation :</td>
+                <!-- <td><mat-icon style="font-size: 15px;">visibility</mat-icon><a href="">Afficher le numéro de téléphone</a></td> -->
+                <td>
+                    <span style="display: inline-flex; align-items: center;">
+                        <mat-icon style="font-size: 15px; margin-top: 5px;">visibility</mat-icon>
+                        <a href="">Afficher le numéro de téléphone</a>
+                    </span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>{{ selectedClient.duree }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Nombre de personnes :</td>
+                <td>Langue préferée</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>français</td>
+            </tr>
+            <tr>
+                <td>Nombre de logements :</td>
+                <td>Canal :</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>yori.com</td>
+            </tr>
+            <tr>
+                <td>Montant total</td>
+                <td>Numéro de réservation:</td>
+            </tr>
+            <tr>
+                <td>100.000 Fcfa</td>
+                <td>{{ selectedClient.numeroReservation }}</td>
+            </tr>
+            <tr>
+                <td>Commission :</td>
+                <td>Paiement :</td>
+            </tr>
+            <tr>
+                <td>15.000 FCFA</td>
+                <td>Paysing</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Reçu</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>mar. 14 juil. 2024</td>
+            </tr>
+        </table>
+      </div>
+      <!-- <p><strong>Nom :</strong> {{ selectedClient.nom }}</p>
+        <p><strong>Personne(s) :</strong> {{ selectedClient.personne }}</p>
+        <p><strong>Arrivée :</strong> {{ selectedClient.arrivee }}</p>
+        <p><strong>Départ :</strong> {{ selectedClient.depart }}</p>
+        <p><strong>Hébergement :</strong> {{ selectedClient.hebergement }}</p>
+        <p><strong>Réservé le :</strong> {{ selectedClient.reserveLe }}</p>
+        <p><strong>Statut :</strong> {{ selectedClient.statuts }}</p>
+        <p><strong>Tarif :</strong> {{ selectedClient.tarif }}</p>
+        <p><strong>Commission :</strong> {{ selectedClient.commission }}</p>
+        <p><strong>Durée :</strong> {{ selectedClient.duree }} jours</p> -->
+</div>

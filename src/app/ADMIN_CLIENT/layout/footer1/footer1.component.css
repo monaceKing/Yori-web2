@@ -1,0 +1,26 @@
+.container{
+    /* padding-top: 20px; */
+    background-color: white;
+    justify-content: center;
+    /* margin-bottom: 0; */
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column; /* Aligne les enfants en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+}
+
+
+.bottom{
+    justify-content: center;
+    text-align: center;
+}
+
+a{
+    color: #77B5FE;
+    text-decoration: none;
+}

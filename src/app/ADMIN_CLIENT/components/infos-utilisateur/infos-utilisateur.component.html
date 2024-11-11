@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card">
+        <form action="" class="form">
+            <h2>Coordonnées</h2>
+            <p>Veuillez fournir votre nom complet ainsi que votre <br>
+                numéro de téléphone pour garantir la sécurité de votre <br>
+                compte yori.com. <br>
+                établissement.</p>
+            <div>
+                <label for="prenom">Prénom</label><br>
+                <input type="text" name="prenom" class="nom_utilisateur" required placeholder="entrez votre prenom"><br>
+                <label for="nom">Nom</label><br>
+                <input type="text" name="nom" class="nom_utilisateur" required placeholder="entrer votre nom"><br>
+                <label for="prenom">Téléphone</label><br>
+                <input matInput type="tel" #phoneInput  class="tel"><br>
+                    <p>Nous enverrons un SMS comportant un code d'authentification à <br> 2 facteurs à ce numéro lorsque vous vous connecterez.</p>
+                <button class="button bouton-unique1" type="button"  [routerLink]="['/creer-passe']">Suivant</button>
+            </div>
+           <div class="link">
+            <!-- <a [routerLink]="['/infos-utilisateur']"></a> -->
+           </div>
+        </form>
+        <div class="hr">
+            <hr>
+        </div>
+        </div>
+</div> 

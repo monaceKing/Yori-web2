@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire avec Flexbox et Tableau</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Infos sur l'établissement</h2>
+    <form class="form">
+        <table>
+            <tr>
+                <td class="multi-line">
+                    <span>Ville :</span>
+                    <span><input type="text" id="ville" name="ville" value="Libreville"></span>
+                </td>
+                <td colspan="2"><button type="button">icone</button></td>
+            </tr>
+            <tr>
+                <td class="multi-line">
+                    <span>Quartier :</span>
+                    <span><input type="text" id="ville" name="Quartier" value="Louis"></span>
+                </td>
+                <td colspan="2"><button type="button">icone</button></td>
+            </tr>
+            <tr>
+                <td class="multi-line">
+                    <span>Numero de téléphone :</span>
+                    <span><input type="text" id="ville" name="telephone" value="+24160345578"></span>
+                </td>
+                <td colspan="2"><button type="button">icone</button></td>
+            </tr>
+            <tr>
+                <td class="multi-line">
+                    <span>Adresse de l'établissement :</span>
+                    <span><input type="text" id="ville" name="adresse" value="Avenue Véronique Ayito Minko"></span>
+                </td>
+                <!-- <td colspan="2"><button type="button">icone</button></td> -->
+            </tr>
+            <tr>
+                <td class="multi-line">
+                    <span>Emplacement de l'établissement :</span>
+                    <span style="margin: 10px 0 0 5px;">0.3863602, 9.474792 (sur <a class="link">Google Maps</a> et <a class="link">OpenSteetMap</a> )</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="multi-line">
+                    <span>Statut de l'hébergement</span>
+                </td>
+                <td><span type="button">Ouvert / réservable</span></td>
+            </tr>
+            <tr>
+                <td class="multi-line">
+                    <span><a class="link" (click)="afficherDetails()">Modifier le statut</a></span>
+                </td>
+                <div *ngIf="showDetails">
+                  <div>
+                    <label>
+                      <input type="radio" name="status" value="actif" /> Ouvert
+                    </label>
+                  </div>
+
+                  <div>
+                    <label>
+                      <input type="radio" name="status" value="inactif" /> Fermé
+                    </label>
+                  </div>
+                </div>
+            </tr>
+        </table>
+        <tr>
+          <td colspan="4" style="text-align: center;">
+              <input type="submit" value="Mettre à jour mes informations">
+          </td>
+      </tr>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+.container{
+    margin-top: -20px; /*espace entre le composant et le header */
+    display: flex;
+    flex-direction: column; /* Aligne les enfants en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    padding: 20px; /* Ajoute un peu d'espace autour */
+}
+
+.card {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column; /* Aligne les enfants en colonne */
+    justify-content: left; /* Centre verticalement */
+    align-items: left; /* Centre horizontalement */
+    text-align: left; /* Centre le texte */
+}
+ 
+.button{
+    width: 473px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 700;
+    /* cursor: pointer; */
+}
+
+.hr{
+    width: 473px;
+}
+
+.passe{
+    width: 465px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #77B5FE;
+}
+
+.bouton-unique1{
+    background-color: #77B5FE;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.bouton-unique1:hover {
+    background-color: white;
+    color: #77B5FE;
+    border: 1px solid #77B5FE;
+}
+
+.link{
+    margin: 30px 0;
+    text-align: center;
+}
+
+.link a{
+    font-weight: 700;
+    text-decoration: none;
+    color: #77B5FE;
+}

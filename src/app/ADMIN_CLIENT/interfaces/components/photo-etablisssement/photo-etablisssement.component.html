@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="gallery-container">
+    <section style="margin-bottom: 10px;">
+      <div class="text">Galerie principale ({{ images.length }} photos)</div>
+      <div class="controls">
+        <div class="one-btn">
+          <button (click)="triggerFileInput()" class="add-photo-btn">
+            <mat-icon>image</mat-icon> Ajouter des photos
+          </button>
+          <input #fileInput type="file" accept="image/*" (change)="addImage($event)" style="display: none;" />
+        </div>
+        <div class="all-btn">
+          <button class="btn-1" (click)="selectAll()">Sélectionner tout</button>
+          <button class="btn" (click)="deselectAll()">Désélectionner tout</button>
+          <button class="btn" (click)="deleteSelected()">Supprimer</button>
+        </div>
+      </div>
+      <div class="entête">
+        <p>Photo d'accroche</p>
+      </div>
+      <div class="image-gallery">
+        <div *ngFor="let image of images; let i = index" class="image-item">
+          <input type="checkbox" [checked]="isSelected(i)" (change)="toggleSelection(i)" id="image-{{i}}" />
+          <label for="image-{{i}}">
+            <img [src]="image" alt="Image {{i + 1}}" class="image" />
+          </label>
+        </div>
+        <div class="btn-add">
+          <mat-icon>image</mat-icon><br>
+          <button (click)="triggerFileInput()">
+            Ajouter des photos
+          </button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <!-- <div class="text">Galerie secondaire ({{ imagesSecondary.length }} photos)</div> -->
+      <div class="text">Chambre luxieuse</div>
+
+      <div class="controls">
+        <div class="one-btn">
+          <button (click)="triggerFileInputSecondary()" class="add-photo-btn">
+            <mat-icon>image</mat-icon> Ajouter des photos2
+          </button>
+          <input #fileInputSecondary type="file" accept="image/*" (change)="addImageSecondary($event)" style="display: none;" />
+        </div>
+        <div class="all-btn">
+          <button class="btn-1" (click)="selectAllSecondary()">Sélectionner tout</button>
+          <button class="btn" (click)="deselectAllSecondary()">Désélectionner tout</button>
+          <button class="btn" (click)="deleteSelectedSecondary()">Supprimer</button>
+        </div>
+      </div>
+      <div class="entête">
+        <p>Photo d'accroche</p>
+      </div>
+      <div class="image-gallery">
+        <div *ngFor="let image of imagesSecondary; let i = index" class="image-item">
+          <input type="checkbox" [checked]="isSelectedSecondary(i)" (change)="toggleSelectionSecondary(i)" id="image-sec-{{i}}" />
+          <label for="image-sec-{{i}}">
+            <img [src]="image" alt="Image {{i + 1}}" class="image" />
+          </label>
+        </div>
+        <div class="btn-add">
+          <mat-icon>image</mat-icon><br>
+          <button (click)="triggerFileInputSecondary()">
+            Ajouter des photos
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+
+	private formBuilder = inject(FormBuilder);
+	private loginService = inject(LoginService);
+	private router = inject(Router);
+  
+	private loginSubscription: Subscription | null = null;
+  
+	loginFormGroup = this.formBuilder.group({
+		email: ['', [Validators.required]],
+		password: ['', [Validators.required]]
+	});
+  
+	invalidCredentials = false;
+  
+	login(event: Event): void {
+	  event.preventDefault(); // Empêche le comportement par défaut de rechargement de la page
+  
+	  // Vérifie si le formulaire est valide
+	  if (this.loginFormGroup.valid) {
+		this.loginSubscription = this.loginService.login(this.loginFormGroup.value as Credentials).subscribe({
+		  next: (result: User | null | undefined) => {
+			this.navigateHome();
+		  },
+		  error: (error) => {
+			this.invalidCredentials = true;  // Affiche une erreur si les identifiants sont incorrects
+		  }
+		});
+	  } else {
+		console.log('Form invalid');
+	  }
+	}
+  
+	navigateHome() {
+	  this.router.navigate(['home']);
+	}
+  
+	ngOnDestroy(): void {
+	  this.loginSubscription?.unsubscribe();  // Assure l'annulation de l'abonnement
+	}

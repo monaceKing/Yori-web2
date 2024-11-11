@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <form action="" class="form">
+            <h2>Créer un mot de passe</h2>
+            <p>Il doit comporter au moins 10 caractères, dont 1 <br>
+                majuscule, 1 minuscule et 1 chiffre.</p>
+            <div>
+                <label for="password">Mot de passe</label><br>
+                <input [type]="showPad?'text':'password'" name="password" id="password" class="passe"><br>
+                <label for="confirm_pass">Confirmez le mot de passe</label><br>
+                <input type="password" name="confirm_pass" id="confirm_pass" class="passe"><br>
+                <button class="button bouton-unique1" type="button">créer un compte</button>
+            </div>
+        </form>
+        <div class="hr">
+            <hr>
+        </div>
+        </div>
+</div>  

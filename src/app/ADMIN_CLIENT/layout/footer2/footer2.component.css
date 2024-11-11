@@ -1,0 +1,32 @@
+.container{
+    margin-top: 30px;
+    background-color: #77B5FE;
+    height: 100%;
+}
+
+.top{
+    display: flex;
+    gap: 100px;
+    margin-left: 50px;
+}
+
+.button{
+    margin-top: 15px;
+    margin-left: 150px;
+}
+
+.button button{
+    background-color: #4099FF;
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    color: white;
+}
+
+.Copyright{
+    margin-left: 45px;
+}
+
+P{
+    color: white;
+}

@@ -1,0 +1,175 @@
+/* app.component.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh; /* Assure que le conteneur prend toute la hauteur de la vue */
+    /* border: 2px solid burlywood; */
+  }
+
+  .jus{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative; /* ou absolute si nécessaire */
+    z-index: 10;
+    background-color: #ffffff;
+    color: #77B5FE;
+    border: 1px solid #77B5FE;
+    height: 35px;
+    border-radius: 10px;
+  }
+
+  .jus:hover{
+    background-color: #77B5FE;
+    color: #ffffff;
+  }
+
+
+  .premier{
+    background-color: white;
+    color: #77B5FE;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #77B5FE;
+    border-radius: 10px;
+    font-size: 15px;
+
+  }
+
+
+  .premier1, .centered-button{
+    background-color: #77B5FE;
+    color: #ffffff;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #77B5FE;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+
+  }
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Aligne le logo et le dropdown aux extrémités */
+    height: 80px; /* Hauteur fixe de 20px pour la barre supérieure */
+    padding: 0; /* Supprime tout padding pour éliminer l'espace interne */
+    margin: 0; /* Supprime toute marge externe */
+    background-color: #ffffff; /* Couleur de fond pour la barre supérieure */
+  }
+
+  .dropdown{
+    background-color: inherit;
+    border: 10px solid white;
+  }
+
+  .initial-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #33aefb;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .para{
+    font-size: initial;
+  }
+
+
+  .header {
+    display: flex;
+    justify-content: space-between; /* Aligne les éléments à gauche et à droite */
+    height: 400px; /* Hauteur fixe pour l'en-tête */
+    padding: 10px; /* Espacement interne */
+    background: url('../../../../../public/assets/img/header2.png') no-repeat center center; /* Image en arrière-plan */
+    background-size: cover; /* Ajuste la taille de l'image */
+  }
+
+/* Ajustez la largeur de .content-left */
+.content-left {
+    width: 600px; /* Largeur fixe de 300px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre les paragraphes verticalement */
+    gap: 10px; /* Espace entre les paragraphes */
+    margin-top: -200px;
+  }
+
+  /* Agrandir un peu la carte */
+  .card {
+    border: 10px solid yellow;
+    width: 550px; /* Largeur de la carte agrandie */
+    height: 350px; /* Hauteur de la carte agrandie */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement le contenu de la carte */
+    background-color: #fff; /* Couleur de fond de la carte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour la carte */
+  }
+
+
+  .card2 {
+    border-radius: 10px;
+    width: 550px; /* Largeur de la carte agrandie */
+    height: 350px; /* Hauteur de la carte agrandie */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement le contenu de la carte */
+    background-color: #fff; /* Couleur de fond de la carte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour la carte */
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    height: auto;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tr {
+    border-bottom: 1px solid #ddd; /* Séparateurs horizontaux */
+  }
+
+  td {
+    border: none; /* Enlève les bordures entre les colonnes */
+  }
+  td:first-child {
+    text-align: left; /* Aligne les noms à gauche */
+  }
+
+  td:last-child {
+    text-align: right; /* Aligne les boutons à droite */
+  }
+
+
+  /* Centrer le texte du <h3> */
+.card mat-card-title h3 {
+  text-align: center;
+}
+
+/* Enlever le soulignement du lien */
+.card mat-card-footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #33aefb;
+}
+
+/* Personnaliser les lignes horizontales <hr> */
+.card hr {
+ border: 1px solid black;
+}
+

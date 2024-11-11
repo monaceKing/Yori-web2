@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: initial;
+  padding: 20px 0 20px 0;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+.main-card {
+  flex: 1 1 80%; /* 60% de la largeur */
+  background-color: white;
+  min-width: 300px; /* Assure une largeur minimale */
+}
+
+.sub-card {
+  flex:1 1 40%; /* 30% de la largeur */
+}
+
+#haut {
+  margin-top: 0px; /* Superposition avec la carte en dessous */
+  background-color: red;
+  flex:1 30%; /* 30% de la largeur */
+  background-color: rgb(255, 255, 255);
+  height: 300px;
+  width: auto;
+}
+
+
+.custom-icon {
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .main-card, .sub-card {
+    flex: 1 1 100%; /* Prendre toute la largeur sur mobile */
+  }
+}

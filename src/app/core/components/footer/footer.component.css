@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40vh; /* Ajuste la hauteur selon tes besoins */
+    background: #77B5FE;
+    padding-left: 30px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.vertical-line {
+    width: 2px; /* Épaisseur de la ligne */
+    height: 100px; /* Longueur de la ligne */
+    background-color: white; /* Couleur de la ligne */
+    margin: 20px; /* Marge autour de la ligne (optionnelle) */
+}
+
+
+.row {
+    display: flex;
+}
+
+.gauche,
+.droit {
+    flex: 1;
+    display: flex;
+    padding: 20px; /* Optionnel : ajoute un peu d'espace intérieur */
+}
+
+.gauche {
+    display: flex;
+    flex-direction: column; /* Arrange les éléments verticalement */
+    /* align-items: center;  */
+}
+
+.gauche img {
+    margin-bottom: 10px; /* Espace optionnel entre l'image et le paragraphe */
+}
+
+.gauche p {
+    margin: 0;
+    text-align: left; /* Centre le texte sous l'image */
+    color: white;
+}
+
+
+.large {
+    /* width: 100%; */
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    background-color: #77B5FE; 
+    margin-right: 300px;
+}
+.droit {
+    display: flex;
+    flex-direction: column; /* Arrange les éléments verticalement */
+    align-items: left; /* Centre horizontalement */
+    justify-content: left; /* Centre verticalement */
+    height: 100%; /* Assure que la div prend toute la hauteur disponible */
+    color: white;
+    margin-right: 600px;
+}
+
+.droit h4,
+.droit p {
+    margin: 5px 0; /* Ajoute de l'espace vertical entre chaque élément */
+    text-align: left; /* Centre le texte à l'intérieur de chaque élément */
+}

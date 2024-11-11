@@ -1,0 +1,100 @@
+  /* Style général pour la section */
+.feature-cards-section {
+    margin-top: 5px;
+    padding: 2px;
+}
+  
+/* Style pour l'introduction avant les cartes */
+.feature-intro {
+    text-align: center;
+    margin-bottom: 40px; /* Espace entre l'introduction et les cartes */
+}
+  
+.feature-intro h1 {
+    /* font-size: 2rem; */
+    margin-bottom: 10px;
+}
+  
+.feature-intro p {
+    font-size: 1.125rem;
+    color: #333;
+}
+
+.feature-card-wrapper {
+    justify-content: center;
+    display: flex;
+    gap: 100px;
+    
+}
+  
+/* Style pour chaque carte */
+.feature-card {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Largeur maximale pour chaque carte */
+    height: 400px; /* Hauteur fixe pour les cartes */
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover; /* Assure que l'image de fond couvre la carte */
+    background-position: center; /* Centre l'image de fond */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Place le contenu en bas */
+    margin-bottom: 50px; /* Espace entre les cartes */
+}
+  
+/* Image de fond pour chaque carte */
+.feature-card:nth-of-type(1) {
+    background-image: url('../../../../public/assets/img/card1.png') /* Remplacez par l'image souhaitée */
+}
+  
+.feature-card:nth-of-type(2) {
+    background-image: url('../../../../public/assets/img/card2.png') /* Remplacez par l'image souhaitée */
+}
+  
+.feature-card:nth-of-type(3) {
+    background-image: url('../../../../public/assets/img/card3.png') /* Remplacez par l'image souhaitée */
+}
+  
+/* Style pour le contenu de la carte */
+.feature-card-content {
+    margin-left: 10px;
+    width: 80%;
+    margin-bottom: 80px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité du texte */
+    border-radius: 8px;
+    height: 200px;
+}
+  
+.feature-card-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+  
+.feature-card-description {
+    font-size: 1rem;
+    margin-top: 15px;
+}
+  
+/* Style pour le bouton de la carte */
+.feature-card-button {
+    position: relative;
+    bottom: 10px;
+    left: 37%;
+    transform: translateX(-50%);
+    background-color: #42baff; /* Couleur du bouton */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+  
+.feature-card-button:hover {
+    background-color: #0056b3; /* Couleur du bouton au survol */
+}

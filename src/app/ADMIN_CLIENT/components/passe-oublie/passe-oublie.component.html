@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card">
+        <form action="" class="form">
+            <h2>Mot de passe oublié ?</h2>
+            <p>Veuillez confirmer votre nom d'utilisateur et nous vous <br>
+                enverrons un lien pour réinitialiser votre mot de passe.
+            </p>
+            <div>
+                <label for="nom_utilisateur">nom d'utilisateur</label><br>
+                <input type="text" name="nom_utilisateur" id="nom_utilisateur" placeholder="Egalememnt appelé <<identifiant>>"><br>
+                <button class="button bouton-unique1" type="button">Suivant</button>
+            </div>
+           <div class="link">
+            <a [routerLink]="['/contacter-equipe']">Vous avez oublié votre nom d'utilisateur ?</a>
+           </div>
+        </form>
+        <div class="hr">
+            <hr>
+        </div>
+        </div>
+</div>

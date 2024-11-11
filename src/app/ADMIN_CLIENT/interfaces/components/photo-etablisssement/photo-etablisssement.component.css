@@ -1,0 +1,151 @@
+.gallery-container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  background-color: white;
+  margin-bottom: 20px;
+  gap: 400px;
+  padding-left: 15px;
+  border-top: 0.2px solid rgb(212, 212, 212);
+  border-bottom: 0.2px solid rgb(212, 212, 212);
+}
+
+
+.text{
+  background-color: white;
+  text-align: left;
+  padding: 10px;
+}
+
+.btn, .btn-1 {
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: initial;
+}
+
+.btn-1{
+    color: #77B5FE;
+}
+
+
+.one-btn{
+  margin: 5px 0;
+}
+
+
+.all-btn{
+  padding-top: 20px;
+}
+
+
+.add-photo-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #77B5FE;
+  color: white;
+  padding: 5px 5px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+}
+
+
+.btn-add{
+  padding-top: 20px;
+  width: 230px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 0.2px solid rgb(212, 212, 212);
+}
+
+
+.btn-add button{
+  cursor: pointer;
+  font-weight: 200;
+  border: none;
+  color: #77B5FE;
+  background-color: initial;
+}
+
+.btn-add mat-icon{
+  cursor: pointer;
+  color: #77B5FE;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+}
+
+
+.entête {
+  padding: 5px;
+  background-color: white;
+  justify-content: left;
+  text-align: left;
+  margin-top: -20px;
+  margin-bottom: -25px;
+}
+
+.entête p{
+  color: white;
+  display: inline-block;
+  background-color: #77B5FE;
+  margin: 10px 0 0 50px;
+  padding: 5px 10px;
+}
+
+.image-gallery {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+
+.image-item {
+  position: relative;
+  display: inline-block;
+}
+
+.image-item input[type="checkbox"] {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 10;
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+
+.image-item label {
+  cursor: pointer;
+}
+
+
+.image-item img {
+  width: 220px;
+  height: 120px;  /* Garde les proportions de l'image */
+  object-fit: cover; /* Assure que l'image couvre la cellule sans déformation */
+}
+
+.image-item:hover img {
+  transform: scale(1.05);
+}

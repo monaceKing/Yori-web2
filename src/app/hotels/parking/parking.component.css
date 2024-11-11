@@ -1,0 +1,54 @@
+.container {
+  display: flex; 
+  justify-content: center;
+  margin: 25px 25px 10px 0;
+  width: 60%;
+  max-width: 800px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.title{
+  font-size: 20px;
+}
+
+.main-card {
+  background-color: white; /* Optionnel si l'héritage est déjà voulu */
+  width: 100%; /* S'assurer que la carte utilise toute la largeur */
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px 0; /* Espacement vertical */
+}
+
+mat-card-header {
+  margin: 0; /* Éliminer les marges inutiles */
+}
+
+.example-radio-group-label {
+  margin: 10px 0; /* Ajustement des marges */
+}
+
+mat-card-title {
+  font-weight: 500;
+}
+
+label {
+  font-weight: 500;
+}
+
+.menu {
+  margin-bottom: 15px; /* Espace en bas du menu */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Réduire le padding sur les petits écrans */
+  }
+}

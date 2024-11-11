@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card">
+        <form action="" class="form">
+            <h2>Connectez-vous pour gérer <br> votre établissement</h2>
+            <div>
+                <label for="nom_utilisateur">Nom d'utilisateur</label><br>
+                <input type="text" name="nom_utilisateur" id="nom_utilisateur" placeholder="Egalememnt appelé <<identifiant>>"><br>
+                <button class="button bouton-unique1" type="button" [routerLink]="['/mot-de-passe']">Suivant</button>
+            </div>
+           <div class="link">
+            <a [routerLink]="['/probleme-connexion']">Vous ne parvenez pas à vous-connectez ?</a>
+           </div>
+        </form>
+        <div class="hr">
+            <hr>
+        </div>
+        <p style="text-align: center;">
+            Pour tous utilisateurs eyons pas de compte  partenaire veillez belle et <br> créer un compte pour le suivi de votre établissement
+        </p>
+        <div>
+            <button class="button bouton-unique2" [routerLink]="['/creer-compte']">Crée un compte partenaire</button>
+        </div>
+        <div class="hr">
+            <hr>
+        </div>
+        </div>
+</div>
