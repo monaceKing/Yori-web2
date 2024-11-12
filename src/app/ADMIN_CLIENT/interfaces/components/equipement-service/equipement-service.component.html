@@ -1,1 +1,307 @@
-<p>info-etablissemnt works!</p>
+<div class="container">
+  <form>
+    <section>
+      <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher..." class="search-box" />
+      </div>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Rechercher...</mat-label>
+        <input matInput [(ngModel)]="searchTerm" />
+      </mat-form-field> -->
+
+      <div class="checkbox-list">
+        <div *ngFor="let item of filteredItems">
+          <label>
+            <input type="checkbox" [(ngModel)]="item.selected" (change)="onCheckboxChange(item)" />
+            {{ item.name }}
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section>
+          <!-- Radio Buttons -->
+        <div class="radio-buttons">
+          <h2>Information petit dejeuner</h2>
+          <div>
+            <p>Le petit-déjeuner est-il servi dans votre hébergement ?</p>
+            <label>
+              <input type="radio" name="selection" [(ngModel)]="selectedRadio1" value="oui" />
+              Oui
+            </label><br>
+            <label>
+              <input type="radio" name="selection" [(ngModel)]="selectedRadio1" value="non" />
+              Non
+            </label>
+          </div>
+          <div>
+            <p>Le petit-déjeuner est-il inclus dans le tarif payé par les clients ?</p>
+            <label>
+              <input type="radio" name="selection2" [(ngModel)]="selectedRadio2" value="oui_inclus" />
+              Oui, il est inclus.
+            </label><br>
+            <label>
+              <input type="radio" name="selection2" [(ngModel)]="selectedRadio2" value="non_suplement" />
+              Non, il est en supplément.
+            </label>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <!-- Question Petit-Déjeuner -->
+          <div class="breakfast-section">
+            <h3>Quel type de petit-déjeuner proposez-vous ?</h3>
+
+            <div class="breakfast-options">
+              <label class="breakfast-option" [class.selected]="breakfastOptions['A_la_carte']" (click)="toggleBreakfastOption('A_la_carte')">
+                <span>A la carte</span>
+              </label>
+
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Africain']" (click)="toggleBreakfastOption('Africain')">
+                <span>Africain</span>
+              </label>
+
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Americain']" (click)="toggleBreakfastOption('Americain')">
+                <span>Americain</span>
+              </label>
+
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Asiatique']" (click)="toggleBreakfastOption('Asiatique')">
+                <span>Asiatique</span>
+              </label>
+
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Buffet']" (click)="toggleBreakfastOption('Buffet')">
+                <span>Buffet</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Petit_dejeuner_a_emporter']" (click)="toggleBreakfastOption('Petit_dejeuner_a_emporter')">
+                <span>Petit dejeuner à emporter </span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Continental']" (click)="toggleBreakfastOption('Continental')">
+                <span>Continental</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Végétalien']" (click)="toggleBreakfastOption('Végétalien')">
+                <span>Végétalien</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Casher']" (click)="toggleBreakfastOption('Casher')">
+                <span>Casher</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Végétarien']" (click)="toggleBreakfastOption('Végétarien')">
+                <span>Végétarien</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Sans_gluten']" (click)="toggleBreakfastOption('Sans_gluten')">
+                <span>Sans gluten</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Halal']" (click)="toggleBreakfastOption('Halal')">
+                <span>Halal</span>
+              </label>
+              <label class="breakfast-option" [class.selected]="breakfastOptions['Anglais_ou_irlandais_complet']" (click)="toggleBreakfastOption('Anglais_ou_irlandais_complet')">
+                <span>Anglais / irlandais complet </span>
+              </label>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>Parlez-nous des options de stationnement  pour votre structure</h3>
+        <div>
+          <p>Les clients ont-ils accès à un parking?</p>
+          <div>
+            <p>Le petit-déjeuner est-il inclus dans le tarif payé par les clients ?</p>
+            <label>
+              <input type="radio" name="selection3" [(ngModel)]="selectedRadio3" value="oui_gratuitement" />
+              Oui, gratuitement
+            </label><br>
+            <label>
+              <input type="radio" name="selection3" [(ngModel)]="selectedRadio3" value="oui_suplement" />
+              Oui, moyennant un supplément
+            </label><br>
+            <label>
+              <input type="radio" name="selection3" [(ngModel)]="selectedRadio3" value="non" />
+              Non
+            </label>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <p>Combien coûte le parking ?</p>
+          <input type="number" name="montant" id="" placeholder="CFA">
+          <select name="duree" id="">
+            <option value="">par heure</option>
+            <option value="">par jour</option>
+            <option value="">par semaine</option>
+          </select>
+        </div>
+
+        <div>
+          <p>Est-il nécessaire de réserver une place de parking ?</p>
+          <label>
+            <input type="radio" name="selection4" [(ngModel)]="selectedRadio3" value="Reservation_necessaire" />
+            Réservation nécessaire
+          </label><br>
+          <label>
+            <input type="radio" name="selection4" [(ngModel)]="selectedRadio3" value="Sans_reservation" />
+            Sans réservation
+          </label>
+        </div>
+
+
+        <div>
+          <p>Où se situe le parking ?</p>
+          <label>
+            <input type="radio" name="selection5" [(ngModel)]="selectedRadio3" value="Sur_place" />
+            Sur place
+          </label><br>
+          <label>
+            <input type="radio" name="selection5" [(ngModel)]="selectedRadio3" value="A_proximite" />
+            À proximité
+          </label>
+        </div>
+
+
+        <div>
+          <p>De quel type de parking s'agit-il ?</p>
+          <label>
+            <input type="radio" name="selection6" [(ngModel)]="selectedRadio3" value="Prive" />
+            Privé
+          </label><br>
+          <label>
+            <input type="radio" name="selection6" [(ngModel)]="selectedRadio3" value="Public" />
+            Public
+          </label>
+        </div>
+    </section>
+
+    <section>
+      <h3>Quelles langues parlez-vous (vous ou votre personnel) ?</h3>
+      <div>
+        <p>Sélectionnez les langues</p>
+        <div class="checkbox-list">
+          <div *ngFor="let item of filterLanguage">
+            <label>
+              <input type="checkbox" [(ngModel)]="item.selected" (change)="onCheckboxChange2(item)" />
+              {{ item.name }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Politique de l'établissemt</h3>
+      <!-- Radio Buttons Oui / Non -->
+      <div class="oui-non-section">
+        <p>Politique d'annulation</p>
+        <label>
+          <input type="radio" name="ouiNon" [(ngModel)]="ouiNonSelected" value="oui" />
+          Remboursable
+        </label>
+         <!-- Div masquée qui apparaît quand "Oui" est sélectionné -->
+      <div *ngIf="ouiNonSelected === 'oui'" class="conditional-div">
+        <h4>Ecrivez une condition du rembousement</h4>
+        <input type="text" name="" id="">
+      </div>
+        <label>
+          <input type="radio" name="ouiNon" [(ngModel)]="ouiNonSelected" value="non" />
+          Non remboursable
+        </label>
+      <!-- Heures d'arrivée -->
+      <div class="time-section">
+        <p>Arrivée</p>
+        <div class="time-inputs">
+          <div>
+            <label for="arrivee-debut">De :</label>
+            <input type="time" id="arrivee-debut" [(ngModel)]="arrivalStart" />
+          </div>
+          <div>
+            <label for="arrivee-fin">À :</label>
+            <input type="time" id="arrivee-fin" [(ngModel)]="arrivalEnd" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Heures de départ -->
+      <div class="time-section">
+        <p>Départ</p>
+        <div class="time-inputs">
+          <div>
+            <label for="depart-debut">De :</label>
+            <input type="time" id="depart-debut" [(ngModel)]="departureStart" />
+          </div>
+          <div>
+            <label for="depart-fin">À :</label>
+            <input type="time" id="depart-fin" [(ngModel)]="departureEnd" />
+          </div>
+        </div>
+      </div>
+      </div>
+    <hr>
+    <div class="oui-non-section">
+      <p>Acceptez-vous les enfants ?</p>
+      <label>
+        <input type="radio" name="selectedRadio7" [(ngModel)]="selectedRadio7" value="oui" />
+        Oui
+      </label>
+      <label>
+        <input type="radio" name="selectedRadio7" [(ngModel)]="selectedRadio7" value="non" />
+        Non
+      </label>
+    </div>
+    <div class="oui-non-section">
+      <p>Acceptez-vous les animaux domestiques ?</p>
+      <label>
+        <input type="radio" name="selectedRadio8" [(ngModel)]="selectedRadio8" value="oui" />
+        Oui
+      </label>
+      <label>
+        <input type="radio" name="selectedRadio8" [(ngModel)]="selectedRadio8" value="Sur_demande" />
+        Sur demande
+      </label>
+      <label>
+        <input type="radio" name="selectedRadio8" [(ngModel)]="selectedRadio8" value="non" />
+        Non
+      </label>
+    </div>
+    </section>
+
+    <section>
+      <h3>Paiement valable</h3>
+      <!-- Choisissez un ou plusieurs modes de paiement -->
+      <div class="payment-methods">
+        <h3>Choisissez un ou plusieurs modes de paiement</h3>
+        <div class="payment-option">
+          <input type="checkbox" id="visa" [(ngModel)]="paymentMethods.visa" />
+          <label for="visa">
+            <span>Carte de crédit/débit</span>
+            <img src="assets/visa.png" alt="Visa" />
+            <img src="assets/visa.png" alt="Visa" />
+            <img src="assets/visa.png" alt="Visa" />
+          </label>
+        </div>
+
+        <div class="payment-option">
+          <input type="checkbox" id="Paiement_digital" [(ngModel)]="paymentMethods.Paiement_digital" />
+          <label for="Paiement_digital">
+            <span>Paiement digital</span>
+            <img src="assets/Paiement_digital.png" alt="Paiement_digital" />
+          </label>
+        </div>
+
+        <div class="payment-option">
+          <input type="checkbox" id="Paysing" [(ngModel)]="paymentMethods.Paysing" />
+          <label for="Paysing">
+            <span>Paysing</span>
+            <img src="assets/Paysing.png" alt="Paysing" />
+          </label>
+        </div>
+
+        <div class="payment-option">
+          <input type="checkbox" id="Ebilling" [(ngModel)]="paymentMethods.Ebilling" />
+          <label for="Ebilling">
+            <span>Ebilling</span>
+            <img src="assets/Ebilling.png" alt="Carte bancaire" />
+          </label>
+        </div>
+      </div>
+    </section>
+  </form>
+</div>

@@ -28,37 +28,26 @@ const THUMBUP_ICON =
   selector: 'app-form-info-generales',
   standalone: true,
   imports: [
-    MatCard,
-    MatCardTitle,
-    MatCardTitleGroup,
-    MatLabel,
-    MatCardHeader,
-    MatCardFooter,
-    MatCardContent,
-    MatFormField,
-    MatSelect,
-    MatOption,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
     FormsModule,
     MatIconModule,
-    RouterLink,
     CommonModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './form-info-generales.component.html',
   styleUrl: './form-info-generales.component.css'
-}) 
+})
 export class FormInfoGeneralesComponent {
-  currentRoute: string = '';  
+  currentRoute: string = '';
   ngOnInit(): void {
     this.currentRoute = this.router.url; // Récupère la route actuelle
     this.router.events.subscribe(() => {
       this.currentRoute = this.router.url; // Met à jour la route si elle change
     });
   }
-  
+
   constructor( private router: Router) {
     const iconRegistry = inject(MatIconRegistry);
     const sanitizer = inject(DomSanitizer);
@@ -71,6 +60,6 @@ export class FormInfoGeneralesComponent {
 
 
 
-  
+
 
 }

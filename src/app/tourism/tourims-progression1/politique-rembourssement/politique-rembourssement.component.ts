@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardHeader, MatCardFooter, MatCardTitle, MatCardContent } from '@angular/material/card';
-import { MatSelectionList, MatListOption } from '@angular/material/list';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material/radio';
 
 @Component({
@@ -13,15 +12,11 @@ import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material
     MatRadioButton,
     MatRadioGroup,
     MatRadioModule,
-    CommonModule,
     FormsModule,
     MatCard,
     MatCardHeader,
-    MatCardFooter,
     MatCardTitle,
     MatCardContent,
-    MatSelectionList,
-    MatListOption,
   ],
   templateUrl: './politique-rembourssement.component.html',
   styleUrl: './politique-rembourssement.component.css'
