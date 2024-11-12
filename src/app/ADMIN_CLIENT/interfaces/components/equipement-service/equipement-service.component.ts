@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
@@ -14,11 +14,13 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './equipement-service.component.html',
   styleUrl: './equipement-service.component.css'
 })
-export class EquipementServiceComponent {
+export class EquipementServiceComponent implements OnInit{
+  ngOnInit(): void {
+  }
     // Liste des éléments à afficher avec des checkboxes
     items = [
       { name: 'Restaurant', selected: false },
-      { name: 'Service d`\'étage', selected: false },
+      { name: 'Service d`\étage', selected: false },
       { name: 'Bar', selected: false },
       { name: 'Réception ouverte 24h/24', selected: false },
       { name: 'Sauna', selected: false },
@@ -47,9 +49,6 @@ export class EquipementServiceComponent {
       { name: 'Portugais', selected: false },
       { name: 'deutsch', selected: false },
     ];
-
-    // Variable pour la recherche
-    searchTerm: string = '';
 
     // Propriété pour les boutons radio
     ouiNonSelected: string = ''; // "oui" ou "non"
@@ -92,7 +91,8 @@ export class EquipementServiceComponent {
     Ebilling: false
     };
 
-    // Méthode pour filtrer les éléments en fonction du terme de recherche
+      // Variable pour la recherche
+      searchTerm: string = '';
     get filteredItems() {
       return this.items.filter(item =>
         item.name.toLowerCase().includes(this.searchTerm.toLowerCase())

@@ -9,8 +9,7 @@ import { CommentairesComponent } from "../components/commentaires/commentaires.c
 import { AnalyseComponent } from "../components/analyse/analyse.component";
 import { Footer2Component } from "../../layout/footer2/footer2.component";
 import { PhotoEtablissementComponent } from "../components/photo-etablisssement/photo-etablisssement.component";
-import { TypeEtablissementComponent } from "../components/type-etablissement/type-etablissement.component";
-import { EquipementServiceComponent } from "../components/equipement-service/equipement-service.component";
+import { TypeComponent } from "../components/type/type.component";
 import { HebergementsComponent } from "../components/hebergements/hebergements.component";
 import { FacturesComponent } from "../components/factures/factures.component";
 
@@ -29,11 +28,10 @@ import { FacturesComponent } from "../components/factures/factures.component";
     CommentairesComponent,
     AnalyseComponent,
     Footer2Component,
-    TypeEtablissementComponent,
-    EquipementServiceComponent,
+    TypeComponent,
     HebergementsComponent,
     FacturesComponent,
-    PhotoEtablissementComponent
+    PhotoEtablissementComponent,
 ],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'

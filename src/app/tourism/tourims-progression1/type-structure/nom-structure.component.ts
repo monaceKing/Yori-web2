@@ -10,7 +10,7 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'app-nom-structure',
+  selector: 'app-type-etablissement',
   standalone: true,
   imports: [
     MatCard,

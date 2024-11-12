@@ -1,22 +1,24 @@
-<div class="container">
-  <!-- Première carte qui prend 60% de la largeur -->
-  <mat-card class="main-card" id="grand">
-    <mat-card-header>
-      <mat-card-title>Quelles langues parlez-vous <br>(vous ou votre personnel)?</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+<form action="">
+  <div class="container">
+    <!-- Première carte qui prend 60% de la largeur -->
+    <mat-card class="main-card" id="grand">
+      <mat-card-header>
+        <mat-card-title>Quelles langues parlez-vous <br>(vous ou votre personnel)?</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
 
-      <div *ngFor="let option of options" style="margin: 20px;">
-        <input
-          type="checkbox"
-          [value]="option"
-          (change)="onSelect(option, $event)"
-          id="{{option}}">
-        <label for="{{option}}">{{option}}</label>
-      </div>
+        <div *ngFor="let option of options" style="margin: 20px;">
+          <input
+            type="checkbox"
+            [value]="option"
+            (change)="onSelect(option, $event)"
+            id="{{option}}">
+          <label for="{{option}}">{{option}}</label>
+        </div>
 
-      <p>Options sélectionnées : {{selectedOptions.join(', ')}}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
- 
+        <p>Options sélectionnées : {{selectedOptions.join(', ')}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</form>

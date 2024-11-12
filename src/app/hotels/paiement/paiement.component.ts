@@ -15,16 +15,9 @@ import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
     MatCardHeader,
     MatCardContent,
     MatCardTitle,
-    MatRadioGroup,
-    MatRadioButton,
-    MatDivider,
-    JsonPipe,
     ReactiveFormsModule,
     FormsModule,
-    MatIcon,
     CommonModule,
-    MatSelectionList,
-    MatListOption,
   ],
   templateUrl: './paiement.component.html',
   styleUrl: './paiement.component.css'
@@ -36,7 +29,7 @@ export class PaiementComponent implements OnInit{
   items = [
     { label: 'Carte de crédit/débit', checked: false, images: ['assets/img/visa.png', 'assets/img/visa-yellow.png', 'assets/img/GB-card.png'] },
     { label: 'Paiement digital', checked: false, images: ['assets/img/paypal.png'] },
-    { label: 'Paysing', checked: false, images: ['assets/img/GB-card.png'] }, // pas d'image
+    { label: 'Paysing', checked: false, images: ['assets/img/GB-card.png'] },
     { label: 'Ebilling', checked: false, images: ['assets/img/last-card.png'] },
   ];
 

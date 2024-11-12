@@ -1,1 +1,26 @@
-<p>hebergements works!</p>
+<div class="container">
+  <div class="gallery-container">
+    <section style="margin-bottom: 10px; background-color: white;">
+      <input #fileInput type="file" accept="image/*" (change)="addImage($event)" style="display: none;" />
+      <div class="image-gallery">
+        <div *ngFor="let image of images; let i = index" class="image-item">
+          <input type="checkbox" [checked]="isSelected(i)" (change)="toggleSelection(i)" id="image-{{i}}" />
+          <label for="image-{{i}}">
+            <img [src]="image" alt="Image {{i + 1}}" class="image" />
+          </label>
+          <div class="all-btn">
+            <button class="btn-1" (click)="selectAll()">Modifier</button>
+            <button class="btn" (click)="deleteSelected()">Supprimer</button>
+            <button class="btn2" (click)="triggerFileInput()"><mat-icon>photo_camera</mat-icon></button>
+          </div>
+        </div>
+        <div class="btn-add">
+          <mat-icon>image</mat-icon><br>
+          <button (click)="triggerFileInput()">
+            Ajouter des photos
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

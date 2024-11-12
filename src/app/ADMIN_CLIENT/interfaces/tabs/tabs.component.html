@@ -28,9 +28,9 @@
           <div *ngIf="currentComponent">
             <ng-container [ngSwitch]="currentComponent">
               <app-info-etablissement *ngSwitchCase="'composant1'"></app-info-etablissement>
-              <app-type-etablissement *ngSwitchCase="'composant2'"></app-type-etablissement>
+              <app-type *ngSwitchCase="'composant2'"></app-type>
               <app-photo-etablisssement *ngSwitchCase="'composant3'"></app-photo-etablisssement>
-              <app-equipement-service *ngSwitchCase="'composant4'"></app-equipement-service>
+              <app-type *ngSwitchCase="'composant4'"></app-type>
               <app-hebergements *ngSwitchCase="'composant5'"></app-hebergements>
             </ng-container>
           </div>
