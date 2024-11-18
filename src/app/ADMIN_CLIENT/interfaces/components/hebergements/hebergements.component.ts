@@ -1,19 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-
+import { MatSelectModule } from '@angular/material/select';
+import { UpdateChambreComponent } from '../update-chambre/update-chambre.component';
+import { TarifsAdminComponent } from '../tarifs-admin/tarifs-admin.component';
 @Component({
   selector: 'app-hebergements',
   standalone: true,
   imports: [
     CommonModule,
-    MatIcon
-  ],
+    MatIcon,
+    MatSelectModule,
+    UpdateChambreComponent,
+    TarifsAdminComponent
+],
   templateUrl: './hebergements.component.html',
   styleUrl: './hebergements.component.css'
 })
 export class HebergementsComponent {
-    // Galerie principale (existant)
+    infoFromChild1: string = '';
+    infoFromChild2: string = '';
+
+
     images: string[] = [
       'assets/img/chambre.png',
     ];
@@ -22,7 +30,7 @@ export class HebergementsComponent {
     @ViewChild('fileInput') fileInput: any; // Référence à l'élément input file
 
       // Ajouter une image à la galerie principale
-  addImage(event: Event): void {
+    addImage(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input && input.files) {
       const file = input.files[0];
@@ -56,7 +64,7 @@ export class HebergementsComponent {
   }
 
   // Supprimer les images sélectionnées de la galerie principale
-  deleteSelected(): void {
+    deleteSelected(): void {
     this.images = this.images.filter((_, index) => !this.selectedImages.has(index));
     this.selectedImages.clear();
   }
@@ -66,12 +74,67 @@ export class HebergementsComponent {
     return this.selectedImages.has(index);
   }
 
-    // Sélectionner ou désélectionner une image spécifique dans la galerie principale
-    toggleSelection(index: number): void {
+  // Sélectionner ou désélectionner une image spécifique dans la galerie principale
+  toggleSelection(index: number): void {
       if (this.selectedImages.has(index)) {
         this.selectedImages.delete(index);
       } else {
         this.selectedImages.add(index);
       }
     }
+
+
+
+  currentDiv: string = 'default'; // Définit la div par défaut à afficher
+  // Méthodes pour changer la div affichée
+  showDefault() {
+    this.currentDiv = 'default';
+  }
+  showDiv1() {
+    this.currentDiv = 'div1';
+  }
+  showDiv2() {
+    this.currentDiv = 'div2';
+  }
+
+
+  onSubmit() {
+    console.log('Données du formulaire :', {
+      child1: this.infoFromChild1,
+      child2: this.infoFromChild2,
+      // Ajoutez d'autres enfants ici...
+    });
+  }
+
+
+
+  // productQuantities: number[] = [0, 0, 0, 0, 0, 0, 0, 0]; // Ajoute autant d'éléments que nécessaire
+  // lits = [
+  //   { name: 'lit simple', size: '90-130 cm de large' },
+  //   { name: 'lit double', size: '131-150 cm de large' },
+  //   { name: 'lit King-Size', size: '151-180 cm' },
+  //   { name: 'grand lit King-Size', size: '181-210 cm' },
+  //   { name: 'lit superposé', size: 'Dimensions variables' },
+  //   { name: 'Dimensions variables', size: 'Dimensions variables' },
+  //   { name: 'futon', size: 'Dimensions variables' },
+  //   // Ajoute d'autres lits ici si nécessaire
+  // ];
+
+  // quantity(value: string, index: number) {
+  //   if (value === 'max') {
+  //     this.productQuantities[index] += 1; // Incrémente le nombre pour ce type de lit
+  //   } else if (value === 'min' && this.productQuantities[index] > 1) {
+  //     this.productQuantities[index] -= 1; // Décrémente uniquement si le nombre est supérieur à 1
+  //   }
+  // }
+
+  // productquantity:number = 0;
+  // quantity1(value: string) {
+  //   if (value === 'max') {
+  //     this.productquantity += 1; // Incrémente
+  //   } else if (value === 'min' && this.productquantity > 1) {
+  //     this.productquantity -= 1; // Décrémente uniquement si productquantity > 1
+  //   }
+  // }
+
 }

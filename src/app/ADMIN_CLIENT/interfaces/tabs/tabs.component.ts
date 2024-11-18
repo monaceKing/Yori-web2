@@ -12,6 +12,7 @@ import { PhotoEtablissementComponent } from "../components/photo-etablisssement/
 import { TypeComponent } from "../components/type/type.component";
 import { HebergementsComponent } from "../components/hebergements/hebergements.component";
 import { FacturesComponent } from "../components/factures/factures.component";
+import { EquipementServiceComponent } from "../components/equipement-service/equipement-service.component";
 
 @Component({
   selector: 'app-tabs',
@@ -32,6 +33,7 @@ import { FacturesComponent } from "../components/factures/factures.component";
     HebergementsComponent,
     FacturesComponent,
     PhotoEtablissementComponent,
+    EquipementServiceComponent
 ],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'

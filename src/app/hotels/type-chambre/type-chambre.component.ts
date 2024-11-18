@@ -1,17 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardTitle, MatCardHeader, MatCardContent, MatCardTitleGroup, MatCardSubtitle } from '@angular/material/card';
-import { MatChip, MatChipSet } from '@angular/material/chips';
+import { MatCard, MatCardTitle, MatCardHeader, MatCardContent, MatCardTitleGroup } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
-import { MatFormField, MatLabel, MatHint, MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
 import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'app-type-chambre',
+  selector: 'app-update-chambre',
   standalone: true,
   imports: [
     MatCard,

@@ -1,26 +1,57 @@
 <div class="container">
-  <div class="gallery-container">
-    <section style="margin-bottom: 10px; background-color: white;">
-      <input #fileInput type="file" accept="image/*" (change)="addImage($event)" style="display: none;" />
-      <div class="image-gallery">
-        <div *ngFor="let image of images; let i = index" class="image-item">
-          <input type="checkbox" [checked]="isSelected(i)" (change)="toggleSelection(i)" id="image-{{i}}" />
-          <label for="image-{{i}}">
-            <img [src]="image" alt="Image {{i + 1}}" class="image" />
-          </label>
-          <div class="all-btn">
-            <button class="btn-1" (click)="selectAll()">Modifier</button>
-            <button class="btn" (click)="deleteSelected()">Supprimer</button>
-            <button class="btn2" (click)="triggerFileInput()"><mat-icon>photo_camera</mat-icon></button>
+  <div *ngIf="currentDiv === 'default'">
+    <div class="titre">
+      <h3>Hebergements</h3>
+    </div>
+    <div class="gallery-container">
+      <section class="section">
+        <input #fileInput type="file" accept="image/*" (change)="addImage($event)" style="display: none;" />
+        <div class="image-gallery">
+          <div *ngFor="let image of images; let i = index" class="image-item">
+              <input type="checkbox" [checked]="isSelected(i)" (change)="toggleSelection(i)" id="image-{{i}}" />
+              <label for="image-{{i}}">
+                  <img [src]="image" alt="Image {{i + 1}}" class="image" />
+                  <div class="image-caption">Chambre luxieuse {{i + 1}}</div>
+              </label>
+              <div class="all-btn">
+                  <!-- <button class="btn-1" (click)="selectAll()">Modifier</button> -->
+                  <button class="btn-1" (click)="showDiv1()">Modifier</button>
+                  <button class="btn" (click)="deleteSelected()">Supprimer</button>
+                  <!-- <button class="btn2" (click)="triggerFileInput()"><mat-icon>photo_camera</mat-icon></button> -->
+                  <button class="btn2" (click)="showDiv2()"><mat-icon>photo_camera</mat-icon></button>
+              </div>
           </div>
-        </div>
-        <div class="btn-add">
-          <mat-icon>image</mat-icon><br>
-          <button (click)="triggerFileInput()">
-            Ajouter des photos
-          </button>
-        </div>
+          <div class="btn-add">
+            <button (click)="showDiv2()">
+              Ajouter une categorie
+            </button><br>
+            <mat-icon>add_circle</mat-icon>
+          </div>
       </div>
-    </section>
+      </section>
+    </div>
   </div>
+
+  <!-- div update chambre -->
+   <div *ngIf="currentDiv === 'div1'" style="background-color: red;">
+    <div class="retour">
+      <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
+    </div>
+    <div>
+      <app-update-chambre></app-update-chambre>
+    </div>
+
+    <div>
+
+    </div>
+   </div>
+
+   <!-- div add categorie -->
+    <div  *ngIf="currentDiv === 'div2'" style="background-color: blue;">
+      <div class="retour">
+        <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
+      </div>
+      <h1>Ajouter une chambre luxieuse </h1>
+    </div>
+
 </div>

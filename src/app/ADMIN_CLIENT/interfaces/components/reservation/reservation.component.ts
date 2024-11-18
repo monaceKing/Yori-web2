@@ -186,6 +186,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
     showDetails: boolean = false;
     checkboxValues: { [key: string]: boolean } = {};
     openFiltre: boolean = false;
+
     afficherFiltre() {
     this.openFiltre = !this.openFiltre;
   }

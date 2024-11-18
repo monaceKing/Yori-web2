@@ -1,7 +1,16 @@
-.gallery-container {
-  width: 80%;
-  margin: 20px auto;
+.gallery-container, .container-chambre {
+  width: 90%;
+  margin: 20px;
   text-align: center;
+}
+
+.titre{
+  margin-left: 80px;
+}
+
+.section{
+  margin-bottom: 10px;
+  height: 100%;
 }
 
 .controls {
@@ -25,8 +34,10 @@
   font-size: 16px;
   margin-right: 10px;
   cursor: pointer;
-  border: none;
-  background-color: initial;
+  border: 0.2px solid #77B5FE;
+  background-color: white;
+  color: #77B5FE;
+
 }
 
 .btn-1{
@@ -47,36 +58,35 @@
 
 
 .all-btn{
+  background-color: white;
   display: flex;
-  padding-top: 20px;
+  padding:20px;
+  margin-top: -2.5px;
+  margin-left: 4px;
+  width: 291px;
+
 }
 
-
-.add-photo-btn {
-  display: inline-flex;
-  align-items: center;
-  background-color: #77B5FE;
-  color: white;
-  padding: 5px 5px;
-  font-size: 15px;
-  cursor: pointer;
-  border: none;
+.all-btn button{
+  font-size: 25px;
 }
+
 
 
 .btn-add{
+  margin-top: 5px;
   padding-top: 20px;
-  width: 230px;
-  height: 100px;
-  border-radius: 8px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 290px;
+  height: 150px;
+  /* object-fit: cover; */
+  background-color: white;
   border: 0.2px solid rgb(212, 212, 212);
 }
 
 
 .btn-add button{
   cursor: pointer;
+  font-size: 25px;
   font-weight: 200;
   border: none;
   color: #77B5FE;
@@ -84,6 +94,7 @@
 }
 
 .btn-add mat-icon{
+  font-size: 25px;
   cursor: pointer;
   color: #77B5FE;
 }
@@ -94,18 +105,22 @@ input[type="file"] {
 
 
 .image-gallery {
-  height: 300px;
-  background-color: white;
+  /* background-color: blue; */
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  padding: 16px;
+  padding: 10px;
+  height: 100%;
 }
 
 
 .image-item {
+  /* background-color: white; */
+  padding-top: 5px;
   position: relative;
   display: inline-block;
+  width: 340px;
+  height: 80%;
 }
 
 .image-item input[type="checkbox"] {
@@ -115,15 +130,13 @@ input[type="file"] {
   z-index: 10;
 }
 
-.image {
-  width: 500px;
-  height: 200px;
+/* .image {
   transition: transform 0.2s;
-}
+} */
 
-.image:hover {
+/* .image:hover {
   transform: scale(1.1);
-}
+} */
 
 .image-item label {
   cursor: pointer;
@@ -131,11 +144,174 @@ input[type="file"] {
 
 
 .image-item img {
-  width: 220px;
-  height: 120px;  /* Garde les proportions de l'image */
+  width: 330px;
+  height: 250px;  /* Garde les proportions de l'image */
   object-fit: cover; /* Assure que l'image couvre la cellule sans déformation */
 }
 
-.image-item:hover img {
+/* .image-item:hover img {
   transform: scale(1.05);
+} */
+
+
+.image-caption {
+  position: absolute; /* Positionnement absolu */
+  bottom: 11px; /* Aligne le texte en bas */
+  left: 5px; /* Aligne à gauche */
+  right: 0; /* Aligne à droite */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité */
+  color: white; /* Couleur du texte */
+  text-align: center; /* Centre le texte */
+  padding: 15px 0; /* Ajoute un peu d'espace autour du texte */
+  /* margin-bottom: 10px; */
+  width: 330px;
+}
+
+
+
+
+
+
+
+/* .container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0 20px 0;
+  width: 100%;
+} */
+
+mat-label {
+  font-weight: 500;
+}
+
+/* .custom-icon {
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 5px;
+} */
+
+.main-card {
+  background-color: white;
+}
+
+.sub-card {
+  flex: 1 1 40%;
+}
+
+#haut{
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.example-card {
+  max-width: 100%;
+  margin: 10px 0;
+  background-color: inherit;
+}
+
+.lit-info {
+  display: flex;
+  align-items: center; /* Aligne verticalement l'image et le texte */
+  flex-wrap: wrap; /* Permet au contenu de se répartir sur plusieurs lignes si nécessaire */
+}
+
+.lit-image {
+  margin-bottom: 20px;
+  height: 40px; /* Hauteur fixe pour l'image */
+  width: 40px; /* Largeur fixe pour l'image */
+}
+
+.lit-details {
+  font-size: 14px; /* Taille du texte */
+  margin-left: 5px; /* Espace entre l'image et le texte */
+}
+
+.full-width {
+  width: 100%; /* S'assurer que les champs prennent toute la largeur */
+}
+
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #a9a8a8;
+  padding: 3px;
+  height: 30px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.btnChambre {
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-black {
+  background-color: inherit;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.btn-blue {
+  background-color: inherit;
+  color: #77B5FE;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.inputbox {
+  background-color: inherit;
+  width: 40px;
+  text-align: center;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.espace {
+  margin-top: 70px;
+  margin-left: 30px;
+  font-weight: 500;
+}
+
+ul {
+  margin-top: 50px;
+}
+
+/* Ajout de styles pour la responsivité */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Passage en colonne sur petits écrans */
+    padding: 10px; /* Réduction du padding sur petits écrans */
+  }
+
+  .main-card,
+  .sub-card {
+    width: 100%; /* Prendre 100% de la largeur sur petits écrans */
+    margin:10px  0; /* Éliminer les marges pour éviter les débordements */
+  }
+
+  .example-card {
+    max-width: 100%; /* Permettre à la carte d'occuper toute la largeur */
+  }
+
+  .quantity-container {
+    width: 100%; /* S'assurer que le conteneur de quantité prend toute la largeur */
+  }
+
+  .inputbox {
+    width: 40px; /* Réduire la largeur de l'input sur petits écrans */
+  }
+
+  .btn {
+    height: 35px; /* Ajuster la hauteur des boutons pour de petits écrans */
+  }
 }

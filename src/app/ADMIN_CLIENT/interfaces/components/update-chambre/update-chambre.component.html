@@ -1,23 +1,22 @@
 <div class="container">
-  <!-- Première carte qui prend 60% de la largeur -->
-  <mat-card class="main-card" id="grand">
+  <div class="main-card">
     <mat-card-header>
-      <mat-card-title>Configurez votre type de chambre</mat-card-title><br>
+      <mat-card-title>Configurez votre type de KING</mat-card-title><br>
     </mat-card-header>
     <mat-card-content>
-      <form>
+      <form [formGroup]="form">
         <br>
-        <mat-form-field class="full-width" style="color: white;">
-          <mat-label>Selectionnez le nom de votre hébergement</mat-label>
-          <mat-select matNativeControl required>
-            <mat-option *ngFor="let option of options" [value]="option.value">
+        <div class="full-width">
+          <label for="hebergement">Nom de l'hébergement</label><br>
+          <select id="hebergement" required>
+            <option *ngFor="let option of options" [value]="option.value">
               {{ option.viewValue }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+            </option>
+          </select>
+        </div>
         <div>
           <mat-label>Combien d'hébergements de ce type (hébergement) <br> possédez-vous?</mat-label><br>
-          <input type="number" name="number" id="inputNumber" placeholder="0" style="margin: 10px 0 10px 0;">
+          <input type="number" name="number" id="inputNumber" placeholder="0" >
         </div>
         <mat-divider style="margin-bottom: 20px;"></mat-divider>
         <mat-label>Quels lits sont disponibles dans cette catégorie ?</mat-label><br><br>
@@ -40,7 +39,7 @@
             </div>
           </mat-card-header>
         </mat-card>
-        <div style="margin: 40px;">
+        <div>
           <p>Combien de personnes peuvent séjourner dans cette
             catégorie hébergement ?
           </p>
@@ -53,7 +52,7 @@
           </div>
         </div>
 
-        <div style="margin: 40px;">
+        <div>
           <p>
             Quelle est la superficie de cet hébergement ?
           </p>
@@ -67,44 +66,62 @@
           </div>
         </div>
 
-
-        <div style="margin: 40px;">
+        <div>
           <p>
             Est-il possible de fumer dans cet hébergement ?
           </p>
           <div>
-            <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="1">Oui</mat-radio-button>
-              <mat-radio-button value="2">Non</mat-radio-button>
-            </mat-radio-group>
+            <label>
+              <input type="radio" name="choix" value="oui" />
+              Oui
+            </label>
+
+            <label>
+              <input type="radio" name="choix" value="non" />
+              Non
+            </label>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>Quels équipements de salle de bains sont
+            disponibles dans cet hébergement ?</label>
+          <div *ngFor="let jardin of jardins">
+            <input type="checkbox" [formControlName]="'jardin' + jardin.id" />
+            {{ jardin.label }}
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h3>Quels équipements sont à disposition des
+            clients dans cet hébergement ?</h3>
+            <label for="">Principaux équipements</label><br>
+          <div *ngFor="let equipement of equipements">
+            <input type="checkbox" [formControlName]="'équipement' + equipement.id" />
+            {{ equipement.label }}
+          </div>
+        </div>
+        <hr>
+        <div>
+            <label>Vues et extérieur</label>
+          <div *ngFor="let vue of vues">
+            <input type="checkbox" [formControlName]="'vue' + vue.id" />
+            {{ vue.label }}
+          </div>
+        </div>
+        <hr>
+        <div>
+            <label>Repas et boissons</label>
+          <div *ngFor="let rep of repas">
+            <input type="checkbox" [formControlName]="'repas' + rep.id" />
+            {{ rep.label }}
           </div>
         </div>
 
+        <div>
+          <h3>Fixez un tarif par nuit pour cet hébergement</h3>
+        </div>
       </form>
-
     </mat-card-content>
-  </mat-card>
-
-  <!-- Deuxième carte qui est superposée au-dessus de la troisième -->
-  <div class="sub-card">
-    <mat-card id="haut">
-      <mat-card-header>
-        <mat-icon class="custom-icon" style="margin-top: 10px;"> highlight</mat-icon>
-        <p>
-          Proposez-vous d'autres couchages?
-        </p>
-      </mat-card-header>
-      <mat-card-content>
-        <ul>
-          <li>Pour le moment, vous devez juste ajouter vos couchages standard.</li>
-          <li>Les lits bébé, les lits d'appoint et les autres couchages peuvent être ajoutés dans l'extranet, la plateforme que vous utiliserez pour gérer votre hébergement.</li>
-        </ul>
-        <p class="espace">Votre hébergement dispose-t-il de conditions
-          spécifiques relatives aux enfants ?</p>
-          <ul>
-            <li>Vous pourrez configurer des conditions relatives aux enfants, y compris ajuster les tarifs et l'âge maximum correspondant, dans l'extranet, une fois votre inscription terminée.</li>
-          </ul>
-      </mat-card-content>
-    </mat-card>
   </div>
 </div>
