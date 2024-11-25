@@ -14,10 +14,8 @@
                   <div class="image-caption">Chambre luxieuse {{i + 1}}</div>
               </label>
               <div class="all-btn">
-                  <!-- <button class="btn-1" (click)="selectAll()">Modifier</button> -->
                   <button class="btn-1" (click)="showDiv1()">Modifier</button>
                   <button class="btn" (click)="deleteSelected()">Supprimer</button>
-                  <!-- <button class="btn2" (click)="triggerFileInput()"><mat-icon>photo_camera</mat-icon></button> -->
                   <button class="btn2" (click)="showDiv2()"><mat-icon>photo_camera</mat-icon></button>
               </div>
           </div>
@@ -34,16 +32,14 @@
 
   <!-- div update chambre -->
    <div *ngIf="currentDiv === 'div1'" style="background-color: red;">
-    <div class="retour">
-      <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
-    </div>
-    <div>
-      <app-update-chambre></app-update-chambre>
-    </div>
-
-    <div>
-
-    </div>
+      <div class="retour">
+        <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
+      </div>
+      <div>
+        <app-update-chambre></app-update-chambre>
+        <app-update-tarifs (calculChange)="handleCalculChange($event)"></app-update-tarifs>
+        <app-telecharge-photos></app-telecharge-photos>
+      </div>
    </div>
 
    <!-- div add categorie -->
@@ -51,7 +47,11 @@
       <div class="retour">
         <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
       </div>
-      <h1>Ajouter une chambre luxieuse </h1>
+      <div>
+        <app-update-chambre></app-update-chambre>
+        <app-update-tarifs (calculChange)="handleCalculChange($event)"></app-update-tarifs>
+        <app-add-photo></app-add-photo>
+      </div>
     </div>
 
 </div>

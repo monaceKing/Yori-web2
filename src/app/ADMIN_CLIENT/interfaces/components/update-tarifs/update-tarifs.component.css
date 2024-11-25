@@ -1,0 +1,36 @@
+.container {
+  padding: 20px;
+}
+
+mat-label {
+  font-weight: 500;
+}
+
+
+.main-card {
+  background-color: white;
+}
+
+
+ul {
+  margin-top: 50px;
+}
+
+.full-width {
+  width: 100%; /* Prend toute la largeur sur petits écrans */
+}
+
+
+/* Ajout de styles pour la responsivité */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Passe en colonne sur petits écrans */
+    padding: 10px; /* Réduction du padding sur petits écrans */
+  }
+
+  .main-card,
+  .sub-card {
+    flex: 1 1 100%; /* Prend toute la largeur sur petits écrans */
+    margin: 10px 0; /* Marges verticales */
+  }
+}

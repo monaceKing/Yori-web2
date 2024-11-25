@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card class="main-card" id="grand">
+  <div class="main-card" id="grand">
     <mat-card-header>
       <mat-card-title>Fixez un tarif par nuit pour cet hébergement</mat-card-title>
     </mat-card-header>
@@ -23,24 +23,6 @@
       <mat-divider style="margin: 20px 0 20px 0;"></mat-divider>
       <p>Nous percevons une commission de 15 % pour chaque réservation
         effectuée sur l'application. Vous obtiendrez <strong>{{ pourcentage | number:'1.0-0' }} {{ monnaie }}</strong> par reservation</p>
-
     </mat-card-content>
-  </mat-card>
-
-  <!-- Deuxième carte qui est superposée au-dessus de la troisième -->
-  <div class="sub-card">
-    <mat-card class="sub-card" id="haut">
-      <mat-card-header>
-        <mat-icon class="custom-icon" style="padding-right: 10;"> highlight</mat-icon>
-              <p>
-                Que faire si je ne suis pas sûr(e) de mon tarif ?
-              </p>
-      </mat-card-header>
-      <mat-card-content>
-        <ul>
-          <li>Pas d'inquiétude, vous pourrez le modifier à tout moment. Vous pourrez même appliquer des tarifs différents le week-end, en semaine ou en fonction de la saison pour garder le contrôle sur vos revenus.</li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
   </div>
 </div>

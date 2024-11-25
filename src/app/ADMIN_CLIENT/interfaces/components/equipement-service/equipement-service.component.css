@@ -12,7 +12,6 @@
 
 .checkbox-list {
   max-width: 300px;
-  /* margin: 0 auto; */
 }
 
 .checkbox-list label {
@@ -74,18 +73,6 @@ section{
   margin-right: 15px;
 }
 
-/* .conditional-div {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #e3f2fd;
-  border: 1px solid #1976d2;
-  border-radius: 5px;
-}
-
-.conditional-div h4 {
-  margin-top: 0;
-} */
-
 
 .time-section {
   margin-top: 20px;
@@ -109,4 +96,32 @@ section{
 
 .time-inputs input[type="time"] {
   width: 200px;  /* Largeur des champs de type time */
+}
+
+
+#search{
+  width: 50%;
+  height: 30px;
+}
+
+
+.menu-option {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+}
+
+.menu-option button {
+  margin: 5px; /* Espace autour des boutons */
+  padding: 10px;
+  border: 0.3px solid rgb(172, 172, 172);
+  border-radius: 15px;
+  background-color: initial;
+  cursor: pointer;
+  width: calc(100% - 10px); /* Chaque bouton occupe environ 25% de la largeur du conteneur moins les marges */
+}
+
+.menu-option button.selected {
+  background-color: #00ff22; /* Couleur de fond pour les boutons sélectionnés */
+  color: black; /* Couleur du texte pour les boutons sélectionnés */
 }

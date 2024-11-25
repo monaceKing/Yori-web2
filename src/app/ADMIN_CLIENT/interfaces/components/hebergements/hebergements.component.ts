@@ -3,7 +3,12 @@ import { Component, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { UpdateChambreComponent } from '../update-chambre/update-chambre.component';
-import { TarifsAdminComponent } from '../tarifs-admin/tarifs-admin.component';
+import { UpdateTarifsComponent } from "../update-tarifs/update-tarifs.component";
+import { AjoutPhotosComponent } from "../ajout-photos/ajout-photos.component";
+import { AddPhotoComponent } from "../add-photo/add-photo.component";
+
+
+
 @Component({
   selector: 'app-hebergements',
   standalone: true,
@@ -12,14 +17,36 @@ import { TarifsAdminComponent } from '../tarifs-admin/tarifs-admin.component';
     MatIcon,
     MatSelectModule,
     UpdateChambreComponent,
-    TarifsAdminComponent
+    UpdateTarifsComponent,
+    AjoutPhotosComponent,
+    AddPhotoComponent
 ],
   templateUrl: './hebergements.component.html',
   styleUrl: './hebergements.component.css'
 })
+
 export class HebergementsComponent {
-    infoFromChild1: string = '';
-    infoFromChild2: string = '';
+  //  On recpère les tarifs et le pourcentage venu du composant tarifs-admin
+  sommeTotal: number = 0;
+  pourcentageTotal: number = 0;
+  monnaieTotal: string = '';
+
+  handleCalculChange(data: { somme: number; pourcentage: number; monnaie: string }) {
+    this.sommeTotal = data.somme;
+    this.pourcentageTotal = data.pourcentage;
+    this.monnaieTotal = data.monnaie;
+
+    console.log('Données reçues du composant enfant :', data);
+  }
+
+  onSubmit():void {
+    console.log('Données du formulaire :', {
+      somme: this.sommeTotal,
+      pourcentage: this.pourcentageTotal,
+      monnaie: this.monnaieTotal,
+    });
+    // Vous pouvez également effectuer d'autres actions avec les données ici
+  }
 
 
     images: string[] = [
@@ -47,16 +74,7 @@ export class HebergementsComponent {
     }
   }
 
-    // Déclencher l'input file pour la galerie principale
-    triggerFileInput(): void {
-      this.fileInput.nativeElement.click(); // Simule un clic sur l'input file caché
-    }
 
-
-  // Sélectionner toutes les images de la galerie principale
-  selectAll(): void {
-    this.selectedImages = new Set(this.images.map((_, index) => index));
-  }
 
   // Désélectionner toutes les images de la galerie principale
   deselectAll(): void {
@@ -98,43 +116,5 @@ export class HebergementsComponent {
   }
 
 
-  onSubmit() {
-    console.log('Données du formulaire :', {
-      child1: this.infoFromChild1,
-      child2: this.infoFromChild2,
-      // Ajoutez d'autres enfants ici...
-    });
-  }
-
-
-
-  // productQuantities: number[] = [0, 0, 0, 0, 0, 0, 0, 0]; // Ajoute autant d'éléments que nécessaire
-  // lits = [
-  //   { name: 'lit simple', size: '90-130 cm de large' },
-  //   { name: 'lit double', size: '131-150 cm de large' },
-  //   { name: 'lit King-Size', size: '151-180 cm' },
-  //   { name: 'grand lit King-Size', size: '181-210 cm' },
-  //   { name: 'lit superposé', size: 'Dimensions variables' },
-  //   { name: 'Dimensions variables', size: 'Dimensions variables' },
-  //   { name: 'futon', size: 'Dimensions variables' },
-  //   // Ajoute d'autres lits ici si nécessaire
-  // ];
-
-  // quantity(value: string, index: number) {
-  //   if (value === 'max') {
-  //     this.productQuantities[index] += 1; // Incrémente le nombre pour ce type de lit
-  //   } else if (value === 'min' && this.productQuantities[index] > 1) {
-  //     this.productQuantities[index] -= 1; // Décrémente uniquement si le nombre est supérieur à 1
-  //   }
-  // }
-
-  // productquantity:number = 0;
-  // quantity1(value: string) {
-  //   if (value === 'max') {
-  //     this.productquantity += 1; // Incrémente
-  //   } else if (value === 'min' && this.productquantity > 1) {
-  //     this.productquantity -= 1; // Décrémente uniquement si productquantity > 1
-  //   }
-  // }
 
 }

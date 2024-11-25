@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-photo-etablisssement',
+  selector: 'app-telecharge-photos',
   standalone: true,
   imports: [
     CommonModule,

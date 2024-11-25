@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="gallery-container">
+    <section style="background-color: white;">
+      <div class="controls">
+        <h3>À quoi ressemble votre établissement ?</h3>
+        <p>
+          <b>Téléchargez au moins 6 photos de votre établissement.</b> Plus vous téléchargez de photos, plus vous augmentez vos chances de recevoir des réservations. Vous pouvez aussi en ajouter plus tard.
+        </p>
+        <div class="cadre">
+          <img src="assets/img/photo.png" alt="photo drapeau" class="photo">
+        <div class="one-btn">
+          <p>faire glisser ou</p>
+          <button (click)="triggerFileInputSecondary()" class="add-photo-btn">
+            <mat-icon>image</mat-icon>Ajouter les photos
+          </button>
+          <input #fileInputSecondary type="file" accept="image/*" (change)="addImageSecondary($event)" style="display: none;" />
+          <p>pgj/Jpeg ou png 47 MB maximun par fichier.</p>
+        </div>
+        </div>
+        <hr>
+        <p>Choississez une photo d'acroche qui donnera une excellente impression à votre hebergement</p>
+      </div>
+      <div class="entête">
+        <p>Photo d'accroche</p>
+      </div>
+      <div class="image-gallery">
+        <div *ngFor="let image of imagesSecondary; let i = index" class="image-item">
+          <label for="image-sec-{{i}}">
+            <img [src]="image" alt="Image {{i + 1}}" class="image" />
+            <span class="delete-icon" (click)="removeImage(i)">✖</span>
+          </label>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

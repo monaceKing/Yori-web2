@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+
 
 @Component({
   selector: 'app-equipement-service',
@@ -9,7 +10,8 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     CommonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './equipement-service.component.html',
   styleUrl: './equipement-service.component.css'
@@ -18,70 +20,56 @@ export class EquipementServiceComponent implements OnInit{
   ngOnInit(): void {
   }
     // Liste des éléments à afficher avec des checkboxes
-    items = [
-      { name: 'Restaurant', selected: false },
-      { name: 'Service d`\étage', selected: false },
-      { name: 'Bar', selected: false },
-      { name: 'Réception ouverte 24h/24', selected: false },
-      { name: 'Sauna', selected: false },
-      { name: 'Centre de remise en forme', selected: false },
-      { name: 'Jardin', selected: false },
-      { name: 'Terrasse', selected: false },
-      { name: 'Chambres non-fumeurs', selected: false },
-      { name: 'Chambres fumeurs', selected: false },
-      { name: 'Navette aéroport', selected: false },
-      { name: 'Chambres familiales', selected: false },
-      { name: 'Spa et centre de bien-être', selected: false },
-      { name: 'Bain à remous/jacuzzi', selected: false },
-      { name: 'Connexion Wi-Fi gratuite', selected: false },
-      { name: 'Climatisation', selected: false },
-      { name: 'Parc aquatique', selected: false },
-      { name: 'Borne de recharge pour les véhicules électriques', selected: false },
-      { name: 'Piscine', selected: false },
-      { name: 'Plage', selected: false },
+    lists = [
+      { id:1 , label:'Restaurant' },
+      { id:2 , label:'Service d`\étage' },
+      { id:3 , label:'Bar' },
+      { id:4 , label:'Réception ouverte 24h/24' },
+      { id:5 , label:'Sauna' },
+      { id:6 , label:'Centre de remise en forme' },
+      { id:7 , label:'Jardin' },
+      { id:8 , label:'Terrasse' },
+      { id:9 , label:'Chambres non-fumeurs' },
+      { id:10, label: 'Chambres fumeurs' },
+      { id:11, label: 'Navette aéroport' },
+      { id:12, label: 'Chambres familiales' },
+      { id:13, label: 'Spa et centre de bien-être' },
+      { id:14, label: 'Bain à remous/jacuzzi' },
+      { id:15, label: 'Connexion Wi-Fi gratuite' },
+      { id:16, label: 'Climatisation' },
+      { id:17, label: 'Parc aquatique' },
+      { id:18, label: 'Borne de recharge pour les véhicules électriques' },
+      { id:19, label: 'Piscine' },
+      { id:20, label: 'Plage' },
     ];
 
     languageItems = [
-      { name: 'Français', selected: false },
-      { name: 'Anglais', selected: false },
-      { name: 'Espagnol', selected: false },
-      { name: 'Italien', selected: false },
-      { name: 'Portugais', selected: false },
-      { name: 'deutsch', selected: false },
+      { id:1 , label:'Français' },
+      { id:2 , label:'Anglais' },
+      { id:3 , label:'Espagnol' },
+      { id:4 , label:'Italien' },
+      { id:5 , label:'Portugais' },
+      { id:6 , label:'deutsch' },
     ];
 
-    // Propriété pour les boutons radio
-    ouiNonSelected: string = ''; // "oui" ou "non"
-    selectedRadio1: string = '';
-    selectedRadio2: string = '';
-    selectedRadio3: string = '';
-    selectedRadio4: string = '';
-    selectedRadio5: string = '';
-    selectedRadio6: string = '';
-    selectedRadio7: string = '';
-    selectedRadio8: string = '';
 
     // Object pour gérer les options de petit-déjeuner
-  breakfastOptions = {
-    A_la_carte: false,
-    Africain: false,
-    Americain: false,
-    Asiatique: false,
-    Buffet: false,
-    Petit_dejeuner_a_emporter : false,
-    Continental: false,
-    Végétalien: false,
-    Casher: false,
-    Végétarien : false,
-    Sans_gluten: false,
-    Halal: false,
-    Anglais_ou_irlandais_complet : false,
-  };
-    // Propriétés pour gérer les heures d'arrivée et de départ
-    arrivalStart: string = '';  // Heure de début d'arrivée
-    arrivalEnd: string = '';    // Heure de fin d'arrivée
-    departureStart: string = '';  // Heure de début de départ
-    departureEnd: string = '';    // Heure de fin de départ
+    breakfastOptions = {
+      A_la_carte: false,
+      Africain: false,
+      Americain: false,
+      Asiatique: false,
+      Buffet: false,
+      Petit_dejeuner_a_emporter : false,
+      Continental: false,
+      Végétalien: false,
+      Casher: false,
+      Végétarien : false,
+      Sans_gluten: false,
+      Halal: false,
+      Anglais_ou_irlandais_complet : false,
+    };
+
 
     // Déclarez un objet paymentMethods
     paymentMethods = {
@@ -91,20 +79,6 @@ export class EquipementServiceComponent implements OnInit{
     Ebilling: false
     };
 
-      // Variable pour la recherche
-      searchTerm: string = '';
-    get filteredItems() {
-      return this.items.filter(item =>
-        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
-
-
-    get filterLanguage() {
-      return this.languageItems.filter(item =>
-        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
 
     // Méthode pour gérer la sélection des checkboxes
     onCheckboxChange(item: any) {
@@ -119,6 +93,140 @@ export class EquipementServiceComponent implements OnInit{
     toggleBreakfastOption(option: keyof typeof this.breakfastOptions) {
     this.breakfastOptions[option] = !this.breakfastOptions[option];
   }
+
+
+
+  form: FormGroup;
+  [key: string]: any;
+  searchTerm: string = '';
+
+  vues = [
+    { id: 1, label: 'Terrasse' },
+    { id: 2, label: 'Vue sur le terrain de sport' },
+    { id: 3, label: 'Balcon' },
+    ];
+
+    moas = [
+      { id:1, label: 'Français' },
+      { id:2, label: 'Anglais' },
+      { id:3, label: 'Espagnol' },
+      { id:4, label: 'Italien' },
+      { id:5, label: 'Portugais' },
+      { id:6, label: 'deutsch' },
+    ];
+
+    paiements = [
+      { id:1, label: 'Carte de crédit/débit', imgSrc: ['assets/img/eux.png', 'assets/img/eux.png', 'assets/img/eux.png'] },
+      { id:2, label: 'Paiement digital', imgSrc: ['assets/img/eux.png'] },
+      { id:3, label: 'Paysing', imgSrc: ['assets/img/eux.png'] },
+      { id:4, label: 'Ebilling', imgSrc: ['assets/img/eux.png'] },
+    ];
+
+
+    // Options de menu
+    menuOptions = [
+    'À la carte',
+    'Africain',
+    'Américain',
+    'Asiatique',
+    'Buffet',
+    'Petit déjeuner à emporter',
+    'Continental',
+    'Végétalien',
+    'Casher',
+    'Végétarien',
+    'Sans gluten',
+    'Halal',
+    'Anglais/irlandais complet'
+    ];
+
+    constructor(private fb: FormBuilder) {
+      // Initialiser le FormGroup
+      this.form = this.fb.group({});
+      // Ajouter des contrôles pour chaque tableau
+      this.initializeControls(this.vues, 'vue');
+      this.initializeControls(this.moas, 'moa');
+      this.initializeControls(this.languageItems, 'languageItem');
+      this.initializeControls(this.lists, 'list');
+      //Barre de recherche
+      this.lists.forEach(list => {
+        this.form.addControl('list' + list.id, this.fb.control(false));
+      });
+      this.initializeControls(this.paiements, 'paiement');
+      // Ajoutez d'autres initialisations ici...
+
+      // Initialiser les contrôles pour les options de stationnement
+      this.form.addControl('parkingAccess', this.fb.control(''));
+      this.form.addControl('breakfast', this.fb.control(''));
+      this.form.addControl('breakfastIncluded', this.fb.control(''));
+      this.form.addControl('parkingCost', this.fb.control(''));
+      this.form.addControl('parkingDuration', this.fb.control(''));
+      this.form.addControl('reservationNeeded', this.fb.control(''));
+      this.form.addControl('parkingLocation', this.fb.control(''));
+      this.form.addControl('parkingType', this.fb.control(''));
+      this.form.addControl('parkingValide', this.fb.control(''));
+
+      // Initialiser les contrôles pour la politique de l'établissement
+      this.form.addControl('cancellationPolicy', this.fb.control('')); // Politique d'annulation
+      this.form.addControl('cancellationCondition', this.fb.control('')); // Condition de remboursement
+      this.form.addControl('arrivalStart', this.fb.control('')); // Heure d'arrivée début
+      this.form.addControl('arrivalEnd', this.fb.control('')); // Heure d'arrivée fin
+      this.form.addControl('departureStart', this.fb.control('')); // Heure de départ début
+      this.form.addControl('departureEnd', this.fb.control('')); // Heure de départ fin
+      this.form.addControl('acceptChildren', this.fb.control('')); // Acceptation des enfants
+      this.form.addControl('acceptPets', this.fb.control('')); // Acceptation des animaux
+
+      // Initialiser le FormArray pour les options de menu
+      this.form.addControl('selectedMenuOptions', this.fb.array([]));
+    }
+
+    initializeControls(items: any[], prefix: string) {
+      items.forEach(item => {
+        this.form.addControl(`${prefix}${item.id}`, this.fb.control(false));
+      });
+    }
+
+      // Méthode pour filtrer les listes en fonction du terme de recherche
+    get filteredLists() {
+        return this.lists.filter(list =>
+          list.label.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+    }
+
+
+  // Méthode pour obtenir le FormArray
+  get selectedMenuOptions(): FormArray {
+    return this.form.get('selectedMenuOptions') as FormArray;
+  }
+
+
+  // Méthode pour basculer la sélection d'une option
+  toggleOption(option: string) {
+    const index = this.selectedMenuOptions.controls.findIndex(control => control.value === option);
+
+    if (index === -1) {
+      this.selectedMenuOptions.push(this.fb.control(option)); // Ajouter l'option si elle n'est pas déjà sélectionnée
+    } else {
+      this.selectedMenuOptions.removeAt(index); // Retirer l'option si elle est déjà sélectionnée
+    }
+  }
+
+  // Méthode pour vérifier si une option est sélectionnée
+  isSelected(option: string): boolean {
+    return this.selectedMenuOptions.controls.some(control => control.value === option);
+  }
+
+
+
+
+    getCheckedItems(prefix: string) {
+      return this[prefix + 's'].filter((item: { id: any; }) => this.form.get(`${prefix}${item.id}`)?.value);
+    }
+
+
+    onSubmit() {
+      console.log(this.form.value); // Affiche les valeurs du formulaire dans la console
+    }
 
 
 }

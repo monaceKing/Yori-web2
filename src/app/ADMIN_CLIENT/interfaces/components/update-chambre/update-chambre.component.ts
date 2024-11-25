@@ -28,8 +28,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class UpdateChambreComponent {
   @Input() info: string = ''; // Liaison avec le parent
 
-
-
   form: FormGroup;
   [key: string]: any; // Permet d'accéder à des propriétés dynamiques
 
@@ -151,8 +149,5 @@ getCheckedItems(prefix: string) {
   return this[prefix + 's'].filter((item: { id: any; }) => this.form.get(`${prefix}${item.id}`)?.value);
 }
 
-  // getCheckedCases() {
-  //   return this.cases.filter(caseItem => this.form.get(`case${caseItem.id}`)?.value);
-  // }
 }
 

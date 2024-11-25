@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardContent } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-tarif',
+  selector: 'app-update-tarifs',
   standalone: true,
   imports: [
-    MatCard,
     MatCardHeader,
     MatCardHeader,
     MatCardTitle,
@@ -19,15 +18,14 @@ import { MatIcon } from '@angular/material/icon';
     FormsModule,
     CommonModule
   ],
-  templateUrl: './tarifs-admin.component.html',
-  styleUrl: './tarifs-admin.component.css'
+  templateUrl: './update-tarifs.component.html',
+  styleUrl: './update-tarifs.component.css'
 })
-export class TarifsAdminComponent {
-
+export class UpdateTarifsComponent {
 
   somme: number = 0;
   pourcentage: number = 0;
-  monnaie: string = 'F CFA'; // Valeur par défaut
+  monnaie: string = 'FCFA'; // Valeur par défaut
   @Output() calculChange = new EventEmitter<{ somme: number; pourcentage: number; monnaie: string }>(); // Émet un objet
 
   calculerPourcentage() {
@@ -37,6 +35,4 @@ export class TarifsAdminComponent {
     // Émettre un objet contenant la somme, le pourcentage et la monnaie
     this.calculChange.emit({ somme: this.somme, pourcentage: this.pourcentage, monnaie: this.monnaie });
   }
-
-
 }

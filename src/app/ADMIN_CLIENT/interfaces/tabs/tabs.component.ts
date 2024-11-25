@@ -40,50 +40,73 @@ import { EquipementServiceComponent } from "../components/equipement-service/equ
 })
 export class TabsComponent implements AfterViewInit{
 
-  // constructor(private router: Router) {}
+  activeTabIndex: number = 0; // Index par défaut pour les onglets
+  currentComponent: string | null = null; // Composant actuellement sélectionné
+
+  ngOnInit() {
+    // Récupérer l'index de l'onglet actif et le composant sélectionné depuis le sessionStorage
+    const storedIndex = sessionStorage.getItem('activeTabIndex');
+    const storedComponent = sessionStorage.getItem('currentComponent');
+
+    if (storedIndex) {
+      this.activeTabIndex = +storedIndex; // Convertir en nombre
+    }
+
+    if (storedComponent) {
+      this.currentComponent = storedComponent; // Récupérer le composant sélectionné
+    }
+  }
+
+  onTabChange(event: any) {
+    this.activeTabIndex = event.index; // Mettre à jour l'index actif
+    sessionStorage.setItem('activeTabIndex', this.activeTabIndex.toString()); // Sauvegarder dans le sessionStorage
+  }
+
+  showComponent(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.currentComponent = selectElement.value;
+    sessionStorage.setItem('currentComponent', this.currentComponent);
+  }
+
 
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
   }
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
-  activeTabIndex: number = 0;
 
-  onTabChange(event: any) {
-    this.activeTabIndex = event.index;
+  // onTabChange(event: any) {
+  //   this.activeTabIndex = event.index;
 
-    // Vérifie si l'onglet actif est celui du menu et si aucune option n'est sélectionnée
-    if (this.activeTabIndex === 4 && !this.currentComponent) {
-      // Si on veut revenir au menu, on empêche le changement
-      event.preventDefault();
-      // Optionnel : réactive le dernier onglet
-      this.activeTabIndex = event.previousIndex;
-    } else {
-      this.isMenuOpen = false; // Ferme le menu si on change d'onglet
-      this.currentComponent = null; // Réinitialise le composant sélectionné
-    }
-  }
+  //   if (this.activeTabIndex === 4 && !this.currentComponent) {
+  //     event.preventDefault();
+  //     this.activeTabIndex = event.previousIndex;
+  //   } else {
+  //     this.isMenuOpen = false;
+  //     this.currentComponent = null;
+  //   }
+  // }
 
-  selectTab(index: number) {
-    this.activeTabIndex = index;
-    localStorage.setItem('activeTabIndex', index.toString());
-    this.tabGroup.selectedIndex = index;
-  }
+  // selectTab(index: number) {
+  //   this.activeTabIndex = index;
+  //   localStorage.setItem('activeTabIndex', index.toString());
+  //   this.tabGroup.selectedIndex = index;
+  // }
 
-  previousTab() {
-    if (this.activeTabIndex > 0) {
-      this.selectTab(this.activeTabIndex - 1);
-    }
-  }
+  // previousTab() {
+  //   if (this.activeTabIndex > 0) {
+  //     this.selectTab(this.activeTabIndex - 1);
+  //   }
+  // }
 
-  nextTab() {
-    if (this.activeTabIndex < this.tabGroup._tabs.length - 1) {
-      this.selectTab(this.activeTabIndex + 1);
-    }
-  }
+  // nextTab() {
+  //   if (this.activeTabIndex < this.tabGroup._tabs.length - 1) {
+  //     this.selectTab(this.activeTabIndex + 1);
+  //   }
+  // }
 
 
   isMenuOpen = false;
-  currentComponent: string | null = null;
+  // currentComponent: string | null = null;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -94,21 +117,21 @@ export class TabsComponent implements AfterViewInit{
     select.click(); // Ouvre le sélecteur
   }
 
-  showComponent(event: Event) {
-    const target = event.target as HTMLSelectElement; // Assurer que target est un HTMLSelectElement
-    const value = target.value;
+  // showComponent(event: Event) {
+  //   const target = event.target as HTMLSelectElement;
+  //   const value = target.value;
 
-    if (value) {
-      this.currentComponent = value;
-      this.isMenuOpen = false;
-    }
-  }
+  //   if (value) {
+  //     this.currentComponent = value;
+  //     this.isMenuOpen = false;
+  //   }
+  // }
 
-  onTabChange2(event: any) {
-    this.activeTabIndex = event.index;
-    this.isMenuOpen = false; // Ferme le menu
-    this.currentComponent = null; // Réinitialise le composant sélectionné
-  }
+  // onTabChange2(event: any) {
+  //   this.activeTabIndex = event.index;
+  //   this.isMenuOpen = false;
+  //   this.currentComponent = null;
+  // }
 
 
 }
