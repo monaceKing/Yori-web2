@@ -1,50 +1,63 @@
 <div class="container">
   <h3>Messages de yori.com</h3>
   <mat-tab-group>
-    <mat-tab label="Tout les messages">
-      <div *ngFor="let message of messages">
-        <div (click)="selectMessage(message)" class="message-preview">
-            {{ message.content | slice:0:20 }}... <!-- Affiche les 20 premiers caractères -->
+    <mat-tab label="Tous les messages ({{ receivedMessages.length }})">
+      <h2>Messages Reçus</h2>
+      <div *ngFor="let message of receivedMessages">
+          <div (click)="selectMessage(message)" class="message-preview">
+              <strong>{{ message.subject }}</strong> - {{ message.content | slice:0:20 }}...
+              <span class="message-date">{{ message.date | date:'dd MMMM yyyy à HH:mm' }}</span> <!-- Affiche la date -->
+          </div>
+
+          <!-- Affiche les détails du message si celui-ci est sélectionné -->
+          <div *ngIf="selectedMessage === message" class="message-details">
+              <h2>Détails du message</h2>
+              <p><strong>Objet :</strong> {{ selectedMessage.subject }}</p>
+              <p><strong>Corps :</strong> {{ selectedMessage.content }}</p>
+              <p><strong>Date :</strong> {{ selectedMessage.date | date:'dd MMMM yyyy à HH:mm' }}</p> <!-- Affiche la date -->
+              <button (click)="selectMessage(selectedMessage)" class="btn btn-cancel">Fermer</button>
+              <button (click)="openReplyPopup()" class="btn btn-send">Répondre</button>
+          </div>
+      </div>
+
+      <!-- Overlay pour le pop-up -->
+      <div *ngIf="isReplying" class="overlay" (click)="closeReplyPopup()"></div>
+
+      <!-- Pop-up de réponse -->
+      <div *ngIf="isReplying" class="reply-popup">
+          <h3 class="reply-title">Écrire une réponse</h3>
+          <div class="reply-section">
+              <label for="subject">Objet :</label>
+              <input type="text" id="subject" [(ngModel)]="replySubject" placeholder="Entrez l'objet ici" class="reply-input" />
+
+              <label for="body">Corps du message :</label>
+              <textarea id="body" [(ngModel)]="replyBody" placeholder="Écrivez votre réponse ici" class="reply-textarea"></textarea>
+
+              <label for="attachment">Joindre un document :</label>
+              <input type="file" id="attachment" (change)="onFileSelected($event)" class="reply-file-input" />
+          </div>
+          <div class="reply-buttons">
+              <button (click)="submitReply()" class="btn btn-send">Envoyer</button>
+              <button (click)="closeReplyPopup()" class="btn btn-cancel">Annuler</button>
+          </div>
+      </div>
+  </mat-tab>
+    <mat-tab label="Envoyés">
+      <div *ngFor="let sentMessage of sentMessages">
+        <div (click)="selectMessage(sentMessage)" class="message-preview">
+            <strong>{{ sentMessage.subject }}</strong> <!-- Affiche l'objet du message -->
         </div>
 
         <!-- Affiche les détails du message si celui-ci est sélectionné -->
-        <div *ngIf="selectedMessage === message" class="message-details">
-            <div style="display: flex; gap: 145px;">
-              <h2>Détails du message</h2>
-              <button (click)="openReplyPopup()" class="btn-repondre"> <mat-icon>reply</mat-icon> Répondre à ce message</button>
-            </div>
-            <p>{{ selectedMessage.content }}</p>
-            <!-- <button (click)="selectMessage(selectedMessage)">Fermer</button> -->
-
+        <div *ngIf="selectedMessage === sentMessage" class="message-details">
+            <h2>Détails du message</h2>
+            <p><strong>Objet :</strong> {{ selectedMessage.subject }}</p>
+            <p><strong>Corps :</strong> {{ selectedMessage.content }}</p>
+            <p><strong>Date :</strong> {{ selectedMessage.date | date:'dd MMMM yyyy à HH:mm' }}</p> <!-- Affiche la date -->
+            <button (click)="selectMessage(selectedMessage)">Fermer</button>
         </div>
-
-        <!-- Pop-up de réponse -->
-        <!-- <div *ngIf="isReplying" class="reply-popup">
-            <h3>Écrire une réponse</h3>
-            <textarea></textarea>
-            <button (click)="submitReply()">Envoyer</button>
-            <button (click)="closeReplyPopup()">Annuler</button>
-        </div> -->
-        <div *ngIf="isReplying" class="reply-popup">
-          <div style="display:flex; gap: 300px; background-color: rgb(181, 215, 255); width: 100%; margin:0; color: white;">
-            <h3>Écrire une réponse</h3>
-            <button (click)="closeReplyPopup()">x</button>
-          </div>
-          <div class="reply-section">
-              <!-- <label for="subject">Objet :</label> -->
-              <input type="text" id="subject" [(ngModel)]="replySubject" placeholder="objectif" />
-
-              <!-- <label for="body">Corps du message :</label> -->
-              <textarea id="body" [(ngModel)]="replyBody" placeholder="Écrivez votre réponse ici"></textarea>
-
-              <!-- <label for="attachment">Joindre un document :</label> -->
-              <input type="file" id="attachment" (change)="onFileSelected($event)" />
-          </div>
-          <button (click)="submitReply()">Envoyer</button>
       </div>
-    </div>
- </mat-tab>
-    <mat-tab label="Envoyés"> Content 2 </mat-tab>
+    </mat-tab>
     <mat-tab label="Suivis"> Content 3 </mat-tab>
   </mat-tab-group>
 

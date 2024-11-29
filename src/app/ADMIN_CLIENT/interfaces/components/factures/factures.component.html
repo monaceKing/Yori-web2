@@ -1,1 +1,72 @@
-<p>factures works!</p>
+<div *ngIf="!showPaymentDetails">
+  <h2>Tableau des Produits</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox" (change)="toggleSelectAll($event)" />
+        </th>
+        <th>Numéro de Facture</th>
+        <th>Intitulé</th>
+        <th>Montant</th>
+        <th>Commission</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>
+          <input type="checkbox" [(ngModel)]="item.selected" (change)="updateTotals()" />
+        </td>
+        <td>{{ item.invoiceNumber }}</td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.amount }}</td>
+        <td>{{ item.commission }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="display: flex; gap: 500px;">
+    <div>
+      <button (click)="processPayment()" [disabled]="amountToPay <= 0">Paiement</button> <!-- Bouton Paiement -->
+    </div>
+    <div>
+      <p>Total des Commissions (Montant Dû) : {{ totalDue }}</p> <!-- Montant dû -->
+      <p>Montant à Payer : {{ amountToPay }}</p> <!-- Montant à payer -->
+    </div>
+  </div>
+</div>
+
+<!-- Nouvelle div pour afficher les détails de paiement -->
+<div *ngIf="showPaymentDetails">
+   <button (click)="resetView()">Retour au tableau</button><br>
+   <label>Paiement des factures</label>
+   <p>Choisissez un mode de paiement et effectuez le règlement de vos factures</p>
+
+   <div class="big-card">
+    <h3></h3>
+   <form [formGroup]="form">
+    <div class="card-left">
+      <div *ngFor="let paiement of paiements" class="payment-option" style="display: flex; align-items: center;">
+        <input type="checkbox" [formControlName]="'paiement' + paiement.id" id="{{ paiement.label }}" />
+        <label for="{{ paiement.label }}" style="display: flex; align-items: center; margin-left: 10px;">
+          {{ paiement.label }}
+          <div *ngFor="let img of paiement.imgSrc" style="margin-left: 10px;">
+            <img [src]="img" alt="{{ paiement.label }}" style="width: 20px; height: auto;" />
+          </div>
+        </label>
+      </div>
+      <button class="solde">payer  {{ amountToPay }} FCFA</button>
+     </div>
+   </form>
+     <div class="card-right">
+      <div>Aperçu factures</div>
+      <label style="padding-left: 10px;">factures ({{selectedInvoices.length}}) </label>
+     <ul>
+       <li *ngFor="let invoice of selectedInvoices">
+         {{ invoice.invoiceNumber }} : {{ invoice.commission }} FCFA
+       </li>
+     </ul>
+     <h3 style="padding: 10px;background-color: #4CAF50; color: white;">Montant Total: {{ amountToPay }} FCFA</h3>
+     </div>
+   </div>
+</div>

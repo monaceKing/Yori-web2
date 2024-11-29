@@ -1,9 +1,9 @@
 <div class="container">
   <div *ngIf="currentDiv === 'default'">
-    <div class="titre">
-      <h3>Hebergements</h3>
-    </div>
     <div class="gallery-container">
+      <div class="titre">
+        <h3>Hebergements</h3>
+      </div>
       <section class="section">
         <input #fileInput type="file" accept="image/*" (change)="addImage($event)" style="display: none;" />
         <div class="image-gallery">
@@ -23,7 +23,8 @@
             <button (click)="showDiv2()">
               Ajouter une categorie
             </button><br>
-            <mat-icon>add_circle</mat-icon>
+            <!-- <mat-icon>add_circle</mat-icon> -->
+            <img src="assets/img/ajoute.png" alt="" (click)="showDiv2()">
           </div>
       </div>
       </section>
@@ -31,9 +32,9 @@
   </div>
 
   <!-- div update chambre -->
-   <div *ngIf="currentDiv === 'div1'" style="background-color: red;">
+   <div *ngIf="currentDiv === 'div1'">
       <div class="retour">
-        <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
+        <button class="revenir" (click)="showDefault()"><b>&lt;</b>Revenir à la synthèse des réservations</button>
       </div>
       <div>
         <app-update-chambre></app-update-chambre>

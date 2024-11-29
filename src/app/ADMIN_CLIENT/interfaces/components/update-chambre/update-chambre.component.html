@@ -1,9 +1,7 @@
 <div class="container">
   <div class="main-card">
-    <mat-card-header>
-      <mat-card-title>Configurez votre type de KING</mat-card-title><br>
-    </mat-card-header>
     <mat-card-content>
+      <mat-card-title>Chambre luxieuse</mat-card-title><br>
       <form [formGroup]="form">
         <br>
         <div class="full-width">
@@ -14,16 +12,16 @@
             </option>
           </select>
         </div>
-        <div>
+        <div class="full-width">
           <mat-label>Combien d'hébergements de ce type (hébergement) <br> possédez-vous?</mat-label><br>
           <input type="number" name="number" id="inputNumber" placeholder="0" >
         </div>
         <mat-divider style="margin-bottom: 20px;"></mat-divider>
-        <mat-label>Quels lits sont disponibles dans cette catégorie ?</mat-label><br><br>
+        <mat-card-title>Quels lits sont disponibles dans cette catégorie ?</mat-card-title><br><br>
         <mat-card *ngFor="let lit of lits; let i = index" class="example-card" appearance="outlined">
           <mat-card-header>
             <mat-card-title-group>
-              <mat-card-title>
+              <mat-card-title class="photo">
                 <div class="lit-info">
                   <img mat-card-sm-image src="assets/img/lit.png" class="lit-image">
                   <span class="lit-details">{{ lit.name }} <br> {{ lit.size }}</span>
@@ -39,11 +37,11 @@
             </div>
           </mat-card-header>
         </mat-card>
-        <div>
+        <div class="full-width">
           <p>Combien de personnes peuvent séjourner dans cette
             catégorie hébergement ?
           </p>
-          <div class="quantity-container" style="width: 140px;">
+          <div class="quantity-container full-width" style="width: 140px;" style="border: 0.2px solid #a9a8a8;">
             <div class="quantity">
               <button type="button" (click)="quantity1('min')" class="btn btn-black" [disabled]="productquantity <= 1"><strong>-</strong></button>
               <input class="inputbox" type="text" disabled [value]="productquantity" id="">
@@ -52,21 +50,21 @@
           </div>
         </div>
 
-        <div>
+        <div class="full-width">
           <p>
             Quelle est la superficie de cet hébergement ?
           </p>
-          <div>
-            <input type="number" name="" id="inputNumber" placeholder="0">
+          <div class="full-width">
+            <input type="number" name="" id="inputNumber2" placeholder="0">
             <!-- <label for="fruits">Choisissez un fruit :</label> -->
-            <select id="fruits" name="fruits">
+            <select id="mettre" name="mettre">
               <option value="apple">mètres carrés</option>
               <option value="banana">pieds carrés</option>
             </select>
           </div>
         </div>
 
-        <div>
+        <div class="full-width">
           <p>
             Est-il possible de fumer dans cet hébergement ?
           </p>
@@ -83,7 +81,7 @@
           </div>
         </div>
         <hr>
-        <div>
+        <div class="full-width">
           <label>Quels équipements de salle de bains sont
             disponibles dans cet hébergement ?</label>
           <div *ngFor="let jardin of jardins">
@@ -92,7 +90,7 @@
           </div>
         </div>
         <hr>
-        <div>
+        <div class="full-width">
           <h3>Quels équipements sont à disposition des
             clients dans cet hébergement ?</h3>
             <label for="">Principaux équipements</label><br>
@@ -102,7 +100,7 @@
           </div>
         </div>
         <hr>
-        <div>
+        <div class="full-width">
             <label>Vues et extérieur</label>
           <div *ngFor="let vue of vues">
             <input type="checkbox" [formControlName]="'vue' + vue.id" />
@@ -110,7 +108,7 @@
           </div>
         </div>
         <hr>
-        <div>
+        <div class="full-width">
             <label>Repas et boissons</label>
           <div *ngFor="let rep of repas">
             <input type="checkbox" [formControlName]="'repas' + rep.id" />
@@ -118,7 +116,7 @@
           </div>
         </div>
 
-        <div>
+        <div class="full-width">
           <h3>Fixez un tarif par nuit pour cet hébergement</h3>
         </div>
       </form>

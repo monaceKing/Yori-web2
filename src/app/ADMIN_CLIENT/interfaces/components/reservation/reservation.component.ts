@@ -11,6 +11,7 @@ interface Client {
   arrivee: string;
   depart: string;
   hebergement: string;
+  nombreHebergement: number | null;
   reserveLe: string;
   statuts: string;
   tarif: string;
@@ -51,6 +52,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '50€',
       duree: '4 jours',
       numeroReservation: 'RES123456',
+      nombreHebergement:null,
       personne: 0
     },
     {
@@ -64,6 +66,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '80€',
       duree: '5 jours',
       numeroReservation: 'RES123457',
+      nombreHebergement:2,
       personne: 0
     },
     {
@@ -77,6 +80,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '40€',
       duree: '5 jours',
       numeroReservation: 'RES123458',
+      nombreHebergement:null,
       personne: 0
     },
     {
@@ -90,6 +94,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '60€',
       duree: '5 jours',
       numeroReservation: 'RES123459',
+      nombreHebergement:4,
       personne: 0
     },
     {
@@ -103,6 +108,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '70€',
       duree: '5 jours',
       numeroReservation: 'RES123460',
+      nombreHebergement:null,
       personne: 0
     },
     {
@@ -116,6 +122,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '55€',
       duree: '5 jours',
       numeroReservation: 'RES123461',
+      nombreHebergement:4,
       personne: 0
     },
     {
@@ -129,6 +136,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '45€',
       duree: '3 jours',
       numeroReservation: 'RES123462',
+      nombreHebergement:null,
       personne: 0
     },
     {
@@ -142,6 +150,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '30€',
       duree: '3 jours',
       numeroReservation: 'RES123463',
+      nombreHebergement:2,
       personne: 0
     },
     {
@@ -155,6 +164,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '40€',
       duree: '3 jours',
       numeroReservation: 'RES123464',
+      nombreHebergement:3,
       personne: 0
     },
     {
@@ -168,6 +178,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '60€',
       duree: '7 jours',
       numeroReservation: 'RES123465',
+      nombreHebergement:5,
       personne: 0
     },
   ];
@@ -184,6 +195,7 @@ export class ReservationComponent implements OnInit, OnDestroy {
     itemsPerPageOptions: number[] = [5, 10, 50];
     selectedClient: any = null;
     showDetails: boolean = false;
+    numeroTelephone:boolean = false;
     checkboxValues: { [key: string]: boolean } = {};
     openFiltre: boolean = false;
 
@@ -285,6 +297,10 @@ export class ReservationComponent implements OnInit, OnDestroy {
     afficherDetails(client: Client) {
       this.selectedClient = client;
       this.showDetails = true; // On affiche la div conditionnée
+    }
+
+    afficherTelephone(){
+      this.numeroTelephone = !this.numeroTelephone
     }
 
       // Méthode pour revenir à la vue par défaut

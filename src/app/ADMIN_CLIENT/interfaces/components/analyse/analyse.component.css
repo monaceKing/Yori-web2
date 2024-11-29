@@ -1,0 +1,20 @@
+.vertical-tabs {
+  display: flex; /* Utilise flexbox pour aligner les onglets et le contenu */
+}
+
+.vertical-tabs .mat-tab-group {
+  flex-direction: row; /* Aligne les onglets horizontalement */
+}
+
+.vertical-tabs .mat-tab-header {
+  flex-direction: column; /* Aligne les onglets verticalement */
+}
+
+.vertical-tabs .mat-tab-header .mat-tab-labels {
+  display: flex;
+  flex-direction: column; /* Aligne les labels des onglets verticalement */
+}
+
+.vertical-tabs .mat-tab-header .mat-tab-labels .mat-tab-label {
+  width: 100%; /* Fait en sorte que chaque label prenne toute la largeur */
+}

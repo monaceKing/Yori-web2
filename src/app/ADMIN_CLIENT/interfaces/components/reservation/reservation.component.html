@@ -72,7 +72,8 @@
             </div>
     </div>
 
-    <table class="table">
+    <div class="table-responsive">
+      <table class="table">
         <thead>
         <tr>
             <th>Nom du client</th>
@@ -88,13 +89,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let client of paginatedClients">
-            <td>{{ client.nom }} <br> {{client.personne}} personne(s) </td>
+          <tr *ngFor="let client of paginatedClients">
+            <td>
+                <span style="color: #77B5FE;">{{ client.nom }}</span> <br>
+                {{ client.personne }} personne(s)
+            </td>
             <td>{{ client.arrivee }}</td>
             <td>{{ client.depart }}</td>
-            <td>{{ client.hebergement }}</td>
+            <td>
+                {{ client.hebergement }}
+                <br>
+                <span *ngIf="(client.nombreHebergement ?? 0) > 0">x{{ client.nombreHebergement }}</span>
+            </td>
             <td>{{ client.reserveLe }}</td>
-            <td>{{ client.statuts }}</td>
+            <!-- <td><b>{{ client.statuts }}</b></td> -->
+            <td [ngStyle]="{'color': client.statuts === 'Annulées' ? 'red' : 'black'}">
+              <b>{{ client.statuts }}</b>
+          </td>
             <td>{{ client.tarif }}</td>
             <td>{{ client.commission }}</td>
             <td>{{ client.duree }}</td>
@@ -114,6 +125,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
     <div class="totaux">
         <p>Total Commission : <strong>{{ totalCommission() | currency }}</strong></p>
         <p>Total Tarif : <strong>{{ totalTarif() | currency }}</strong></p>
@@ -159,12 +171,12 @@
             </tr>
             <tr>
                 <td>Durée de la reservation :</td>
-                <!-- <td><mat-icon style="font-size: 15px;">visibility</mat-icon><a href="">Afficher le numéro de téléphone</a></td> -->
                 <td>
                     <span style="display: inline-flex; align-items: center;">
                         <mat-icon style="font-size: 15px; margin-top: 5px;">visibility</mat-icon>
-                        <a href="">Afficher le numéro de téléphone</a>
-                    </span>
+                        <a (click)="afficherTelephone()" style="cursor: pointer;">Afficher le numéro de téléphone</a>
+                    </span><br>
+                    <span *ngIf="numeroTelephone"> {{+221776438111}} </span>
                 </td>
 
             </tr>

@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatIcon } from '@angular/material/icon';
+// import { MatIcon } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 
 
 interface Message {
   id: number;
   content: string;
+  subject?: string;
+  date: Date;
 }
 
 @Component({
@@ -16,7 +18,7 @@ interface Message {
   imports: [
     MatTabsModule,
     CommonModule,
-    MatIcon,
+    // MatIcon,
     FormsModule
   ],
   templateUrl: './boite-reception.component.html',
@@ -24,58 +26,68 @@ interface Message {
 })
 
   export class BoiteReceptionComponent {
-    messages: Message[] = [
-      { id: 1, content: 'Ceci est le contenu complet du message 1.' },
-      { id: 2, content: 'Voici le message 2 avec plus de détails.' },
-      { id: 3, content: 'Message numéro 3 pour la discussion.' },
-      { id: 4, content: 'Détails supplémentaires du message 4.' },
-      { id: 5, content: 'Enfin, le message 5 pour conclure.' }
+    receivedMessages: Message[] = [
+      { id: 1, content: 'Ceci est le contenu complet du message 1.', date: new Date('1996-03-01T23:30:00') },
+      { id: 2, content: 'Voici le message 2 avec plus de détails.', date: new Date() },
+      { id: 3, content: 'Message numéro 3 pour la discussion.', date: new Date() },
+      { id: 4, content: 'Détails supplémentaires du message 4.', date: new Date() },
+      { id: 5, content: 'Enfin, le message 5 pour conclure.', date: new Date() }
   ];
+
+  sentMessages: Message[] = []; // Liste des messages envoyés
+
   selectedMessage?: Message;
-    isReplying = false;
+  isReplying = false;
 
-    // Propriétés pour la réponse
-    replySubject: string = '';
-    replyBody: string = '';
-    selectedFile?: File;
+  // Propriétés pour la réponse
+  replySubject: string = '';
+  replyBody: string = '';
+  selectedFile?: File;
 
-    selectMessage(message: Message) {
-        if (this.selectedMessage === message) {
-            this.selectedMessage = undefined;
-        } else {
-            this.selectedMessage = message;
-        }
+  selectMessage(message: Message) {
+    if (this.selectedMessage === message) {
+        this.selectedMessage = undefined; // Ferme le message s'il est déjà ouvert
+    } else {
+        this.selectedMessage = message; // Ouvre le message sélectionné
     }
+}
 
-    openReplyPopup() {
-        this.isReplying = true;
-        this.replySubject = ''; // Réinitialiser l'objet
-        this.replyBody = '';    // Réinitialiser le corps
-        this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
-    }
+  openReplyPopup() {
+      this.isReplying = true;
+      this.replySubject = ''; // Réinitialiser l'objet
+      this.replyBody = ''; // Réinitialiser le corps
+      this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
+  }
 
-    closeReplyPopup() {
-        this.isReplying = false;
-    }
+  closeReplyPopup() {
+      this.isReplying = false;
+  }
 
-    submitReply() {
-        // Logique pour envoyer la réponse
-        console.log('Objet:', this.replySubject);
-        console.log('Corps:', this.replyBody);
-        if (this.selectedFile) {
-            console.log('Fichier joint:', this.selectedFile.name);
-        }
+  submitReply() {
+      if (this.replyBody.trim()) { // Vérifier que le corps du message n'est pas vide
+          const newMessage: Message = {
+              id: this.sentMessages.length + 1, // Générer un nouvel ID
+              content: this.replyBody,
+              subject: this.replySubject, // Utiliser la propriété 'subject'
+              date: new Date() // Définir la date actuelle
+          };
 
-        this.closeReplyPopup();
-    }
+          this.sentMessages.push(newMessage); // Ajouter le nouveau message à la liste des messages envoyés
 
-    onFileSelected(event: Event) {
-        const input = event.target as HTMLInputElement;
-        if (input.files && input.files.length > 0) {
-            this.selectedFile = input.files[0]; // Stocker le fichier sélectionné
-        }
-    }
+          // Réinitialiser les champs après envoi
+          this.closeReplyPopup();
+          this.replySubject = '';
+          this.replyBody = '';
+          this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
 
+          console.log('Nouveau message envoyé:', newMessage);
+      }
+  }
 
-
+  onFileSelected(event: Event) {
+      const input = event.target as HTMLInputElement;
+      if (input.files && input.files.length > 0) {
+          this.selectedFile = input.files[0]; // Stocker le fichier sélectionné
+      }
+  }
 }

@@ -1,1 +1,24 @@
-<p>commentaires works!</p>
+<div>
+  <h2>Commentaires</h2>
+
+  <div *ngFor="let comment of comments">
+    <p><strong>{{ comment.userId }}</strong> ({{ comment.rating }} étoiles) : {{ comment.content }} - {{ comment.createdDate | date }}</p>
+
+    <div *ngFor="let reply of comment.replies">
+      <p style="margin-left:20px;"><strong>{{ reply.userId }}</strong> : {{ reply.content }} - {{ reply.createdDate | date }}</p>
+    </div>
+
+    <input #replyInput placeholder="Répondre..." [(ngModel)]="replyContent[comment.id]" />
+    <button [disabled]="!replyContent[comment.id]" (click)="addReply(comment.id, replyContent[comment.id]); replyContent[comment.id] = ''">Répondre</button>
+  </div>
+
+  <h3>Laissez un commentaire</h3>
+
+  <input [(ngModel)]="newCommentUserId" placeholder="Identifiant de l'utilisateur" />
+
+  <input [(ngModel)]="newCommentContent" placeholder="Laissez un commentaire..." />
+
+  <input type="number" [(ngModel)]="newCommentRating" placeholder="Étoiles (1-5)" min="1" max="5" />
+
+  <button (click)="addComment()">Envoyer</button>
+</div>

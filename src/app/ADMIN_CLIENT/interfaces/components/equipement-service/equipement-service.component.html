@@ -1,26 +1,66 @@
-<!-- <form [formGroup]="form"> -->
+<style>
+  .popup {
+      position: fixed;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #77B5FEBA;
+      border: 1px solid #ccc;
+      padding: 20px;
+      z-index: 1000; /* Assurez-vous que le pop-up soit au-dessus des autres éléments */
+  }
+
+  .popup button{
+    background-color: #4099FF;
+    color: white;
+    padding: 10px;
+    border: none;
+  }
+  </style>
+
   <div class="container">
+    <div>
+      <h3>Equipements et services</h3>
+      <p>Répertoriez et mettez à jour vos équipements dans cette section. Cela peut inciter les clients à réserver chez vous !</p>
+    </div>
     <form [formGroup]="form">
       <section>
-        <input type="search" name="" id="search" placeholder="Rechercher un équipement ou un service...">
+        <input
+            type="search"
+            id="search"
+            placeholder="Rechercher un équipement ou un service..."
+            (input)="onSearchChange($event)"
+            [value]="searchTerm"
+        />
         <h1>Quels équipements proposez-vous dans votre structure ?</h1>
-        <!-- <input type="search" [(ngModel)]="searchTerm" placeholder="Rechercher..." /> -->
         <div *ngFor="let list of filteredLists">
-          <input type="checkbox" [formControlName]="'list' + list.id" />
-          {{ list.label }}
+            <input type="checkbox" [formControlName]="'list' + list.id" (change)="onCheckboxChange3($event)" />
+            {{ list.label }}
         </div>
-      </section>
+    </section>
+
+
+
+    <!-- Pop-up -->
+    <div *ngIf="showPopup" class="popup">
+      <!-- <p>Vous avez fait un changement. Soumettez votre choix.</p> -->
+      <button (click)="submitForm()">Sauvergarder</button>
+      <!-- <button (click)="showPopup = false">Annuler</button> -->
+  </div>
 
       <section>
         <div>
           <h3>Information petit dejeuner</h3>
           <p>Le petit-déjeuner est-il servi dans votre hébergement ?</p>
           <label>
-            <input type="radio" formControlName="breakfast" value="oui" />
+            <input type="radio" formControlName="breakfast" value="oui" (change)="onRadioChange($event)" />
             Oui
           </label><br>
           <label>
-            <input type="radio" formControlName="breakfast" value="non" />
+            <input type="radio" formControlName="breakfast" value="non" (change)="onRadioChange($event)" />
             Non
           </label><br>
           <label for="">Le petit-déjeuner est-il inclus dans le tarif payé par les clients ?</label>

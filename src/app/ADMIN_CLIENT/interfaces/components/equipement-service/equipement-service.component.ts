@@ -98,7 +98,7 @@ export class EquipementServiceComponent implements OnInit{
 
   form: FormGroup;
   [key: string]: any;
-  searchTerm: string = '';
+  // searchTerm: string = '';
 
   vues = [
     { id: 1, label: 'Terrasse' },
@@ -140,6 +140,12 @@ export class EquipementServiceComponent implements OnInit{
     'Anglais/irlandais complet'
     ];
 
+    searchTerm: string = '';
+    filteredLists = this.lists;
+    showPopup: boolean = false; // Contrôle l'affichage du pop-up
+    selectedOption: string = ''; // Pour stocker la valeur sélectionnée
+
+
     constructor(private fb: FormBuilder) {
       // Initialiser le FormGroup
       this.form = this.fb.group({});
@@ -180,6 +186,31 @@ export class EquipementServiceComponent implements OnInit{
       this.form.addControl('selectedMenuOptions', this.fb.array([]));
     }
 
+    onSearchChange(event: Event): void {
+      const input = event.target as HTMLInputElement; // Type assertion
+      this.searchTerm = input.value.toLowerCase();
+      this.filteredLists = this.lists.filter(list =>
+        list.label.toLowerCase().includes(this.searchTerm)
+      );
+    }
+
+
+    onCheckboxChange3(event: Event): void {
+      this.showPopup = true; // Afficher le pop-up lorsque l'état change
+    }
+
+    onRadioChange(event: Event): void {
+      const input = event.target as HTMLInputElement;
+      this.selectedOption = input.value; // Stocke la valeur sélectionnée
+      this.showPopup = true; // Afficher le pop-up lorsque l'état change
+    }
+
+    submitForm(): void {
+      // Logique pour soumettre le formulaire
+      console.log('Form submitted with selected option:', this.selectedOption);
+      this.showPopup = false; // Masquer le pop-up après soumission
+    }
+
     initializeControls(items: any[], prefix: string) {
       items.forEach(item => {
         this.form.addControl(`${prefix}${item.id}`, this.fb.control(false));
@@ -187,11 +218,11 @@ export class EquipementServiceComponent implements OnInit{
     }
 
       // Méthode pour filtrer les listes en fonction du terme de recherche
-    get filteredLists() {
-        return this.lists.filter(list =>
-          list.label.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-    }
+    // get filteredLists() {
+    //     return this.lists.filter(list =>
+    //       list.label.toLowerCase().includes(this.searchTerm.toLowerCase())
+    //     );
+    // }
 
 
   // Méthode pour obtenir le FormArray

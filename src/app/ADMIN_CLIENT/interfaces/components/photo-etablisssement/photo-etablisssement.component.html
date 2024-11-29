@@ -1,5 +1,6 @@
-<div class="container">
+<!-- <div class="container"> -->
   <div class="gallery-container">
+    <h3>Photos de l'établissement</h3>
     <section style="margin-bottom: 10px;">
       <div class="text">Galerie principale ({{ images.length }} photos)</div>
       <div class="controls">
@@ -33,8 +34,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Section secondaire -->
     <section>
-      <!-- <div class="text">Galerie secondaire ({{ imagesSecondary.length }} photos)</div> -->
       <div class="text">Chambre luxieuse</div>
 
       <div class="controls">
@@ -50,9 +52,11 @@
           <button class="btn" (click)="deleteSelectedSecondary()">Supprimer</button>
         </div>
       </div>
+
       <div class="entête">
         <p>Photo d'accroche</p>
       </div>
+
       <div class="image-gallery">
         <div *ngFor="let image of imagesSecondary; let i = index" class="image-item">
           <input type="checkbox" [checked]="isSelectedSecondary(i)" (change)="toggleSelectionSecondary(i)" id="image-sec-{{i}}" />
@@ -60,6 +64,7 @@
             <img [src]="image" alt="Image {{i + 1}}" class="image" />
           </label>
         </div>
+
         <div class="btn-add">
           <mat-icon>image</mat-icon><br>
           <button (click)="triggerFileInputSecondary()">
@@ -69,4 +74,4 @@
       </div>
     </section>
   </div>
-</div>
+<!-- </div> -->

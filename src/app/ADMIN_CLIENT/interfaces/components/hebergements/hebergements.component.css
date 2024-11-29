@@ -4,13 +4,23 @@
   text-align: center;
 }
 
+
+.revenir{
+  margin: 10px 30px;
+  height: 30px;
+}
+
 .titre{
   margin-left: 80px;
+  text-align: left;
 }
 
 .section{
-  margin-bottom: 10px;
-  height: 100%;
+    width: 90%; /* Largeur du conteneur */
+    max-width: 1200px; /* Largeur maximale pour éviter que le conteneur ne devienne trop large sur les grands écrans */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+    padding: 16px; /* Ajoute un peu d'espace intérieur */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
 }
 
 .controls {
@@ -99,6 +109,10 @@
   color: #77B5FE;
 }
 
+.btn-add img{
+  cursor: pointer;
+}
+
 input[type="file"] {
   margin-top: 10px;
 }
@@ -130,13 +144,6 @@ input[type="file"] {
   z-index: 10;
 }
 
-/* .image {
-  transition: transform 0.2s;
-} */
-
-/* .image:hover {
-  transform: scale(1.1);
-} */
 
 .image-item label {
   cursor: pointer;
@@ -149,9 +156,6 @@ input[type="file"] {
   object-fit: cover; /* Assure que l'image couvre la cellule sans déformation */
 }
 
-/* .image-item:hover img {
-  transform: scale(1.05);
-} */
 
 
 .image-caption {
@@ -168,29 +172,11 @@ input[type="file"] {
 }
 
 
-
-
-
-
-
-/* .container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px 0 20px 0;
-  width: 100%;
-} */
-
 mat-label {
   font-weight: 500;
 }
 
-/* .custom-icon {
-  color: white;
-  background-color: black;
-  border-radius: 50%;
-  padding: 5px;
-} */
+
 
 .main-card {
   background-color: white;
@@ -219,8 +205,8 @@ mat-label {
 
 .lit-image {
   margin-bottom: 20px;
-  height: 40px; /* Hauteur fixe pour l'image */
-  width: 40px; /* Largeur fixe pour l'image */
+  height: 90px; /* Hauteur fixe pour l'image */
+  width: 90px; /* Largeur fixe pour l'image */
 }
 
 .lit-details {

@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire avec Flexbox et Tableau</title>
-</head>
-<body>
-
 <div class="container">
   <h2>Infos sur l'établissement</h2>
     <form class="form">
@@ -16,28 +7,28 @@
                     <span>Ville :</span>
                     <span><input type="text" id="ville" name="ville" value="Libreville"></span>
                 </td>
-                <td colspan="2"><button type="button">icone</button></td>
+                <td colspan="2"><button type="button" class="icon"> <mat-icon>border_color</mat-icon> </button></td>
             </tr>
             <tr>
                 <td class="multi-line">
                     <span>Quartier :</span>
                     <span><input type="text" id="ville" name="Quartier" value="Louis"></span>
                 </td>
-                <td colspan="2"><button type="button">icone</button></td>
+                <td colspan="2"><button type="button" class="icon"> <mat-icon>border_color</mat-icon> </button></td>
             </tr>
             <tr>
                 <td class="multi-line">
                     <span>Numero de téléphone :</span>
                     <span><input type="text" id="ville" name="telephone" value="+24160345578"></span>
                 </td>
-                <td colspan="2"><button type="button">icone</button></td>
+                <td colspan="2"><button type="button" class="icon"> <mat-icon>border_color</mat-icon> </button></td>
             </tr>
             <tr>
                 <td class="multi-line">
                     <span>Adresse de l'établissement :</span>
                     <span><input type="text" id="ville" name="adresse" value="Avenue Véronique Ayito Minko"></span>
                 </td>
-                <!-- <td colspan="2"><button type="button">icone</button></td> -->
+                <!-- <td colspan="2"><button type="button" class="icon"> <mat-icon>border_color</mat-icon> </button></td> -->
             </tr>
             <tr>
                 <td class="multi-line">
@@ -46,37 +37,40 @@
                 </td>
             </tr>
             <tr>
-                <td class="multi-line">
-                    <span>Statut de l'hébergement</span>
-                </td>
-                <td><span type="button">Ouvert / réservable</span></td>
-            </tr>
-            <tr>
-                <td class="multi-line">
-                    <span><a class="link" (click)="afficherDetails()">Modifier le statut</a></span>
-                </td>
-                <div *ngIf="showDetails">
+              <td class="multi-line">
+                  <span>
+                      Statut de l'hébergement:
+                      <span *ngIf="status === 'actif'" style="background-color: #77B5FE; color: white; padding: 4px 8px; border-radius: 4px;">Ouvert / réservable</span>
+                      <span *ngIf="status === 'inactif'" style="background-color: #f50707; color: white; padding: 4px 8px; border-radius: 4px;">Fermé / réservable</span>
+                  </span>
+              </td>
+          </tr>
+          <tr>
+              <td class="multi-line">
+                  <span><a class="link" (click)="afficherDetails()">Modifier le statut</a></span>
+              </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div *ngIf="showDetails">
+                <label>Définir votre statut</label>
                   <div>
-                    <label>
-                      <input type="radio" name="status" value="actif" /> Ouvert
-                    </label>
+                      <label>
+                          <input type="radio" name="status" value="actif" (change)="status = 'actif'" /> Ouvert
+                      </label>
                   </div>
 
                   <div>
-                    <label>
-                      <input type="radio" name="status" value="inactif" /> Fermé
-                    </label>
+                      <label>
+                          <input type="radio" name="status" value="inactif" (change)="status = 'inactif'" /> Fermé
+                      </label>
                   </div>
-                </div>
-            </tr>
-        </table>
-        <tr>
-          <td colspan="4" style="text-align: center;">
-              <input type="submit" value="Mettre à jour mes informations">
+              </div>
           </td>
-      </tr>
+          </tr>
+        </table>
+        <div  style="display: flex; justify-content: right; text-align: right; width: 50%;">
+          <button type="submit" class="btn-send">Mettre à jour mes informations</button>
+        </div>
     </form>
 </div>
-
-</body>
-</html>

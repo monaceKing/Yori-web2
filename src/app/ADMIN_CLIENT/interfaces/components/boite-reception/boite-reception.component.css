@@ -11,17 +11,84 @@
   background-color: #f9f9f9; /* Couleur de fond pour les détails */
 }
 
+.message-date {
+  font-size: 0.8em; /* Taille de police plus petite pour la date */
+  color: #666; /* Couleur grise pour la date */
+}
+
 .reply-popup {
   position: fixed; /* Position fixe pour la superposition */
   top: 50%; /* Centrer verticalement */
   left: 50%; /* Centrer horizontalement */
   transform: translate(-50%, -50%); /* Ajuste la position pour centrer */
   border: 1px solid #ccc;
-  /* padding: 20px; */
-  border-radius: 5px;
-  background-color: white; /* Fond blanc pour le pop-up */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour l'effet pop-up */
+  padding: 20px;
+  background-color: #ffffff; /* Fond blanc pour le pop-up */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombre pour l'effet pop-up */
   z-index: 1000; /* Assure que le pop-up est au-dessus des autres éléments */
+  border-radius: 8px; /* Coins arrondis */
+  width: 400px; /* Largeur du pop-up */
+}
+
+.reply-title {
+  margin-bottom: 15px; /* Espace en dessous du titre */
+  font-size: 1.5em; /* Taille de police pour le titre */
+  color: #333; /* Couleur du texte */
+}
+
+.reply-section {
+  margin-bottom: 15px; /* Espace en dessous de la section de réponse */
+}
+
+.reply-section label {
+  display: block; /* Affiche chaque label sur une nouvelle ligne */
+  margin-bottom: 5px; /* Espace entre le label et le champ */
+  font-weight: bold; /* Met le texte en gras */
+}
+
+.reply-input,
+.reply-textarea,
+.reply-file-input {
+  width: calc(100% - 20px); /* Largeur complète en tenant compte du padding */
+  padding: 10px; /* Padding interne */
+  margin-top: 5px; /* Espace au-dessus des champs */
+  border-radius: 4px; /* Coins arrondis */
+  border: 1px solid #ccc; /* Bordure grise */
+  box-sizing: border-box; /* Inclut padding et bordure dans la largeur totale */
+}
+
+.reply-textarea {
+  height: 100px; /* Hauteur fixe pour la zone de texte */
+}
+
+.reply-buttons {
+  display: flex;
+  justify-content: space-between; /* Espace entre les boutons */
+}
+
+.btn {
+  padding: 10px 15px; /* Padding interne des boutons */
+  border-radius: 4px; /* Coins arrondis pour les boutons */
+  cursor: pointer; /* Curseur pointeur sur hover */
+  border: none; /* Pas de bordure par défaut */
+}
+
+.btn-send {
+  background-color: #007bff; /* Couleur de fond bleu pour le bouton "Envoyer" */
+  color: white; /* Texte blanc pour le bouton "Envoyer" */
+}
+
+.btn-send:hover {
+  background-color: #0056b3; /* Couleur plus foncée au survol du bouton "Envoyer" */
+}
+
+.btn-cancel {
+  background-color: #f44336; /* Couleur de fond rouge pour le bouton "Annuler" */
+  color: white; /* Texte blanc pour le bouton "Annuler" */
+}
+
+.btn-cancel:hover {
+  background-color: #c62828; /* Couleur plus foncée au survol du bouton "Annuler" */
 }
 
 .overlay {
@@ -33,44 +100,3 @@
   background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
   z-index: 999; /* Juste en dessous du pop-up */
 }
-
-.reply-section {
- margin-top: 10px; /* Espace entre l'entête et la section de réponse */
- padding: 10px;
-}
-
-.reply-section label {
- display: block; /* Affiche chaque label sur une nouvelle ligne */
- margin-top: 10px; /* Espace entre les labels et les champs */
-}
-
-.reply-section input[type="text"],
-.reply-section textarea {
- width: calc(100% - 20px); /* Largeur complète en tenant compte du padding */
- padding: 10px; /* Padding interne */
- margin-top: 5px; /* Espace au-dessus des champs */
- border-radius: 4px; /* Coins arrondis */
- border: 1px solid #ccc; /* Bordure grise */
- box-sizing: border-box; /* Inclut padding et bordure dans la largeur totale */
-}
-
-.reply-section input[type="file"] {
- margin-top: 5px; /* Espace au-dessus du champ de fichier */
- display:block; /* Pour s'assurer qu'il prend toute la largeur disponible */
-}
-
-button {
-height: 35px;
-width: auto;
- background-color:#007bff; /* Couleur de fond bleu */
- color:white; /* Texte blanc */
- border:none; /* Pas de bordure par défaut */
- border-radius:4px; /* Coins arrondis pour les boutons */
- cursor:pointer; /* Curseur pointeur sur hover */
- margin-top: 20px;
-}
-
-button:hover {
- background-color:#0056b3; /* Couleur plus foncée au survol */
-}
-

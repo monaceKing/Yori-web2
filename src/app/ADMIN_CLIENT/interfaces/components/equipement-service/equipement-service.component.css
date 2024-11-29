@@ -1,3 +1,11 @@
+.container {
+  width: 100%; /* Largeur du conteneur */
+  max-width: 1200px; /* Largeur maximale pour éviter que le conteneur ne devienne trop large sur les grands écrans */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  padding: 16px; /* Ajoute un peu d'espace intérieur */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+}
+
 .search-container {
   margin-bottom: 10px;
 }
@@ -122,6 +130,6 @@ section{
 }
 
 .menu-option button.selected {
-  background-color: #00ff22; /* Couleur de fond pour les boutons sélectionnés */
+  background-color: #a2a3a3; /* Couleur de fond pour les boutons sélectionnés */
   color: black; /* Couleur du texte pour les boutons sélectionnés */
 }

@@ -1,13 +1,13 @@
 .container{
   display: flex;
   flex-direction: column;
-
+  margin-left: 30px;
+  width: auto;
 }
 
 table {
   border-collapse: collapse;
   width: 50%;
-  margin-left: 30px;
   margin-top: 10px;
   background-color: white;
 }
@@ -70,4 +70,27 @@ input[type="submit"]:hover {
   color: #77B5FE;
   cursor: pointer;
   text-decoration: underline;
+}
+
+
+.icon{
+  cursor: pointer;
+  border: none;
+  background-color: initial;
+  font-size: 10px;
+}
+
+.btn-send{
+  color: white;
+  background-color: #77B5FE;
+  border: none;
+  margin: 16px 0;
+  display: flex ;
+  justify-content: right;
+  text-align: right;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+
 }
