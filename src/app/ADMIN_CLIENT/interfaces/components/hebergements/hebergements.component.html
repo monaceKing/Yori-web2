@@ -34,7 +34,7 @@
   <!-- div update chambre -->
    <div *ngIf="currentDiv === 'div1'">
       <div class="retour">
-        <button class="revenir" (click)="showDefault()"><b>&lt;</b>Revenir à la synthèse des réservations</button>
+        <button class="revenir" (click)="showDefault()"><b>&lt;</b>Revenir à l'hébergement</button>
       </div>
       <div>
         <app-update-chambre></app-update-chambre>
@@ -44,9 +44,9 @@
    </div>
 
    <!-- div add categorie -->
-    <div  *ngIf="currentDiv === 'div2'" style="background-color: blue;">
+    <div  *ngIf="currentDiv === 'div2'">
       <div class="retour">
-        <b>&lt;</b><button class="revenir" (click)="showDefault()">Revenir à la synthèse des réservations</button>
+        <button class="revenir" (click)="showDefault()"><b>&lt;</b> Revenir à l'hébergement</button>
       </div>
       <div>
         <app-update-chambre></app-update-chambre>

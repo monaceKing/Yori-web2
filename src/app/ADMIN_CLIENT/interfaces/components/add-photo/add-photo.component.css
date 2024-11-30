@@ -2,8 +2,12 @@
   padding: 20px;
 }
 
+.section{
+  background-color: white;
+  padding: 10px 0 0 40px;
+}
+
 .controls {
-  /* background-color: rgba(51, 255, 0, 0.758); */
   margin: 0 0 20px 20px;
   width: 550px;
 }
@@ -147,4 +151,25 @@ input[type="file"] {
 
 .delete-icon:hover {
   background-color: #f0f0f0; /* Changez le fond au survol pour un effet visuel */
+}
+
+
+@media (max-width: 768px) {
+  .section{
+    padding: 0;
+  }
+
+  .cadre{
+    margin: 0;
+    padding: 0;
+  }
+
+  .controls{
+    width: auto;
+    margin: 0;
+  }
+
+  .image-gallery{
+    width: auto;
+  }
 }

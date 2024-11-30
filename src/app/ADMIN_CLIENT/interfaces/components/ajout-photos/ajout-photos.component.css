@@ -8,6 +8,11 @@
   width: 550px;
 }
 
+.section{
+  background-color: white;
+  padding: 20px 0 0 40px;
+
+}
 
 .photo{
   width: 100px;
@@ -71,7 +76,7 @@ input[type="file"] {
 
 
 .entête {
-  padding: 5px;
+  padding: 10px;
   background-color: white;
   justify-content: left;
   text-align: left;
@@ -115,9 +120,7 @@ input[type="file"] {
   transition: transform 0.2s;
 }
 
-/* .image:hover {
-  transform: scale(1.1);
-} */
+
 
 .image-item label {
   cursor: pointer;
@@ -130,9 +133,6 @@ input[type="file"] {
   object-fit: cover; /* Assure que l'image couvre la cellule sans déformation */
 }
 
-/* .image-item:hover img {
-  transform: scale(1.05);
-} */
 
 
 .delete-icon {

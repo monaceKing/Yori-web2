@@ -1,11 +1,9 @@
 <div class="container">
   <div class="gallery-container">
-    <section style="background-color: white;">
+    <section class="section">
       <div class="controls">
         <h3>Ajoutez les photos représentant cette catégorie</h3>
-        <p>
-          <b>Téléchargez au moins 6 photos pour représnter cette catégorie</b>
-        </p>
+        <label >Téléchargez au moins 6 photos pour représnter cette catégorie</label>
         <div class="cadre">
           <img src="assets/img/photo.png" alt="photo drapeau" class="photo">
         <div class="one-btn">
@@ -17,11 +15,10 @@
           <p>pgj/Jpeg ou png 47 MB maximun par fichier.</p>
         </div>
         </div>
-        <hr>
+        <!-- <hr> -->
       </div>
-      <div class="entête">
-        <!-- <p>Photo d'accroche</p> -->
-      </div>
+      <!-- <div class="entête">
+      </div> -->
       <div class="image-gallery">
         <div *ngFor="let image of imagesSecondary; let i = index" class="image-item">
           <label for="image-sec-{{i}}">

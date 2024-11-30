@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatIcon } from '@angular/material/icon';
 // import { MatIcon } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -18,8 +19,8 @@ interface Message {
   imports: [
     MatTabsModule,
     CommonModule,
-    // MatIcon,
-    FormsModule
+    FormsModule,
+    MatIcon
   ],
   templateUrl: './boite-reception.component.html',
   styleUrl: './boite-reception.component.css'
@@ -27,7 +28,7 @@ interface Message {
 
   export class BoiteReceptionComponent {
     receivedMessages: Message[] = [
-      { id: 1, content: 'Ceci est le contenu complet du message 1.', date: new Date('1996-03-01T23:30:00') },
+      { id: 1, content: 'Informations importantes à propos de l\'établissement hotel sotega 1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus?', date: new Date('1996-03-01T23:30:00') },
       { id: 2, content: 'Voici le message 2 avec plus de détails.', date: new Date() },
       { id: 3, content: 'Message numéro 3 pour la discussion.', date: new Date() },
       { id: 4, content: 'Détails supplémentaires du message 4.', date: new Date() },
