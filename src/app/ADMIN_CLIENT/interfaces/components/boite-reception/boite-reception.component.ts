@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 // import { MatIcon } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs'; 
+import { th, tr } from 'intl-tel-input/i18n';
 
 
 interface Message {
@@ -39,6 +40,8 @@ interface Message {
 
   selectedMessage?: Message;
   isReplying = false;
+  newMessage = false;
+  messageSent = false;
 
   // Propriétés pour la réponse
   replySubject: string = '';
@@ -60,9 +63,18 @@ interface Message {
       this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
   }
 
+  sendNewMessage(){
+    this.newMessage = true;
+    this.replySubject = ''; // Réinitialiser l'objet
+    this.replyBody = ''; // Réinitialiser le corps
+  }
+
   closeReplyPopup() {
       this.isReplying = false;
+      this.newMessage = false;
+      this.messageSent = false;
   }
+
 
   submitReply() {
       if (this.replyBody.trim()) { // Vérifier que le corps du message n'est pas vide
@@ -80,9 +92,16 @@ interface Message {
           this.replySubject = '';
           this.replyBody = '';
           this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
+          this.submitReply2();
 
-          console.log('Nouveau message envoyé:', newMessage);
+          console.log('Réponse au message envoyé:', newMessage);
       }
+  }
+
+
+  submitReply2(){
+    this.messageSent = true;
+    this.newMessage = false;
   }
 
   onFileSelected(event: Event) {
