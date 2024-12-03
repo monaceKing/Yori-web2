@@ -1,24 +1,87 @@
-<div>
+<style>
+  .container{
+    margin-top: -20px;
+    background-color: white;
+    padding-left: 30px;
+  }
+  .comment-rating {
+    margin-top: 5px;
+  }
+  
+  .circle {
+    width: 10px; /* Ajustez la taille selon vos besoins */
+    height: 10px; /* Ajustez la taille selon vos besoins */
+    background-color: green; /* Couleur verte */
+    border-radius: 50%;
+    margin-right: 5px; /* Espacement entre les cercles */
+  }
+  
+  .commentaire{
+    background-color: rgb(224, 224, 224);
+    display: inline-block; /* Permet à la div de s'ajuster à son contenu */
+  padding: 10px; /* Ajoute de l'espace intérieur */
+  margin: 5px 0; /* Ajoute un espacement vertical entre les commentaires */
+  border: 1px solid #ccc; /* Optionnel : ajoute une bordure pour visualiser la div */
+  border-radius: 5px; /* Optionnel : arrondit les coins de la bordure */
+  }
+  </style>
+
+<div class="container">
   <h2>Commentaires</h2>
 
-  <div *ngFor="let comment of comments">
-    <p><strong>{{ comment.userId }}</strong> ({{ comment.rating }} étoiles) : {{ comment.content }} - {{ comment.createdDate | date }}</p>
+  <div *ngFor="let comment of comments" class="comment">
+    <!-- Première ligne : icône du profil et nom -->
+    <div class="comment-header">
+      <img src="path/to/profile-icon.png" alt="Profil" class="profile-icon" />
+      <strong>{{ comment.userId }}</strong>
+    </div>
 
-    <div *ngFor="let reply of comment.replies">
+    <!-- Deuxième ligne : date du commentaire -->
+    <div class="comment-date">
+      Commentaire {{ comment.createdDate | date:'dd/MM/yyyy' }}
+    </div>
+
+    <!-- Troisième ligne : appréciation -->
+    <div class="comment-rating">
+      <div style="display: flex; align-items: center;">
+        <span style="margin-right:5px;">{{ comment.rating }}</span>
+        <span *ngFor="let i of [].constructor(comment.rating); let idx = index" class="circle"><br></span><br>
+      </div>
+      <div>
+        <span *ngIf="comment.rating === 5">Satisfait</span>
+        <span *ngIf="comment.rating === 4">Satisfait</span>
+        <span *ngIf="comment.rating === 3">Moyen</span>
+        <span *ngIf="comment.rating === 2">Pas satisfait</span>
+        <span *ngIf="comment.rating === 1">Pas satisfait</span>
+      </div>
+    </div>
+
+
+    <!-- Quatrième ligne : commentaire -->
+    <div class="comment-content">
+      <div class="commentaire">
+        <p>{{ comment.content }}</p>
+      </div><br>
+      <button (click)="toggleReply(comment.id)">Répondre</button>
+    </div>
+
+    <!-- Réponses -->
+    <div *ngFor="let reply of comment.replies" class="reply">
       <p style="margin-left:20px;"><strong>{{ reply.userId }}</strong> : {{ reply.content }} - {{ reply.createdDate | date }}</p>
     </div>
 
-    <input #replyInput placeholder="Répondre..." [(ngModel)]="replyContent[comment.id]" />
-    <button [disabled]="!replyContent[comment.id]" (click)="addReply(comment.id, replyContent[comment.id]); replyContent[comment.id] = ''">Répondre</button>
+    <!-- Champ de réponse -->
+    <div *ngIf="isReplying(comment.id)">
+      <input #replyInput placeholder="Répondre..." [(ngModel)]="replyContent[comment.id]" />
+      <button [disabled]="!replyContent[comment.id]" (click)="addReply(comment.id, replyContent[comment.id]); replyContent[comment.id] = ''">Envoyer</button>
+    </div>
   </div>
 
   <h3>Laissez un commentaire</h3>
 
   <input [(ngModel)]="newCommentUserId" placeholder="Identifiant de l'utilisateur" />
-
   <input [(ngModel)]="newCommentContent" placeholder="Laissez un commentaire..." />
-
   <input type="number" [(ngModel)]="newCommentRating" placeholder="Étoiles (1-5)" min="1" max="5" />
-
+  
   <button (click)="addComment()">Envoyer</button>
 </div>

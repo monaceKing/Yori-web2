@@ -1,7 +1,32 @@
-div {
+/* div {
   margin-bottom: 10px;
 }
 
 input {
   margin-right: 5px;
+} */
+
+
+.profile-icon {
+  width: 30px; /* Ajustez la taille selon vos besoins */
+  height: 30px; /* Ajustez la taille selon vos besoins */
+  border-radius: 50%; /* Pour rendre l'icône ronde */
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+.comment-rating {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 10px; /* Ajustez la taille selon vos besoins */
+  height: 10px; /* Ajustez la taille selon vos besoins */
+  background-color: green; /* Couleur verte */
+  border-radius: 50%;
+  margin-right: 5px; /* Espacement entre les cercles */
 }

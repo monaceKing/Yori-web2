@@ -8,9 +8,9 @@ export interface Comment {
     content: string;
     createdDate: Date;
     rating: number; // Appréciation entre 1 et 5
-    replies?: Comment[];
+    replies: Comment[];
 }
-
+ 
 @Component({
   selector: 'app-commentaires',
   standalone: true,
@@ -22,6 +22,7 @@ export interface Comment {
   styleUrl: './commentaires.component.css'
 })
 export class CommentairesComponent {
+
   comments: Comment[] = [
     {
       id: 1,
@@ -69,6 +70,7 @@ export class CommentairesComponent {
   newCommentUserId: string = '';
   newCommentRating: number = 0; // Initialisé à zéro
   replyContent: { [key: number]: string } = {}; // Pour stocker les réponses par ID de commentaire
+  replyingToCommentId: number | null = null; // ID du commentaire auquel on répond
 
   addComment() {
     // Vérifiez que les champs ne sont pas vides et que la note est valide
@@ -97,7 +99,7 @@ export class CommentairesComponent {
     const comment = this.comments.find(c => c.id === commentId);
     if (comment && replyContentValue) { // Vérifiez que le contenu de la réponse n'est pas vide
       const reply: Comment = {
-        id: comment.replies?.length ? comment.replies.length + 1 : 1,
+        id: comment.replies.length + 1, // Utilisation de la longueur pour l'ID
         userId: 'Répondant', // Vous pouvez personnaliser cela
         content: replyContentValue,
         createdDate: new Date(),
@@ -105,10 +107,23 @@ export class CommentairesComponent {
         replies: []
       };
 
-      comment.replies?.push(reply);
+      comment.replies.push(reply);
 
       // Réinitialiser le contenu de la réponse après l'ajout
       this.replyContent[commentId] = '';
+      this.replyingToCommentId = null; // Réinitialiser l'ID après ajout
     }
+  }
+
+  toggleReply(commentId: number) {
+    if (this.replyingToCommentId === commentId) {
+      this.replyingToCommentId = null; // Fermer le champ si déjà ouvert
+    } else {
+      this.replyingToCommentId = commentId; // Ouvrir le champ pour ce commentaire
+    }
+  }
+
+  isReplying(commentId: number): boolean {
+    return this.replyingToCommentId === commentId;
   }
 }
