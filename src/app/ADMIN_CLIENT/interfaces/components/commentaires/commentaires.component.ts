@@ -27,9 +27,9 @@ export class CommentairesComponent {
     {
       id: 1,
       userId: 'Utilisateur1',
-      content: 'Super produit, je suis très satisfait !',
+      content: 'déception totale !',
       createdDate: new Date('2024-11-20'),
-      rating: 5,
+      rating: 1,
       replies: []
     },
     {

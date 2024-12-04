@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIcon } from '@angular/material/icon';
 export interface Item {
   id: number;
   invoiceNumber: string; // Numéro de la facture
   title: string;
+  startDate:String;
+  endtDate:String;
+  limitDate:String;
   amount: number;
   commission: number;
   selected: boolean; // Pour savoir si la ligne est sélectionnée
@@ -13,7 +17,7 @@ export interface Item {
 interface SelectedInvoice {
   invoiceNumber: string;
   commission: number;
-}
+} 
 
 @Component({
   selector: 'app-factures',
@@ -21,7 +25,8 @@ interface SelectedInvoice {
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIcon
   ],
   templateUrl: './factures.component.html',
   styleUrl: './factures.component.css'
@@ -29,27 +34,24 @@ interface SelectedInvoice {
 export class FacturesComponent {
   form: FormGroup;
   [key: string]: any;
+  
   items: Item[] = [
-    { id: 1, invoiceNumber: 'FAC-001', title: 'Produit A', amount: 100, commission: 10, selected: false },
-    { id: 2, invoiceNumber: 'FAC-002', title: 'Produit B', amount: 200, commission: 20, selected: false },
-    { id: 3, invoiceNumber: 'FAC-003', title: 'Produit C', amount: 150, commission: 15, selected: false },
-    { id: 4, invoiceNumber: 'FAC-004', title: 'Produit D', amount: 300, commission: 30, selected: false },
-    { id: 5, invoiceNumber: 'FAC-005', title: 'Produit E', amount: 250, commission: 25, selected: false }
+    { id: 1, invoiceNumber: 'FAC-001', title: 'Produit A',startDate:'20-07-2024',endtDate:'29-07-2024',limitDate:': 16 avr. 2024', amount: 100, commission: 10, selected: false },
+    { id: 2, invoiceNumber: 'FAC-002', title: 'Produit B', startDate:'20-07-2024',endtDate:'29-07-2024',limitDate:': 16 avr. 2024',amount: 200, commission: 20, selected: false },
+    { id: 3, invoiceNumber: 'FAC-003', title: 'Produit C', startDate:'20-07-2024',endtDate:'29-07-2024',limitDate:': 16 avr. 2024',amount: 150, commission: 15, selected: false },
+    { id: 4, invoiceNumber: 'FAC-004', title: 'Produit D', startDate:'20-07-2024',endtDate:'29-07-2024',limitDate:': 16 avr. 2024',amount: 300, commission: 30, selected: false },
+    { id: 5, invoiceNumber: 'FAC-005', title: 'Produit E', startDate:'20-07-2024',endtDate:'29-07-2024',limitDate:': 16 avr. 2024',amount: 250, commission: 25, selected: false }
   ];
 
     paiements = [
-      { id:1, label: 'Carte de crédit/débit', imgSrc: ['assets/img/eux.png', 'assets/img/eux.png', 'assets/img/eux.png'] },
-      { id:2, label: 'Paiement digital', imgSrc: ['assets/img/eux.png'] },
-      { id:3, label: 'Airtel Money', imgSrc: ['assets/img/eux.png'] },
+      { id:1, label: 'Carte de crédit/débit', imgSrc: ['assets/img/visa.png', 'assets/img/visa-yellow.png', 'assets/img/GB-card.png'] },
+      { id:2, label: 'Paiement digital', imgSrc: ['assets/img/paypal.png'] },
+      { id:3, label: 'Airtel Money', imgSrc: ['assets/img/airtel.png'] },
     ];
 
-    constructor(private fb: FormBuilder){
-      this.form = this.fb.group({});
-      this.initializeControls(this.paiements, 'paiement');
-    }
-    initializeControls(items: any[], prefix: string) {
-      items.forEach(item => {
-        this.form.addControl(`${prefix}${item.id}`, this.fb.control(false));
+    constructor(private fb: FormBuilder) {
+      this.form = this.fb.group({
+        paiement: [null] // Initialise le contrôle pour le paiement sélectionné
       });
     }
 
@@ -105,4 +107,14 @@ export class FacturesComponent {
     this.items.forEach(item => item.selected = false); // Réinitialiser les sélections
     this.updateTotals(); // Mettre à jour les totaux après réinitialisation
   }
+  printPage() {
+    window.print();
+}
+
+
+isListVisible: boolean = false; // Initialise la visibilité de la liste
+toggleList() {
+  this.isListVisible = !this.isListVisible; // Inverse la visibilité de la liste
+}
+
 }
