@@ -1,4 +1,50 @@
+.container1{
+  margin-left: 70px;
+  width: 90%;
+}
+
+.div-top{
+  background-color: white;
+  padding: 10px;
+}
+.div-top h4{
+  display: flex;
+  gap: 10px;
+}
+
+
+
+.button-container {
+    display: flex;               /* Utilisation de Flexbox */
+    justify-content: flex-end;   /* Aligne le bouton à droite */
+    align-items: center;         /* Centre verticalement */
+}
+
+.printPage {
+    background-color: initial;  /* Couleur de fond du bouton */
+    color: rgb(0, 0, 0);                /* Couleur du texte */
+    border: none;                /* Supprime la bordure par défaut */
+    text-align: center;          /* Centre le texte dans le bouton */
+    text-decoration: none;       /* Supprime la décoration du texte */
+    display: inline-flex;        /* Utilise inline-flex pour aligner l'icône et le texte */
+    align-items: center;         /* Centre verticalement l'icône et le texte */
+    cursor: pointer;             /* Change le curseur au survol */
+}
+
+.printPage mat-icon {
+    margin-right: 5px;          /* Espace entre l'icône et le texte */
+}
+
+.title {
+  background-color: initial;  /* Couleur de fond du bouton */
+  color: rgb(0, 0, 0);                /* Couleur du texte */
+  border: none;                /* Supprime la bordure par défaut */
+  text-decoration: none;       /* Supprime la décoration du texte */
+  cursor: pointer;             /* Change le curseur au survol */
+}
+
 table {
+  background-color: white;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -10,10 +56,9 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-/* En-tête du tableau */
-th {
-  background-color: #4CAF50; /* Couleur de fond verte */
-  color: white; /* Couleur du texte blanche */
+h3{
+  margin-left: 15px;
+  color: red;
 }
 
 /* Lignes du tableau */
@@ -40,11 +85,14 @@ p {
 }
 
 
+.title{
+  margin-left: 100px;
+}
+
 .big-card{
+  margin: 0 100px;
   display: flex;
-  gap: 100px;
-  /* justify-content: center; */
-  /* text-align: center; */
+  justify-content: space-between;
 }
 
 .card-left, .card-right{
@@ -52,15 +100,18 @@ p {
 }
 
 .card-left{
-  justify-content: center;
+  display: flex;               /* Utilisation de Flexbox */
+    flex-direction: column;      /* Aligne les enfants en colonne */
+    justify-content: space-between; /* Espace entre les éléments */
+    /* height: 100%;   */
   padding: 10px;
-  height: 300px;
-  width: 400px;
+  height: 500px;
+  width: 600px;
 }
 
 .card-right{
-  height: 200px;
-  width: 300px;
+  height: 400px;
+  width: 500px;
   /* padding: 10px; */
 }
 
@@ -69,12 +120,55 @@ p {
   padding-left: 10px;
 }
 
-.solde{
+
+.div-paiement{
+  display: flex; 
+  justify-content: space-between; 
+  margin: 0 20px;
+}
+
+
+.btn-paiement{
+  padding: 10px;
   border: none;
-  width: 100%;
-  height: 40px;
   color: white;
-  background-color: rgba(67, 196, 255, 0.833);
-  font-size: 20px;
-  font-weight: bold;
+  background-color: #77B5FE;
+  border-radius: 5px;
+}
+
+
+.toggle-button{
+  border: none;
+}
+
+.solde {
+  margin-top: auto;           /* Pousse le bouton vers le bas */
+  background-color: #77B5FE;  /* Couleur de fond du bouton */
+  color: white;                /* Couleur du texte */
+  border: none;                /* Supprime la bordure par défaut */
+  padding: 10px 20px;         /* Espacement intérieur du bouton */
+  text-align: center;          /* Centre le texte dans le bouton */
+  border-radius: 5px;         /* Arrondit les coins du bouton */
+  cursor: pointer;             /* Change le curseur au survol */
+}
+
+
+@media (max-width: 768px) {
+ table{
+  padding: 0;
+  margin: 0;
+  width: auto;
+ }
+
+ .container1,.container{
+  width: auto;
+  margin: 0;
+  padding: 0;
+ }
+
+ th, td {
+  padding: 6px;
+  /* text-align: left; */
+  border-bottom: 1px solid #ddd;
+}
 }

@@ -1,72 +1,107 @@
-<div *ngIf="!showPaymentDetails">
-  <h2>Tableau des Produits</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>
-          <input type="checkbox" (change)="toggleSelectAll($event)" />
-        </th>
-        <th>Numéro de Facture</th>
-        <th>Intitulé</th>
-        <th>Montant</th>
-        <th>Commission</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items">
-        <td>
-          <input type="checkbox" [(ngModel)]="item.selected" (change)="updateTotals()" />
-        </td>
-        <td>{{ item.invoiceNumber }}</td>
-        <td>{{ item.title }}</td>
-        <td>{{ item.amount }}</td>
-        <td>{{ item.commission }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div style="display: flex; gap: 500px;">
-    <div>
-      <button (click)="processPayment()" [disabled]="amountToPay <= 0">Paiement</button> <!-- Bouton Paiement -->
+<div>
+  <div *ngIf="!showPaymentDetails" class="container1">
+    <div class="container">
+      <h2>Factures</h2>
+      <p>Les factures sont émises en fonction de la date de départ de vos clients</p>
+      <div class="div-top">
+        <h4><mat-icon>report</mat-icon><span>Annonce à considérer avec attention</span></h4>
+        <p>Le règlement de toutes les factures doit être effectué entre le 15 et le 30 du mois. En cas de factures impayées, votre établissement risque de ne plus recevoir de réservations jusqu'à nouvel ordre</p>
+      </div>
     </div>
-    <div>
-      <p>Total des Commissions (Montant Dû) : {{ totalDue }}</p> <!-- Montant dû -->
-      <p>Montant à Payer : {{ amountToPay }}</p> <!-- Montant à payer -->
+    <div class="button-container">
+      <button class="printPage" (click)="printPage()"> 
+          <mat-icon>print</mat-icon>
+          Imprimer la liste des réservations
+      </button>
+    </div>
+    <table class="tableau">
+      <thead>
+        <h3>Montants à payer</h3>
+        <tr>
+          <th>
+            <input type="checkbox" (change)="toggleSelectAll($event)" />
+          </th>
+          <th>Nom du document</th>
+          <th>Numéro de réservation</th>
+          <th>Date de début</th>
+          <th>Date de fin</th>
+          <th>Date limite</th>
+          <!-- <th>Montant</th> -->
+          <th>Montant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>
+            <input type="checkbox" [(ngModel)]="item.selected" (change)="updateTotals()" />
+          </td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.invoiceNumber }}</td>
+          <td>{{ item.startDate }}</td>
+          <td>{{ item.endtDate }}</td>
+          <td style="color: red;">Impayée (date limite {{ item.limitDate }}) </td>
+          <!-- <td>{{ item.amount }}</td> -->
+          <td>{{ item.commission }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="div-paiement">
+      <div>
+        <button *ngIf="amountToPay > 0" (click)="processPayment()" [disabled]="amountToPay <= 0" class="btn-paiement">
+          Procéder au paiement
+        </button>
+      </div>
+      <div>
+        <p *ngIf="amountToPay > 0">Montant à Payer : {{ amountToPay }}</p>
+        <p>Montant Dû : <b style="color: red;">{{ totalDue }}</b></p>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- Nouvelle div pour afficher les détails de paiement -->
-<div *ngIf="showPaymentDetails">
-   <button (click)="resetView()">Retour au tableau</button><br>
-   <label>Paiement des factures</label>
-   <p>Choisissez un mode de paiement et effectuez le règlement de vos factures</p>
-
-   <div class="big-card">
-    <h3></h3>
-   <form [formGroup]="form">
-    <div class="card-left">
-      <div *ngFor="let paiement of paiements" class="payment-option" style="display: flex; align-items: center;">
-        <input type="checkbox" [formControlName]="'paiement' + paiement.id" id="{{ paiement.label }}" />
-        <label for="{{ paiement.label }}" style="display: flex; align-items: center; margin-left: 10px;">
-          {{ paiement.label }}
-          <div *ngFor="let img of paiement.imgSrc" style="margin-left: 10px;">
-            <img [src]="img" alt="{{ paiement.label }}" style="width: 20px; height: auto;" />
+  
+  <!-- Nouvelle div pour afficher les détails de paiement -->
+  <div *ngIf="showPaymentDetails">
+     <div class="title">
+      <button (click)="resetView()"> 
+        <mat-icon>arrow_back</mat-icon> 
+        Retour au tableau
+      </button>
+     <h1>Paiement des factures</h1>
+     <p>Choisissez un mode de paiement et effectuez le règlement de vos factures</p>
+     </div>
+  
+     <div class="big-card">
+     <form [formGroup]="form">
+      <div class="card-left">
+        <div class="payment-options">
+          <div *ngFor="let paiement of paiements" class="payment-option" style="display: flex; align-items: center;">
+              <input type="radio" [formControlName]="'paiement'" id="{{ paiement.label }}" name="paiement" [value]="paiement.id" />
+              <label for="{{ paiement.label }}" style="display: flex; align-items: center; margin-left: 10px;">
+                  {{ paiement.label }}
+                  <div *ngFor="let img of paiement.imgSrc" style="margin-left: 10px;">
+                      <img [src]="img" alt="{{ paiement.label }}" style="width: 20px; height: auto;" />
+                  </div>
+              </label>
           </div>
-        </label>
+        </div>
+        <button class="solde">Payer {{ amountToPay }} FCFA</button>
       </div>
-      <button class="solde">payer  {{ amountToPay }} FCFA</button>
+     </form>
+       <div class="card-right">
+        <div>Aperçu factures</div>
+        <label style="padding-left: 10px;">factures ({{selectedInvoices.length}}) </label>
+        <button (click)="toggleList()" class="toggle-button">
+          <mat-icon>{{ isListVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </button>
+       <div class="dropdown">
+    <ul *ngIf="isListVisible">
+        <li *ngFor="let invoice of selectedInvoices">
+            {{ invoice.invoiceNumber }} : {{ invoice.commission }} FCFA
+        </li>
+    </ul>
+</div>
+       <h3 style="padding: 10px;background-color: #4CAF50; color: white;">Montant Total: {{ amountToPay }} FCFA</h3>
+       </div>
      </div>
-   </form>
-     <div class="card-right">
-      <div>Aperçu factures</div>
-      <label style="padding-left: 10px;">factures ({{selectedInvoices.length}}) </label>
-     <ul>
-       <li *ngFor="let invoice of selectedInvoices">
-         {{ invoice.invoiceNumber }} : {{ invoice.commission }} FCFA
-       </li>
-     </ul>
-     <h3 style="padding: 10px;background-color: #4CAF50; color: white;">Montant Total: {{ amountToPay }} FCFA</h3>
-     </div>
-   </div>
+  </div>
 </div>
