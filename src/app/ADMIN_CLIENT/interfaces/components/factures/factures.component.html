@@ -88,18 +88,20 @@
       </div>
      </form>
        <div class="card-right">
-        <div>Aperçu factures</div>
-        <label style="padding-left: 10px;">factures ({{selectedInvoices.length}}) </label>
+        <div style="  border-bottom: 1px solid black;">Aperçu factures</div>
+        <div style="display: flex; justify-content: space-between;">
+          <label style="padding-left: 10px;">factures ({{selectedInvoices.length}}) </label>
         <button (click)="toggleList()" class="toggle-button">
           <mat-icon>{{ isListVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
-      </button>
+        </button>
+        </div>
        <div class="dropdown">
-    <ul *ngIf="isListVisible">
-        <li *ngFor="let invoice of selectedInvoices">
-            {{ invoice.invoiceNumber }} : {{ invoice.commission }} FCFA
-        </li>
-    </ul>
-</div>
+        <ul *ngIf="isListVisible">
+            <li *ngFor="let invoice of selectedInvoices">
+                {{ invoice.invoiceNumber }} : {{ invoice.commission }} FCFA
+            </li>
+        </ul>
+      </div>
        <h3 style="padding: 10px;background-color: #4CAF50; color: white;">Montant Total: {{ amountToPay }} FCFA</h3>
        </div>
      </div>
