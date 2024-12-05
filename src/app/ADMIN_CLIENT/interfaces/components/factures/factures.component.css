@@ -103,14 +103,13 @@ p {
   display: flex;               /* Utilisation de Flexbox */
     flex-direction: column;      /* Aligne les enfants en colonne */
     justify-content: space-between; /* Espace entre les éléments */
-    /* height: 100%;   */
   padding: 10px;
-  height: 500px;
+  height: 400px;
   width: 600px;
 }
 
 .card-right{
-  height: 400px;
+  height: 300px;
   width: 500px;
   /* padding: 10px; */
 }
@@ -165,6 +164,16 @@ li {
   cursor: pointer;             /* Change le curseur au survol */
 }
 
+.solde span{
+  padding-bottom: 30px;
+}
+
+.montant{
+  padding: 10px;
+  background-color: #4CAF50; 
+  color: white;
+}
+
 
 @media (max-width: 768px) {
  table{
@@ -184,4 +193,36 @@ li {
   /* text-align: left; */
   border-bottom: 1px solid #ddd;
 }
+
+
+.big-card{
+  margin: 0 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.card-left{
+  display: flex;               
+  flex-direction: column;      
+  justify-content: space-between;
+  padding: 5px;
+  height: auto;
+  width: auto;
+}
+
+.card-right{
+  height: auto;
+  width: auto;
+  padding: 0;
+}
+
+.montant{
+  padding: 1px;
+  margin: 0;
+  background-color: #4CAF50; 
+  color: white;
+}
+
+
 }

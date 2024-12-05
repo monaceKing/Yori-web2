@@ -1,11 +1,70 @@
-/* div {
-  margin-bottom: 10px;
+.container{
+  margin-top: -20px;
+  padding-left: 30px;
 }
 
-input {
-  margin-right: 5px;
-} */
+.comment{
+width: 30%;
+background-color: white;
+padding: 30px;
+}
 
+.comment-rating {
+  margin-top: 5px;
+}
+
+.circle {
+  width: 10px; /* Ajustez la taille selon vos besoins */
+  height: 10px; /* Ajustez la taille selon vos besoins */
+  border-radius: 50%;
+  margin-right: 5px; /* Espacement entre les cercles */
+}
+
+.filled {
+  background-color: green; /* Couleur verte pour les cercles remplis */
+}
+
+.outline {
+  background-color: white; /* Fond blanc pour les cercles non remplis */
+  border: 2px solid green; /* Contour vert pour les cercles non remplis */
+}
+
+.rating-text {
+  margin-top: 5px; /* Ajoute un espacement entre les cercles et le texte */
+  font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
+}
+
+/* moa */
+.comment-content {
+  position: relative; /* Permet de positionner le bouton par rapport à cette div */
+}
+
+.reply-button {
+  border: none;
+  color: #77B5FE;
+  display: block;
+  margin-top: 5px;
+  margin-left: 250px;
+  background-color: initial;
+  font-weight:bold;
+  cursor: pointer;
+}
+
+.commentaire {
+  background-color: rgb(224, 224, 224);
+  width: 300px;          /* Largeur fixe de 300 pixels */
+  height: auto;          /* Hauteur automatique */
+  display: inline-block; /* Permet à la div de s'ajuster à son contenu */
+  padding: 10px;         /* Ajoute de l'espace intérieur */
+  margin: 5px 0;        /* Ajoute un espacement vertical entre les commentaires */
+  border: 1px solid #ccc; /* Optionnel : ajoute une bordure pour visualiser la div */
+  border-radius: 5px;   /* Optionnel : arrondit les coins de la bordure */
+  word-wrap: break-word; /* Permet au texte de revenir à la ligne si trop long */
+}
+
+.reponse{
+margin-bottom: 20px;
+}
 
 .profile-icon {
   width: 30px; /* Ajustez la taille selon vos besoins */
@@ -29,4 +88,35 @@ input {
   background-color: green; /* Couleur verte */
   border-radius: 50%;
   margin-right: 5px; /* Espacement entre les cercles */
+} 
+
+
+
+
+
+@media (max-width: 768px) {
+  .commentaire {
+    background-color: rgb(224, 224, 224);
+    width: auto;          /* Largeur fixe de 300 pixels */
+    height: auto;          /* Hauteur automatique */
+    display: inline-block; /* Permet à la div de s'ajuster à son contenu */
+    padding: 2px;         /* Ajoute de l'espace intérieur */
+    margin: 0;        /* Ajoute un espacement vertical entre les commentaires */
+    border: 1px solid #ccc; /* Optionnel : ajoute une bordure pour visualiser la div */
+    border-radius: 5px;   /* Optionnel : arrondit les coins de la bordure */
+    word-wrap: break-word; /* Permet au texte de revenir à la ligne si trop long */
+  }
+
+
+  .reply-button {
+    border: none;
+    color: #77B5FE;
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    background-color: initial;
+    font-weight:bold;
+    cursor: pointer;
+  }
+  
 }
