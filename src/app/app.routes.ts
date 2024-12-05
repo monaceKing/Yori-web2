@@ -33,6 +33,10 @@ import { InfosUtilisateurComponent } from './ADMIN_CLIENT/components/infos-utili
 import { CreerPasseComponent } from './ADMIN_CLIENT/components/creer-passe/creer-passe.component';
 import { ContacterEquipeComponent } from './ADMIN_CLIENT/components/contacter-equipe/contacter-equipe.component';
 import { InterfaceLayoutComponent } from './ADMIN_CLIENT/interfaces/interface-layout/interface-layout.component';
+import { AmourComponent } from './ADMIN_CLIENT/interfaces/components/analyse/amour/amour.component';
+import { ClaudelComponent } from './ADMIN_CLIENT/interfaces/components/analyse/claudel/claudel.component';
+import { FransdaComponent } from './ADMIN_CLIENT/interfaces/components/analyse/fransda/fransda.component';
+import { InelComponent } from './ADMIN_CLIENT/interfaces/components/analyse/inel/inel.component';
 
 export const routes: Routes =  [
     {
@@ -126,6 +130,12 @@ export const routes: Routes =  [
         //   { path: 'interface-hebergements', component: HebergementsComponent },
         //   { path: '', redirectTo: '/interface', pathMatch: 'full' }
         // ]
+        children:[
+            { path: 'amour', component: AmourComponent },
+            { path: 'claudel', component: ClaudelComponent },
+            { path: 'fransda', component: FransdaComponent },
+            { path: 'inel', component: InelComponent },
+        ]
       },
 
 

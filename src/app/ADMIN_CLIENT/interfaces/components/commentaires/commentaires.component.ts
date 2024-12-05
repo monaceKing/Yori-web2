@@ -20,7 +20,7 @@ export interface Comment {
   ],
   templateUrl: './commentaires.component.html',
   styleUrl: './commentaires.component.css'
-})
+}) 
 export class CommentairesComponent {
 
   comments: Comment[] = [
