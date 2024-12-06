@@ -1,0 +1,93 @@
+.haut,.milieu,.graphique{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.milieu{
+    margin: 20px 0;
+}
+
+.text{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.jr1{
+    background-color: #AFD75C;
+}
+
+.jr2{
+    background-color: #FF4D50;
+}
+
+.jr3{
+    background-color: #F9C620;
+}
+
+.jr4{
+    background-color: #4E71CB;
+}
+
+label{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.gauche, .droit{
+    width: 300px;
+    height: 150px;
+}
+
+
+.argent{
+    display: inline;
+    text-align: center;
+    justify-content: center;
+}
+
+.argent p{
+    color: white;
+    font-size: 20px;
+}
+
+.image{
+    background-color: aliceblue;
+    width:50px;
+    margin-left: 40%;
+    border-radius: 90%;
+    padding: 5px;
+}
+
+.graphique .jours{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    margin: 0 3px;
+}
+
+.jours button{
+    border-radius: 15px;
+    border: 0.2px solid #77B5FE;
+    color: #77B5FE;
+    background-color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.jours button:hover{
+    background-color: #77B5FE;
+    color: white;
+}
+
+.bars button{
+    border: none;
+    height: 4px;
+    width: 20px;
+    border-radius: 5px;
+}
