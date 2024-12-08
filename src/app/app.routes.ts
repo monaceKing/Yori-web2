@@ -133,7 +133,7 @@ export const routes: Routes =  [
         children:[
             { path: 'amour', component: AmourComponent },
             { path: 'claudel', component: ClaudelComponent },
-            { path: 'fransda', component: FransdaComponent },
+            { path: 'nombre-reservation', component: FransdaComponent },
             { path: 'inel', component: InelComponent },
         ]
       },

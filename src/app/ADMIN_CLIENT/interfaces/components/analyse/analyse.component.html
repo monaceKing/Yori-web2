@@ -1,4 +1,23 @@
 <div style="display: flex;">
-  <app-letf-sidebar></app-letf-sidebar>
-  <app-main></app-main>
+  <div >
+    <div class="sidenav-nav">
+      <ul style="text-decoration: none_;">
+        <li *ngFor="let item of items" class="sidenav-nav-item">
+          <a 
+            class="sidenav-nav-link" 
+            (click)="setActiveComponent(item.component)"
+            [ngClass]="{'active': activeComponent === item.component}"
+          >
+            <i class="sidenav-link-icon" [class]="item.icon"></i>
+            <span *ngIf="!isLeftSidebarCollapsed()" class="sidenav-link-text">{{ item.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="div2">
+    <!-- Outlet pour afficher le composant actif -->
+    <ng-container *ngComponentOutlet="activeComponent"></ng-container>
+  </div>
 </div>

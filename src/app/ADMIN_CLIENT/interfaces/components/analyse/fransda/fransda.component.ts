@@ -11,7 +11,7 @@ import * as Highcharts from 'highcharts';
 })
 export class FransdaComponent implements OnInit {
   public options: any;
-
+ 
   ngOnInit() {
     this.options = {
       chart: {
