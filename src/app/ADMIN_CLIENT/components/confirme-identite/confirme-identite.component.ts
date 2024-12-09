@@ -9,9 +9,9 @@ import { RouterLink } from '@angular/router';
     RouterLink,
     MatIcon
   ],
-  templateUrl: './probleme-connexion.component.html',
-  styleUrl: './probleme-connexion.component.css'
+  templateUrl: './confirme-identite.component.html',
+  styleUrl: './confirme-identite.component.css'
 })
-export class ProblemeConnexionComponent {
+export class ConfirmeIdentiteComponent {
 
 }

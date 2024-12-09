@@ -5,11 +5,10 @@ import { RouterLink } from '@angular/router';
   selector: 'app-service-client',
   standalone: true,
   imports: [
-    RouterLink
   ],
-  templateUrl: './contacter-equipe.component.html',
-  styleUrl: './contacter-equipe.component.css'
+  templateUrl: './service-client.component.html',
+  styleUrl: './service-client.component.css'
 })
-export class ContacterEquipeComponent {
+export class ServiceClientComponent {
 
 }

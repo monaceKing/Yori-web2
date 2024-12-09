@@ -1,0 +1,63 @@
+.container{
+    margin-top: -20px; /*espace entre le composant et le header */
+    display: flex;
+    flex-direction: column; /* Aligne les enfants en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    padding: 20px; /* Ajoute un peu d'espace autour */
+}
+
+.card {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column; /* Aligne les enfants en colonne */
+    justify-content: left; /* Centre verticalement */
+    align-items: left; /* Centre horizontalement */
+    text-align: left; /* Centre le texte */
+}
+ 
+.button{
+    width: 430px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer; 
+    margin-top: 15px;
+}
+
+/* .div-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.hr{
+    margin-top: 20px;
+    width: 430px;
+}
+
+.bouton-unique1{
+    background-color: white;
+    color: #77B5FE;
+    border: 0.1px solid #77B5FE;
+    cursor: pointer;
+}
+
+.bouton-unique1:hover {
+    background-color: #77B5FE;
+    color: white;
+    border: 1px solid white;
+}
+
+.link{
+    margin: 30px 0;
+    text-align: center;
+}
+
+a{
+    font-weight: 700;
+    text-decoration: none;
+    color: #77B5FE;
+}

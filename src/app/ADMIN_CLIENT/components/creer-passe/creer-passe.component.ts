@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-creer-passe',
+  selector: 'app-service-client-code',
   standalone: true,
   imports: [
     RouterLink,
