@@ -1,7 +1,7 @@
-<div style="display: flex;">
-  <div >
+<div style="display: flex; background-color: white;">
+  <div class="container-sid">
     <div class="sidenav-nav">
-      <ul style="text-decoration: none_;">
+      <!-- <ul>
         <li *ngFor="let item of items" class="sidenav-nav-item">
           <a 
             class="sidenav-nav-link" 
@@ -12,7 +12,16 @@
             <span *ngIf="!isLeftSidebarCollapsed()" class="sidenav-link-text">{{ item.label }}</span>
           </a>
         </li>
-      </ul>
+      </ul> -->
+      <nav>
+        <ul>
+            <li *ngFor="let item of items; let i = index" class="sidenav-nav-item">
+                <a (click)="selectTab(i)"  class="sidenav-nav-link" [ngClass]="{'active': activeComponent === item.component}">
+                    <i [class]="item.icon" class="sidenav-link-icon" [class]="item.icon"></i> {{ item.label }}
+                </a>
+            </li>
+        </ul>
+    </nav>
     </div>
   </div>
   

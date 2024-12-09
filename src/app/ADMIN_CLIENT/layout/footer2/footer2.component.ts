@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
+// import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-footer2',
   standalone: true,
   imports: [
-    MatIcon
+    // MatIcon
   ],
   templateUrl: './footer2.component.html',
   styleUrl: './footer2.component.css'
