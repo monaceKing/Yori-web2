@@ -1,40 +1,40 @@
+/* Styles de base */
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-  }
-
-.top-bar {
-    display: flex;
-    justify-content: space-between; 
-    height: 70px;
-    background-color: #77B5FE;
-  } 
-
-.logo{
-  padding-left: 20px;
   display: flex;
-  /* gap: 3px; */
+  flex-direction: column;
+  margin: 0;
 }
 
-.logo p{
+.top-bar {
+  display: flex;
+  justify-content: space-between; 
+  height: 70px;
+  background-color: #77B5FE;
+} 
+
+.logo {
+  padding-left: 20px;
+  display: flex;
+}
+
+.logo p {
   margin-right: 20px;
   margin-left: 30px;
   color: white;
 }
 
-.logo p a{
+.logo p a {
   text-decoration: none;
   color: white;
 }
 
-
-.dropdown2{
+.dropdown2 {
   display: flex;
-  margin-left:400px;
+  gap: 40px;
+  margin-left: auto; /* Ajuste pour aligner à droite */
 }
- 
-#select{
+
+#select {
   background-color: #77B5FE;
   border: none;
   color: white;
@@ -42,13 +42,14 @@
   font-weight: 700;
 }
 
-#select option{
+#select option {
   background-color: #ffffff;
   color: black;
 }
 
 .dropdown {
   position: relative; /* Positionne le menu déroulant par rapport au bouton */
+  margin-left: 20px;
 }
 
 .dropdown-button {
@@ -73,17 +74,16 @@
   font-weight: bold;
 }
 
-
 .dropdown-menu {
   display: none; /* Masque le menu par défaut */
   position: absolute;
   top: 100%; /* Aligne le menu directement sous le bouton */
   right: 0; /* Aligne le menu à droite du bouton */
+  width: 150px;
   background-color: #ffffff; /* Fond du menu déroulant */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre portée pour le menu */
   border-radius: 4px; /* Coins arrondis pour le menu */
-  z-index: 1000; /* Assure que le menu s'affiche au-dessus des autres éléments */
-  white-space: nowrap; /* Empêche le texte de se couper */
+  z-index: 500; /* Assure que le menu s'affiche au-dessus des autres éléments */
 }
 
 .dropdown-menu a {
@@ -102,8 +102,40 @@
   display: block; /* Affiche le menu déroulant au survol */
 }
 
-.icon{
-  margin: 0px 45px;
-  color: white;
+.icon {
+ margin-right: 2px; /* Ajustement de l'espacement des icônes */
+ color: white;
 }
 
+/* Media Queries pour la responsivité */
+
+@media (max-width: 768px) {
+  .dropdown-menu{
+    width: auto;
+  }
+
+ .top-bar {
+     flex-direction: column; /* Empile les éléments en colonne sur petits écrans */
+     align-items: flex-start; /* Aligne les éléments à gauche */
+     height:auto; /* Ajuste la hauteur pour s'adapter au contenu */
+ }
+
+ .logo p {
+     margin-left: 10px; /* Réduit l'espacement sur petits écrans */
+     font-size: 14px; /* Réduit la taille de police si nécessaire */
+ }
+
+ .dropdown2 {
+     margin-left:auto; /* Centre le dropdown sur petits écrans */
+     margin-top: 10px; /* Ajoute un espace au-dessus sur petits écrans */
+ }
+
+ .icon {
+     margin-right: 10px; /* Réduit l'espacement des icônes sur petits écrans */
+ }
+
+ #select {
+     width: 100%; /* Rendre le select responsive */
+     margin-bottom : 10px; /* Ajoute un espace en bas sur petits écrans */
+ }
+}
