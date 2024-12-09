@@ -37,6 +37,13 @@ import { AmourComponent } from './ADMIN_CLIENT/interfaces/components/analyse/amo
 import { ClaudelComponent } from './ADMIN_CLIENT/interfaces/components/analyse/claudel/claudel.component';
 import { FransdaComponent } from './ADMIN_CLIENT/interfaces/components/analyse/fransda/fransda.component';
 import { InelComponent } from './ADMIN_CLIENT/interfaces/components/analyse/inel/inel.component';
+import { ConfirmeIdentiteComponent } from './ADMIN_CLIENT/components/confirme-identite/confirme-identite.component';
+import { SelectionnePhoneComponent } from './ADMIN_CLIENT/components/selectionne-phone/selectionne-phone.component';
+import { Authentification2facteursComponent } from './ADMIN_CLIENT/components/authentification2facteurs/authentification2facteurs.component';
+import { ChangerPasseComponent } from './ADMIN_CLIENT/components/changer-passe/changer-passe.component';
+import { ProblemeVerificationComponent } from './ADMIN_CLIENT/components/probleme-verification/probleme-verification.component';
+import { ServiceClientCodeComponent } from './ADMIN_CLIENT/components/service-client-code/service-client-code.component';
+import { ServiceClientComponent } from './ADMIN_CLIENT/components/service-client/service-client.component';
 
 export const routes: Routes =  [
     {
@@ -113,6 +120,13 @@ export const routes: Routes =  [
           {path:'infos-utilisateur', component:InfosUtilisateurComponent},
           {path:'creer-passe', component:CreerPasseComponent},
           {path:'contacter-equipe', component:ContacterEquipeComponent},
+          {path:'confirme-identite', component:ConfirmeIdentiteComponent},
+          {path:'selectionne-phone', component:SelectionnePhoneComponent},
+          {path:'authentification2facteurs', component:Authentification2facteursComponent},
+          {path:'changer-passe', component:ChangerPasseComponent},
+          {path:'probleme-verification', component:ProblemeVerificationComponent},
+          {path:'service-client-code', component:ServiceClientCodeComponent},
+          {path:'service-client', component:ServiceClientComponent},
         ]
       },
 
@@ -121,15 +135,6 @@ export const routes: Routes =  [
       {
         path:'interface',
         component:InterfaceLayoutComponent,
-        // children:[
-        //   // { path: 'interface', component: InterfaceLayoutComponent },
-        //   { path: 'interface-infos-etablissement', component: InfoEtablissemntComponent },
-        //   { path: 'interface-type-etablissement', component: TypeEtablissementComponent },
-        //   { path: 'interface-photos', component: PhotoComponent },
-        //   { path: 'interface-equipements', component: EquipementsComponent },
-        //   { path: 'interface-hebergements', component: HebergementsComponent },
-        //   { path: '', redirectTo: '/interface', pathMatch: 'full' }
-        // ]
         children:[
             { path: 'amour', component: AmourComponent },
             { path: 'claudel', component: ClaudelComponent },
