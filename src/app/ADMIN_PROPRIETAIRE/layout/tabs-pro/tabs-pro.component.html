@@ -3,14 +3,14 @@
         <mat-tab>
           <ng-template mat-tab-label class="ng-template">
             <div class="circle-container">
-              <div class="circle" ><mat-icon>edit_calendar</mat-icon></div>
-              <div class="circle-title">Réservations</div>
+              <div class="circle" ><mat-icon>home</mat-icon></div>
+              <div class="circle-title">Accueil</div>
             </div>
           </ng-template>
           <app-accueil-pro></app-accueil-pro>
         </mat-tab>
 
-        <mat-tab>
+        <!-- <mat-tab>
           <ng-template mat-tab-label>
             <div class="circle-container">
               <div class="circle" (click)="openSelect(select)">
@@ -35,40 +35,40 @@
               <app-hebergements *ngSwitchCase="'composant5'"></app-hebergements>
             </ng-container>
           </div>
+        </mat-tab> -->
+
+        <mat-tab>
+          <ng-template mat-tab-label class="ng-template">
+            <div class="circle-container">
+              <div class="circle" ><mat-icon> description</mat-icon></div>
+              <div class="circle-title">Comptes propriétaires</div>
+            </div>
+          </ng-template>
+         <!-- <app-boite-reception></app-boite-reception> -->
         </mat-tab>
 
         <mat-tab>
           <ng-template mat-tab-label class="ng-template">
             <div class="circle-container">
-              <div class="circle" ><mat-icon> mail_outline</mat-icon></div>
+              <div class="circle" >
+                <mat-icon>mail_outline</mat-icon>
+              </div>
               <div class="circle-title">Boite de reception</div>
             </div>
           </ng-template>
-         <app-boite-reception></app-boite-reception>
+          <!-- <app-commentaires></app-commentaires> -->
         </mat-tab>
 
         <mat-tab>
           <ng-template mat-tab-label class="ng-template">
             <div class="circle-container">
               <div class="circle" >
-                <mat-icon>favorite</mat-icon>
+                <mat-icon>notifications_active</mat-icon>
               </div>
-              <div class="circle-title">Commentaires clients</div>
+              <div class="circle-title">Notifications</div>
             </div>
           </ng-template>
-          <app-commentaires></app-commentaires>
-        </mat-tab>
-
-        <mat-tab>
-          <ng-template mat-tab-label class="ng-template">
-            <div class="circle-container">
-              <div class="circle" >
-                <mat-icon>receipt_long</mat-icon>
-              </div>
-              <div class="circle-title">Factures</div>
-            </div>
-          </ng-template>
-          <app-factures></app-factures>
+          <!-- <app-factures></app-factures> -->
         </mat-tab>
 
         <mat-tab>
@@ -78,11 +78,11 @@
               <div class="circle-title">Analyse</div>
             </div>
           </ng-template>
-          <app-analyse></app-analyse>
+          <!-- <app-analyse></app-analyse> -->
         </mat-tab>
       </mat-tab-group>
     <div>
-      <app-footer2></app-footer2>
+      <app-footer-pro></app-footer-pro>
     </div>
   </div>
 

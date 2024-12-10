@@ -1,0 +1,336 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px; /* Ajoutez un peu d'espace autour */
+}
+
+.first {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+
+ .filtre {
+   display: flex;
+   flex-direction: column; /* Les labels et inputs sont en colonnes */
+   align-items: flex-start; /* Aligne les éléments au début */
+   margin-bottom: 20px; /* Espacement sous le filtre */
+   margin-left: 15px;
+}
+
+
+.titre{
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   margin-left: 15px;
+}
+
+.labels {
+   display: flex; /* Aligne les labels sur la même ligne */
+   gap: 80px; /* Espacement entre les labels */
+}
+
+/* .label-style-1 {
+   color: red;
+ } */
+
+ .label-style-2 {
+   /* color: blue; */
+   margin-left: 2px;
+ }
+
+ .label-style-3 {
+   /* color: green; */
+   margin-left: 37px;
+ }
+
+ .label-style-4 {
+   color: #77B5FE;
+   margin-left: 35px;
+ }
+
+
+.inputs {
+   display: flex; /* Aligne les inputs sur la même ligne */
+   gap: 20px; /* Espacement entre les inputs */
+   margin-top: 10px; /* Espacement au-dessus des inputs */
+   width: 100%;
+}
+
+#statut2{
+   border: solid #77B5FE;
+   color: #77B5FE;
+}
+
+
+.voir{
+   background-color: #77B5FE;
+   color: white;
+   border: solid #77B5FE;
+}
+
+ .table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid black;
+    background-color: white;
+    width: auto;
+    overflow-x: auto;
+    table-layout: fixed; /* Fixe la largeur des colonnes */
+}
+
+
+.table2 {
+        border:1px solid #000000;
+        border-collapse: collapse; /* Pour éviter les espaces entre les cellules */
+        width: 50%; /* Si vous voulez que le tableau prenne toute la largeur */
+        margin-left: 30px;
+        margin-top: 10px;
+        background-color: white;
+    }
+    .table2 td {
+        padding: 5px; /* Réduire le padding des cellules */
+        padding-left: 20px;
+        font-size: 12px; /* Réduire la taille de la police */
+        line-height: 1.2; /* Ajuster la hauteur des lignes */
+        vertical-align: top; /* Aligner le contenu en haut de la cellule */
+    }
+    .table2 tr {
+        height: 20px; /* Définir une hauteur spécifique pour les lignes */
+    }
+
+    .retour{
+      margin-left: 30px;
+    }
+
+    .span{
+     margin-left: 420px;
+    }
+
+
+    .printPage, .printPage2{
+      display: inline-flex;  /* Utilise flexbox pour aligner horizontalement */
+      align-items: center;   /* Aligne verticalement l'icône et le texte */
+      background-color: initial; /* Exemple de couleur de fond pour le bouton */
+      padding: 8px 16px;  /* Espacement interne du bouton */
+      border: none;  /* Enlève la bordure du bouton */
+      cursor: pointer;  /* Change le curseur lorsque la souris est dessus */
+      text-decoration: underline;
+      /* margin-right: 20px; */
+    }
+
+
+
+    .printPage mat-icon, .printPage2 mat-icon {
+      font-size: 20px;  /* Taille de l'icône */
+      margin-right: 5px;  /* Espace entre l'icône et le texte */
+  }
+
+
+
+    .revenir{
+      border: none;
+      text-decoration: underline;
+    }
+
+
+    .fact-annulee{
+      background-color: #FFEDED;
+      border: 1px solid #FF9797;
+      width: 48.7%;
+      margin-left: 30px;
+      margin-top: 10px;
+      padding: 5px 0;
+      padding-left: 15px;
+      font-weight: bold;
+    }
+
+
+.table th, .table td{
+   /* padding: 20px 14px; */
+    padding: 10px; /* Ajoute un espacement interne */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.table th {
+  width: 130px; /* Ajustez la largeur selon vos besoins */
+}
+
+.table tr{
+   border: 1px solid #000000;
+}
+
+.table-responsive {
+  overflow-x: auto; /* Permet le défilement horizontal */
+  width: 92%; /* Assure que le conteneur prend toute la largeur */
+}
+
+.open-div2{
+   color: #77B5FE;
+   text-decoration: underline;
+   cursor: pointer;
+}
+
+.resultats-info{
+   display: flex;
+   gap: 820px;
+   margin-left: 15px;
+   width: 100%;
+ }
+
+.totaux{
+   width: 82%;
+   background-color: white;
+   display: flex;
+   gap: 160px;
+   justify-content: center;
+}
+
+.btn-pag{
+   color: #77B5FE;
+   border: none;
+   background-color: initial;
+}
+.btn-pag [disabled]{
+   color: lightgray;
+}
+#itemsPerPage{
+   height: 25px;
+   margin-left: 800px;
+}
+
+.td-pag{
+   /* display: flex;  */
+   flex-direction: column;
+   align-items: left;
+   justify-content: left;
+   text-align: left;
+}
+
+button{
+   cursor: pointer;
+}
+
+a{
+   color: #77B5FE;
+}
+
+.custom-select {
+   position: relative;
+   display: inline-block;
+   width: 300px;
+ }
+
+
+ .checkbox-item {
+   display: flex; /* Utilise flex pour aligner les checkboxes avec leur texte */
+   align-items: center; /* Aligne verticalement l'input et le texte */
+   margin-bottom: 10px; /* Espacement entre chaque checkbox */
+ }
+
+
+.select{
+  border:0.5px solid #77B5FE;
+  color: #77B5FE;
+  background-color: white;
+}
+
+
+.checkbox{
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  background-color: white;
+}
+
+
+.checkbox-container {
+  background-color: initial;
+  display: block;
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+  gap: 15px; /* Espacement entre les cases à cocher */
+  justify-content: flex-start;
+  width: 15%;
+  margin:15px;
+}
+
+
+.all-search{
+  margin-top: 15px;
+  padding-left: 100px;
+  display: block;
+  text-align: left;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center; /* Aligne les cases et les labels au même niveau */
+  font-size: 14px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 8px; /* Espacement entre la case à cocher et le texte */
+}
+
+@media (max-width: 768px) {
+  .inputs {
+      flex-direction: column; /* Empile les éléments sur les petits écrans */
+  }
+
+  .resultats-info {
+      gap: 0;
+      flex-direction: column; /* Empile les informations sur les petits écrans */
+      align-items: flex-start; /* Aligne à gauche */
+      margin: 0;
+
+  }
+
+  .table th:nth-child(5), /* Cacher la colonne "Réservé le" */
+    .table td:nth-child(5) {
+        display: none;
+    }
+
+    .table th:nth-child(7), /* Cacher la colonne "Tarif" */
+    .table td:nth-child(7) {
+        display: none;
+    }
+
+    .table th:nth-child(8), /* Cacher la colonne "Commission" */
+    .table td:nth-child(8) {
+        display: none;
+    }
+
+    .resultats-info{
+      display: flex;
+      /* gap: 0px; */
+    }
+
+    .printPage{
+    margin-left: 20rem;
+  }
+
+  .printPage2{
+    /* margin: 0; */
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+  .span{
+    margin: 0;
+  }
+
+  .table2{
+    width: 90%;
+  }
+  .fact-annulee{
+    width: 87%;
+  }
+
+}
