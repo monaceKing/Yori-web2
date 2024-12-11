@@ -44,6 +44,7 @@ import { ChangerPasseComponent } from './ADMIN_CLIENT/components/changer-passe/c
 import { ProblemeVerificationComponent } from './ADMIN_CLIENT/components/probleme-verification/probleme-verification.component';
 import { ServiceClientCodeComponent } from './ADMIN_CLIENT/components/service-client-code/service-client-code.component';
 import { ServiceClientComponent } from './ADMIN_CLIENT/components/service-client/service-client.component';
+import { InterfaceLayout2Component } from './ADMIN_PROPRIETAIRE/layout/interface-layout2/interface-layout2.component';
 
 export const routes: Routes =  [
     {
@@ -143,6 +144,10 @@ export const routes: Routes =  [
         ]
       },
 
+      {
+        path:'pro',
+        component:InterfaceLayout2Component
+      },
 
     { path:'loading', component: LoadingComponent},
     { path: '**', component: PageErrorComponent } // Redirige pour les routes inconnues

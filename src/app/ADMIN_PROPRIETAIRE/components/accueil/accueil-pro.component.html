@@ -1,0 +1,239 @@
+<div class="container">
+    <div class="first" *ngIf="!showDetails">
+    <div>
+            <h2 class="titre">Accueil</h2>
+            <div class="filtre">
+                <!-- <div class="labels">
+                    <label *ngFor="let label of labels; let i = index"
+                           [ngClass]="getLabelClass(i)"
+                           [attr.for]="label.for"
+                           (click)="toggleCheckboxes()">
+                      {{ label.text }}
+                    </label>
+                  </div> -->
+              <div class="inputs">
+                <div class="labels">
+                    <label for="statut">Apperçu</label><br>
+                    <select id="statut" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
+                        <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
+                    </select> <br>
+                
+                    <select id="sousStatut" *ngIf="selectedStatut !== 'Vue d\'ensemble'" [(ngModel)]="selectedSousStatut">
+                        <option *ngFor="let sousStatut of sousStatuts[selectedStatut]" [value]="sousStatut">{{ sousStatut }}</option>
+                        <option *ngIf="!sousStatuts[selectedStatut]?.length" disabled>Sélectionnez d'abord un statut</option>
+                    </select>
+                </div>
+               <div class="labels">
+                <label for="pays">Région</label><br>
+                <select id="pays" [(ngModel)]="selectedPays">
+                    <option *ngFor="let pays of paysFiltres" [value]="pays">{{ pays }}</option>
+                </select>
+               </div>
+                <div class="labels">
+                    <label for="evaluation">Evaluation</label><br>
+                    <select id="evaluation" [(ngModel)]="selectedEvaluation">
+                        <option *ngFor="let evaluation of evaluationsFiltres" [value]="evaluation">{{ evaluation }}</option>
+                    </select>
+                </div>
+                <div class="labels">
+                    <label for="duree">Filtre par année</label><br>
+                    <select id="duree" [(ngModel)]="selectedDuree">
+                        <option *ngFor="let duree of dureesFiltres" [value]="duree">{{ duree }}</option>
+                    </select>
+                </div>
+                  <div class="labels">
+                    <label for="plus_filtre" class="style-5">Filtre</label><br>
+                    <button type="button" id="plus_filtre" class="select" (click)="afficherFiltre()">Plus de filtres</button>
+                  </div>
+                  <div class="labels">
+                    <label for=""></label><br>
+                    <button type="button" class="voir">Voir les résultats</button>
+                  </div>
+              </div>
+              <div *ngIf="openFiltre" class="checkbox">
+                <div class="checkbox-container">
+                  <div class="title">
+                    <label for="">Statut des établissements</label>
+                  </div>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="tous" /> Nouveau(x)
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="reservation" /> Ancien(s)
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="arrivees" /> Suspendu(s) temporairement
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="departures" /> Supprimé(s) définitivement
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="sejour-en-cours" /> Fermé(s)
+                  </label>
+                </div>
+                <div class="all-search">
+                  <div>
+                    <label for="search" class="lab-search">Mots-clés</label>
+                  </div>
+                  <div>
+                    <input type="search" name="search" class="input-search">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="resultats-info">
+                <div>
+                    {{ selectedStatut }}
+                ({{ getClientsFiltres().length }})
+                </div>
+                <button class="printPage" (click)="printPage()">
+                    <mat-icon>
+                    print
+                    </mat-icon>
+                    Imprimer la liste des réservations
+                </button>
+            </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+            <th>Nom structure</th>
+            <th>Pays/region</th>
+            <th>statut</th>
+            <th>Type de propriété</th>
+            <th>Durée</th>
+            <th>Evaluation</th>
+            <th>Plus d'infos</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of paginatedClients">
+            <td style="color: #77B5FE;">{{ client.nom }}</td>
+            <td>{{ client.pays }}</td>
+            <td>{{ client.statut }}</td>
+            <td>{{ client.type_propriete }}</td>
+            <td>{{ client.duree }}</td>
+            <td [ngStyle]="{'color': client.evaluation === 'Mauvais' ? 'red' : 'black'}">
+              <b>{{ client.evaluation }}</b>
+          </td>
+            <td>
+                <a class="open-div2" (click)="afficherDetails(client)">
+                    <!-- {{ client.id }} -->
+                      voir plus
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="td-pag">
+                <div>
+                    <button class="btn-pag" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">&lt; Précédent</button>|
+                    <span>Page</span>
+                    |<button class="btn-pag" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Suivant &gt;</button>
+                    <select id="itemsPerPage" (change)="onItemsPerPageChange($event)">
+                        <option *ngFor="let option of itemsPerPageOptions" [value]="option">Afficher {{ option }} réservations</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+
+<!-- 
+    <div *ngIf="showDetails">
+        <div class="retour">
+            <h2>Détails de la réservation</h2>
+            <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
+        </div>
+        <span class="span">
+            <button class="printPage2" (click)="printPage()">
+                <mat-icon>
+                print
+                </mat-icon>
+                Imprimer la liste des réservations
+            </button>
+        </span>
+        <div *ngIf="selectedClient.statuts == 'mauvais'" class="fact-annulee">
+            <mat-icon style="color: brown;">
+                error
+            </mat-icon>
+            Réservation annulée
+        </div>
+        <table class="table2">
+            <tr>
+                <td>Date d'arrivée</td>
+                <td>Nom du client :</td>
+            </tr>
+            <tr>
+                <td>{{ selectedClient.arrivee }}</td>
+                <td>{{ selectedClient.nom }}</td>
+            </tr>
+            <tr>
+                <td>Date de départ</td>
+                <td>Pays de résidence</td>
+            </tr>
+            <tr>
+                <td>{{ selectedClient.depart }}</td>
+                <td>gab</td>
+            </tr>
+            <tr>
+                <td>Durée de la reservation :</td>
+                <td>
+                    <span style="display: inline-flex; align-items: center;">
+                        <mat-icon style="font-size: 15px; margin-top: 5px;">visibility</mat-icon>
+                        <a (click)="afficherTelephone()" style="cursor: pointer;">Afficher le numéro de téléphone</a>
+                    </span><br>
+                    <span *ngIf="numeroTelephone"> {{+221776438111}} </span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>{{ selectedClient.duree }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Nombre de personnes :</td>
+                <td>Langue préferée</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>français</td>
+            </tr>
+            <tr>
+                <td>Nombre de logements :</td>
+                <td>Canal :</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>yori.com</td>
+            </tr>
+            <tr>
+                <td>Montant total</td>
+                <td>Numéro de réservation:</td>
+            </tr>
+            <tr>
+                <td>100.000 Fcfa</td>
+                <td>{{ selectedClient.numeroReservation }}</td>
+            </tr>
+            <tr>
+                <td>Commission :</td>
+                <td>Paiement :</td>
+            </tr>
+            <tr>
+                <td>15.000 FCFA</td>
+                <td>Paysing</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Reçu</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>mar. 14 juil. 2024</td>
+            </tr>
+        </table>
+    </div> -->
+</div>

@@ -22,7 +22,7 @@ interface Client {
 
 
 @Component({
-  selector: 'app-reservation',
+  selector: 'app-accueil-pro',
   standalone: true,
   imports: [
     CommonModule,
