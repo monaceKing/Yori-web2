@@ -30,27 +30,12 @@
 }
 
 .labels {
-   display: flex; /* Aligne les labels sur la même ligne */
-   gap: 80px; /* Espacement entre les labels */
+  text-align: left;
 }
 
-/* .label-style-1 {
-   color: red;
- } */
 
- .label-style-2 {
-   /* color: blue; */
-   margin-left: 2px;
- }
-
- .label-style-3 {
-   /* color: green; */
-   margin-left: 37px;
- }
-
- .label-style-4 {
+ .style-5 {
    color: #77B5FE;
-   margin-left: 35px;
  }
 
 
@@ -247,8 +232,15 @@ a{
 .checkbox{
   display: flex;
   margin-top: 10px;
-  width: 100%;
+  width: 70%;
   background-color: white;
+}
+
+
+.title{
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 
@@ -258,7 +250,7 @@ a{
   flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
   gap: 15px; /* Espacement entre les cases à cocher */
   justify-content: flex-start;
-  width: 15%;
+  width: 25%;
   margin:15px;
 }
 

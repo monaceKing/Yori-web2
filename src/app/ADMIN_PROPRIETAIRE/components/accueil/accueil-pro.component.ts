@@ -39,7 +39,7 @@ export class AccueilProComponent implements OnInit, OnDestroy {
     {
       nom: 'Jean Dupont',
       statut: 'Hotellerrie',
-      duree: '4 jours',
+      duree: '45 jours',
       pays: "Gabon",
       type_propriete: '',
       evaluation: 'Très bon',
@@ -127,23 +127,66 @@ export class AccueilProComponent implements OnInit, OnDestroy {
       id: 10
     },
   ];
-
   statutsFiltres: string[] = ['Vue d\'ensemble', 'Hotellerrie', 'Tourisme'];
   selectedStatut: string = 'Vue d\'ensemble'; // Valeur par défaut
   
   sousStatuts: { [key: string]: string[] } = {
-    'Vue d\'ensemble': ['Option 1', 'Option 2'],
     'Hotellerrie': ['Option A', 'Option B'],
     'Tourisme': ['Option X', 'Option Y']
   };
   
-  selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
+    // Liste des évaluations pour le filtre
+    evaluationsFiltres: string[] = ['Tout grouper', 'Très bon', 'Bon', 'Moyen', 'Mauvais'];
+    selectedEvaluation: string = 'Tout grouper'; // Valeur par défaut
+
+    
+  // Liste des durées pour le filtre
+  dureesFiltres: string[] = ['Tous les années'];
+  selectedDuree: string = 'Tous les années'; // Valeur par défaut
+ 
+
+  constructor() {
+    // Initialiser le sous-statut en fonction du statut par défaut
+    this.onStatutChange();
+    this.initializeCountryFilters();
+    this.initializeDurationFilters();
+  }
 
   onStatutChange() {
     // Réinitialiser la sélection du sous-statut lorsque le statut change
     this.selectedSousStatut = this.sousStatuts[this.selectedStatut]?.[0] || '';
-  } dateDebut: string = '';
+  }
+
+  initializeCountryFilters() {
+    const uniqueCountries = new Set(this.clients.map(client => client.pays));
+    this.paysFiltres.push(...Array.from(uniqueCountries));
+  }
+
+  initializeDurationFilters() {
+    const uniqueDurations = new Set(this.clients.map(client => client.duree));
+    this.dureesFiltres.push(...Array.from(uniqueDurations)); // Ajoute "Tous" et les durées uniques
+  }
+
+  get filteredClients() {
+    return this.clients.filter(client => {
+      const matchesPays = this.selectedPays === 'Tous les pays' || client.pays === this.selectedPays;
+      const matchesEvaluation = this.selectedEvaluation === 'Tout grouper' || client.evaluation === this.selectedEvaluation;
+      const matchesDuree = this.selectedDuree === 'Tous les années' || client.duree === this.selectedDuree;
+
+      return matchesPays && matchesEvaluation && matchesDuree;
+      // return matchesPays && matchesEvaluation;
+    });
+  }
+
+
+
+
+    selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
+    filterPays: string = ''; // Propriété pour le filtre
+    dateDebut: string = '';
     dateFin: string = '';
+    paysFiltres: string[] = ['Tous les pays'];
+    selectedPays: string = 'Tous les pays'; // Valeur par défaut
     showCheckboxes: boolean = false;
     selectedStatuts: string[] = [];
     currentPage: number = 1;
@@ -159,28 +202,31 @@ export class AccueilProComponent implements OnInit, OnDestroy {
     this.openFiltre = !this.openFiltre;
   }
 
-    labels = [
-      { for: 'statut', text: 'Apperçu ' },
-      { for: 'dateDebut', text: 'Du ' },
-      { for: 'dateFin', text: 'Au ' },
-      { for: 'filtre', text: 'Filtre ' }
-    ];
+    // labels = [
+    //   { for: 'statut', text: 'Apperçu ' },
+    //   { for: 'pays', text: 'Région ' },
+    //   { for: 'evaluation', text: 'Evaluation ' },
+    //   { for: 'duree', text: 'Filtre par année ' },
+    //   { for: 'filtre', text: 'Filtre ' }
+    // ];
 
     // Fonction pour obtenir la classe dynamique
-    getLabelClass(index: number): string {
-      switch(index) {
-        case 0:
-          return 'label-style-1';
-        case 1:
-          return 'label-style-2';
-        case 2:
-          return 'label-style-3';
-        case 3:
-          return 'label-style-4';
-        default:
-          return '';
-      }
-    }
+    // getLabelClass(index: number): string {
+    //   switch(index) {
+    //     case 0:
+    //       return 'label-style-1';
+    //     case 1:
+    //       return 'label-style-2';
+    //     case 2:
+    //       return 'label-style-3';
+    //     case 3:
+    //       return 'label-style-4';
+    //     case 4:
+    //       return 'label-style-5';
+    //     default:
+    //       return '';
+    //   }
+    // }
 
     getClientsFiltres() {
         return this.clients.filter(client => {
@@ -194,20 +240,6 @@ export class AccueilProComponent implements OnInit, OnDestroy {
             return isStatutValide && isDateValide;
         });
     }
-
-    // totalTarif(): number {
-    //     return this.getClientsFiltres().reduce((total, client) => {
-    //         const tarif = Number(client.tarif.replace('€', '').trim()) || 0; // Retire le symbole et convertit
-    //         return total + tarif;
-    //     }, 0);
-    // }
-
-    // totalCommission(): number {
-    //     return this.getClientsFiltres().reduce((total, client) => {
-    //         const commission = Number(client.commission.replace('€', '').trim()) || 0; // Retire le symbole et convertit
-    //         return total + commission;
-    //     }, 0);
-    // }
 
     printPage() {
         window.print();
@@ -229,7 +261,7 @@ export class AccueilProComponent implements OnInit, OnDestroy {
 
     get paginatedClients() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
-      return this.getClientsFiltres().slice(start, start + this.itemsPerPage);
+      return this.filteredClients.slice(start, start + this.itemsPerPage); // Appliquer le filtrage ici
     }
 
     get totalPages() {

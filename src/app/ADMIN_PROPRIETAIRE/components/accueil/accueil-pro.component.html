@@ -3,57 +3,72 @@
     <div>
             <h2 class="titre">Accueil</h2>
             <div class="filtre">
-                <div class="labels">
+                <!-- <div class="labels">
                     <label *ngFor="let label of labels; let i = index"
                            [ngClass]="getLabelClass(i)"
                            [attr.for]="label.for"
                            (click)="toggleCheckboxes()">
                       {{ label.text }}
                     </label>
-                  </div>
+                  </div> -->
               <div class="inputs">
-                <div>
+                <div class="labels">
+                    <label for="statut">Apperçu</label><br>
                     <select id="statut" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
                         <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
-                    </select>
+                    </select> <br>
                 
-                    <select id="sousStatut" [(ngModel)]="selectedSousStatut">
+                    <select id="sousStatut" *ngIf="selectedStatut !== 'Vue d\'ensemble'" [(ngModel)]="selectedSousStatut">
                         <option *ngFor="let sousStatut of sousStatuts[selectedStatut]" [value]="sousStatut">{{ sousStatut }}</option>
+                        <option *ngIf="!sousStatuts[selectedStatut]?.length" disabled>Sélectionnez d'abord un statut</option>
                     </select>
                 </div>
-                  
-                  
-
-                  <input type="date" id="dateDebut" [(ngModel)]="dateDebut" />
-                  <input type="date" id="dateFin" [(ngModel)]="dateFin" />
-                  <button type="button" class="select" (click)="afficherFiltre()">Plus de filtres</button>
-                  <button type="button" class="voir">Voir les résultats</button>
+               <div class="labels">
+                <label for="pays">Région</label><br>
+                <select id="pays" [(ngModel)]="selectedPays">
+                    <option *ngFor="let pays of paysFiltres" [value]="pays">{{ pays }}</option>
+                </select>
+               </div>
+                <div class="labels">
+                    <label for="evaluation">Evaluation</label><br>
+                    <select id="evaluation" [(ngModel)]="selectedEvaluation">
+                        <option *ngFor="let evaluation of evaluationsFiltres" [value]="evaluation">{{ evaluation }}</option>
+                    </select>
+                </div>
+                <div class="labels">
+                    <label for="duree">Filtre par année</label><br>
+                    <select id="duree" [(ngModel)]="selectedDuree">
+                        <option *ngFor="let duree of dureesFiltres" [value]="duree">{{ duree }}</option>
+                    </select>
+                </div>
+                  <div class="labels">
+                    <label for="plus_filtre" class="style-5">Filtre</label><br>
+                    <button type="button" id="plus_filtre" class="select" (click)="afficherFiltre()">Plus de filtres</button>
+                  </div>
+                  <div class="labels">
+                    <label for=""></label><br>
+                    <button type="button" class="voir">Voir les résultats</button>
+                  </div>
               </div>
               <div *ngIf="openFiltre" class="checkbox">
                 <div class="checkbox-container">
-                  <div>
-                    <label for="">Statut de la réservation</label>
+                  <div class="title">
+                    <label for="">Statut des établissements</label>
                   </div>
                   <label class="checkbox-item">
-                    <input type="checkbox" id="tous" /> Tous
+                    <input type="checkbox" id="tous" /> Nouveau(x)
                   </label>
                   <label class="checkbox-item">
-                    <input type="checkbox" id="reservation" /> Réservation
+                    <input type="checkbox" id="reservation" /> Ancien(s)
                   </label>
                   <label class="checkbox-item">
-                    <input type="checkbox" id="arrivees" /> Arrivées
+                    <input type="checkbox" id="arrivees" /> Suspendu(s) temporairement
                   </label>
                   <label class="checkbox-item">
-                    <input type="checkbox" id="departures" /> Départs
+                    <input type="checkbox" id="departures" /> Supprimé(s) définitivement
                   </label>
                   <label class="checkbox-item">
-                    <input type="checkbox" id="sejour-en-cours" /> Séjour en cours
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="a-venir" /> A venir
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="annulees" /> Annulées
+                    <input type="checkbox" id="sejour-en-cours" /> Fermé(s)
                   </label>
                 </div>
                 <div class="all-search">
