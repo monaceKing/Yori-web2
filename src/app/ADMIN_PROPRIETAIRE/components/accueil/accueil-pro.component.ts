@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 
 
@@ -23,7 +24,9 @@ interface Client {
     CommonModule,
     FormsModule,
     MatIcon,
-    CommonModule
+    CommonModule,
+    MatTabGroup,
+    MatTab
   ],
   templateUrl: './accueil-pro.component.html',
   styleUrl: './accueil-pro.component.css'
@@ -127,14 +130,14 @@ export class AccueilProComponent implements OnInit, OnDestroy {
       id: 10
     },
   ];
-  statutsFiltres: string[] = ['Vue d\'ensemble', 'Hotellerrie', 'Tourisme'];
-  selectedStatut: string = 'Vue d\'ensemble'; // Valeur par défaut
-  
-  sousStatuts: { [key: string]: string[] } = {
-    'Hotellerrie': ['Hotel (s)', 'Motel (s)','Appartement (s)'],
-    'Tourisme': ['Autres', 'Randonnés','Parcs','Campings','Plages privées','Maisons traditionnelles']
-  };
-  
+    statutsFiltres: string[] = ['Vue d\'ensemble', 'Hotellerrie', 'Tourisme'];
+    selectedStatut: string = 'Vue d\'ensemble'; // Valeur par défaut
+    
+    sousStatuts: { [key: string]: string[] } = {
+      'Hotellerrie': ['Hotel (s)', 'Motel (s)','Appartement (s)'],
+      'Tourisme': ['Autres', 'Randonnés','Parcs','Campings','Plages privées','Maisons traditionnelles']
+    };
+    
     // Liste des évaluations pour le filtre
     evaluationsFiltres: string[] = ['Tout grouper', 'Très bon', 'Bon', 'Moyen', 'Mauvais'];
     selectedEvaluation: string = 'Tout grouper'; // Valeur par défaut
