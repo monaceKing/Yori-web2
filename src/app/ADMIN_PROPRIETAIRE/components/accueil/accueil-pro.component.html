@@ -13,7 +13,7 @@
                   </div> -->
                <div class="inputs">
                 <div class="labels">
-                    <label for="statut">Apperçu</label><br>
+                    <label for="statut">Aperçu</label><br>
                     <select id="statut" class="select1" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
                         <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
                     </select> <br>
@@ -66,7 +66,7 @@
                   </label>
                   <label class="checkbox-item">
                     <input type="checkbox" id="departures" /> Supprimé(s) définitivement
-                  </label>
+                  </label> 
                   <label class="checkbox-item">
                     <input type="checkbox" id="sejour-en-cours" /> Fermé(s)
                   </label>
@@ -142,98 +142,131 @@
     </div>
     </div>
 
-<!-- 
+
     <div *ngIf="showDetails">
         <div class="retour">
             <h2>Détails de la réservation</h2>
             <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
         </div>
-        <span class="span">
-            <button class="printPage2" (click)="printPage()">
-                <mat-icon>
-                print
-                </mat-icon>
-                Imprimer la liste des réservations
-            </button>
-        </span>
-        <div *ngIf="selectedClient.statuts == 'mauvais'" class="fact-annulee">
-            <mat-icon style="color: brown;">
-                error
-            </mat-icon>
-            Réservation annulée
-        </div>
-        <table class="table2">
-            <tr>
-                <td>Date d'arrivée</td>
-                <td>Nom du client :</td>
-            </tr>
-            <tr>
-                <td>{{ selectedClient.arrivee }}</td>
-                <td>{{ selectedClient.nom }}</td>
-            </tr>
-            <tr>
-                <td>Date de départ</td>
-                <td>Pays de résidence</td>
-            </tr>
-            <tr>
-                <td>{{ selectedClient.depart }}</td>
-                <td>gab</td>
-            </tr>
-            <tr>
-                <td>Durée de la reservation :</td>
-                <td>
-                    <span style="display: inline-flex; align-items: center;">
-                        <mat-icon style="font-size: 15px; margin-top: 5px;">visibility</mat-icon>
-                        <a (click)="afficherTelephone()" style="cursor: pointer;">Afficher le numéro de téléphone</a>
-                    </span><br>
-                    <span *ngIf="numeroTelephone"> {{+221776438111}} </span>
-                </td>
+        <div>
+            <span class="span">
+                <button class="printPage2" (click)="printPage()">
+                    <mat-icon>
+                    print
+                    </mat-icon>
+                    Imprimer cette page
+                </button>
+            </span>
+          </div>
+        
+        <div>
+            <mat-tab-group class="fixed-width">
+                <mat-tab label="Information sur l'établissements">
+                    <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
+                        <mat-icon style="color: brown;">
+                            error
+                        </mat-icon>
+                        Fermeture de l'établissement
+                    </div>
+                    <table class="table2">
+                        <tr>
+                            <td colspan="3">
+                                Nom du propriétaire
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <!-- <b>ELOKO SAMA JOSPH WILLIAM</b> -->
+                                 <b>{{selectedClient.nom}}</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <a href="">Information sur le propriétaire</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nom de l'établissement:</td>
+                            <td>Evaluation :</td>
+                            <td>Quartier :</td>
+                        </tr>
+                        <tr>
+                            <td> <b>{{selectedClient.nom}}</b> </td>
+                            <td [ngStyle]="{'color': selectedClient.evaluation === 'Mauvais' ? 'red' : 'black'}"> <b>{{selectedClient.evaluation}}</b> </td>
+                            <td>Sotéga</td>
+                        </tr>
+                        <tr>
+                            <td>Service</td>
+                            <td>Nombre d'étoile possedé</td>
+                            <td>Langue(s) parlée(s)</td>
+                        </tr>
+                        <tr>
+                            <td> <b>{{selectedClient.statut}}</b> </td>
+                            <td> <b>3 étoiles ***</b> </td>
+                            <td>français, anglais, espagnol</td>
+                        </tr>
+                        <tr>
+                            <td>Type de propriété</td>
+                            <td>Nombre des offres</td>
+                            <td>Numéro de la structure</td>
+            
+                        </tr>
+                        <tr>
+                            <td> <b>{{selectedClient.type_propriete}}</b> </td>
+                            <td> <b>4</b> </td>
+                            <td>7407389081</td>
+                        </tr>
+                        <tr>
+                            <td>Date d'inscription</td>
+                            <td>Pays/Region</td>
+                            <td>Mode de paiement</td>
+                        </tr>
+                        <tr>
+                            <td> <b>dim.19 juil 2022</b> </td>
+                            <td>{{selectedClient.pays}}</td>
+                            <td>
+                                <ul style="display: flex; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
+                                    <li>paysing</li>
+                                    <li>paysing</li>
+                                    <li>paysing</li>
+                                </ul>
+                            </td>                
+                        </tr>
+                        <tr>
+                            <td>Durée sur yori</td>
+                            <td>Ville</td>
+                        </tr>
+                        <tr>
+                            <td> <b>{{selectedClient.duree}}</b> </td>
+                            <td>Libreville</td>
+                        </tr>
+            
+                        </table>
+                </mat-tab>
 
-            </tr>
-            <tr>
-                <td>{{ selectedClient.duree }}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Nombre de personnes :</td>
-                <td>Langue préferée</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>français</td>
-            </tr>
-            <tr>
-                <td>Nombre de logements :</td>
-                <td>Canal :</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>yori.com</td>
-            </tr>
-            <tr>
-                <td>Montant total</td>
-                <td>Numéro de réservation:</td>
-            </tr>
-            <tr>
-                <td>100.000 Fcfa</td>
-                <td>{{ selectedClient.numeroReservation }}</td>
-            </tr>
-            <tr>
-                <td>Commission :</td>
-                <td>Paiement :</td>
-            </tr>
-            <tr>
-                <td>15.000 FCFA</td>
-                <td>Paysing</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Reçu</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>mar. 14 juil. 2024</td>
-            </tr>
-        </table>
-    </div> -->
+                <mat-tab label="Photos">
+                
+                </mat-tab>
+
+                <mat-tab label="Géolocalisation">
+
+                </mat-tab>
+
+                <mat-tab label="Avis">
+
+                </mat-tab>
+
+                <mat-tab label="Chiffre d'affaire et commission">
+
+                </mat-tab>
+
+                <mat-tab label="Nombre de réservations">
+
+                </mat-tab>
+            </mat-tab-group>
+            
+          </div>
+
+    </div>
+
 </div>

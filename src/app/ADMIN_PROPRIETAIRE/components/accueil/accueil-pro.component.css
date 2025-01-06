@@ -269,6 +269,22 @@ a {
   margin-right: 8px; /* Espacement entre la case à cocher et le texte */
 }
 
+
+.table2{
+  width: 95%;
+}
+
+.fact-annulee{
+  background-color: #FFEDED;
+  border: 1px solid #FF9797;
+  width: 93.5%;
+  margin-left: 30px;
+  margin-top: 10px;
+  padding: 5px 0;
+  padding-left: 15px;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .inputs {
     flex-direction: column; /* Empile les éléments sur les petits écrans */
