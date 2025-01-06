@@ -11,33 +11,33 @@
                       {{ label.text }}
                     </label>
                   </div> -->
-              <div class="inputs">
+               <div class="inputs">
                 <div class="labels">
                     <label for="statut">Apperçu</label><br>
-                    <select id="statut" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
+                    <select id="statut" class="select1" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
                         <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
                     </select> <br>
                 
-                    <select id="sousStatut" *ngIf="selectedStatut !== 'Vue d\'ensemble'" [(ngModel)]="selectedSousStatut">
+                    <select id="sousStatut"  *ngIf="selectedStatut !== 'Vue d\'ensemble'" [(ngModel)]="selectedSousStatut">
                         <option *ngFor="let sousStatut of sousStatuts[selectedStatut]" [value]="sousStatut">{{ sousStatut }}</option>
                         <option *ngIf="!sousStatuts[selectedStatut]?.length" disabled>Sélectionnez d'abord un statut</option>
                     </select>
                 </div>
                <div class="labels">
                 <label for="pays">Région</label><br>
-                <select id="pays" [(ngModel)]="selectedPays">
+                <select id="pays" class="select1" [(ngModel)]="selectedPays">
                     <option *ngFor="let pays of paysFiltres" [value]="pays">{{ pays }}</option>
                 </select>
                </div>
                 <div class="labels">
                     <label for="evaluation">Evaluation</label><br>
-                    <select id="evaluation" [(ngModel)]="selectedEvaluation">
+                    <select id="evaluation" class="select1" [(ngModel)]="selectedEvaluation">
                         <option *ngFor="let evaluation of evaluationsFiltres" [value]="evaluation">{{ evaluation }}</option>
                     </select>
                 </div>
                 <div class="labels">
                     <label for="duree">Filtre par année</label><br>
-                    <select id="duree" [(ngModel)]="selectedDuree">
+                    <select id="duree" class="select1" [(ngModel)]="selectedDuree">
                         <option *ngFor="let duree of dureesFiltres" [value]="duree">{{ duree }}</option>
                     </select>
                 </div>

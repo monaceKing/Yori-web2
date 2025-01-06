@@ -26,9 +26,11 @@
    display: flex;
    flex-direction: column;
    text-align: left;
-   margin-left: 15px;
+   margin-left: -18px;
 }
-
+.inputs{
+  margin-left: -30px;
+}
 .labels {
   text-align: left;
 }
@@ -56,21 +58,26 @@
    background-color: #77B5FE;
    color: white;
    border: solid #77B5FE;
+   height: 30px;
+
 }
 
- .table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid black;
-    background-color: white;
-    width: auto;
-    overflow-x: auto;
-    table-layout: fixed; /* Fixe la largeur des colonnes */
+.table {
+  border-collapse: collapse;
+  margin-left: 50px;
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid black;
+  background-color: white;
+  width: 1250px; /* Utiliser 100% pour prendre toute la largeur disponible */
+  height: 450px;
+  overflow-x: auto;
+  table-layout: auto; /* Utiliser auto pour permettre aux colonnes de s'ajuster */
 }
+
 
 
 .table2 {
@@ -200,12 +207,17 @@
    text-align: left;
 }
 
-button{
+.button{
    cursor: pointer;
+   width:101px;
+   height: 15px;
+   color: #77B5FE;
+
 }
 
 a{
    color: #77B5FE;
+  
 }
 
 .custom-select {
@@ -226,8 +238,13 @@ a{
   border:0.5px solid #77B5FE;
   color: #77B5FE;
   background-color: white;
+  width: 129px;
+  height: 30px;
 }
-
+.select1{
+  width: 129px;
+  height: 30px;
+}
 
 .checkbox{
   display: flex;
