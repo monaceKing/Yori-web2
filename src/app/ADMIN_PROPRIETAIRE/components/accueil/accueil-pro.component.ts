@@ -131,8 +131,8 @@ export class AccueilProComponent implements OnInit, OnDestroy {
   selectedStatut: string = 'Vue d\'ensemble'; // Valeur par défaut
   
   sousStatuts: { [key: string]: string[] } = {
-    'Hotellerrie': ['Option A', 'Option B'],
-    'Tourisme': ['Option X', 'Option Y']
+    'Hotellerrie': ['Hotel (s)', 'Motel (s)','Appartement (s)'],
+    'Tourisme': ['Autres', 'Randonnés','Parcs','Campings','Plages privées','Maisons traditionnelles']
   };
   
     // Liste des évaluations pour le filtre
