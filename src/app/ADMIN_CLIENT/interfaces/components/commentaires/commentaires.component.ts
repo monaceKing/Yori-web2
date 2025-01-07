@@ -66,11 +66,11 @@ export class CommentairesComponent {
     }
   ];
 
-  newCommentContent: string = '';
-  newCommentUserId: string = '';
-  newCommentRating: number = 0; // Initialisé à zéro
-  replyContent: { [key: number]: string } = {}; // Pour stocker les réponses par ID de commentaire
-  replyingToCommentId: number | null = null; // ID du commentaire auquel on répond
+    newCommentContent: string = '';
+    newCommentUserId: string = '';
+    newCommentRating: number = 0; // Initialisé à zéro
+    replyContent: { [key: number]: string } = {}; // Pour stocker les réponses par ID de commentaire
+    replyingToCommentId: number | null = null; // ID du commentaire auquel on répond
 
   addComment() {
     // Vérifiez que les champs ne sont pas vides et que la note est valide

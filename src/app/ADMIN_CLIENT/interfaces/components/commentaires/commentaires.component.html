@@ -1,7 +1,3 @@
-<style>
-
-</style>
-
 <div class="container">
   <h2>Avis des clients</h2>
   <p>Découvrez ce que vos clients ont pensé de leur séjour ! Vous pouvez lire les commentaires laissés par les clients et y répondre.</p>
@@ -9,10 +5,10 @@
   <div *ngFor="let comment of comments" class="comment">
     <!-- Première ligne : icône du profil et nom -->
     <div class="comment-header">
-      <img src="path/to/profile-icon.png" alt="Profil" class="profile-icon" />
+      <img src="assets/img/icons8.png" alt="Profil" class="profile-icon" />
       <strong>{{ comment.userId }}</strong>
     </div>
-
+ 
     <!-- Deuxième ligne : date du commentaire -->
     <div class="comment-date">
       Commentaire {{ comment.createdDate | date:'dd/MM/yyyy' }}
