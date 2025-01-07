@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, input, OnDestroy, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
+import { ClaudelComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/claudel/claudel.component';
+import { FransdaComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/fransda/fransda.component';
+import { AmourComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/amour/amour.component';
+import { InelComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/inel/inel.component';
 
 
 
@@ -33,20 +37,15 @@ export interface Comment {
     CommonModule,
     FormsModule,
     MatIcon,
-    CommonModule,
     MatTabGroup,
-    MatTab
+    MatTab,
+    MatTabsModule 
   ],
   templateUrl: './accueil-pro.component.html',
   styleUrl: './accueil-pro.component.css'
 })
 
-export class AccueilProComponent implements OnInit, OnDestroy {
-  ngOnInit(): void {}
-
-  ngOnDestroy(): void {}
-
-
+export class AccueilProComponent implements OnInit {
     clients: Client[] = [
     {
       nom: 'Jean Dupont',
@@ -198,6 +197,46 @@ export class AccueilProComponent implements OnInit, OnDestroy {
         }
       ];
 
+      // isLeftSidebarCollapsed = input<boolean>();
+      // changeIsLeftSidebarCollapsed = output<boolean>();
+      items = [
+        { 
+          icon: 'fal fa-user',
+          label: 'Nombre de réservations',
+          component: FransdaComponent
+        },
+        {
+          icon: 'fal fa-user-times',
+          label: 'Réservations annulées',
+          component: ClaudelComponent
+        },
+       
+      ];
+    
+      
+      activeComponent = this.items[0].component; // Composant actif par défaut
+      selectedTab: number = 0; // Onglet sélectionné par défaut
+      
+      ngOnInit() {
+          const storedTabIndex = localStorage.getItem('activeTab');
+          if (storedTabIndex) {
+              this.selectedTab = +storedTabIndex; // Convertir en nombre
+              this.activeComponent = this.items[this.selectedTab].component; // Définir le composant actif
+          }
+      }
+      
+    
+      setActiveComponent(component: any) {
+          this.activeComponent = component;
+      }
+    
+      selectTab(tabIndex: number) {
+        this.selectedTab = tabIndex; // Met à jour l'onglet sélectionné
+        localStorage.setItem('activeTab', tabIndex.toString()); // Stocke l'index dans localStorage
+        this.activeComponent = this.items[tabIndex].component; // Mettre à jour le composant actif
+    }
+    
+    
 
 
     statutsFiltres: string[] = ['Vue d\'ensemble', 'Hotellerrie', 'Tourisme'];
@@ -253,8 +292,6 @@ export class AccueilProComponent implements OnInit, OnDestroy {
       // return matchesPays && matchesEvaluation;
     });
   }
-
-
 
 
     selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
