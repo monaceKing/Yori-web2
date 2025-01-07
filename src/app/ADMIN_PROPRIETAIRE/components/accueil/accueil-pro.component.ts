@@ -148,6 +148,9 @@ export class AccueilProComponent implements OnInit, OnDestroy {
   selectedDuree: string = 'Tous les années'; // Valeur par défaut
  
 
+  dialogueMessage : boolean=false;
+  dialogueMessageEnvoye:boolean=false
+
   constructor() {
     // Initialiser le sous-statut en fonction du statut par défaut
     this.onStatutChange();
@@ -300,5 +303,18 @@ export class AccueilProComponent implements OnInit, OnDestroy {
       this.showDetails = false; // On cache la div conditionnée
     }
 
+    toogleMessage(){
+      this.dialogueMessage = !this.dialogueMessage
+    }
+
+    messageenvoye(){
+      this.dialogueMessage = !this.dialogueMessage
+      this.dialogueMessageEnvoye = !this.dialogueMessageEnvoye
+
+    }
+    fermerMessageenvoye(){
+      this.dialogueMessageEnvoye = !this.dialogueMessageEnvoye
+
+    }
 
 }

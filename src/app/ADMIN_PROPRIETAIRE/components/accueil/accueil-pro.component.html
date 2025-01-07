@@ -12,7 +12,7 @@
                     </label>
                   </div> -->
                <div class="inputs">
-                <div class="labels">
+                <div class="labels"> 
                     <label for="statut">Aperçu</label><br>
                     <select id="statut" class="select1" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
                         <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
@@ -148,6 +148,70 @@
             <h2>Détails de la réservation</h2>
             <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
         </div>
+
+        <div class="discuter">
+            <div>
+                <div>
+                    Discuter
+                </div>
+                <div id="input-container"> <input type="text" (click)="toogleMessage()" placeholder="Envoyer un message" class="envoi"> <mat-icon>send</mat-icon> </div>
+            </div>
+
+            <div *ngIf="dialogueMessage" class="dialogueMessage">
+                <div class="entete-message">
+                    <div>Nouveau message</div>
+                    <div class="fermerMessage" (click)="toogleMessage()">X</div>
+                </div>
+                <div class="corpsMessage">
+                    <div class="ligne"></div>
+                    <input type="text" placeholder="À  Hotel luis viton de sotéga" class="destinataire">
+                    <div class="ligne"></div>
+                    <div class="objectif">
+                        <p>Objectif</p>
+                        <input type="text" placeholder="" class="destinataire">
+
+                    </div>
+                    <div class="ligne"></div>
+                    <Textarea class="zoneMessage">Bonjour comment vous allez...
+
+                    </Textarea>
+
+                </div>
+                <div class="soummettreMessage">
+                    <div>Lien</div>
+                    
+                        <button class="supprimer-btn" id="envoi-btn" (click)="messageenvoye()" >Envoyer</button>
+                    
+                </div>
+            </div>
+
+           <div>
+
+            <div>
+                Bloquer
+            </div>
+            <div>
+                <select name="bloquer" id="bloquer">
+                    <option value="Temporairement">Temporairement</option>
+                </select>
+            </div>
+           </div>
+            <div>
+                <div></div><br>
+                <div><button class="supprimer-btn">Supprimer l’établissement</button></div>
+            </div>
+        </div>
+
+        <div *ngIf="dialogueMessageEnvoye" class="dialogueMessageEnvoye">
+            <div class="fermerMessageEnvoye" (click)="fermerMessageenvoye()">X</div>
+            <div class="containerSuccesMesssage">
+            <div ><i class="fa-regular fa-circle-check" id="logoCheck"></i></div>
+            <h3>Message envoyé .</h3>
+            <p>Votre message a été envoyé avec succès</p>
+            </div>
+            
+        </div>
+
         <div>
             <span class="span">
                 <button class="printPage2" (click)="printPage()">
