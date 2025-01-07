@@ -145,18 +145,16 @@
 
     <div *ngIf="showDetails">
         <div class="retour">
-            <h2>Détails de la réservation</h2>
+            <h2>Détails de l'établissement</h2>
             <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
         </div>
-        <div>
-            <span class="span">
+        <div style="display: flex; justify-content: end; margin-right: 50px;">
                 <button class="printPage2" (click)="printPage()">
                     <mat-icon>
                     print
                     </mat-icon>
                     Imprimer cette page
                 </button>
-            </span>
           </div>
         
         <div>
@@ -168,6 +166,18 @@
                         </mat-icon>
                         Fermeture de l'établissement
                     </div>
+                    <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
+                        <mat-icon style="color: brown;">
+                            error
+                        </mat-icon>
+                        Fermeture de l'établissement
+                    </div> -->
+                    <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
+                        <mat-icon style="color: brown;">
+                            error
+                        </mat-icon>
+                        Fermeture de l'établissement
+                    </div> -->
                     <table class="table2">
                         <tr>
                             <td colspan="3">
@@ -245,15 +255,63 @@
                 </mat-tab>
 
                 <mat-tab label="Photos">
-                
+                    <section class="section">
+                        <div class="image-gallery">
+                          <div *ngFor="let image of images; let i = index" class="image-item">
+                            <label for="image-{{i}}">
+                              <img [src]="image" alt="Image {{i + 1}}" class="image" />
+                            </label>
+                          </div>
+                        </div>
+                      </section>
                 </mat-tab>
 
                 <mat-tab label="Géolocalisation">
-
+                    <section class="section">
+                        <div class="image-gallery1">
+                         <img src="assets/img/geoLoc.png" alt="">
+                        </div>
+                      </section>
                 </mat-tab>
 
                 <mat-tab label="Avis">
-
+                    <div class="containerAvis">                                              
+                        <div *ngFor="let comment of comments" class="comment">
+                          <!-- Première ligne : icône du profil et nom -->
+                          <div class="comment-header">
+                            <img src="assets/img/icons8.png" alt="Profil" class="profile-icon" />
+                            <strong>{{ comment.userId }}</strong>
+                          </div>
+                       
+                          <!-- Deuxième ligne : date du commentaire -->
+                          <div class="comment-date">
+                            Commentaire {{ comment.createdDate | date:'dd/MM/yyyy' }}
+                          </div>
+                      
+                          <!-- Troisième ligne : appréciation -->
+                          <div class="comment-rating">
+                            <div style="display: flex; align-items: center;">
+                                <span style="margin-right: 5px;">{{ comment.rating }}</span>
+                                <span *ngFor="let i of [].constructor(5); let idx = index" 
+                                      [ngClass]="{'circle': true, 'filled': idx < comment.rating, 'outline': idx >= comment.rating}">
+                                </span>
+                            </div>
+                            <div class="rating-text">
+                                <span *ngIf="comment.rating === 5" >Satisfait</span>
+                                <span *ngIf="comment.rating === 4">Satisfait</span>
+                                <span *ngIf="comment.rating === 3">Moyen</span>
+                                <span *ngIf="comment.rating === 2">Pas satisfait</span>
+                                <span *ngIf="comment.rating === 1">Pas satisfait</span>
+                            </div>
+                        </div>
+                        <!-- Quatrième ligne : commentaire -->
+                        <div class="comment-content">
+                            <div class="commentaire">
+                                <p>{{ comment.content }}</p>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
                 </mat-tab>
 
                 <mat-tab label="Chiffre d'affaire et commission">

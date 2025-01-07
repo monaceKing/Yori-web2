@@ -285,6 +285,118 @@ a {
   font-weight: bold;
 }
 
+
+.section{
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+.image-gallery {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 16px;
+  max-height: calc(5 * (100px + 16px)); /* Exemple avec une hauteur de ligne de 100px */
+  overflow-y: auto; /* Active le défilement vertical */
+}
+
+
+.image-gallery1 img{
+  margin: 15px;
+  width: 95%;
+  height: 100%;
+}
+
+
+.image-item {
+  position: relative;
+  display: inline-block;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.containerAvis{
+  background-color: white;
+  padding: 50px 80px 50px 50px;
+}
+
+.comment{
+  width: 100%;
+  background-color: white;
+ 
+  }
+  
+  .comment-rating {
+    margin-top: 5px;
+  }
+  
+  .circle {
+    width: 10px; /* Ajustez la taille selon vos besoins */
+    height: 10px; /* Ajustez la taille selon vos besoins */
+    border-radius: 50%;
+    margin-right: 5px; /* Espacement entre les cercles */
+  }
+  
+  .filled {
+    background-color: green; /* Couleur verte pour les cercles remplis */
+  }
+  
+  .outline {
+    background-color: rgb(255, 255, 255); /* Fond blanc pour les cercles non remplis */
+    border: 2px solid green; /* Contour vert pour les cercles non remplis */
+  }
+  
+  .rating-text {
+    margin-top: 5px; /* Ajoute un espacement entre les cercles et le texte */
+    font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
+    font-weight: 500;
+    font-size: 16.85px;
+    color: #77B5FE;
+  }
+  
+  /* moa */
+  .comment-content {
+    position: relative; /* Permet de positionner le bouton par rapport à cette div */
+  }
+
+  
+  .commentaire {
+    background-color: rgb(224, 224, 224);
+    width: 100%;          
+    height: auto;          /* Hauteur automatique */
+    display: inline-block; /* Permet à la div de s'ajuster à son contenu */
+    padding: 10px;         /* Ajoute de l'espace intérieur */
+    margin: 5px;        /* Ajoute un espacement vertical entre les commentaires */
+    border: 1px solid #ccc; /* Optionnel : ajoute une bordure pour visualiser la div */
+    border-radius: 5px;   /* Optionnel : arrondit les coins de la bordure */
+    word-wrap: break-word; /* Permet au texte de revenir à la ligne si trop long */
+  }
+  
+  .profile-icon {
+    width: 30px; /* Ajustez la taille selon vos besoins */
+    height: 30px; /* Ajustez la taille selon vos besoins */
+    border-radius: 50%; /* Pour rendre l'icône ronde */
+  }
+  
+  .comment-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .comment-rating {
+    display: flex;
+    align-items: center;
+  }
+  
+
+
+
 @media (max-width: 768px) {
   .inputs {
     flex-direction: column; /* Empile les éléments sur les petits écrans */
@@ -331,5 +443,12 @@ a {
 
   .table2 {
     width: 90%;
+  }
+
+  .image-gallery {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }

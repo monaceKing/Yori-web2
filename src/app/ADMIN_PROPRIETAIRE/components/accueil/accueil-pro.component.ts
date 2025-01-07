@@ -16,6 +16,15 @@ interface Client {
   evaluation: string;
 }
 
+export interface Comment {
+  id: number;
+  userId: string; // Identifiant de l'utilisateur
+  content: string;
+  createdDate: Date;
+  rating: number; // Appréciation entre 1 et 5
+  replies: Comment[];
+}
+
 
 @Component({
   selector: 'app-accueil-pro',
@@ -129,7 +138,68 @@ export class AccueilProComponent implements OnInit, OnDestroy {
       evaluation: '',
       id: 10
     },
-  ];
+    ];
+
+    images: string[] = [
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+      'assets/img/chambre.png',
+    ];
+
+      comments: Comment[] = [
+        {
+          id: 1,
+          userId: 'Utilisateur1',
+          content: 'déception totale !',
+          createdDate: new Date('2024-11-20'),
+          rating: 1,
+          replies: []
+        },
+        {
+          id: 2,
+          userId: 'Utilisateur2',
+          content: 'Le service client est très réactif.',
+          createdDate: new Date('2024-11-21'),
+          rating: 4,
+          replies: []
+        },
+        {
+          id: 3,
+          userId: 'Utilisateur3',
+          content: 'Je recommande vivement ce site.',
+          createdDate: new Date('2024-11-22'),
+          rating: 5,
+          replies: []
+        },
+        {
+          id: 4,
+          userId: 'Utilisateur4',
+          content: 'Un peu déçu par le service client.',
+          createdDate: new Date('2024-11-23'),
+          rating: 3,
+          replies: []
+        },
+        {
+          id: 5,
+          userId: 'Utilisateur5',
+          content: 'très belles chambres, j\'adore!.',
+          createdDate: new Date('2024-11-24'),
+          rating: 4,
+          replies: []
+        }
+      ];
+
+
+
     statutsFiltres: string[] = ['Vue d\'ensemble', 'Hotellerrie', 'Tourisme'];
     selectedStatut: string = 'Vue d\'ensemble'; // Valeur par défaut
     
