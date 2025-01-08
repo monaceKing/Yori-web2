@@ -578,12 +578,12 @@ text-align: center;
   color: #77B5FE;
 }
 
-  .image-gallery {
+  /* .image-gallery {
     background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-  }
+  } */
 
 /***********************************/
 
