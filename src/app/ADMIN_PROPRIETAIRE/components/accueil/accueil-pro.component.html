@@ -383,11 +383,53 @@
                 </mat-tab>
 
                 <mat-tab label="Chiffre d'affaire et commission">
-
+                    <div style="display: flex; background-color: white;">
+                        <div class="container-sid">
+                          <div class="sidenav-nav">
+                            <nav>
+                                <ul>
+                                    <li *ngFor="let item of items; let i = index" class="sidenav-nav-item">
+                                        <a (click)="selectTab(i)" class="sidenav-nav-link" [ngClass]="{'active': activeComponent === item.component}">
+                                            <i [class]="item.icon" class="sidenav-link-icon"></i> {{ item.label }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                          </div>
+                        </div>
+                        
+                        <div class="div2">
+                          <!-- Outlet pour afficher le composant actif -->
+                          <!-- <div class="container" *ngComponentOutlet="activeComponent"></div> -->
+                          <ng-container *ngComponentOutlet="activeComponent"></ng-container>
+                        </div>
+                    </div>
                 </mat-tab>
 
                 <mat-tab label="Nombre de réservations">
-
+                    <div style="display: flex; background-color: white;">
+                        <div class="container-sid">
+                            <div class="sidenav-nav">
+                                <nav>
+                                    <ul>
+                                        <li *ngFor="let item of items2; let i = index" class="sidenav-nav-item">
+                                            <a (click)="selectTabItems2(i)" class="sidenav-nav-link" [ngClass]="{'active': activeComponentItems2 === item.component}">
+                                                <i [class]="item.icon" class="sidenav-link-icon"></i> {{ item.label }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    
+                        <div class="div2">
+                            <!-- Outlet pour afficher le composant actif pour items2 -->
+                            <ng-container *ngComponentOutlet="activeComponentItems2"></ng-container>
+                        </div>
+                    </div>
+                    
+                    
+                    
                 </mat-tab>
             </mat-tab-group>
             
