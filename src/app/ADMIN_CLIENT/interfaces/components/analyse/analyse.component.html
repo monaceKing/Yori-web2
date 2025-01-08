@@ -1,18 +1,6 @@
 <div style="display: flex; background-color: white;">
   <div class="container-sid">
     <div class="sidenav-nav">
-      <!-- <ul>
-        <li *ngFor="let item of items" class="sidenav-nav-item">
-          <a 
-            class="sidenav-nav-link" 
-            (click)="setActiveComponent(item.component)"
-            [ngClass]="{'active': activeComponent === item.component}"
-          >
-            <i class="sidenav-link-icon" [class]="item.icon"></i>
-            <span *ngIf="!isLeftSidebarCollapsed()" class="sidenav-link-text">{{ item.label }}</span>
-          </a>
-        </li>
-      </ul> -->
       <nav>
         <ul>
             <li *ngFor="let item of items; let i = index" class="sidenav-nav-item">
