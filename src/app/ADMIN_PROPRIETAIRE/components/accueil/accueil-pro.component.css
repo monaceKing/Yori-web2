@@ -429,7 +429,7 @@ a {
   margin-left: 390px;
   border: none;
   background-color: #ffffff;
-  z-index: 20;
+  z-index: 50;
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
