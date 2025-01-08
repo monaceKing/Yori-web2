@@ -316,7 +316,9 @@ a {
   .table2 {
     width: 90%;
   }
-}
+.bloquage{
+  display: flex;
+}}
 
 /* ---------------- */
 .discuter{
@@ -454,3 +456,28 @@ text-align: center;
     gap: 16px;
   }
 
+.bloquage{
+  display: flex;
+  width: 90%;
+  background-color: #F3F3F3;
+  padding-left: 30px;
+  margin-left: 30px;
+}
+.radioBloquer{
+  display: flex;
+  gap: 10px;
+}
+#btnBloquer{
+  margin-top: 10px;
+  margin-left: 50px;
+}
+#confirmerSuppr{
+  text-align: center;
+  
+}
+.boutonValiderAnnulerSuppression{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}

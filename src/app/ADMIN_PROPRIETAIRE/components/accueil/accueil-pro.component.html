@@ -191,17 +191,46 @@
                 Bloquer
             </div>
             <div>
-                <select name="bloquer" id="bloquer">
+                <select name="bloquer" id="bloquer" (click)="estBloqueEtablissement()">
                     <option value="Temporairement">Temporairement</option>
                 </select>
             </div>
            </div>
             <div>
                 <div></div><br>
-                <div><button class="supprimer-btn">Supprimer l’établissement</button></div>
+                <div><button class="supprimer-btn" (click)="estSupprimeEtablissement()">Supprimer l’établissement</button></div>
             </div>
         </div>
 
+        <div class="bloquage" *ngIf="estBloque">
+            <div>
+                <p>Délai de blocage</p>
+                <div class="radioBloquer">
+                    <div><input type="radio" name="delai"></div>
+                    <div>1 semaine</div>
+                </div>
+                <div class="radioBloquer">
+                    <div ><input type="radio" name="delai"></div>
+                    <div>2 semaines</div>
+                </div>
+                <div class="radioBloquer">
+                    <div><input type="radio" name="delai"></div>
+                    <div>1 mois</div>
+                </div>
+                <div class="radioBloquer">
+                    <div><input type="radio" name="delai"></div>
+                    <div>2 mois</div>
+                </div>
+                <div class="radioBloquer">
+                    <div><input type="radio" name="delai"></div>
+                    <div>3 mois</div>
+                </div>
+            </div>
+
+            <div>
+                <button class="supprimer-btn" id="btnBloquer">Enregister</button>
+            </div>
+        </div>
         <div *ngIf="dialogueMessageEnvoye" class="dialogueMessageEnvoye">
             <div class="fermerMessageEnvoye" (click)="fermerMessageenvoye()">X</div>
             <div class="containerSuccesMesssage">
@@ -212,6 +241,20 @@
             
         </div>
 
+        <div class="dialogueMessageEnvoye" *ngIf="estSupprimer" id="confirmerSuppr">
+            <div ><i class="fa-regular fa-circle-check" id="logoCheck"></i></div>
+        <h3>SUPPRIMER</h3>
+        <p>« Voulez-vous supprimer cet établissement ? Si oui, appuyez sur "Valider". »</p><br><br>
+        <div class="boutonValiderAnnulerSuppression">
+            <div>
+                <button>Annuler</button>
+            </div>
+            <div>
+                <button class="valider-btn">Valider</button>
+            </div>
+        </div>
+        </div>
+        
         <div>
             <span class="span">
 

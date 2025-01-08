@@ -220,6 +220,8 @@ export class AccueilProComponent implements OnInit, OnDestroy {
 
   dialogueMessage : boolean=false;
   dialogueMessageEnvoye:boolean=false
+  estBloque:boolean = false
+  estSupprimer:boolean = false
 
   constructor() {
     // Initialiser le sous-statut en fonction du statut par défaut
@@ -385,6 +387,13 @@ export class AccueilProComponent implements OnInit, OnDestroy {
     fermerMessageenvoye(){
       this.dialogueMessageEnvoye = !this.dialogueMessageEnvoye
 
+    }
+    estBloqueEtablissement(){
+      this.estBloque=!this.estBloque
+    }
+
+    estSupprimeEtablissement(){
+      this.estSupprimer=!this.estSupprimer
     }
 
 }
