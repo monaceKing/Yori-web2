@@ -558,7 +558,11 @@ a {
   margin-left: 390px;
   border: none;
   background-color: #ffffff;
+  /* <<<<<<< HEAD */
   z-index: 50;
+  /* =======
+  z-index: 20; */
+  /* >>>>>>> master */
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -579,6 +583,7 @@ a {
   color: #77b5fe;
 }
 
+/* <<<<<<< HEAD */
 .image-gallery {
   background-color: white;
   display: grid;
@@ -630,14 +635,21 @@ a {
   padding: 30px;
   align-items: center;
   /* .image-gallery {
+=======
+/* .image-gallery {
+>>>>>>> master
     background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+<<<<<<< HEAD
   } 
 
 /***********************************/
 }
+
+/***********************************/
+
 /* juste monace  */
 .div2 {
   background: #fff;
