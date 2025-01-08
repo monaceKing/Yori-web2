@@ -41,18 +41,18 @@
 }
 
 .style-5 {
-  color: #77B5FE;
+  color: #77b5fe;
 }
 
 #statut2 {
-  border: solid #77B5FE;
-  color: #77B5FE;
+  border: solid #77b5fe;
+  color: #77b5fe;
 }
 
 .voir {
-  background-color: #77B5FE;
+  background-color: #77b5fe;
   color: white;
-  border: solid #77B5FE;
+  border: solid #77b5fe;
   height: 30px;
 }
 
@@ -101,7 +101,8 @@
   margin-left: 420px;
 }
 
-.printPage, .printPage2 {
+.printPage,
+.printPage2 {
   display: inline-flex; /* Utilise flexbox pour aligner horizontalement */
   align-items: center; /* Aligne verticalement l'icône et le texte */
   background-color: initial; /* Exemple de couleur de fond pour le bouton */
@@ -111,7 +112,8 @@
   text-decoration: underline;
 }
 
-.printPage mat-icon, .printPage2 mat-icon {
+.printPage mat-icon,
+.printPage2 mat-icon {
   font-size: 20px; /* Taille de l'icône */
   margin-right: 5px; /* Espace entre l'icône et le texte */
 }
@@ -122,8 +124,8 @@
 }
 
 .fact-annulee {
-  background-color: #FFEDED;
-  border: 1px solid #FF9797;
+  background-color: #ffeded;
+  border: 1px solid #ff9797;
   width: 100%;
   margin-left: 30px;
   margin-top: 10px;
@@ -132,7 +134,8 @@
   font-weight: bold;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   padding: 10px; /* Ajoute un espacement interne */
   text-align: left; /* Aligne le texte à gauche */
 }
@@ -151,7 +154,7 @@
 }
 
 .open-div2 {
-  color: #77B5FE;
+  color: #77b5fe;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -172,7 +175,7 @@
 }
 
 .btn-pag {
-  color: #77B5FE;
+  color: #77b5fe;
   border: none;
   background-color: initial;
 }
@@ -197,11 +200,11 @@
   cursor: pointer;
   width: 101px;
   height: 15px;
-  color: #77B5FE;
+  color: #77b5fe;
 }
 
 a {
-  color: #77B5FE;
+  color: #77b5fe;
 }
 
 .custom-select {
@@ -217,8 +220,8 @@ a {
 }
 
 .select {
-  border: 0.5px solid #77B5FE;
-  color: #77B5FE;
+  border: 0.5px solid #77b5fe;
+  color: #77b5fe;
   background-color: white;
   width: 129px;
   height: 30px;
@@ -316,18 +319,18 @@ a {
   .table2 {
     width: 90%;
   }
-.bloquage{
-  display: flex;
-}}
+  .bloquage {
+    display: flex;
+  }
+}
 
 /* ---------------- */
-.discuter{
+.discuter {
   display: flex;
   justify-content: space-between;
   width: 35%;
   margin-left: 30px;
   margin-top: 20px;
-
 }
 #input-container {
   position: relative;
@@ -342,142 +345,159 @@ a {
   transform: translateY(-50%);
   cursor: pointer;
 }
-.envoi{
+.envoi {
   padding: 10px;
 }
-#bloquer{
+#bloquer {
   padding: 10px;
   cursor: pointer;
 }
-.supprimer-btn{
+.supprimer-btn {
   padding: 10px;
-  background-color: #77B5FE;
+  background-color: #77b5fe;
   color: white;
-  border:none;
+  border: none;
   cursor: pointer;
-
 }
-.dialogueMessage{
+.dialogueMessage {
   position: absolute;
-  Width:801px;
-  Height:470px;
+  width: 801px;
+  height: 470px;
   margin-top: -50px;
   margin-left: 290px;
   border: none;
-  background-color:#FFFFFF ;
+  background-color: #ffffff;
   z-index: 20;
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden; 
+  overflow: hidden;
 }
-.entete-message{
+.entete-message {
   display: flex;
   justify-content: space-between;
   color: white;
-  background-color: #77B5FE;
-  padding: 20px; 
-  ; border-top-left-radius: 20px; 
-  border-top-right-radius: 20px; 
+  background-color: #77b5fe;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
-.fermerMessage{
+.fermerMessage {
   cursor: pointer;
 }
 
-.corpsMessage{
-  padding: 20px; 
+.corpsMessage {
+  padding: 20px;
 }
-.ligne{
+.ligne {
   border-bottom: 1px solid black;
 }
-.destinataire{
+.destinataire {
   width: 100%;
   height: 30px;
   margin: 10px 10px 10px 0px;
   border: none;
   background-color: transparent;
 }
-.objectif{
+.objectif {
   display: flex;
   padding: 10px 10px 10px 0px;
   gap: 15px;
 }
 
-.zoneMessage{
-  margin-top: 10px;;
+.zoneMessage {
+  margin-top: 10px;
   width: 100%;
   height: 150px;
   border: none;
-  background-color: #FFFFFF;
-
+  background-color: #ffffff;
 }
-.soummettreMessage{
+.soummettreMessage {
   display: flex;
   justify-content: flex-end;
   gap: 30px;
   align-items: center;
   margin-right: 10px;
 }
-#envoi-btn{
-border-radius: 5px;
+#envoi-btn {
+  border-radius: 5px;
 }
-.dialogueMessageEnvoye{
+.dialogueMessageEnvoye {
   position: absolute;
-  Width:701px;
-  Height:250px;
+  width: 701px;
+  height: 250px;
   margin-top: -50px;
   margin-left: 390px;
   border: none;
-  background-color:#FFFFFF ;
+  background-color: #ffffff;
   z-index: 20;
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden; 
+  overflow: hidden;
   padding: 15px;
 }
 
-.fermerMessageEnvoye{
+.fermerMessageEnvoye {
   text-align: end;
   cursor: pointer;
 }
 
-.containerSuccesMesssage{
-text-align: center;
+.containerSuccesMesssage {
+  text-align: center;
 }
 
-#logoCheck{
+#logoCheck {
   font-size: 50px;
-  color: #77B5FE;
+  color: #77b5fe;
 }
 
-  .image-gallery {
-    background-color: white;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+.image-gallery {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
 
-.bloquage{
+.bloquage {
   display: flex;
   width: 90%;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   padding-left: 30px;
   margin-left: 30px;
 }
-.radioBloquer{
+.radioBloquer {
   display: flex;
   gap: 10px;
 }
-#btnBloquer{
+#btnBloquer {
   margin-top: 10px;
   margin-left: 50px;
 }
-#confirmerSuppr{
+#confirmerSuppr {
   text-align: center;
-  
 }
-.boutonValiderAnnulerSuppression{
+.boutonValiderAnnulerSuppression {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   margin-top: 15px;
+}
+.annuler-btn {
+  padding: 10px;
+  background-color: white;
+  color: #77b5fe;
+  border: 1px solid #77b5fe;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#valider-suppr {
+  border-radius: 10px;
+}
+.notificationBlocage {
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 95%;
+  height: 50px;
+  padding: 30px;
+  align-items: center;
 }

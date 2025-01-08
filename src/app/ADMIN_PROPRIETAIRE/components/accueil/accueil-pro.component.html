@@ -1,9 +1,9 @@
 <div class="container">
-    <div class="first" *ngIf="!showDetails">
+  <div class="first" *ngIf="!showDetails">
     <div>
-            <h2 class="titre">Accueil</h2>
-            <div class="filtre">
-                <!-- <div class="labels">
+      <h2 class="titre">Accueil</h2>
+      <div class="filtre">
+        <!-- <div class="labels">
                     <label *ngFor="let label of labels; let i = index"
                            [ngClass]="getLabelClass(i)"
                            [attr.for]="label.for"
@@ -11,94 +11,132 @@
                       {{ label.text }}
                     </label>
                   </div> -->
-               <div class="inputs">
-                <div class="labels"> 
-                    <label for="statut">Aperçu</label><br>
-                    <select id="statut" class="select1" [(ngModel)]="selectedStatut" (change)="onStatutChange()">
-                        <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
-                    </select> <br>
-                
-                    <select id="sousStatut"  *ngIf="selectedStatut !== 'Vue d\'ensemble'" [(ngModel)]="selectedSousStatut">
-                        <option *ngFor="let sousStatut of sousStatuts[selectedStatut]" [value]="sousStatut">{{ sousStatut }}</option>
-                        <option *ngIf="!sousStatuts[selectedStatut]?.length" disabled>Sélectionnez d'abord un statut</option>
-                    </select>
-                </div>
-               <div class="labels">
-                <label for="pays">Région</label><br>
-                <select id="pays" class="select1" [(ngModel)]="selectedPays">
-                    <option *ngFor="let pays of paysFiltres" [value]="pays">{{ pays }}</option>
-                </select>
-               </div>
-                <div class="labels">
-                    <label for="evaluation">Evaluation</label><br>
-                    <select id="evaluation" class="select1" [(ngModel)]="selectedEvaluation">
-                        <option *ngFor="let evaluation of evaluationsFiltres" [value]="evaluation">{{ evaluation }}</option>
-                    </select>
-                </div>
-                <div class="labels">
-                    <label for="duree">Filtre par année</label><br>
-                    <select id="duree" class="select1" [(ngModel)]="selectedDuree">
-                        <option *ngFor="let duree of dureesFiltres" [value]="duree">{{ duree }}</option>
-                    </select>
-                </div>
-                  <div class="labels">
-                    <label for="plus_filtre" class="style-5">Filtre</label><br>
-                    <button type="button" id="plus_filtre" class="select" (click)="afficherFiltre()">Plus de filtres</button>
-                  </div>
-                  <div class="labels">
-                    <label for=""></label><br>
-                    <button type="button" class="voir">Voir les résultats</button>
-                  </div>
-              </div>
-              <div *ngIf="openFiltre" class="checkbox">
-                <div class="checkbox-container">
-                  <div class="title">
-                    <label for="">Statut des établissements</label>
-                  </div>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="tous" /> Nouveau(x)
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="reservation" /> Ancien(s)
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="arrivees" /> Suspendu(s) temporairement
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="departures" /> Supprimé(s) définitivement
-                  </label> 
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="sejour-en-cours" /> Fermé(s)
-                  </label>
-                </div>
-                <div class="all-search">
-                  <div>
-                    <label for="search" class="lab-search">Mots-clés</label>
-                  </div>
-                  <div>
-                    <input type="search" name="search" class="input-search">
-                  </div>
-                </div>
-              </div>
+        <div class="inputs">
+          <div class="labels">
+            <label for="statut">Aperçu</label><br />
+            <select
+              id="statut"
+              class="select1"
+              [(ngModel)]="selectedStatut"
+              (change)="onStatutChange()"
+            >
+              <option *ngFor="let statut of statutsFiltres" [value]="statut">
+                {{ statut }}
+              </option>
+            </select>
+            <br />
+
+            <select
+              id="sousStatut"
+              *ngIf="selectedStatut !== 'Vue d\'ensemble'"
+              [(ngModel)]="selectedSousStatut"
+            >
+              <option
+                *ngFor="let sousStatut of sousStatuts[selectedStatut]"
+                [value]="sousStatut"
+              >
+                {{ sousStatut }}
+              </option>
+              <option *ngIf="!sousStatuts[selectedStatut]?.length" disabled>
+                Sélectionnez d'abord un statut
+              </option>
+            </select>
+          </div>
+          <div class="labels">
+            <label for="pays">Région</label><br />
+            <select id="pays" class="select1" [(ngModel)]="selectedPays">
+              <option *ngFor="let pays of paysFiltres" [value]="pays">
+                {{ pays }}
+              </option>
+            </select>
+          </div>
+          <div class="labels">
+            <label for="evaluation">Evaluation</label><br />
+            <select
+              id="evaluation"
+              class="select1"
+              [(ngModel)]="selectedEvaluation"
+            >
+              <option
+                *ngFor="let evaluation of evaluationsFiltres"
+                [value]="evaluation"
+              >
+                {{ evaluation }}
+              </option>
+            </select>
+          </div>
+          <div class="labels">
+            <label for="duree">Filtre par année</label><br />
+            <select id="duree" class="select1" [(ngModel)]="selectedDuree">
+              <option *ngFor="let duree of dureesFiltres" [value]="duree">
+                {{ duree }}
+              </option>
+            </select>
+          </div>
+          <div class="labels">
+            <label for="plus_filtre" class="style-5">Filtre</label><br />
+            <button
+              type="button"
+              id="plus_filtre"
+              class="select"
+              (click)="afficherFiltre()"
+            >
+              Plus de filtres
+            </button>
+          </div>
+          <div class="labels">
+            <label for=""></label><br />
+            <button type="button" class="voir">Voir les résultats</button>
+          </div>
+        </div>
+        <div *ngIf="openFiltre" class="checkbox">
+          <div class="checkbox-container">
+            <div class="title">
+              <label for="">Statut des établissements</label>
             </div>
-            <div class="resultats-info">
-                <div>
-                    {{ selectedStatut }}
-                ({{ getClientsFiltres().length }})
-                </div>
-                <button class="printPage" (click)="printPage()">
-                    <mat-icon>
-                    print
-                    </mat-icon>
-                    Imprimer la liste des réservations
-                </button>
+            <label class="checkbox-item">
+              <input type="checkbox" id="tous" /> Nouveau(x)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="reservation" /> Ancien(s)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="arrivees" /> Suspendu(s) temporairement
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="departures" /> Supprimé(s)
+              définitivement
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="sejour-en-cours" /> Fermé(s)
+            </label>
+          </div>
+          <div class="all-search">
+            <div>
+              <label for="search" class="lab-search">Mots-clés</label>
             </div>
+            <div>
+              <input type="search" name="search" class="input-search" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="resultats-info">
+        <div>
+          {{ selectedStatut }}
+          ({{ getClientsFiltres().length }})
+        </div>
+        <button class="printPage" (click)="printPage()">
+          <mat-icon> print </mat-icon>
+          Imprimer la liste des réservations
+        </button>
+      </div>
     </div>
 
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <tr>
+          <tr>
             <th>Nom structure</th>
             <th>Pays/region</th>
             <th>statut</th>
@@ -106,336 +144,465 @@
             <th>Durée</th>
             <th>Evaluation</th>
             <th>Plus d'infos</th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
           <tr *ngFor="let client of paginatedClients">
-            <td style="color: #77B5FE;">{{ client.nom }}</td>
+            <td style="color: #77b5fe">{{ client.nom }}</td>
             <td>{{ client.pays }}</td>
             <td>{{ client.statut }}</td>
             <td>{{ client.type_propriete }}</td>
             <td>{{ client.duree }}</td>
-            <td [ngStyle]="{'color': client.evaluation === 'Mauvais' ? 'red' : 'black'}">
+            <td
+              [ngStyle]="{
+                color: client.evaluation === 'Mauvais' ? 'red' : 'black'
+              }"
+            >
               <b>{{ client.evaluation }}</b>
-          </td>
+            </td>
             <td>
-                <a class="open-div2" (click)="afficherDetails(client)">
-                    <!-- {{ client.id }} -->
-                      voir plus
-                </a>
+              <a class="open-div2" (click)="afficherDetails(client)">
+                <!-- {{ client.id }} -->
+                voir plus
+              </a>
             </td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td colspan="10" class="td-pag">
-                <div>
-                    <button class="btn-pag" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">&lt; Précédent</button>|
-                    <span>Page</span>
-                    |<button class="btn-pag" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Suivant &gt;</button>
-                    <select id="itemsPerPage" (change)="onItemsPerPageChange($event)">
-                        <option *ngFor="let option of itemsPerPageOptions" [value]="option">Afficher {{ option }} réservations</option>
-                    </select>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    </div>
-    </div>
-
-
-    <div *ngIf="showDetails">
-        <div class="retour">
-            <h2>Détails de l'établissement</h2>
-            <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
-        </div>
-
-        <div class="discuter">
-            <div>
-                <div>
-                    Discuter
-                </div>
-                <div id="input-container"> <input type="text" (click)="toogleMessage()" placeholder="Envoyer un message" class="envoi"> <mat-icon>send</mat-icon> </div>
-            </div>
-
-            <div *ngIf="dialogueMessage" class="dialogueMessage">
-                <div class="entete-message">
-                    <div>Nouveau message</div>
-                    <div class="fermerMessage" (click)="toogleMessage()">X</div>
-                </div>
-                <div class="corpsMessage">
-                    <div class="ligne"></div>
-                    <input type="text" placeholder="À  Hotel luis viton de sotéga" class="destinataire">
-                    <div class="ligne"></div>
-                    <div class="objectif">
-                        <p>Objectif</p>
-                        <input type="text" placeholder="" class="destinataire">
-
-                    </div>
-                    <div class="ligne"></div>
-                    <Textarea class="zoneMessage">Bonjour comment vous allez...
-
-                    </Textarea>
-
-                </div>
-                <div class="soummettreMessage">
-                    <div>Lien</div>
-                    
-                        <button class="supprimer-btn" id="envoi-btn" (click)="messageenvoye()" >Envoyer</button>
-                    
-                </div>
-            </div>
-
-           <div>
-
-            <div>
-                Bloquer
-            </div>
-            <div>
-                <select name="bloquer" id="bloquer" (click)="estBloqueEtablissement()">
-                    <option value="Temporairement">Temporairement</option>
-                </select>
-            </div>
-           </div>
-            <div>
-                <div></div><br>
-                <div><button class="supprimer-btn" (click)="estSupprimeEtablissement()">Supprimer l’établissement</button></div>
-            </div>
-        </div>
-
-        <div class="bloquage" *ngIf="estBloque">
-            <div>
-                <p>Délai de blocage</p>
-                <div class="radioBloquer">
-                    <div><input type="radio" name="delai"></div>
-                    <div>1 semaine</div>
-                </div>
-                <div class="radioBloquer">
-                    <div ><input type="radio" name="delai"></div>
-                    <div>2 semaines</div>
-                </div>
-                <div class="radioBloquer">
-                    <div><input type="radio" name="delai"></div>
-                    <div>1 mois</div>
-                </div>
-                <div class="radioBloquer">
-                    <div><input type="radio" name="delai"></div>
-                    <div>2 mois</div>
-                </div>
-                <div class="radioBloquer">
-                    <div><input type="radio" name="delai"></div>
-                    <div>3 mois</div>
-                </div>
-            </div>
-
-            <div>
-                <button class="supprimer-btn" id="btnBloquer">Enregister</button>
-            </div>
-        </div>
-        <div *ngIf="dialogueMessageEnvoye" class="dialogueMessageEnvoye">
-            <div class="fermerMessageEnvoye" (click)="fermerMessageenvoye()">X</div>
-            <div class="containerSuccesMesssage">
-            <div ><i class="fa-regular fa-circle-check" id="logoCheck"></i></div>
-            <h3>Message envoyé .</h3>
-            <p>Votre message a été envoyé avec succès</p>
-            </div>
-            
-        </div>
-
-        <div class="dialogueMessageEnvoye" *ngIf="estSupprimer" id="confirmerSuppr">
-            <div ><i class="fa-regular fa-circle-check" id="logoCheck"></i></div>
-        <h3>SUPPRIMER</h3>
-        <p>« Voulez-vous supprimer cet établissement ? Si oui, appuyez sur "Valider". »</p><br><br>
-        <div class="boutonValiderAnnulerSuppression">
-            <div>
-                <button>Annuler</button>
-            </div>
-            <div>
-                <button class="valider-btn">Valider</button>
-            </div>
-        </div>
-        </div>
-        
-        <div>
-            <span class="span">
-
-        <div style="display: flex; justify-content: end; margin-right: 50px;">
-
-                <button class="printPage2" (click)="printPage()">
-                    <mat-icon>
-                    print
-                    </mat-icon>
-                    Imprimer cette page
+              <div>
+                <button
+                  class="btn-pag"
+                  (click)="goToPage(currentPage - 1)"
+                  [disabled]="currentPage === 1"
+                >
+                  &lt; Précédent</button
+                >|
+                <span>Page</span>
+                |<button
+                  class="btn-pag"
+                  (click)="goToPage(currentPage + 1)"
+                  [disabled]="currentPage === totalPages"
+                >
+                  Suivant &gt;
                 </button>
+                <select
+                  id="itemsPerPage"
+                  (change)="onItemsPerPageChange($event)"
+                >
+                  <option
+                    *ngFor="let option of itemsPerPageOptions"
+                    [value]="option"
+                  >
+                    Afficher {{ option }} réservations
+                  </option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="showDetails">
+    <div class="retour">
+      <h2>Détails de l'établissement</h2>
+      <b>&lt;</b
+      ><button class="revenir" (click)="revenir()">
+        Revenir à la synthèse des réservations
+      </button>
+    </div>
+
+    <div class="discuter">
+      <div>
+        <div>Discuter</div>
+        <div id="input-container">
+          <input
+            type="text"
+            (click)="toogleMessage()"
+            placeholder="Envoyer un message"
+            class="envoi"
+          />
+          <mat-icon>send</mat-icon>
+        </div>
+      </div>
+
+      <div *ngIf="dialogueMessage" class="dialogueMessage">
+        <div class="entete-message">
+          <div>Nouveau message</div>
+          <div class="fermerMessage" (click)="toogleMessage()">X</div>
+        </div>
+        <div class="corpsMessage">
+          <div class="ligne"></div>
+          <input
+            type="text"
+            placeholder="À  Hotel luis viton de sotéga"
+            class="destinataire"
+          />
+          <div class="ligne"></div>
+          <div class="objectif">
+            <p>Objectif</p>
+            <input type="text" placeholder="" class="destinataire" />
           </div>
-        
+          <div class="ligne"></div>
+          <Textarea class="zoneMessage">
+            Bonjour comment vous allez...
+          </Textarea>
+        </div>
+        <div class="soummettreMessage">
+          <div>Lien</div>
+
+          <button
+            class="supprimer-btn"
+            id="envoi-btn"
+            (click)="messageenvoye()"
+          >
+            Envoyer
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <div>Bloquer</div>
         <div>
-            <mat-tab-group class="fixed-width">
-                <mat-tab label="Information sur l'établissements">
-                    <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
-                        <mat-icon style="color: brown;">
-                            error
-                        </mat-icon>
-                        Fermeture de l'établissement
-                    </div>
-                    <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
-                        <mat-icon style="color: brown;">
-                            error
-                        </mat-icon>
-                        Fermeture de l'établissement
-                    </div> -->
-                    <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
-                        <mat-icon style="color: brown;">
-                            error
-                        </mat-icon>
-                        Fermeture de l'établissement
-                    </div> -->
-                    <table class="table2">
-                        <tr>
-                            <td colspan="3">
-                                Nom du propriétaire
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <!-- <b>ELOKO SAMA JOSPH WILLIAM</b> -->
-                                 <b>{{selectedClient.nom}}</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <a href="">Information sur le propriétaire</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Nom de l'établissement:</td>
-                            <td>Evaluation :</td>
-                            <td>Quartier :</td>
-                        </tr>
-                        <tr>
-                            <td> <b>{{selectedClient.nom}}</b> </td>
-                            <td [ngStyle]="{'color': selectedClient.evaluation === 'Mauvais' ? 'red' : 'black'}"> <b>{{selectedClient.evaluation}}</b> </td>
-                            <td>Sotéga</td>
-                        </tr>
-                        <tr>
-                            <td>Service</td>
-                            <td>Nombre d'étoile possedé</td>
-                            <td>Langue(s) parlée(s)</td>
-                        </tr>
-                        <tr>
-                            <td> <b>{{selectedClient.statut}}</b> </td>
-                            <td> <b>3 étoiles ***</b> </td>
-                            <td>français, anglais, espagnol</td>
-                        </tr>
-                        <tr>
-                            <td>Type de propriété</td>
-                            <td>Nombre des offres</td>
-                            <td>Numéro de la structure</td>
-            
-                        </tr>
-                        <tr>
-                            <td> <b>{{selectedClient.type_propriete}}</b> </td>
-                            <td> <b>4</b> </td>
-                            <td>7407389081</td>
-                        </tr>
-                        <tr>
-                            <td>Date d'inscription</td>
-                            <td>Pays/Region</td>
-                            <td>Mode de paiement</td>
-                        </tr>
-                        <tr>
-                            <td> <b>dim.19 juil 2022</b> </td>
-                            <td>{{selectedClient.pays}}</td>
-                            <td>
-                                <ul style="display: flex; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
-                                    <li>paysing</li>
-                                    <li>paysing</li>
-                                    <li>paysing</li>
-                                </ul>
-                            </td>                
-                        </tr>
-                        <tr>
-                            <td>Durée sur yori</td>
-                            <td>Ville</td>
-                        </tr>
-                        <tr>
-                            <td> <b>{{selectedClient.duree}}</b> </td>
-                            <td>Libreville</td>
-                        </tr>
-            
-                        </table>
-                </mat-tab>
+          <select
+            name="bloquer"
+            id="bloquer"
+            (click)="estBloqueEtablissement()"
+          >
+            <option value="Temporairement">Temporairement</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div>Définitivement</div>
+        <div>
+          <button class="supprimer-btn" (click)="estSupprimeEtablissement()">
+            Supprimer l’établissement
+          </button>
+        </div>
+      </div>
+    </div>
 
-                <mat-tab label="Photos">
-                    <section class="section">
-                        <div class="image-gallery">
-                          <div *ngFor="let image of images; let i = index" class="image-item">
-                            <label for="image-{{i}}">
-                              <img [src]="image" alt="Image {{i + 1}}" class="image" />
-                            </label>
-                          </div>
-                        </div>
-                      </section>
-                </mat-tab>
-
-                <mat-tab label="Géolocalisation">
-                    <section class="section">
-                        <div class="image-gallery1">
-                         <img src="assets/img/geoLoc.png" alt="">
-                        </div>
-                      </section>
-                </mat-tab>
-
-                <mat-tab label="Avis">
-                    <div class="containerAvis">                                              
-                        <div *ngFor="let comment of comments" class="comment">
-                          <!-- Première ligne : icône du profil et nom -->
-                          <div class="comment-header">
-                            <img src="assets/img/icons8.png" alt="Profil" class="profile-icon" />
-                            <strong>{{ comment.userId }}</strong>
-                          </div>
-                       
-                          <!-- Deuxième ligne : date du commentaire -->
-                          <div class="comment-date">
-                            Commentaire {{ comment.createdDate | date:'dd/MM/yyyy' }}
-                          </div>
-                      
-                          <!-- Troisième ligne : appréciation -->
-                          <div class="comment-rating">
-                            <div style="display: flex; align-items: center;">
-                                <span style="margin-right: 5px;">{{ comment.rating }}</span>
-                                <span *ngFor="let i of [].constructor(5); let idx = index" 
-                                      [ngClass]="{'circle': true, 'filled': idx < comment.rating, 'outline': idx >= comment.rating}">
-                                </span>
-                            </div>
-                            <div class="rating-text">
-                                <span *ngIf="comment.rating === 5" >Satisfait</span>
-                                <span *ngIf="comment.rating === 4">Satisfait</span>
-                                <span *ngIf="comment.rating === 3">Moyen</span>
-                                <span *ngIf="comment.rating === 2">Pas satisfait</span>
-                                <span *ngIf="comment.rating === 1">Pas satisfait</span>
-                            </div>
-                        </div>
-                        <!-- Quatrième ligne : commentaire -->
-                        <div class="comment-content">
-                            <div class="commentaire">
-                                <p>{{ comment.content }}</p>
-                            </div>
-                        </div>
-                        </div>
-                      </div>
-                </mat-tab>
-
-                <mat-tab label="Chiffre d'affaire et commission">
-
-                </mat-tab>
-
-                <mat-tab label="Nombre de réservations">
-
-                </mat-tab>
-            </mat-tab-group>
-            
+    <div class="bloquage" *ngIf="estBloque">
+      <div>
+        <p>Délai de blocage</p>
+        <div class="radioBloquer">
+          <div>
+            <input
+              type="radio"
+              name="delai"
+              value="1 semaine"
+              (change)="onRadioChange($event)"
+            />
           </div>
+          <div>1 semaine</div>
+        </div>
+        <div class="radioBloquer">
+          <div>
+            <input
+              type="radio"
+              name="delai"
+              value="2 semaines"
+              (change)="onRadioChange($event)"
+            />
+          </div>
+          <div>2 semaines</div>
+        </div>
+        <div class="radioBloquer">
+          <div>
+            <input
+              type="radio"
+              name="delai"
+              value="1 mois"
+              (change)="onRadioChange($event)"
+            />
+          </div>
+          <div>1 mois</div>
+        </div>
+        <div class="radioBloquer">
+          <div>
+            <input
+              type="radio"
+              name="delai"
+              value="2 mois"
+              (change)="onRadioChange($event)"
+            />
+          </div>
+          <div>2 mois</div>
+        </div>
+        <div class="radioBloquer">
+          <div>
+            <input
+              type="radio"
+              name="delai"
+              value="3 mois"
+              (change)="onRadioChange($event)"
+            />
+          </div>
+          <div>3 mois</div>
+        </div>
+      </div>
 
-    
+      <div>
+        <button
+          class="supprimer-btn"
+          id="btnBloquer"
+          (click)="onEnregisterClick()"
+        >
+          Enregister
+        </button>
+      </div>
+    </div>
 
+    <div *ngIf="messagebloque" class="notificationBlocage">
+      <p class="notificationBlocageContent">{{ messagebloque }}</p>
+    </div>
 
+    <div *ngIf="dialogueMessageEnvoye" class="dialogueMessageEnvoye">
+      <div class="fermerMessageEnvoye" (click)="fermerMessageenvoye()">X</div>
+      <div class="containerSuccesMesssage">
+        <div><i class="fa-regular fa-circle-check" id="logoCheck"></i></div>
+        <h3>Message envoyé .</h3>
+        <p>Votre message a été envoyé avec succès</p>
+      </div>
+    </div>
+
+    <div class="dialogueMessageEnvoye" *ngIf="estSupprimer" id="confirmerSuppr">
+      <div><i class="fa-solid fa-trash-can" id="logoCheck"></i></div>
+      <h3>SUPPRIMER</h3>
+      <p>
+        « Voulez-vous supprimer cet établissement ? Si oui, appuyez sur
+        "Valider". »
+      </p>
+      <br /><br />
+      <div class="boutonValiderAnnulerSuppression">
+        <div>
+          <button class="annuler-btn" (click)="estSupprimeEtablissement()">
+            Annuler
+          </button>
+        </div>
+        <div>
+          <button class="supprimer-btn" id="valider-suppr">Valider</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="notifSuppr"></div>
+
+    <div>
+      <span class="span">
+        <div style="display: flex; justify-content: end; margin-right: 50px">
+          <button class="printPage2" (click)="printPage()">
+            <mat-icon> print </mat-icon>
+            Imprimer cette page
+          </button>
+        </div>
+
+        <div>
+          <mat-tab-group class="fixed-width">
+            <mat-tab label="Information sur l'établissements">
+              <div
+                *ngIf="selectedClient.evaluation == 'Mauvais'"
+                class="fact-annulee"
+              >
+                <mat-icon style="color: brown"> error </mat-icon>
+                Fermeture de l'établissement
+              </div>
+              <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
+                        <mat-icon style="color: brown;">
+                            error
+                        </mat-icon>
+                        Fermeture de l'établissement
+                    </div> -->
+              <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
+                        <mat-icon style="color: brown;">
+                            error
+                        </mat-icon>
+                        Fermeture de l'établissement
+                    </div> -->
+              <table class="table2">
+                <tr>
+                  <td colspan="3">Nom du propriétaire</td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <!-- <b>ELOKO SAMA JOSPH WILLIAM</b> -->
+                    <b>{{ selectedClient.nom }}</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <a href="">Information sur le propriétaire</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nom de l'établissement:</td>
+                  <td>Evaluation :</td>
+                  <td>Quartier :</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>{{ selectedClient.nom }}</b>
+                  </td>
+                  <td
+                    [ngStyle]="{
+                      color:
+                        selectedClient.evaluation === 'Mauvais'
+                          ? 'red'
+                          : 'black'
+                    }"
+                  >
+                    <b>{{ selectedClient.evaluation }}</b>
+                  </td>
+                  <td>Sotéga</td>
+                </tr>
+                <tr>
+                  <td>Service</td>
+                  <td>Nombre d'étoile possedé</td>
+                  <td>Langue(s) parlée(s)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>{{ selectedClient.statut }}</b>
+                  </td>
+                  <td><b>3 étoiles ***</b></td>
+                  <td>français, anglais, espagnol</td>
+                </tr>
+                <tr>
+                  <td>Type de propriété</td>
+                  <td>Nombre des offres</td>
+                  <td>Numéro de la structure</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>{{ selectedClient.type_propriete }}</b>
+                  </td>
+                  <td><b>4</b></td>
+                  <td>7407389081</td>
+                </tr>
+                <tr>
+                  <td>Date d'inscription</td>
+                  <td>Pays/Region</td>
+                  <td>Mode de paiement</td>
+                </tr>
+                <tr>
+                  <td><b>dim.19 juil 2022</b></td>
+                  <td>{{ selectedClient.pays }}</td>
+                  <td>
+                    <ul
+                      style="
+                        display: flex;
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                        gap: 10px;
+                      "
+                    >
+                      <li>paysing</li>
+                      <li>paysing</li>
+                      <li>paysing</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Durée sur yori</td>
+                  <td>Ville</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>{{ selectedClient.duree }}</b>
+                  </td>
+                  <td>Libreville</td>
+                </tr>
+              </table>
+            </mat-tab>
+
+            <mat-tab label="Photos">
+              <section class="section">
+                <div class="image-gallery">
+                  <div
+                    *ngFor="let image of images; let i = index"
+                    class="image-item"
+                  >
+                    <label for="image-{{ i }}">
+                      <img
+                        [src]="image"
+                        alt="Image {{ i + 1 }}"
+                        class="image"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </section>
+            </mat-tab>
+
+            <mat-tab label="Géolocalisation">
+              <section class="section">
+                <div class="image-gallery1">
+                  <img src="assets/img/geoLoc.png" alt="" />
+                </div>
+              </section>
+            </mat-tab>
+
+            <mat-tab label="Avis">
+              <div class="containerAvis">
+                <div *ngFor="let comment of comments" class="comment">
+                  <!-- Première ligne : icône du profil et nom -->
+                  <div class="comment-header">
+                    <img
+                      src="assets/img/icons8.png"
+                      alt="Profil"
+                      class="profile-icon"
+                    />
+                    <strong>{{ comment.userId }}</strong>
+                  </div>
+
+                  <!-- Deuxième ligne : date du commentaire -->
+                  <div class="comment-date">
+                    Commentaire {{ comment.createdDate | date : "dd/MM/yyyy" }}
+                  </div>
+
+                  <!-- Troisième ligne : appréciation -->
+                  <div class="comment-rating">
+                    <div style="display: flex; align-items: center">
+                      <span style="margin-right: 5px">{{
+                        comment.rating
+                      }}</span>
+                      <span
+                        *ngFor="let i of [].constructor(5); let idx = index"
+                        [ngClass]="{
+                          circle: true,
+                          filled: idx < comment.rating,
+                          outline: idx >= comment.rating
+                        }"
+                      >
+                      </span>
+                    </div>
+                    <div class="rating-text">
+                      <span *ngIf="comment.rating === 5">Satisfait</span>
+                      <span *ngIf="comment.rating === 4">Satisfait</span>
+                      <span *ngIf="comment.rating === 3">Moyen</span>
+                      <span *ngIf="comment.rating === 2">Pas satisfait</span>
+                      <span *ngIf="comment.rating === 1">Pas satisfait</span>
+                    </div>
+                  </div>
+                  <!-- Quatrième ligne : commentaire -->
+                  <div class="comment-content">
+                    <div class="commentaire">
+                      <p>{{ comment.content }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Chiffre d'affaire et commission"> </mat-tab>
+
+            <mat-tab label="Nombre de réservations"> </mat-tab>
+          </mat-tab-group>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
