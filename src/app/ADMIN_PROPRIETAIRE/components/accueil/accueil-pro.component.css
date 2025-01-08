@@ -448,6 +448,9 @@ a {
   .table2 {
     width: 90%;
   }
+  .bloquage {
+    display: flex;
+  }
 }
 
 /* ---------------- */
@@ -555,7 +558,11 @@ a {
   margin-left: 390px;
   border: none;
   background-color: #ffffff;
-  z-index: 20;
+  /* <<<<<<< HEAD */
+  z-index: 50;
+  /* =======
+  z-index: 20; */
+  /* >>>>>>> master */
   border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -576,12 +583,70 @@ a {
   color: #77b5fe;
 }
 
+/* <<<<<<< HEAD */
+.image-gallery {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.bloquage {
+  display: flex;
+  width: 90%;
+  background-color: #f3f3f3;
+  padding-left: 30px;
+  margin-left: 30px;
+}
+.radioBloquer {
+  display: flex;
+  gap: 10px;
+}
+#btnBloquer {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+#confirmerSuppr {
+  text-align: center;
+}
+.boutonValiderAnnulerSuppression {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+}
+.annuler-btn {
+  padding: 10px;
+  background-color: white;
+  color: #77b5fe;
+  border: 1px solid #77b5fe;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#valider-suppr {
+  border-radius: 10px;
+}
+.notificationBlocage {
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 95%;
+  height: 50px;
+  padding: 30px;
+  align-items: center;
+  /* .image-gallery {
+=======
 /* .image-gallery {
+>>>>>>> master
     background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-  } */
+<<<<<<< HEAD
+  } 
+
+/***********************************/
+}
 
 /***********************************/
 
