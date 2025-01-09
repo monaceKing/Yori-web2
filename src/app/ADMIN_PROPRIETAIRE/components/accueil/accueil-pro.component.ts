@@ -626,7 +626,7 @@ export class AccueilProComponent implements OnInit {
     if (this.selectedValue) {
       const dateDebut = new Date().toLocaleDateString();
       const dateFin = this.calculerDateFin(this.selectedValue);
-      this.messagebloque = `Etablissement bloqué temporairement  le ${dateDebut} au ${dateFin}.          Durée : ${this.selectedValue}`;
+      this.messagebloque = `Etablissement bloqué temporairement  le ${dateDebut} au ${dateFin}. Durée : ${this.selectedValue}`;
       this.estBloque = !this.estBloque;
     } else {
       this.messagebloque = 'Veuillez sélectionner une durée de blocage.';
