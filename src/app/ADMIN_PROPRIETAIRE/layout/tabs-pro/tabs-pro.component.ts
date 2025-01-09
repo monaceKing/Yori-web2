@@ -3,7 +3,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { FooterProComponent } from "../footer-pro/footer-pro.component";
-import { AccueilProComponent } from "../../components/accueil/accueil-pro.component";
+import { ComptesPropritairesComponent } from '../../components/Comptes_proprietaires/comptes-propritaires.component';
 
 
 @Component({
@@ -16,7 +16,7 @@ import { AccueilProComponent } from "../../components/accueil/accueil-pro.compon
     CommonModule,
     MatIcon,
     FooterProComponent,
-    AccueilProComponent
+    ComptesPropritairesComponent
 ],
   templateUrl: './tabs-pro.component.html',
   styleUrl: './tabs-pro.component.css'

@@ -74,36 +74,7 @@ export class TabsComponent implements AfterViewInit{
   }
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
 
-  // onTabChange(event: any) {
-  //   this.activeTabIndex = event.index;
-
-  //   if (this.activeTabIndex === 4 && !this.currentComponent) {
-  //     event.preventDefault();
-  //     this.activeTabIndex = event.previousIndex;
-  //   } else {
-  //     this.isMenuOpen = false;
-  //     this.currentComponent = null;
-  //   }
-  // }
-
-  // selectTab(index: number) {
-  //   this.activeTabIndex = index;
-  //   localStorage.setItem('activeTabIndex', index.toString());
-  //   this.tabGroup.selectedIndex = index;
-  // }
-
-  // previousTab() {
-  //   if (this.activeTabIndex > 0) {
-  //     this.selectTab(this.activeTabIndex - 1);
-  //   }
-  // }
-
-  // nextTab() {
-  //   if (this.activeTabIndex < this.tabGroup._tabs.length - 1) {
-  //     this.selectTab(this.activeTabIndex + 1);
-  //   }
-  // }
-
+  
 
   isMenuOpen = false;
   // currentComponent: string | null = null;
@@ -117,21 +88,7 @@ export class TabsComponent implements AfterViewInit{
     select.click(); // Ouvre le sélecteur
   }
 
-  // showComponent(event: Event) {
-  //   const target = event.target as HTMLSelectElement;
-  //   const value = target.value;
 
-  //   if (value) {
-  //     this.currentComponent = value;
-  //     this.isMenuOpen = false;
-  //   }
-  // }
-
-  // onTabChange2(event: any) {
-  //   this.activeTabIndex = event.index;
-  //   this.isMenuOpen = false;
-  //   this.currentComponent = null;
-  // }
 
 
 }

@@ -101,10 +101,10 @@
         <tr>
             <th>Nom structure</th>
             <th>Pays/region</th>
-            <th>statut</th>
-            <th>Type de propriété</th>
-            <th>Durée</th>
-            <th>Evaluation</th>
+            <th>contact</th>
+            <th>Adresse e-mail</th>
+            <th>Nombre de structure inscrite(s)</th>
+            <th>Durée du compte</th>
             <th>Plus d'infos</th>
         </tr>
         </thead>
@@ -112,12 +112,13 @@
           <tr *ngFor="let client of paginatedClients">
             <td style="color: #77B5FE;">{{ client.nom }}</td>
             <td>{{ client.pays }}</td>
-            <td>{{ client.statut }}</td>
-            <td>{{ client.type_propriete }}</td>
-            <td>{{ client.duree }}</td>
-            <td [ngStyle]="{'color': client.evaluation === 'Mauvais' ? 'red' : 'black'}">
+            <td>{{ client.contact }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.nombreStructure }}</td>
+            <td>{{ client.duree }} an(s)</td>
+            <!-- <td [ngStyle]="{'color': client.evaluation === 'Mauvais' ? 'red' : 'black'}">
               <b>{{ client.evaluation }}</b>
-          </td>
+            </td> -->
             <td>
                 <a class="open-div2" (click)="afficherDetails(client)">
                     <!-- {{ client.id }} -->
@@ -213,7 +214,7 @@
         </div>
 
         <div>
-            <span class="span">
+            < class="span">
 
         <div style="display: flex; justify-content: end; margin-right: 50px;">
 
@@ -224,7 +225,10 @@
                     Imprimer cette page
                 </button>
           </div>
-        
+
+
+
+        <!------------------------------------------------------------------------------------------->
         <div>
             <mat-tab-group class="fixed-width">
                 <mat-tab label="Information sur l'établissements">
@@ -234,89 +238,60 @@
                         </mat-icon>
                         Fermeture de l'établissement
                     </div>
-                    <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
-                        <mat-icon style="color: brown;">
-                            error
-                        </mat-icon>
-                        Fermeture de l'établissement
-                    </div> -->
-                    <!-- <div *ngIf="selectedClient.evaluation == 'Mauvais'" class="fact-annulee">
-                        <mat-icon style="color: brown;">
-                            error
-                        </mat-icon>
-                        Fermeture de l'établissement
-                    </div> -->
+
+                    
                     <table class="table2">
                         <tr>
-                            <td colspan="3">
+                            <td>
                                 Nom du propriétaire
                             </td>
+                            <td>
+                                Nombre de structures supprimée(s) :
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
-                                <!-- <b>ELOKO SAMA JOSPH WILLIAM</b> -->
+                            <td>
                                  <b>{{selectedClient.nom}}</b>
                             </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <a href="">Information sur le propriétaire</a>
+                            <td>
+                                 <b>1</b>
                             </td>
                         </tr>
+                        
                         <tr>
-                            <td>Nom de l'établissement:</td>
-                            <td>Evaluation :</td>
-                            <td>Quartier :</td>
+                            <td>Contact :</td>
+                            <td>Nombre de structures fermée(s) :</td>
                         </tr>
                         <tr>
-                            <td> <b>{{selectedClient.nom}}</b> </td>
-                            <td [ngStyle]="{'color': selectedClient.evaluation === 'Mauvais' ? 'red' : 'black'}"> <b>{{selectedClient.evaluation}}</b> </td>
-                            <td>Sotéga</td>
+                            <td> <b>{{selectedClient.contact}}</b> </td>
+                            <td> <b>0</b> </td>
                         </tr>
                         <tr>
                             <td>Service</td>
-                            <td>Nombre d'étoile possedé</td>
-                            <td>Langue(s) parlée(s)</td>
                         </tr>
                         <tr>
                             <td> <b>{{selectedClient.statut}}</b> </td>
-                            <td> <b>3 étoiles ***</b> </td>
-                            <td>français, anglais, espagnol</td>
                         </tr>
                         <tr>
                             <td>Type de propriété</td>
-                            <td>Nombre des offres</td>
-                            <td>Numéro de la structure</td>
             
                         </tr>
                         <tr>
                             <td> <b>{{selectedClient.type_propriete}}</b> </td>
-                            <td> <b>4</b> </td>
-                            <td>7407389081</td>
+                            
                         </tr>
                         <tr>
                             <td>Date d'inscription</td>
-                            <td>Pays/Region</td>
-                            <td>Mode de paiement</td>
+                           
                         </tr>
                         <tr>
-                            <td> <b>dim.19 juil 2022</b> </td>
-                            <td>{{selectedClient.pays}}</td>
-                            <td>
-                                <ul style="display: flex; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
-                                    <li>paysing</li>
-                                    <li>paysing</li>
-                                    <li>paysing</li>
-                                </ul>
-                            </td>                
+                            <td> <b>dim.19 juil 2022</b> </td>                
                         </tr>
                         <tr>
                             <td>Durée sur yori</td>
-                            <td>Ville</td>
                         </tr>
                         <tr>
                             <td> <b>{{selectedClient.duree}}</b> </td>
-                            <td>Libreville</td>
                         </tr>
             
                         </table>
@@ -332,103 +307,6 @@
                           </div>
                         </div>
                       </section>
-                </mat-tab>
-
-                <mat-tab label="Géolocalisation">
-                    <section class="section">
-                        <div class="image-gallery1">
-                         <img src="assets/img/geoLoc.png" alt="">
-                        </div>
-                      </section>
-                </mat-tab>
-
-                <mat-tab label="Avis">
-                    <div class="containerAvis">                                              
-                        <div *ngFor="let comment of comments" class="comment">
-                          <!-- Première ligne : icône du profil et nom -->
-                          <div class="comment-header">
-                            <img src="assets/img/icons8.png" alt="Profil" class="profile-icon" />
-                            <strong>{{ comment.userId }}</strong>
-                          </div>
-                       
-                          <!-- Deuxième ligne : date du commentaire -->
-                          <div class="comment-date">
-                            Commentaire {{ comment.createdDate | date:'dd/MM/yyyy' }}
-                          </div>
-                      
-                          <!-- Troisième ligne : appréciation -->
-                          <div class="comment-rating">
-                            <div style="display: flex; align-items: center;">
-                                <span style="margin-right: 5px;">{{ comment.rating }}</span>
-                                <span *ngFor="let i of [].constructor(5); let idx = index" 
-                                      [ngClass]="{'circle': true, 'filled': idx < comment.rating, 'outline': idx >= comment.rating}">
-                                </span>
-                            </div>
-                            <div class="rating-text">
-                                <span *ngIf="comment.rating === 5" >Satisfait</span>
-                                <span *ngIf="comment.rating === 4">Satisfait</span>
-                                <span *ngIf="comment.rating === 3">Moyen</span>
-                                <span *ngIf="comment.rating === 2">Pas satisfait</span>
-                                <span *ngIf="comment.rating === 1">Pas satisfait</span>
-                            </div>
-                        </div>
-                        <!-- Quatrième ligne : commentaire -->
-                        <div class="comment-content">
-                            <div class="commentaire">
-                                <p>{{ comment.content }}</p>
-                            </div>
-                        </div>
-                        </div>
-                      </div>
-                </mat-tab>
-
-                <mat-tab label="Chiffre d'affaire et commission">
-                    <div style="display: flex; background-color: white;">
-                        <div class="container-sid">
-                          <div class="sidenav-nav">
-                            <nav>
-                                <ul>
-                                    <li *ngFor="let item of items; let i = index" class="sidenav-nav-item">
-                                        <a (click)="selectTab(i)" class="sidenav-nav-link" [ngClass]="{'active': activeComponent === item.component}">
-                                            <i [class]="item.icon" class="sidenav-link-icon"></i> {{ item.label }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                          </div>
-                        </div>
-                        
-                        <div class="div2">
-                          <ng-container *ngComponentOutlet="activeComponent"></ng-container>
-                        </div>
-                    </div>
-                </mat-tab>
-
-                <mat-tab label="Nombre de réservations">
-                    <div style="display: flex; background-color: white;">
-                        <div class="container-sid">
-                            <div class="sidenav-nav">
-                                <nav>
-                                    <ul>
-                                        <li *ngFor="let item of items2; let i = index" class="sidenav-nav-item">
-                                            <a (click)="selectTabItems2(i)" class="sidenav-nav-link" 
-                                               [ngClass]="{'active': selectedTabItems2 === i}">
-                                                <i [class]="item.icon" class="sidenav-link-icon"></i> {{ item.label }}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    
-                        <div class="div2">
-                            <ng-container *ngComponentOutlet="activeComponentItems2"></ng-container>
-                        </div>
-                    </div>
-                    
-                    
-                    
-                    
                 </mat-tab>
             </mat-tab-group>
             

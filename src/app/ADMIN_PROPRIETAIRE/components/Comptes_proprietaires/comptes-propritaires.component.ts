@@ -15,9 +15,10 @@ interface Client {
   nom: string;
   pays: string;
   statut: string;
-  type_propriete: string;
+  contact: string;
+  email: string;
+  nombreStructure:number;
   duree: string;
-  evaluation: string;
 }
 
 export interface Comment {
@@ -41,100 +42,110 @@ export interface Comment {
     MatTab,
     MatTabsModule 
   ],
-  templateUrl: './accueil-pro.component.html',
-  styleUrl: './accueil-pro.component.css'
+  templateUrl: './comptes-propritaires.component.html',
+  styleUrl: './comptes-propritaires.component.css'
 })
 
-export class AccueilProComponent implements OnInit {
+export class ComptesPropritairesComponent implements OnInit {
     clients: Client[] = [
     {
       nom: 'Jean Dupont',
+      contact: '0000000010',
       statut: 'Hotellerrie',
-      duree: '45 jours',
+      duree: '45',
       pays: "Gabon",
-      type_propriete: '',
-      evaluation: 'Très bon',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 5,
       id: 1
     },
     {
       nom: 'Marie Curie',
+      contact: '000000009',
       statut: 'Tourisme',
-      duree: '5 jours',
+      duree: '5',
       pays: "Gabon",
-      type_propriete: "",
-      evaluation: 'Très bon',
+      email: "elokosama@gmail.com",
+      nombreStructure: 5,
       id: 2
     },
     {
       nom: 'Pierre Martin',
+      contact: '000000008',
       statut: 'Hotellerrie',
-      duree: '5 jours',
+      duree: '5',
       pays: "Sénégal",
-      type_propriete: '',
-      evaluation: 'bon',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 3,
       id: 3
     },
     {
       nom: 'Sophie Germain',
+      contact: '000000007',
       statut: 'Hotellerrie',
-      duree: '5 jours',
+      duree: '5',
       pays: "Bénin",
-      type_propriete: '',
-      evaluation: 'Moins bon',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 2,
       id: 4
     },
     {
       nom: 'Lucie Aubrac',
+      contact: '000000006',
       statut: 'Tourisme',
-      duree: '5 jours',
+      duree: '5',
       pays: "RDC",
-      type_propriete: '',
-      evaluation: 'Mauvais',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 1,
       id: 5
     },
     {
       nom: 'Antoine Doinel',
-      statut: '2024-11-02',
-      duree: '5 jours',
+      contact: '000000005',
+      statut: 'Tourisme',
+      duree: '5',
       pays: "",
-      type_propriete: '',
-      evaluation: '',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 7,
       id: 6
     },
     {
       nom: 'Clara Zetkin',
-      statut: '2024-11-11',
-      duree: '3 jours',
+      contact: '000000004',
+      statut: 'Tourisme',
+      duree: '3',
       pays: "",
-      type_propriete: '',
-      evaluation: '',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 6,
       id: 7
     },
     {
       nom: 'Gabriel Garcia',
-      statut: '2024-10-30',
-      duree: '3 jours',
+      contact: '000000003',
+      statut: 'Hotellerrie',
+      duree: '3',
       pays: "",
-      type_propriete: '',
-      evaluation: '',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 6,
       id: 8
     },
     {
       nom: 'Nina Simone',
-      statut: '2024-11-03',
-      duree: '3 jours',
+      contact: '000000002',
+      statut: 'Hotellerrie',
+      duree: '3',
       pays: "",
-      type_propriete: '',
-      evaluation: '',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 6,
       id: 9
     },
     {
       nom: 'Albert Camus',
-      statut: '2024-11-12',
-      duree: '7 jours',
+      contact: '000000001',
+      statut: 'Hotellerrie',
+      duree: '7',
       pays: "",
-      type_propriete: '',
-      evaluation: '',
+      email: 'elokosama@gmail.com',
+      nombreStructure: 6,
       id: 10
     },
     ];
@@ -322,11 +333,11 @@ export class AccueilProComponent implements OnInit {
   get filteredClients() {
     return this.clients.filter(client => {
       const matchesPays = this.selectedPays === 'Tous les pays' || client.pays === this.selectedPays;
-      const matchesEvaluation = this.selectedEvaluation === 'Tout grouper' || client.evaluation === this.selectedEvaluation;
+      // const matchesEvaluation = this.selectedEvaluation === 'Tout grouper' || client.evaluation === this.selectedEvaluation;
       const matchesDuree = this.selectedDuree === 'Tous les années' || client.duree === this.selectedDuree;
 
-      return matchesPays && matchesEvaluation && matchesDuree;
-      // return matchesPays && matchesEvaluation;
+      // return matchesPays && matchesEvaluation && matchesDuree;
+      return matchesPays  && matchesDuree;
     });
   }
 

@@ -3,13 +3,18 @@
     <div class="sidenav-nav">
       <nav>
         <ul>
-            <li *ngFor="let item of items; let i = index" class="sidenav-nav-item">
-                <a (click)="selectTab(i)"  class="sidenav-nav-link" [ngClass]="{'active': activeComponent === item.component}">
-                    <i [class]="item.icon" class="sidenav-link-icon" [class]="item.icon"></i> {{ item.label }}
-                </a>
-            </li>
+          <li *ngFor="let item of items; let i = index" class="sidenav-nav-item">
+            <a (click)="selectTab(i)" 
+            class="sidenav-nav-link" 
+            [ngClass]="{'active': activeComponent === item.component}" 
+            role="button" 
+            [attr.aria-pressed]="activeComponent === item.component ? 'true' : 'false'">
+            <i [class]="item.icon" class="sidenav-link-icon"></i> {{ item.label }}
+          </a>
+
+          </li>
         </ul>
-    </nav>
+      </nav>
     </div>
   </div>
   
@@ -18,3 +23,7 @@
     <ng-container *ngComponentOutlet="activeComponent"></ng-container>
   </div>
 </div>
+
+
+
+<!-- Le problème que vous rencontrez, où le graphique du composant FransdaComponent ne s'affiche qu'après avoir navigué vers un autre composant et être revenu, est souvent lié à la manière dont Angular gère le cycle de vie des composants et à la façon dont Highcharts rend les graphiques. --> 

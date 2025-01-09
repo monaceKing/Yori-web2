@@ -22,7 +22,7 @@ interface Client {
 
 
 @Component({
-  selector: 'app-accueil-pro',
+  selector: 'app-comptes-propritaires',
   standalone: true,
   imports: [
     CommonModule,
