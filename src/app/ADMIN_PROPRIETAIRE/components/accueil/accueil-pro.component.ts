@@ -337,6 +337,8 @@ export class AccueilProComponent implements OnInit {
 
     this.setActiveComponent(this.selectedTab); // Initialiser le composant actif pour items
     this.setActiveComponentItems2(this.selectedTabItems2); // Initialiser le composant actif pour items2
+
+    this.dateAujourdhui = new Date().toLocaleDateString();
   }
 
   // Méthodes pour gérer les items
@@ -399,6 +401,8 @@ export class AccueilProComponent implements OnInit {
   estSupprimer: boolean = false;
   messagebloque: string = '';
   selectedValue: string = '';
+  validerSuppr: boolean = false;
+  dateAujourdhui: string = '';
 
   constructor() {
     // Initialiser le sous-statut en fonction du statut par défaut
@@ -653,5 +657,10 @@ export class AccueilProComponent implements OnInit {
         break;
     }
     return date.toLocaleDateString();
+  }
+
+  afficherNotifSuppr() {
+    this.validerSuppr = !this.validerSuppr;
+    this.estSupprimer = !this.estSupprimer;
   }
 }

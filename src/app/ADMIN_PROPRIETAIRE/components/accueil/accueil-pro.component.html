@@ -250,7 +250,7 @@
           </Textarea>
         </div>
         <div class="soummettreMessage">
-          <div>Lien</div>
+          <div><i class="fa-solid fa-link" id="logoLien"></i></div>
 
           <button
             class="supprimer-btn"
@@ -295,164 +295,6 @@
               value="1 semaine"
               (change)="onRadioChange($event)"
             />
-
-            <mat-tab label="Photos">
-              <section class="section">
-                <div class="image-gallery">
-                  <div
-                    *ngFor="let image of images; let i = index"
-                    class="image-item"
-                  >
-                    <label for="image-{{ i }}">
-                      <img
-                        [src]="image"
-                        alt="Image {{ i + 1 }}"
-                        class="image"
-                      />
-                    </label>
-                  </div>
-                </div>
-              </section>
-            </mat-tab>
-
-            <mat-tab label="Géolocalisation">
-              <section class="section">
-                <div class="image-gallery1">
-                  <img src="assets/img/geoLoc.png" alt="" />
-                </div>
-              </section>
-            </mat-tab>
-
-            <mat-tab label="Avis">
-              <div class="containerAvis">
-                <div *ngFor="let comment of comments" class="comment">
-                  <!-- Première ligne : icône du profil et nom -->
-                  <div class="comment-header">
-                    <img
-                      src="assets/img/icons8.png"
-                      alt="Profil"
-                      class="profile-icon"
-                    />
-                    <strong>{{ comment.userId }}</strong>
-                  </div>
-
-                  <!-- Deuxième ligne : date du commentaire -->
-                  <div class="comment-date">
-                    Commentaire {{ comment.createdDate | date : "dd/MM/yyyy" }}
-                  </div>
-
-                  <!-- Troisième ligne : appréciation -->
-                  <div class="comment-rating">
-                    <div style="display: flex; align-items: center">
-                      <span style="margin-right: 5px">{{
-                        comment.rating
-                      }}</span>
-                      <span
-                        *ngFor="let i of [].constructor(5); let idx = index"
-                        [ngClass]="{
-                          circle: true,
-                          filled: idx < comment.rating,
-                          outline: idx >= comment.rating
-                        }"
-                      >
-                      </span>
-                    </div>
-                    <div class="rating-text">
-                      <span *ngIf="comment.rating === 5">Satisfait</span>
-                      <span *ngIf="comment.rating === 4">Satisfait</span>
-                      <span *ngIf="comment.rating === 3">Moyen</span>
-                      <span *ngIf="comment.rating === 2">Pas satisfait</span>
-                      <span *ngIf="comment.rating === 1">Pas satisfait</span>
-                    </div>
-                  </div>
-                  <!-- Quatrième ligne : commentaire -->
-                  <div class="comment-content">
-                    <div class="commentaire">
-                      <p>{{ comment.content }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </mat-tab>
-
-            <!-- <mat-tab label="Nombre de réservations">
-              <div style="display: flex; background-color: white">
-                <div class="container-sid">
-                  <div class="sidenav-nav">
-                    <nav>
-                      <ul>
-                        <li
-                          *ngFor="let item of items2; let i = index"
-                          class="sidenav-nav-item"
-                        >
-                          <a
-                            (click)="selectTabItems2(i)"
-                            class="sidenav-nav-link"
-                            [ngClass]="{
-                              active: activeComponentItems2 === item.component
-                            }"
-                          >
-                            <i
-                              [class]="item.icon"
-                              class="sidenav-link-icon"
-                            ></i>
-                            {{ item.label }}
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-
-                <!-- <<<<<<< HEAD -->
-            <!-- <div class="div2"> -->
-            <!-- Outlet pour afficher le composant actif pour items2 -->
-            <!-- <ng-container
-                    *ngComponentOutlet="activeComponentItems2"
-                  ></ng-container>
-                </div>
-              </div>
-            </mat-tab> -->
-            <!-- </mat-tab-group> -->
-
-            <!-- <mat-tab label="Chiffre d'affaire et commission">
-              <div style="display: flex; background-color: white">
-                <div class="container-sid">
-                  <div class="sidenav-nav">
-                    <nav>
-                      <ul>
-                        <li
-                          *ngFor="let item of items; let i = index"
-                          class="sidenav-nav-item"
-                        >
-                          <a
-                            (click)="selectTab(i)"
-                            class="sidenav-nav-link"
-                            [ngClass]="{
-                              active: activeComponent === item.component
-                            }"
-                          >
-                            <i
-                              [class]="item.icon"
-                              class="sidenav-link-icon"
-                            ></i>
-                            {{ item.label }}
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-
-                <div class="div2">
-                  <!-- Outlet pour afficher le composant actif -->
-            <!-- <div class="container" *ngComponentOutlet="activeComponent"></div> -->
-            <!-- <ng-container
-                    *ngComponentOutlet="activeComponent"
-                  ></ng-container>
-                </div>
-              </div>
-            </mat-tab> -->
           </div>
           <div>1 semaine</div>
         </div>
@@ -513,7 +355,8 @@
       </div>
     </div>
 
-    <div *ngIf="messagebloque" class="notificationBlocage">
+    <div *ngIf="messagebloque" class="notificationBlocage" id="message">
+      <i class="fa-solid fa-stopwatch-20" id="logoChrono"></i>
       <p class="notificationBlocageContent">{{ messagebloque }}</p>
     </div>
 
@@ -541,12 +384,24 @@
           </button>
         </div>
         <div>
-          <button class="supprimer-btn" id="valider-suppr">Valider</button>
+          <button
+            class="supprimer-btn"
+            id="valider-suppr"
+            (click)="afficherNotifSuppr()"
+          >
+            Valider
+          </button>
         </div>
       </div>
     </div>
 
-    <div class="notifSuppr"></div>
+    <div class="notificationBlocage" id="notifSuppr" *ngIf="validerSuppr">
+      <i class="fa-solid fa-trash-can" id="logoExclamation"></i>
+      <p>
+        <b>Etablissement supprimé</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; le
+        {{ dateAujourdhui }}
+      </p>
+    </div>
 
     <div>
       <span class="span">

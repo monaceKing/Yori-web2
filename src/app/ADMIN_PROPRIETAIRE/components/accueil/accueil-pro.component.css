@@ -632,20 +632,10 @@ a {
   margin-left: 30px;
   width: 95%;
   height: 50px;
-  padding: 30px;
+  padding: 5px;
   align-items: center;
-  /* .image-gallery {
-=======
-/* .image-gallery {
->>>>>>> master
-    background-color: white;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-<<<<<<< HEAD
-  } 
-
-/***********************************/
+  display: flex;
+  gap: 30px;
 }
 
 /***********************************/
@@ -727,4 +717,22 @@ ul {
 .active .sidenav-link-icon,
 .active .sidenav-link-text {
   color: #000;
+}
+
+#logoChrono {
+  font-size: 25px;
+  color: gray;
+}
+#logoExclamation {
+  font-size: 20px;
+  color: red;
+}
+#notifSuppr {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid red;
+  padding-left: 10px;
+}
+#logoLien {
+  font-size: 25px;
+  color: gray;
 }
