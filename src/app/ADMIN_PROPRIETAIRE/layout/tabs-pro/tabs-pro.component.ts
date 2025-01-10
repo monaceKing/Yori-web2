@@ -4,6 +4,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { FooterProComponent } from "../footer-pro/footer-pro.component";
 import { AccueilProComponent } from "../../components/accueil/accueil-pro.component";
+import { CompteProprietaireComponent } from "../../components/compte-proprietaire/compte-proprietaire.component";
 
 
 @Component({
@@ -16,7 +17,8 @@ import { AccueilProComponent } from "../../components/accueil/accueil-pro.compon
     CommonModule,
     MatIcon,
     FooterProComponent,
-    AccueilProComponent
+    AccueilProComponent,
+    CompteProprietaireComponent
 ],
   templateUrl: './tabs-pro.component.html',
   styleUrl: './tabs-pro.component.css'

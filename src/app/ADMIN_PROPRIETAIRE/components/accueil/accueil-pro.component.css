@@ -584,12 +584,6 @@ a {
 }
 
 /* <<<<<<< HEAD */
-.image-gallery {
-  background-color: white;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
 
 .bloquage {
   display: flex;
