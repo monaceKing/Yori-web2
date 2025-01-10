@@ -7,10 +7,7 @@ import { ClaudelComponent } from '../../../ADMIN_CLIENT/interfaces/components/an
 import { FransdaComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/fransda/fransda.component';
 import { AmourComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/amour/amour.component';
 import { InelComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/inel/inel.component';
-// <<<<<<< HEAD
-// =======
 
-// >>>>>>> master
 
 interface Client {
   id: number;
@@ -40,24 +37,16 @@ export interface Comment {
     MatIcon,
     MatTabGroup,
     MatTab,
-    // <<<<<<< HEAD
-
-    //     MatTabsModule,
-    // =======
     MatTabsModule,
-    // >>>>>>> master
   ],
   templateUrl: './accueil-pro.component.html',
   styleUrl: './accueil-pro.component.css',
 })
-// <<<<<<< HEAD
-// export class AccueilProComponent implements OnInit {
-//   clients: Client[] = [
-//     // >>>>>>> master
-// =======
+
+
 export class AccueilProComponent implements OnInit {
+
   clients: Client[] = [
-    // >>>>>>> master
     {
       nom: 'Jean Dupont',
       statut: 'Hotellerrie',
@@ -208,187 +197,108 @@ export class AccueilProComponent implements OnInit {
     },
   ];
 
-  // <<<<<<< HEAD
-  // <<<<<<< HEAD
-  statutsFiltres: string[] = ["Vue d'ensemble", 'Hotellerrie', 'Tourisme'];
-  selectedStatut: string = "Vue d'ensemble"; // Valeur par défaut
-  // =======
-  // isLeftSidebarCollapsed = input<boolean>();
-  // changeIsLeftSidebarCollapsed = output<boolean>();
-  // items = [
-  //   {
-  //     icon: 'fal fa-user',
-  //     label: 'Nombre de réservations',
-  //     component: FransdaComponent,
-  //   },
-  //   {
-  //     icon: 'fal fa-user-times',
-  //     label: 'Réservations annulées',
-  //     component: ClaudelComponent,
-  //   },
-  // ];
-  // =======
-  // isLeftSidebarCollapsed = input<boolean>();
-  // changeIsLeftSidebarCollapsed = output<boolean>();
-  items = [
-    {
-      icon: 'fal fa-user',
-      label: 'Nombre de réservations',
-      component: FransdaComponent,
-    },
-    {
-      icon: 'fal fa-user-times',
-      label: 'Réservations annulées',
-      component: ClaudelComponent,
-    },
-  ];
 
-  items2 = [
-    {
-      icon: 'fal fa-sack-dollar',
-      label: 'Montant des réservations',
-      component: AmourComponent,
-    },
-    {
-      icon: 'fal fa-hand-holding',
-      label: 'Montant des commissions',
-      component: InelComponent,
-    },
-  ];
+    statutsFiltres: string[] = ["Vue d'ensemble", 'Hotellerrie', 'Tourisme'];
+    selectedStatut: string = "Vue d'ensemble"; // Valeur par défaut
 
-  activeComponent: any; // Composant actif pour items
-  selectedTab: number = 0; // Onglet sélectionné pour items
+    items = [
+      {
+        icon: 'fal fa-user',
+        label: 'Nombre de réservations',
+        component: FransdaComponent,
+      },
+      {
+        icon: 'fal fa-user-times',
+        label: 'Réservations annulées',
+        component: ClaudelComponent,
+      },
+    ];
 
-  activeComponentItems2: any; // Composant actif pour items2
-  selectedTabItems2: number = 0; // Onglet sélectionné pour items2
+    items2 = [
+      {
+        icon: 'fal fa-sack-dollar',
+        label: 'Montant des réservations',
+        component: AmourComponent,
+      },
+      {
+        icon: 'fal fa-hand-holding',
+        label: 'Montant des commissions',
+        component: InelComponent,
+      },
+    ];
 
-  // ngOnInit() {
-  //     const storedTabIndex = localStorage.getItem('activeTab');
-  //     if (storedTabIndex) {
-  //         this.selectedTab = +storedTabIndex; // Convertir en nombre
-  //     }
+    activeComponent: any; // Composant actif pour items
+    selectedTab: number = 0; // Onglet sélectionné pour items
 
-  //     const storedTabIndexItems2 = localStorage.getItem('activeTabItems2');
-  //     if (storedTabIndexItems2) {
-  //         this.selectedTabItems2 = +storedTabIndexItems2; // Convertir en nombre
-  //     }
+    activeComponentItems2: any; // Composant actif pour items2
+    selectedTabItems2: number = 0; // Onglet sélectionné pour items2
 
-  //     this.setActiveComponent(this.selectedTab); // Initialiser le composant actif pour items
-  //     this.setActiveComponentItems2(this.selectedTabItems2); // Initialiser le composant actif pour items2
-  // }
+
+
+    ngOnInit() {
+      const storedTabIndex = localStorage.getItem('activeTab');
+      if (storedTabIndex) {
+        this.selectedTab = +storedTabIndex; // Convertir en nombre
+      }
+
+      const storedTabIndexItems2 = localStorage.getItem('activeTabItems2');
+      if (storedTabIndexItems2) {
+        this.selectedTabItems2 = +storedTabIndexItems2; // Convertir en nombre
+      }
+
+      this.setActiveComponent(this.selectedTab); // Initialiser le composant actif pour items
+      this.setActiveComponentItems2(this.selectedTabItems2); // Initialiser le composant actif pour items2
+
+      this.dateAujourdhui = new Date().toLocaleDateString();
+    }
 
   // Méthodes pour gérer les items
-  // setActiveComponent(tabIndex: number) {
-  //     if (tabIndex < this.items.length) {
-  //         this.activeComponent = this.items[tabIndex].component; // Mettre à jour le composant actif pour items
-  //     }
-  // }
-
-  // selectTab(tabIndex: number) {
-  //     this.selectedTab = tabIndex; // Met à jour l'onglet sélectionné pour items
-  //     localStorage.setItem('activeTab', tabIndex.toString()); // Stocke l'index dans localStorage
-  //     this.setActiveComponent(tabIndex); // Mettre à jour le composant actif
-  // }
-
-  // // Méthodes pour gérer les items2 (duplicata des méthodes de items)
-  // setActiveComponentItems2(tabIndex: number) {
-  //     if (tabIndex < this.items2.length) {
-  //         this.activeComponentItems2 = this.items2[tabIndex].component; // Mettre à jour le composant actif pour items2
-  //     }
-  // }
-
-  // selectTabItems2(tabIndex: number) {
-  //     this.selectedTabItems2 = tabIndex; // Met à jour l'onglet sélectionné pour items2
-  //     localStorage.setItem('activeTabItems2', tabIndex.toString()); // Stocke l'index dans localStorage
-  //     this.setActiveComponentItems2(tabIndex); // Mettre à jour le composant actif
-  // }
-
-  // >>>>>>> master
-
-  //   items2 = [
-  //     {
-  //       icon: 'fal fa-sack-dollar',
-  //       label: 'Montant des réservations',
-  //       component: AmourComponent,
-  //     },
-  //     {
-  //       icon: 'fal fa-hand-holding',
-  //       label: 'Montant des commissions',
-  //       component: InelComponent,
-  //     },
-  //   ];
-
-  //   activeComponent: any; // Composant actif pour items
-  //   selectedTab: number = 0; // Onglet sélectionné pour items
-
-  //   activeComponentItems2: any; // Composant actif pour items2
-  //   selectedTabItems2: number = 0; // Onglet sélectionné pour items2
-
-  ngOnInit() {
-    const storedTabIndex = localStorage.getItem('activeTab');
-    if (storedTabIndex) {
-      this.selectedTab = +storedTabIndex; // Convertir en nombre
+    setActiveComponent(tabIndex: number) {
+      if (tabIndex < this.items.length) {
+        this.activeComponent = this.items[tabIndex].component; // Mettre à jour le composant actif pour items
+      }
     }
 
-    const storedTabIndexItems2 = localStorage.getItem('activeTabItems2');
-    if (storedTabIndexItems2) {
-      this.selectedTabItems2 = +storedTabIndexItems2; // Convertir en nombre
+    selectTab(tabIndex: number) {
+      this.selectedTab = tabIndex; // Met à jour l'onglet sélectionné pour items
+      localStorage.setItem('activeTab', tabIndex.toString()); // Stocke l'index dans localStorage
+      this.setActiveComponent(tabIndex); // Mettre à jour le composant actif
     }
-
-    this.setActiveComponent(this.selectedTab); // Initialiser le composant actif pour items
-    this.setActiveComponentItems2(this.selectedTabItems2); // Initialiser le composant actif pour items2
-
-    this.dateAujourdhui = new Date().toLocaleDateString();
-  }
-
-  // Méthodes pour gérer les items
-  setActiveComponent(tabIndex: number) {
-    if (tabIndex < this.items.length) {
-      this.activeComponent = this.items[tabIndex].component; // Mettre à jour le composant actif pour items
-    }
-  }
-
-  selectTab(tabIndex: number) {
-    this.selectedTab = tabIndex; // Met à jour l'onglet sélectionné pour items
-    localStorage.setItem('activeTab', tabIndex.toString()); // Stocke l'index dans localStorage
-    this.setActiveComponent(tabIndex); // Mettre à jour le composant actif
-  }
 
   // Méthodes pour gérer les items2 (duplicata des méthodes de items)
-  setActiveComponentItems2(tabIndex: number) {
-    if (tabIndex < this.items2.length) {
-      this.activeComponentItems2 = this.items2[tabIndex].component; // Mettre à jour le composant actif pour items2
+    setActiveComponentItems2(tabIndex: number) {
+      if (tabIndex < this.items2.length) {
+        this.activeComponentItems2 = this.items2[tabIndex].component; // Mettre à jour le composant actif pour items2
+      }
     }
-  }
 
-  selectTabItems2(tabIndex: number) {
-    this.selectedTabItems2 = tabIndex; // Met à jour l'onglet sélectionné pour items2
-    localStorage.setItem('activeTabItems2', tabIndex.toString()); // Stocke l'index dans localStorage
-    this.setActiveComponentItems2(tabIndex); // Mettre à jour le composant actif
-  }
+    selectTabItems2(tabIndex: number) {
+      this.selectedTabItems2 = tabIndex; // Met à jour l'onglet sélectionné pour items2
+      localStorage.setItem('activeTabItems2', tabIndex.toString()); // Stocke l'index dans localStorage
+      this.setActiveComponentItems2(tabIndex); // Mettre à jour le composant actif
+    }
 
-  // >>>>>>> master
 
-  sousStatuts: { [key: string]: string[] } = {
-    Hotellerrie: ['Hotel (s)', 'Motel (s)', 'Appartement (s)'],
-    Tourisme: [
-      'Autres',
-      'Randonnés',
-      'Parcs',
-      'Campings',
-      'Plages privées',
-      'Maisons traditionnelles',
-    ],
-  };
+    sousStatuts: { [key: string]: string[] } = {
+      Hotellerrie: ['Hotel (s)', 'Motel (s)', 'Appartement (s)'],
+      Tourisme: [
+        'Autres',
+        'Randonnés',
+        'Parcs',
+        'Campings',
+        'Plages privées',
+        'Maisons traditionnelles',
+      ],
+    };
 
-  // Liste des évaluations pour le filtre
-  evaluationsFiltres: string[] = [
-    'Tout grouper',
-    'Très bon',
-    'Bon',
-    'Moyen',
-    'Mauvais',
-  ];
+    // Liste des évaluations pour le filtre
+    evaluationsFiltres: string[] = [
+      'Tout grouper',
+      'Très bon',
+      'Bon',
+      'Moyen',
+      'Mauvais',
+    ];
   selectedEvaluation: string = 'Tout grouper'; // Valeur par défaut
 
   // Liste des durées pour le filtre
@@ -460,75 +370,13 @@ export class AccueilProComponent implements OnInit {
   checkboxValues: { [key: string]: boolean } = {};
   openFiltre: boolean = false;
 
-  // <<<<<<< HEAD
-  // afficherFiltre() {
-  // =======
-  // selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
-  // filterPays: string = ''; // Propriété pour le filtre
-  // dateDebut: string = '';
-  // dateFin: string = '';
-  // paysFiltres: string[] = ['Tous les pays'];
-  // selectedPays: string = 'Tous les pays'; // Valeur par défaut
-  // showCheckboxes: boolean = false;
-  // selectedStatuts: string[] = [];
-  // currentPage: number = 1;
-  // itemsPerPage: number = 5;
-  // itemsPerPageOptions: number[] = [5, 10, 50];
-  // selectedClient: any = null;
-  // showDetails: boolean = false;
-  // numeroTelephone:boolean = false;
-  // checkboxValues: { [key: string]: boolean } = {};
-  // openFiltre: boolean = false;
 
-  // afficherFiltre() {
-  // >>>>>>> master
-  // =======
-  // selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
-  // filterPays: string = ''; // Propriété pour le filtre
-  // dateDebut: string = '';
-  // dateFin: string = '';
-  // paysFiltres: string[] = ['Tous les pays'];
-  // selectedPays: string = 'Tous les pays'; // Valeur par défaut
-  // showCheckboxes: boolean = false;
-  // selectedStatuts: string[] = [];
-  // currentPage: number = 1;
-  // itemsPerPage: number = 5;
-  // itemsPerPageOptions: number[] = [5, 10, 50];
-  // selectedClient: any = null;
-  // showDetails: boolean = false;
-  // numeroTelephone:boolean = false;
-  // checkboxValues: { [key: string]: boolean } = {};
-  // openFiltre: boolean = false;
 
   afficherFiltre() {
     this.openFiltre = !this.openFiltre;
   }
 
-  // labels = [
-  //   { for: 'statut', text: 'Apperçu ' },
-  //   { for: 'pays', text: 'Région ' },
-  //   { for: 'evaluation', text: 'Evaluation ' },
-  //   { for: 'duree', text: 'Filtre par année ' },
-  //   { for: 'filtre', text: 'Filtre ' }
-  // ];
 
-  // Fonction pour obtenir la classe dynamique
-  // getLabelClass(index: number): string {
-  //   switch(index) {
-  //     case 0:
-  //       return 'label-style-1';
-  //     case 1:
-  //       return 'label-style-2';
-  //     case 2:
-  //       return 'label-style-3';
-  //     case 3:
-  //       return 'label-style-4';
-  //     case 4:
-  //       return 'label-style-5';
-  //     default:
-  //       return '';
-  //   }
-  // }
 
   getClientsFiltres() {
     return this.clients.filter((client) => {
