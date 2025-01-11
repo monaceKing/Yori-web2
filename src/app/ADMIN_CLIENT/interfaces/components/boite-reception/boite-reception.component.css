@@ -183,7 +183,7 @@
   padding: 10px; /* Padding interne */
   margin-top: 20px; /* Espace au-dessus des champs */
   box-sizing: border-box; /* Inclut padding et bordure dans la largeur totale */
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
 }
 
 .reply-textarea {

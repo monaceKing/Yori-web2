@@ -5,6 +5,7 @@ import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { FooterProComponent } from "../footer-pro/footer-pro.component";
 import { AccueilProComponent } from "../../components/accueil/accueil-pro.component";
 import { CompteProprietaireComponent } from "../../components/compte-proprietaire/compte-proprietaire.component";
+import { MessagesComponent } from "../../components/messages/messages.component";
 
 
 @Component({
@@ -18,7 +19,8 @@ import { CompteProprietaireComponent } from "../../components/compte-proprietair
     MatIcon,
     FooterProComponent,
     AccueilProComponent,
-    CompteProprietaireComponent
+    CompteProprietaireComponent,
+    MessagesComponent
 ],
   templateUrl: './tabs-pro.component.html',
   styleUrl: './tabs-pro.component.css'
