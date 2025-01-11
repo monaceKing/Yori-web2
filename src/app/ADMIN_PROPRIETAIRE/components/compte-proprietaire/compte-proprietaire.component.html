@@ -483,7 +483,7 @@
                       <th>Pays/region</th>
                       <th>statut</th>
                       <th>Statut de la structure</th>
-                      <th>Durée d’inscription</th>
+                      <th>Durée d'inscription</th>
                       <th>Evaluation</th>
                       <th>Plus d'infos</th>
                     </tr>
@@ -492,8 +492,12 @@
                     <tr *ngFor="let client of paginatedClients">
                       <td style="color: #77b5fe">{{ client.nom }}</td>
                       <td>{{ client.pays }}</td>
-                      <td>{{ client.statut }}</td>
-                      <td>{{ client.statut_structure }}</td>
+                      <td>
+                        {{ client.statut }}
+                      </td>
+                      <td [ngStyle]="{'color': client.statut_structure === 'Fermé' || client.statut_structure === 'Supprimé' ? 'red' : 'black'}">
+                      {{ client.statut_structure }}
+                      </td>
                       <td>{{ client.duree }}</td>
                       <td
                         [ngStyle]="{
