@@ -17,14 +17,14 @@
   flex-direction: column; /* Les labels et inputs sont en colonnes */
   align-items: flex-start; /* Aligne les éléments au début */
   margin-bottom: 20px; /* Espacement sous le filtre */
-  margin-left: 15px;
+  margin-left: 35px;
 }
 
 .titre {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: -18px;
+  margin-left: 5px;
 }
 
 .inputs {

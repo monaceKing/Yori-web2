@@ -95,6 +95,9 @@
               "src/assets/js/mon-script.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
