@@ -273,6 +273,7 @@
   margin: 5px;
   position: relative;
   padding-right: 20px; /* Espace pour le triangle */
+  cursor: pointer;
 }
 .listeFiltre::after {
   content: "";

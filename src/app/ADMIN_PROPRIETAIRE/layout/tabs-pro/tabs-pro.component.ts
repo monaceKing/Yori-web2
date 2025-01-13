@@ -6,6 +6,7 @@ import { FooterProComponent } from "../footer-pro/footer-pro.component";
 import { AccueilProComponent } from "../../components/accueil/accueil-pro.component";
 import { CompteProprietaireComponent } from "../../components/compte-proprietaire/compte-proprietaire.component";
 import { MessagesComponent } from "../../components/messages/messages.component";
+import { NotificationsComponent } from "../../components/notifications/notifications.component";
 
 
 @Component({
@@ -20,7 +21,8 @@ import { MessagesComponent } from "../../components/messages/messages.component"
     FooterProComponent,
     AccueilProComponent,
     CompteProprietaireComponent,
-    MessagesComponent
+    MessagesComponent,
+    NotificationsComponent
 ],
   templateUrl: './tabs-pro.component.html',
   styleUrl: './tabs-pro.component.css'
