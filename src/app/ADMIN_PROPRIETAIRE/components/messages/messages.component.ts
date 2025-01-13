@@ -169,17 +169,4 @@ export class MessagesComponent {
       this.hotelClique = false;
     }
   }
-  @HostListener('document:click', ['$event']) onClickOutside(
-    event: MouseEvent
-  ) {
-    const target = event.target as HTMLElement;
-    if (
-      !target.closest('.filtreContainer') &&
-      !target.closest('.filtresCheckboxes')
-    ) {
-      this.plusMessage = false;
-      this.hotelClique = false;
-      this.tourismeClique = false;
-    }
-  }
 }
