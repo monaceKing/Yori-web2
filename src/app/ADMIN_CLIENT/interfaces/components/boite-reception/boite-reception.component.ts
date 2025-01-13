@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 // import { MatIcon } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs'; 
-import { th, tr } from 'intl-tel-input/i18n';
 
 
 interface Message {
@@ -12,6 +11,7 @@ interface Message {
   content: string;
   subject?: string;
   date: Date;
+  file:File|null
 }
 
 @Component({
@@ -28,13 +28,29 @@ interface Message {
 })
 
   export class BoiteReceptionComponent {
-    receivedMessages: Message[] = [
-      { id: 1, content: 'Informations importantes à propos de l\'établissement hotel sotega 1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus?', date: new Date('1996-03-01T23:30:00') },
-      { id: 2, content: 'Voici le message 2 avec plus de détails.', date: new Date() },
-      { id: 3, content: 'Message numéro 3 pour la discussion.', date: new Date() },
-      { id: 4, content: 'Détails supplémentaires du message 4.', date: new Date() },
-      { id: 5, content: 'Enfin, le message 5 pour conclure.', date: new Date() }
-  ];
+    receivedMessages: Message[] = 
+    [
+      {
+        id: 1, content: 'Informations importantes à propos de l\'établissement hotel sotega 1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sed itaque amet dignissimos delectus facere sunt fugit non? Delectus ducimus excepturi, obcaecati sapiente nam reiciendis ipsa impedit itaque quaerat natus?', date: new Date('1996-03-01T23:30:00'),
+        file: null
+      },
+      {
+        id: 2, content: 'Voici le message 2 avec plus de détails.', date: new Date(),
+        file: null
+      },
+      {
+        id: 3, content: 'Message numéro 3 pour la discussion.', date: new Date(),
+        file: null
+      },
+      {
+        id: 4, content: 'Détails supplémentaires du message 4.', date: new Date(),
+        file: null
+      },
+      {
+        id: 5, content: 'Enfin, le message 5 pour conclure.', date: new Date(),
+        file: null
+      }
+    ];
 
   sentMessages: Message[] = []; // Liste des messages envoyés
 
@@ -46,7 +62,7 @@ interface Message {
   // Propriétés pour la réponse
   replySubject: string = '';
   replyBody: string = '';
-  selectedFile?: File;
+  selectedFile: File | null = null;
 
   selectMessage(message: Message) {
     if (this.selectedMessage === message) {
@@ -54,13 +70,13 @@ interface Message {
     } else {
         this.selectedMessage = message; // Ouvre le message sélectionné
     }
-}
+  }
 
   openReplyPopup() {
       this.isReplying = true;
       this.replySubject = ''; // Réinitialiser l'objet
       this.replyBody = ''; // Réinitialiser le corps
-      this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
+      this.selectedFile = null; // Réinitialiser le fichier sélectionné
   }
 
   sendNewMessage(){
@@ -79,10 +95,12 @@ interface Message {
   submitReply() {
       if (this.replyBody.trim()) { // Vérifier que le corps du message n'est pas vide
           const newMessage: Message = {
-              id: this.sentMessages.length + 1, // Générer un nouvel ID
-              content: this.replyBody,
-              subject: this.replySubject, // Utiliser la propriété 'subject'
-              date: new Date() // Définir la date actuelle
+            id: this.sentMessages.length + 1, // Générer un nouvel ID
+            content: this.replyBody,
+            subject: this.replySubject, // Utiliser la propriété 'subject'
+            date: new Date() // Définir la date actuelle
+            ,
+            file: this.selectedFile // Stocker le fichier sélectionné
           };
 
           this.sentMessages.push(newMessage); // Ajouter le nouveau message à la liste des messages envoyés
@@ -91,11 +109,30 @@ interface Message {
           this.closeReplyPopup();
           this.replySubject = '';
           this.replyBody = '';
-          this.selectedFile = undefined; // Réinitialiser le fichier sélectionné
+          this.selectedFile = null; // Réinitialiser le fichier sélectionné
           this.submitReply2();
 
           console.log('Réponse au message envoyé:', newMessage);
       }
+  }
+
+
+
+  // onFileSelected(event: Event) {
+  //     const input = event.target as HTMLInputElement;
+  //     if (input.files && input.files.length > 0) {
+  //         this.selectedFile = input.files[0]; // Stocker le fichier sélectionné
+  //     }
+  // }
+
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0]; // Stocker le fichier sélectionné
+    } else {
+      this.selectedFile = null; // Assigner null si aucun fichier n'est sélectionné
+    }
   }
 
 
@@ -104,10 +141,12 @@ interface Message {
     this.newMessage = false;
   }
 
-  onFileSelected(event: Event) {
-      const input = event.target as HTMLInputElement;
-      if (input.files && input.files.length > 0) {
-          this.selectedFile = input.files[0]; // Stocker le fichier sélectionné
-      }
+  getFileUrl(file: File): string {
+    return URL.createObjectURL(file);
   }
+  
+  isImage(file: File): boolean {
+    return file.type.startsWith('image/');
+  }
+
 }

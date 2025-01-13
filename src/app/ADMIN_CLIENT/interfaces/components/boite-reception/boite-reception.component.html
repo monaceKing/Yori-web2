@@ -76,12 +76,22 @@
   
           <!-- Affiche les détails du message si celui-ci est sélectionné -->
           <div *ngIf="selectedMessage === sentMessage" class="message-details">
-              <h2>Détails du message</h2>
-              <p><strong>Objet :</strong> {{ selectedMessage.subject }}</p>
-              <p><strong>Corps :</strong> {{ selectedMessage.content }}</p>
-              <p><strong>Date :</strong> {{ selectedMessage.date | date:'dd MMMM yyyy à HH:mm' }}</p> <!-- Affiche la date -->
-              <button (click)="selectMessage(selectedMessage)">Fermer</button>
-          </div>
+            <h2>Détails du message</h2>
+            <p><strong>Objet :</strong> {{ selectedMessage.subject }}</p>
+            <p><strong>Corps :</strong> {{ selectedMessage.content }}</p>
+            <p *ngIf="selectedMessage.file"><strong>Joint :</strong> 
+                {{ selectedMessage.file.name }} 
+                <a [href]="getFileUrl(selectedMessage.file)" target="_blank">Télécharger</a>
+            
+                <!-- Affichage d'une prévisualisation si c'est une image -->
+                <span *ngIf="isImage(selectedMessage.file)">
+                    <img [src]="getFileUrl(selectedMessage.file)" alt="Prévisualisation" style="max-width: 200px; max-height: 200px;" />
+                </span>
+            </p>    
+            <p><strong>Date :</strong> {{ selectedMessage.date | date:'dd MMMM yyyy à HH:mm' }}</p> <!-- Affiche la date -->
+            <button (click)="selectMessage(selectedMessage)">Fermer</button>
+        </div>
+        
         </div>
       </mat-tab>
       <mat-tab label="Suivis"> Content 3 </mat-tab>
@@ -94,21 +104,21 @@
 
    <!-- Pop-up du nouveau message -->
    <div *ngIf="newMessage" class="reply-popup">
-       <div class="reply-title">
-         <p>Nouveau message</p>
-         <button (click)="closeReplyPopup()" class="btn btn-cancel">X</button>
-       </div>
-       <div class="reply-section">
-           <!-- <label for="subject">Objet :</label> -->
-           <input type="text" id="subject" [(ngModel)]="replySubject" placeholder="Objectif" class="reply-input" />
-           <!-- <label for="body">Corps du message :</label> -->
-           <textarea id="body" [(ngModel)]="replyBody" placeholder="Écrivez votre réponse ici" class="reply-textarea"></textarea>
-       </div>
-       <div class="reply-buttons">
-         <button class="send-message" (click)="fileInput.click()"> <mat-icon>attach_file</mat-icon> </button>
-         <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" />
-         <button (click)="submitReply2()" class="btn btn-send2">Envoyer</button>
-       </div>
+    <div class="reply-title">
+        <p>Nouveau Message</p>
+        <button (click)="closeReplyPopup()" class="btn btn-cancel">X</button>
+      </div>
+      <div class="reply-section">
+          <!-- <label for="subject">Objet :</label> -->
+          <input type="text" id="subject" [(ngModel)]="replySubject" placeholder="Objectif" class="reply-input" />
+          <!-- <label for="body">Corps du message :</label> -->
+          <textarea id="body" [(ngModel)]="replyBody" placeholder="Écrivez votre réponse ici" class="reply-textarea"></textarea>
+      </div>
+      <div class="reply-buttons">
+        <button class="send-message" (click)="fileInput.click()"> <mat-icon>attach_file</mat-icon> </button>
+        <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" />
+        <button (click)="submitReply()" class="btn btn-send2">Envoyer</button>
+      </div>
    </div>
 
 

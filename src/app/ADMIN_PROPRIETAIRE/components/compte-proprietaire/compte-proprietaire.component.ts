@@ -55,7 +55,7 @@ export class CompteProprietaireComponent implements OnInit {
       id: 2,
       contact: '00009',
       email: 'yor@infogmail.com',
-      statut_structure: 'Fermé',
+      statut_structure: 'Supprimé',
     },
     {
       nom: 'Pierre Martin',
@@ -139,7 +139,7 @@ export class CompteProprietaireComponent implements OnInit {
       id: 9,
       contact: '00002',
       email: 'yor@infogmail.com',
-      statut_structure: 'Fermé',
+      statut_structure: 'Supprimé',
     },
     {
       nom: 'Albert Camus',
