@@ -1,0 +1,47 @@
+.etablissement-container {
+    margin: 1px 0; /* Espacement entre les établissements */
+}
+
+.etablissement-preview {
+    display: flex; /* Utilisation de flexbox pour l'alignement */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Alignement vertical centré */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure autour de l'élément */
+    border-radius: 5px; /* Coins arrondis */
+    background-color: #f9f9f9; /* Couleur de fond */
+}
+
+.etablissement-content {
+    flex: 1; /* Prend tout l'espace disponible à gauche */
+}
+
+.etablissement-date {
+    flex: 1; /* Prend tout l'espace disponible au milieu */
+    text-align: center; /* Centrer le texte de la date */
+}
+
+.examiner-button {
+    margin-left: 20px; /* Espacement à gauche du bouton pour éloigner de la date */
+    background-color: #77B5FE; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none; /* Pas de bordure */
+    padding: 5px 10px; /* Espacement interne du bouton */
+    border-radius: 4px; /* Coins arrondis du bouton */
+    cursor: pointer; /* Curseur en main au survol */
+}
+
+.examiner-button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+
+.approved {
+    color: #77B5FE; /* Couleur bleue pour approuvé */
+    font-weight: 400; /* Texte en gras */
+}
+
+.declined {
+    color: red; /* Couleur rouge pour décliné */
+    font-weight: 400; /* Texte en gras */
+}

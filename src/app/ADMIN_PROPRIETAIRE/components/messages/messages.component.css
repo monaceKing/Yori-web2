@@ -86,11 +86,6 @@
     background-color: #f9f9f9; /* Couleur de fond pour les détails */
   }
   
-  .message-date {
-    font-size: 0.8em; /* Taille de police plus petite pour la date */
-    color: #666; /* Couleur grise pour la date */
-  }
-  
   .message-text{
     border: 0.5px solid #ccc;
     margin: 5px;
