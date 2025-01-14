@@ -1,15 +1,25 @@
-<h2>{{ data.title }}</h2>
-<p>Nom : {{ data.nom }}</p>
-<p>Prénom : {{ data.prenom }}</p>
-<p>Téléphone : {{ data.telephone }}</p>
-<p>Email : {{ data.email }}</p>
-<p>Pays : {{ data.pays }}</p>
-<p>Ville : {{ data.ville }}</p>
-<p>Adresse : {{ data.adresse }}</p>
-
-<div class="popup-actions">
-  <button mat-button (click)="approve()">Approuvé</button>
-  <button mat-button (click)="decline()">Décliné</button>
-  <!-- <button mat-button (click)="waiting()">En attente d'examen</button> -->
+<div class="container">
+  <h2>Informations du compte propiètaire</h2>
+  <p><span>Nom /</span> {{ data.nom }}</p>
+  <p><span>Prenom:</span>{{ data.prenom }}</p>
+  <p><span>Numero de téléphone :</span> {{ data.telephone }}</p>
+  <p><span>Adresse e-mail:</span> {{ data.email }}</p>
+  <p>
+    <span>Nombre d’établissements inscrits : </span>
+    {{ data.nombreEtablissement }}
+  </p>
+  <h2>Informations de l’établissement</h2>
+  <p><span>Pays/region :</span> {{ data.pays }}</p>
+  <p><span>Ville :</span> {{ data.ville }}</p>
+  <p><span>Nom de l'établissement : :</span> {{ data.nomEtablissement }}</p>
+  <p><span>service :</span> {{ data.service }}</p>
+  <p><span>Type de proprièté :</span> {{ data.typePropriete }}</p>
+  <p><span>Adresse :</span> {{ data.adresse }}</p>
+  <h2>Photos</h2>
+  <div class="popup-actions">
+    <button mat-button (click)="approve()">Approuvé</button>
+    <button mat-button (click)="decline()">Décliné</button>
+    <!-- <button mat-button (click)="waiting()">En attente d'examen</button> -->
+  </div>
+  <!-- <button mat-button (click)="close()">Fermer</button> -->
 </div>
-<!-- <button mat-button (click)="close()">Fermer</button> -->
