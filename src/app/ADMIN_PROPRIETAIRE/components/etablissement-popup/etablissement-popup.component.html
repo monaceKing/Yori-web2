@@ -1,0 +1,15 @@
+<h2>{{ data.title }}</h2>
+<p>Nom : {{ data.nom }}</p>
+<p>Prénom : {{ data.prenom }}</p>
+<p>Téléphone : {{ data.telephone }}</p>
+<p>Email : {{ data.email }}</p>
+<p>Pays : {{ data.pays }}</p>
+<p>Ville : {{ data.ville }}</p>
+<p>Adresse : {{ data.adresse }}</p>
+
+<div class="popup-actions">
+    <button mat-button (click)="approve()">Approuvé</button>
+    <button mat-button (click)="decline()">Décliné</button>
+    <!-- <button mat-button (click)="waiting()">En attente d'examen</button> -->
+</div>
+<!-- <button mat-button (click)="close()">Fermer</button> -->

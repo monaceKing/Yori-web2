@@ -152,7 +152,8 @@ export class MessagesComponent {
     this.showOptions = !this.showOptions;
   }
 
-  afficherFiltre() {
+  afficherFiltre(event: MouseEvent) {
+    event.stopPropagation(); // Empêche la propagation vers l'écouteur global
     this.plusMessage = !this.plusMessage;
     this.hotelClique = false;
     this.tourismeClique = false;
@@ -167,6 +168,18 @@ export class MessagesComponent {
     this.tourismeClique = !this.tourismeClique;
     if (this.tourismeClique) {
       this.hotelClique = false;
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    const targetElement = event.target as HTMLElement;
+
+    // Vérifie si le clic est en dehors de l'élément avec la classe "filtreMessage"
+    if (!targetElement.closest('.filtreMessage')) {
+      this.plusMessage = false;
+      this.hotelClique = false;
+      this.tourismeClique = false;
     }
   }
 }

@@ -178,9 +178,12 @@
       ></textarea>
     </div>
     <div class="reply-buttons">
-      <button class="plusMessage" (click)="afficherFiltre()">
+      <!-- Bouton qui ouvre le popup -->
+      <button class="plusMessage" (click)="afficherFiltre($event)">
         <i class="fa-solid fa-ellipsis-vertical"></i>
       </button>
+
+      <!-- Bouton pour attacher un fichier -->
       <button class="send-message" (click)="fileInput.click()">
         <mat-icon>attach_file</mat-icon>
       </button>
@@ -190,9 +193,16 @@
         (change)="onFileSelected($event)"
         style="display: none"
       />
+
+      <!-- Bouton pour envoyer -->
       <button (click)="submitReply()" class="btn btn-send2">Envoyer</button>
 
-      <div class="filtreMessage" *ngIf="plusMessage">
+      <!-- Popup -->
+      <div
+        class="filtreMessage"
+        *ngIf="plusMessage"
+        (click)="$event.stopPropagation()"
+      >
         <ul class="filtreContainer">
           <li class="listeFiltre" (click)="afficherFiltreHotel()">
             Hotellerie
@@ -202,46 +212,43 @@
           </li>
         </ul>
 
+        <!-- Filtres Hôtel -->
         <div class="filtresCheckboxes" *ngIf="hotelClique">
           <div>
             <input type="checkbox" value="Tout selectionner" />
-            <label for="hey">Tout selectionner</label>
+            <label>Tout sélectionner</label>
           </div>
-
           <div>
             <input type="checkbox" value="Hotel (s)" />
-            <label for="hey">Hotel (s)</label>
+            <label>Hotel (s)</label>
           </div>
-
           <div>
             <input type="checkbox" value="Motel (s)" />
-            <label for="hey">Motel (s)</label>
+            <label>Motel (s)</label>
           </div>
-
           <div>
             <input type="checkbox" value="Appartement (s)" />
-            <label for="hey">Appartement (s)</label>
+            <label>Appartement (s)</label>
           </div>
         </div>
+
+        <!-- Filtres Tourisme -->
         <div class="filtresCheckboxes" *ngIf="tourismeClique">
           <div>
             <input type="checkbox" value="Tout selectionner" />
-            <label for="hey">Tout selectionner</label>
+            <label>Tout sélectionner</label>
           </div>
-
           <div>
-            <input type="checkbox" value="Randonnés" />
-            <label for="hey">Randonnés</label>
+            <input type="checkbox" value="Randonnées" />
+            <label>Randonnées</label>
           </div>
-
           <div>
             <input type="checkbox" value="Parcs" />
-            <label for="hey">Parcs</label>
+            <label>Parcs</label>
           </div>
-
           <div>
             <input type="checkbox" value="Campings" />
-            <label for="hey">Campings</label>
+            <label>Campings</label>
           </div>
         </div>
       </div>
