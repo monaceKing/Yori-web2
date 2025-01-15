@@ -1,7 +1,7 @@
 .container {
   height: auto;
-  margin: 15px;
-  padding: 5px;
+  margin: px;
+  padding: 30px;
 }
 
 .photo-grid {
@@ -40,5 +40,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+}
+.gras {
+  font-weight: bold;
+}
+.popup-actions {
+  width: 100%;
+  margin-top: 47px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.btn-notif {
+  width: 99px;
+  height: 40px;
+}
+#btn-decline {
+  border: 1px solid #f90808;
+  color: #f90808;
+  border-radius: 5px;
+}
+
+#btn-approuve {
+  border: none;
+  color: white;
+  background-color: #77b5fe;
   border-radius: 5px;
 }
