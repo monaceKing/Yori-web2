@@ -1,41 +1,82 @@
 <div class="container">
   <h2>Informations du compte propiètaire</h2>
-  <p><span>Nom /</span> {{ data.nom }}</p>
-  <p><span>Prenom:</span>{{ data.prenom }}</p>
-  <p><span>Numero de téléphone :</span> {{ data.telephone }}</p>
-  <p><span>Adresse e-mail:</span> {{ data.email }}</p>
   <p>
-    <span>Nombre d'établissements inscrits : </span>
+    <span class="gras">Nom :</span>
+    {{ data.nom }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Prenom:</span>{{ data.prenom }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Numero de téléphone :</span>
+    {{ data.telephone }}
+  </p>
+  <p>
+    <span class="gras">Adresse e-mail: </span>
+    {{ data.email }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Nombre d'établissemnts inscrits : </span>
     {{ data.nombreEtablissement }}
   </p>
+  <br />
   <h2>Informations de l'établissement</h2>
-  <p><span>Pays/region :</span> {{ data.pays }}</p>
-  <p><span>Ville :</span> {{ data.ville }}</p>
-  <p><span>Nom de l'établissement : :</span> {{ data.nomEtablissement }}</p>
-  <p><span>service :</span> {{ data.service }}</p>
-  <p><span>Type de proprièté :</span> {{ data.typePropriete }}</p>
-  <p><span>Adresse :</span> {{ data.adresse }}</p>
-  <div *ngIf="data.photos && data.photos.length > 0; else noPhotos" class="photo-grid">
+  <p>
+    <span class="gras">Pays/region :</span>
+    {{ data.pays }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Ville :</span>{{ data.ville }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Nom de établissement :</span>
+    {{ data.nomEtablissement }}
+  </p>
+  <p>
+    <span class="gras">Service :</span>
+    {{ data.service }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Type de proprièté :</span>{{ data.typePropriete }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="gras">Adresse :</span>
+    {{ data.adresse }}
+  </p>
+  <br />
+  <h2>Photos</h2>
+  <div
+    *ngIf="data.photos && data.photos.length > 0; else noPhotos"
+    class="photo-grid"
+  >
     <ng-container *ngFor="let photo of data.photos.slice(0, 7); let i = index">
       <div class="photo-item">
-        <img [src]="photo.url" [alt]="photo.alt || 'Photo de l\'établissement'" />
+        <img
+          [src]="photo.url"
+          [alt]="photo.alt || 'Photo de l\'établissement'"
+        />
       </div>
     </ng-container>
-  
+
     <!-- Badge pour la dernière photo si plus de 8 photos -->
-    <div *ngIf="data.photos.length > 8" class="photo-item last-photo" (click)="openPhotoGallery(data.photos.slice(8))">
-      <img [src]="data.photos[7].url" [alt]="data.photos[7].alt || 'Photo de l\'établissement'" />
+    <div
+      *ngIf="data.photos.length > 8"
+      class="photo-item last-photo"
+      (click)="openPhotoGallery(data.photos.slice(8))"
+    >
+      <img
+        [src]="data.photos[7].url"
+        [alt]="data.photos[7].alt || 'Photo de l\'établissement'"
+      />
       <div class="overlay">+{{ data.photos.length - 8 }}</div>
     </div>
   </div>
-  
+
   <ng-template #noPhotos>
     <p>Aucune photo disponible.</p>
   </ng-template>
-  
+
   <div class="popup-actions">
-    <button mat-button (click)="approve()">Approuvé</button>
-    <button mat-button (click)="decline()">Décliné</button>
+    <button mat-button (click)="approve()" class="btn-notif" id="btn-approuve">
+      Approuver
+    </button>
+    <button mat-button (click)="decline()" class="btn-notif" id="btn-decline">
+      Décliner
+    </button>
     <!-- <button mat-button (click)="waiting()">En attente d'examen</button> -->
   </div>
   <!-- <button mat-button (click)="close()">Fermer</button> -->
