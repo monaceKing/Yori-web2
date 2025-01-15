@@ -62,3 +62,15 @@
   width: 270px;
   height: 30px;
 }
+
+
+.custom-dialog .mat-dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Prend toute la largeur */
+  max-width: 800px; /* Limite la largeur */
+  margin: 0 auto; /* Centre horizontalement */
+  border-radius: 8px; /* Ajoute des coins arrondis (optionnel) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ajoute une ombre (optionnel) */
+}

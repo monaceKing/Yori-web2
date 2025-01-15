@@ -5,17 +5,34 @@
   <p><span>Numero de téléphone :</span> {{ data.telephone }}</p>
   <p><span>Adresse e-mail:</span> {{ data.email }}</p>
   <p>
-    <span>Nombre d’établissements inscrits : </span>
+    <span>Nombre d'établissements inscrits : </span>
     {{ data.nombreEtablissement }}
   </p>
-  <h2>Informations de l’établissement</h2>
+  <h2>Informations de l'établissement</h2>
   <p><span>Pays/region :</span> {{ data.pays }}</p>
   <p><span>Ville :</span> {{ data.ville }}</p>
   <p><span>Nom de l'établissement : :</span> {{ data.nomEtablissement }}</p>
   <p><span>service :</span> {{ data.service }}</p>
   <p><span>Type de proprièté :</span> {{ data.typePropriete }}</p>
   <p><span>Adresse :</span> {{ data.adresse }}</p>
-  <h2>Photos</h2>
+  <div *ngIf="data.photos && data.photos.length > 0; else noPhotos" class="photo-grid">
+    <ng-container *ngFor="let photo of data.photos.slice(0, 7); let i = index">
+      <div class="photo-item">
+        <img [src]="photo.url" [alt]="photo.alt || 'Photo de l\'établissement'" />
+      </div>
+    </ng-container>
+  
+    <!-- Badge pour la dernière photo si plus de 8 photos -->
+    <div *ngIf="data.photos.length > 8" class="photo-item last-photo" (click)="openPhotoGallery(data.photos.slice(8))">
+      <img [src]="data.photos[7].url" [alt]="data.photos[7].alt || 'Photo de l\'établissement'" />
+      <div class="overlay">+{{ data.photos.length - 8 }}</div>
+    </div>
+  </div>
+  
+  <ng-template #noPhotos>
+    <p>Aucune photo disponible.</p>
+  </ng-template>
+  
   <div class="popup-actions">
     <button mat-button (click)="approve()">Approuvé</button>
     <button mat-button (click)="decline()">Décliné</button>
