@@ -20,7 +20,7 @@ export interface AjoutEtablissement {
   service: string;
   typePropriete: string;
   adresse: string;
-  photos?: string[];
+  photos?: { url: string; alt?: string }[]; 
   buttonText?: string;
   examStatus: 'pending' | 'approved' | 'declined' | 'waiting'; // État d'examen
 }
@@ -53,7 +53,56 @@ export class NotificationsComponent {
       service: 'Tourisme',
       typePropriete: 'Parc',
       adresse: 'Pharmacie Echangeur Nzeng',
-      photos: [],
+      photos: [
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo du parc Loango - Vue panoramique',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la faune du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la plage du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo du parc Loango - Vue panoramique',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la faune du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la plage du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo du parc Loango - Vue panoramique',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la faune du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la plage du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo du parc Loango - Vue panoramique',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la faune du parc Loango',
+        },
+        {
+          url: 'assets/img/elephant.png',
+          alt: 'Photo de la plage du parc Loango',
+        },
+      ],
       examStatus: 'pending',
       buttonText: 'Examiner',
     },
@@ -148,7 +197,13 @@ export class NotificationsComponent {
 
   openPopup(etablissement: AjoutEtablissement) {
     const dialogRef = this.dialog.open(EtablissementPopupComponent, {
-      data: etablissement, // Passez les données de l'établissement au pop-up
+    data: etablissement, // Passez les données de l'établissement au pop-up
+    width: '100%', // Largeur de 100%
+    maxWidth: '800px', // Limite la largeur maximale à 600px (ajustez selon vos besoins)
+    height: '100%', // Hauteur automatique
+    panelClass: 'custom-dialog', // Ajoute une classe CSS personnalisée
+
+    
     });
 
     dialogRef.afterClosed().subscribe((result) => {

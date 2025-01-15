@@ -1,10 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { PhotoGalleryComponent } from '../photo-gallery/photo-gallery.component';
 
 @Component({
   selector: 'app-etablissement-popup',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './etablissement-popup.component.html',
   styleUrl: './etablissement-popup.component.css'
 })
@@ -13,7 +17,8 @@ export class EtablissementPopupComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<EtablissementPopupComponent>
+    private dialogRef: MatDialogRef<EtablissementPopupComponent>,
+    private dialog: MatDialog
   ) {}
 
   approve() {
@@ -24,9 +29,15 @@ export class EtablissementPopupComponent {
       this.dialogRef.close({ status: 'declined' });
   }
 
-  // waiting() {
-  //     this.dialogRef.close({ status: 'waiting' });
-  // }
+  // constructor(private dialog: MatDialog) {}
+
+  openPhotoGallery(remainingPhotos: string[]) {
+    this.dialog.open(PhotoGalleryComponent, {
+      data: { photos: remainingPhotos },
+      width: '80%',
+      height: 'auto',
+    });
+  }
 
 
 }
