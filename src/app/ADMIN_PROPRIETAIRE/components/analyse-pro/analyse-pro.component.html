@@ -1,1 +1,116 @@
-<p>analyse-pro works!</p>
+<mat-tab-group>
+    <mat-tab label="Nombre de Réservations">
+        <div class="haut">
+            <div class="gauche jr1">
+                <div class="text">
+                    <label>JOUR</label>
+                    <label>{{ totalReservationsJour }}</label>
+                </div>
+                <div class="argent">
+                    <div class="image" style="background-color:#3CB51280;">
+                        <img src="assets/img/argent.png" alt="">
+                    </div>
+                    <p>{{ (totalMontantJour | currency:'CFA':'symbol':'fr-FR') }}</p>
+                </div>
+            </div>
+            <div class="droit jr2">
+                <div class="text">
+                    <label>SEMAINE</label>
+                    <label>{{ totalReservationsSemaine }}</label>
+                </div>
+                <div class="argent">
+                    <div class="image" style="background-color:#C2060680;">
+                        <img src="assets/img/argent.png" alt="">
+                    </div>
+                    <p>{{ (totalMontantSemaine | currency:'CFA':'symbol':'fr-FR') }}</p>
+                </div>
+            </div>
+          </div>
+          
+          <div class="milieu">
+            <div class="gauche jr3">
+                <div class="text">
+                    <label>MOIS</label>
+                    <label>{{ totalReservationsMois }}</label>
+                </div>
+                <div class="argent">
+                    <div class="image" style="background-color:#FFDE7480;">
+                        <img src="assets/img/argent.png" alt="">
+                    </div>
+                    <p>{{ (totalMontantMois | currency:'CFA':'symbol':'fr-FR') }}</p>
+                </div>
+            </div>
+            <div class="droit jr4">
+                <div class="text">
+                    <label>ANNEE</label>
+                    <label>{{ totalReservationsAnnee }}</label>
+                </div>
+                <div class="argent">
+                    <div class="image" style="background-color:#0547F180;">
+                        <img src="assets/img/argent.png" alt="">
+                    </div>
+                    <p>{{ (totalMontantAnnee | currency:'CFA':'symbol':'fr-FR') }}</p>
+                </div>
+            </div>
+         </div>
+
+        <div>
+            <!-- Ajoutez ici des sélecteurs pour filtrer par statut et pays -->
+            <select [(ngModel)]="selectedStatut" (change)="onFilterChange()">
+                <option value="">Tous les statuts</option>
+                <option *ngFor="let statut of statuts" [value]="statut">{{ statut }}</option>
+            </select>
+            
+            <select [(ngModel)]="selectedPays" (change)="onFilterChange()">
+                <option value="">Tous les pays</option>
+                <option *ngFor="let pays of paysList" [value]="pays">{{ pays }}</option>
+            </select>
+            
+            
+        </div>
+      </mat-tab>
+  
+    <mat-tab label="Réservations Annulées">
+      <table mat-table [dataSource]="etablissements" class="mat-elevation-z8">
+        <!-- Colonnes similaires à ci-dessus mais pour les réservations annulées -->
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let etablissement"> {{ etablissement.nom }} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="jour">
+          <th mat-header-cell *matHeaderCellDef> Jour </th>
+          <td mat-cell *matCellDef="let etablissement"> {{ etablissement.nombreReservationsAnnulees.jour }} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="semaine">
+          <th mat-header-cell *matHeaderCellDef> Semaine </th>
+          <td mat-cell *matCellDef="let etablissement"> {{ etablissement.nombreReservationsAnnulees.semaine }} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="mois">
+          <th mat-header-cell *matHeaderCellDef> Mois </th>
+          <td mat-cell *matCellDef="let etablissement"> {{ etablissement.nombreReservationsAnnulees.mois }} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="annee">
+          <th mat-header-cell *matHeaderCellDef> Année </th>
+          <td mat-cell *matCellDef="let etablissement"> {{ etablissement.nombreReservationsAnnulees.annee }} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['nom', 'jour', 'semaine', 'mois', 'annee']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['nom', 'jour', 'semaine', 'mois', 'annee'];"></tr>
+      </table>
+    </mat-tab>
+  
+    <mat-tab label="Montant des Réservations">
+      <!-- Table similaire pour les montants des réservations -->
+      <!-- Répétez la structure comme ci-dessus en remplaçant les données par montantReservations -->
+    </mat-tab>
+  
+    <mat-tab label="Montant des Commissions">
+      <!-- Table similaire pour les montants des commissions -->
+      <!-- Répétez la structure comme ci-dessus en remplaçant les données par montantCommissions -->
+    </mat-tab>
+  </mat-tab-group>
+  
