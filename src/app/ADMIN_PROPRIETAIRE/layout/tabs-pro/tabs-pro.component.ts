@@ -7,6 +7,8 @@ import { AccueilProComponent } from "../../components/accueil/accueil-pro.compon
 import { CompteProprietaireComponent } from "../../components/compte-proprietaire/compte-proprietaire.component";
 import { MessagesComponent } from "../../components/messages/messages.component";
 import { NotificationsComponent } from "../../components/notifications/notifications.component";
+import { FactureProComponent } from "../../components/facture-pro/facture-pro.component";
+import { AnalyseProComponent } from "../../components/analyse-pro/analyse-pro.component";
 
 
 @Component({
@@ -22,7 +24,9 @@ import { NotificationsComponent } from "../../components/notifications/notificat
     AccueilProComponent,
     CompteProprietaireComponent,
     MessagesComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    FactureProComponent,
+    AnalyseProComponent
 ],
   templateUrl: './tabs-pro.component.html',
   styleUrl: './tabs-pro.component.css'

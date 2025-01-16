@@ -75,11 +75,20 @@
         <mat-tab>
           <ng-template mat-tab-label class="ng-template">
             <div class="circle-container">
+              <div class="circle" ><mat-icon>receipt_long</mat-icon></div>
+              <div class="circle-title">Factures</div>
+            </div>
+          </ng-template>
+          <app-facture-pro></app-facture-pro>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label class="ng-template">
+            <div class="circle-container">
               <div class="circle" ><mat-icon>trending_up</mat-icon></div>
               <div class="circle-title">Analyse</div>
             </div>
           </ng-template>
-          <!-- <app-analyse></app-analyse> -->
+          <app-analyse-pro></app-analyse-pro>
         </mat-tab>
       </mat-tab-group>
     <div>
