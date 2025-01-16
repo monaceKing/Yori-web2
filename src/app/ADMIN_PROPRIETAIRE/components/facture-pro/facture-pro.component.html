@@ -1,1 +1,176 @@
-<p>facture-pro works!</p>
+<div class="container">
+  <div class="first" *ngIf="!showDetails"></div>
+  <div>
+    <h2>Factures</h2>
+    <div class="filtre">
+      <div class="inputs">
+        <div class="labels">
+          <label for="statut">Aperçu</label><br />
+          <select
+            id="statut"
+            class="select1"
+            [(ngModel)]="selectedStatut"
+            (change)="onStatutChange()"
+          >
+            <option *ngFor="let statut of statutsFiltres" [value]="statut">
+              {{ statut }}
+            </option>
+          </select>
+          <br />
+
+          <select
+            id="sousStatut"
+            *ngIf="selectedStatut !== 'Vue d\'ensemble'"
+            [(ngModel)]="selectedSousStatut"
+          >
+            <option
+              *ngFor="let sousStatut of sousStatuts[selectedStatut]"
+              [value]="sousStatut"
+            >
+              {{ sousStatut }}
+            </option>
+            <option *ngIf="!sousStatuts[selectedStatut]?.length" disabled>
+              Sélectionnez d'abord un statut
+            </option>
+          </select>
+        </div>
+        <div class="labels">
+          <label for="pays">Région</label><br />
+          <select id="pays" class="select1" [(ngModel)]="selectedPays">
+            <option *ngFor="let pays of paysFiltres" [value]="pays">
+              {{ pays }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <mat-tab-group>
+    <!-- Onglet "Payé" -->
+    <mat-tab label="Payé">
+      <div class="table-responsive">
+        <table class="table" id="table-payé">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Pays</th>
+              <th>Statut</th>
+              <th>Date limite</th>
+              <th>Commission</th>
+              <th>Commission Payée</th>
+              <th>Reste à Payer</th>
+              <th>Plus d'infos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let facture of paidFactures">
+              <td style="color: #77b5fe">{{ facture.nom }}</td>
+              <td>{{ facture.pays }}</td>
+              <td>{{ facture.statut }}</td>
+              <td>{{ facture.dateLimite }}</td>
+              <td>{{ facture.commission }}</td>
+              <td>{{ facture.commissionPayee }}</td>
+              <td
+                [ngStyle]="{
+                  color: facture.resteAPayer !== '0' ? 'red' : 'black'
+                }"
+              >
+                <b>{{ facture.resteAPayer }}</b>
+              </td>
+              <td>
+                <a class="open-div2" (click)="afficherDetails(facture)"
+                  >voir plus</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+
+    <!-- Onglet "Impayé" -->
+    <mat-tab label="Impayé">
+      <div class="table-responsive">
+        <table class="table" id="table-impayé">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Pays</th>
+              <th>Statut</th>
+              <th>Date limite</th>
+              <th>Commission</th>
+              <th>Commission Payée</th>
+              <th>Reste à Payer</th>
+              <th>Plus d'infos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let facture of unpaidFactures">
+              <td style="color: #77b5fe">{{ facture.nom }}</td>
+              <td>{{ facture.pays }}</td>
+              <td>{{ facture.statut }}</td>
+              <td>{{ facture.dateLimite }}</td>
+              <td>{{ facture.commission }}</td>
+              <td>{{ facture.commissionPayee }}</td>
+              <td
+                [ngStyle]="{
+                  color: facture.resteAPayer !== '0' ? 'red' : 'black'
+                }"
+              >
+                <b>{{ facture.resteAPayer }}</b>
+              </td>
+              <td>
+                <a class="open-div2" (click)="afficherDetails(facture)"
+                  >voir plus</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+
+    <!-- Onglet "Indisponible" -->
+    <mat-tab label="Indisponible">
+      <div class="table-responsive">
+        <table class="table" id="table-indisponible">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Pays</th>
+              <th>Statut</th>
+              <th>Date limite</th>
+              <th>Commission</th>
+              <th>Commission Payée</th>
+              <th>Reste à Payer</th>
+              <th>Plus d'infos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let facture of unavailableFactures">
+              <td style="color: #77b5fe">{{ facture.nom }}</td>
+              <td>{{ facture.pays }}</td>
+              <td>{{ facture.statut }}</td>
+              <td>{{ facture.dateLimite }}</td>
+              <td>{{ facture.commission }}</td>
+              <td>{{ facture.commissionPayee }}</td>
+              <td
+                [ngStyle]="{
+                  color: facture.resteAPayer !== '0' ? 'red' : 'black'
+                }"
+              >
+                <b>{{ facture.resteAPayer }}</b>
+              </td>
+              <td>
+                <a class="open-div2" (click)="afficherDetails(facture)"
+                  >voir plus</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
