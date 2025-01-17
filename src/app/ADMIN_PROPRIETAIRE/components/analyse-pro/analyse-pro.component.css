@@ -1,8 +1,12 @@
-.container{
-    padding: 20px;
+.container-mat{
+    justify-content: center;
+    text-align: center;
+    margin: 0 20px;
+    padding: 0 25px;
 }
 
 .haut,.milieu,.graphique{
+    /* background-color: white; */
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -11,6 +15,11 @@
 
 .milieu{
     margin: 20px 0;
+}
+
+
+.haut{
+    padding-top: 20px;
 }
 
 .text{
@@ -42,8 +51,8 @@ label{
 }
 
 .gauche, .droit{
-    width: 300px;
-    height: 150px;
+    width: 500px;
+    height: 200px;
 }
 
 
@@ -99,4 +108,37 @@ button{
     height: 4px;
     width: 20px;
     border-radius: 5px;
+}
+
+/* Container for the select elements */
+.filter-container {
+    display: flex;
+    gap: 20px; /* Space between the selects */
+    margin: 20px; /* Margin around the container */
+}
+
+/* Style for the custom select elements */
+.custom-select {
+    padding: 10px; /* Padding inside the select */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    background-color: #f9f9f9; /* Light background color */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Change border color on focus */
+.custom-select:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Style for the options in the select dropdown */
+.custom-select option {
+    padding: 10px; /* Padding for options (not always supported) */
+}
+
+/* Optional: Style for the placeholder option */
+.custom-select option[value=""] {
+    color: #999; /* Gray color for placeholder option */
 }

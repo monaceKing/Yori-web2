@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { FooterProComponent } from "../footer-pro/footer-pro.component";
@@ -31,7 +31,7 @@ import { AnalyseProComponent } from "../../components/analyse-pro/analyse-pro.co
   templateUrl: './tabs-pro.component.html',
   styleUrl: './tabs-pro.component.css'
 })
-export class TabsProComponent implements AfterViewInit{
+export class TabsProComponent{
 
   activeTabIndex: number = 0; // Index par défaut pour les onglets
   currentComponent: string | null = null; // Composant actuellement sélectionné
@@ -61,10 +61,6 @@ export class TabsProComponent implements AfterViewInit{
     sessionStorage.setItem('currentComponent', this.currentComponent);
   }
 
-
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
 
 
