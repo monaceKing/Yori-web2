@@ -53,7 +53,7 @@
 
   <mat-tab-group class="fixed-width" id="menu-comptes">
     <!-- Onglet "Payé" -->
-    <mat-tab label="Payé">
+    <mat-tab label="Payé ({{ getTotalPaid() }})">
       <div class="table-responsive">
         <table class="table" id="table-payé">
           <thead>
@@ -95,7 +95,7 @@
     </mat-tab>
 
     <!-- Onglet "Impayé" -->
-    <mat-tab label="Impayé">
+    <mat-tab label="Impayé ({{ getTotalUnpaid() }})">
       <div class="table-responsive">
         <table class="table" id="table-impayé">
           <thead>
@@ -137,7 +137,7 @@
     </mat-tab>
 
     <!-- Onglet "Indisponible" -->
-    <mat-tab label="Indisponible">
+    <mat-tab label="Indisponible ({{ getTotalUnavailable() }})">
       <div class="table-responsive">
         <table class="table" id="table-indisponible">
           <thead>

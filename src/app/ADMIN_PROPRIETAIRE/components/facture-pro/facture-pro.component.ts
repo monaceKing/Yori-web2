@@ -168,4 +168,15 @@ export class FactureProComponent implements OnInit {
   onCountryChange() {
     this.filterFacturesByCountry(); // Réappliquer les filtres
   }
+  getTotalPaid(): number {
+    return this.paidFactures.length;
+  }
+
+  getTotalUnpaid(): number {
+    return this.unpaidFactures.length;
+  }
+
+  getTotalUnavailable(): number {
+    return this.unavailableFactures.length;
+  }
 }
