@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabGroup, MatTab } from '@angular/material/tabs';
@@ -36,7 +35,6 @@ export interface Etablissement {
   };
 }
 
-
 @Component({
   selector: 'app-analyse-pro',
   standalone: true,
@@ -51,20 +49,29 @@ export interface Etablissement {
   styleUrl: './analyse-pro.component.css'
 })
 export class AnalyseProComponent implements OnInit {
-  public etablissements: Etablissement[] = [];
+    constructor(private cdRef: ChangeDetectorRef) {}
+    public etablissements: Etablissement[] = [];
 
    // Variables pour stocker les totaux
     totalReservationsJour = 0;
     totalMontantJour = 0;
+    totalAnnuleeJour = 0;
+    totalCommissionJour = 0;
 
     totalReservationsSemaine = 0;
     totalMontantSemaine = 0;
+    totalAnnuleeSemaine = 0;
+    totalCommissionSemaine = 0;
 
     totalReservationsMois = 0;
     totalMontantMois = 0;
+    totalAnnuleetMois = 0;
+    totalCommissiontMois = 0;
 
     totalReservationsAnnee = 0;
     totalMontantAnnee = 0;
+    totalAnnuleeAnnee = 0;
+    totalCommissionAnnee = 0;
 
     selectedStatut = '';
     selectedPays = '';
@@ -74,7 +81,7 @@ export class AnalyseProComponent implements OnInit {
      paysList = ['Gabon', 'Sénégal', 'Kenya', 'RDC'];
 
     private filterSubject = new BehaviorSubject<void>(undefined); // BehaviorSubject pour le debounce
-    ngOnInit(): void {
+        ngOnInit(): void {
       this.etablissements = [
         {
             statut: 'hôtellerie',
@@ -143,29 +150,45 @@ export class AnalyseProComponent implements OnInit {
 
     this.calculateTotals(); // Calcul initial des totaux
 
-    // Écoutez les changements dans le sujet de filtre
-    this.filterSubject.pipe(debounceTime(1)).subscribe(() => {
-        this.calculateTotals(); // Recalculez les totaux après le délai
-    });
+    // Écoute les changements dans le sujet de filtre sans délai
+    this.filterSubject.subscribe(() => {
+        this.calculateTotals();  // Recalcule les totaux immédiatement après chaque changement de filtre
+        this.cdRef.detectChanges();  // Forcer la détection des changements
+      });
     
     }
 
     calculateTotals() {
-      const filteredEtablissements = this.applyFilters(); // Appliquez les filtres ici
+        const filteredEtablissements = this.applyFilters();
+        
+        // Calcul des totaux
+        this.totalReservationsJour = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.jour, 0);
+        this.totalMontantJour = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.jour, 0);
+        this.totalAnnuleeJour = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservationsAnnulees.jour, 0);
+        this.totalCommissionJour = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantCommissions.jour, 0);
 
-      // Calcul des totaux
-      this.totalReservationsJour = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.jour, 0);
-      this.totalMontantJour = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.jour, 0);
+      
+        this.totalReservationsSemaine = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.semaine, 0);
+        this.totalMontantSemaine = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.semaine, 0);
+        this.totalAnnuleeSemaine = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservationsAnnulees.semaine, 0);
+        this.totalCommissionSemaine = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantCommissions.semaine, 0);
 
-      this.totalReservationsSemaine = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.semaine, 0);
-      this.totalMontantSemaine = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.semaine, 0);
+      
+        this.totalReservationsMois = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.mois, 0);
+        this.totalMontantMois = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.mois, 0);
+        this.totalAnnuleetMois = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservationsAnnulees.mois, 0);
+        this.totalCommissiontMois = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantCommissions.mois, 0);
 
-      this.totalReservationsMois = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.mois, 0);
-      this.totalMontantMois = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.mois, 0);
 
-      this.totalReservationsAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.annee, 0);
-      this.totalMontantAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.annee, 0);
-  }
+      
+        this.totalReservationsAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservations.annee, 0);
+        this.totalMontantAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantReservations.annee, 0);
+        this.totalAnnuleeAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservationsAnnulees.annee, 0);
+        this.totalCommissionAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantCommissions.annee, 0);
+      
+        console.log('Total Montant Annee:', this.totalMontantAnnee);  // Debugging line
+      }
+      
 
     
   applyFilters() {
@@ -174,12 +197,11 @@ export class AnalyseProComponent implements OnInit {
         const matchesPays = !this.selectedPays || etablissement.pays === this.selectedPays;
         return matchesStatut && matchesPays;
     });
-}
+    }
 
-onFilterChange() {
-    this.filterSubject.next(); // Émettez un événement lorsque le filtre change
-}
-
+    onFilterChange() {
+        this.filterSubject.next();  // Déclenche la mise à jour des totaux
+    }
 
   
 }

@@ -1,8 +1,5 @@
 import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./core/components/header/header.component";
-import { FooterComponent } from './core/components/footer/footer.component';
-import { LoginComponent } from './auth/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +15,7 @@ import { LoginComponent } from './auth/login/login.component';
 })
 export class AppComponent implements OnInit{
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
   title = 'YORI';
 
