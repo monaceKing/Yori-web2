@@ -49,7 +49,7 @@
 }
 .table {
   border-collapse: collapse;
-  margin-left: 100px;
+  margin-left: 0px;
   margin-top: 10px;
   font-size: 0.9em;
   font-family: sans-serif;
@@ -57,7 +57,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border: 1px solid black;
   background-color: white;
-  width: 85%; /* Utiliser 100% pour prendre toute la largeur disponible */
+  width: 100%; /* Utiliser 100% pour prendre toute la largeur disponible */
   height: auto;
   overflow-x: auto;
   table-layout: auto; /* Utiliser auto pour permettre aux colonnes de s'ajuster */
