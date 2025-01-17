@@ -94,6 +94,16 @@ export class FactureProComponent implements OnInit {
       id: 5,
       pays: 'Gabon',
     },
+    {
+      nom: 'Facture F',
+      statut: 'Partiellement payée',
+      dateLimite: '2025-02-01',
+      commission: '1500.00',
+      commissionPayee: '1000.00',
+      resteAPayer: '500.00',
+      id: 5,
+      pays: 'South Africa',
+    },
   ];
 
   constructor() {
@@ -109,6 +119,7 @@ export class FactureProComponent implements OnInit {
     this.unavailableFactures = this.factures.filter(
       (facture) => facture.statut === 'En retard'
     );
+    this.filterFacturesByCountry(); // Appliquer les filtres au démarrage
   }
 
   ngOnInit(): void {}
@@ -128,5 +139,33 @@ export class FactureProComponent implements OnInit {
   afficherDetails(facture: Facture) {
     console.log('Détails de la facture:', facture);
     alert(`Détails de la facture ${facture.nom}`);
+  }
+
+  // Filtrer les factures en fonction du pays sélectionné
+  filterFacturesByCountry() {
+    const country = this.selectedPays;
+
+    this.paidFactures = this.factures.filter(
+      (facture) =>
+        facture.statut === 'Payée' &&
+        (country === 'Tous les pays' || facture.pays === country)
+    );
+
+    this.unpaidFactures = this.factures.filter(
+      (facture) =>
+        ['En attente', 'Partiellement payée'].includes(facture.statut) &&
+        (country === 'Tous les pays' || facture.pays === country)
+    );
+
+    this.unavailableFactures = this.factures.filter(
+      (facture) =>
+        facture.statut === 'En retard' &&
+        (country === 'Tous les pays' || facture.pays === country)
+    );
+  }
+
+  // Méthode appelée lors du changement de pays
+  onCountryChange() {
+    this.filterFacturesByCountry(); // Réappliquer les filtres
   }
 }
