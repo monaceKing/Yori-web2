@@ -142,3 +142,13 @@ button{
 .custom-select option[value=""] {
     color: #999; /* Gray color for placeholder option */
 }
+
+
+
+
+/* view-graph.component.css */
+#container {
+    width:100%;
+    height:auto; /* ou une hauteur fixe comme "400px" */
+ }
+ 

@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabGroup, MatTab } from '@angular/material/tabs';
+import * as Highcharts from 'highcharts';
+
 
 export interface Etablissement {
   statut: 'hôtellerie' | 'tourisme';
@@ -48,9 +50,11 @@ export interface Etablissement {
   templateUrl: './analyse-pro.component.html',
   styleUrl: './analyse-pro.component.css'
 })
-export class AnalyseProComponent implements OnInit {
+export class AnalyseProComponent implements OnInit, AfterViewInit{
     constructor(private cdRef: ChangeDetectorRef) {}
     public etablissements: Etablissement[] = [];
+    public activeTabIndex: number = 0; // Pour suivre l'onglet actif
+
 
    // Variables pour stocker les totaux
     totalReservationsJour = 0;
@@ -203,5 +207,66 @@ export class AnalyseProComponent implements OnInit {
         this.filterSubject.next();  // Déclenche la mise à jour des totaux
     }
 
-  
+
+
+    ngAfterViewInit(): void {
+        this.createChart('reservation', 'Nombre de Réservations', this.etablissements.map(e => e.nombreReservations));
+        this.createChart('reservation-annulee', 'Nombre de Réservations Annulées', this.etablissements.map(e => e.nombreReservationsAnnulees));
+        this.createChart('montant-reservation', 'Montant des Réservations', this.etablissements.map(e => e.montantReservations));
+        this.createChart('montant-commission', 'Montant des Commissions', this.etablissements.map(e => e.montantCommissions));
+      }
+    
+      
+      createChart(containerId: string, titleText: string, dataArray: any[]): void {
+        // Vérifiez que dataArray contient des objets avec les propriétés appropriées
+        const data = [
+            dataArray.map(e => e.jour),     // Données pour "Jour"
+            dataArray.map(e => e.semaine),  // Données pour "Semaine"
+            dataArray.map(e => e.mois),     // Données pour "Mois"
+            dataArray.map(e => e.annee)     // Données pour "Année"
+        ];
+    
+        // Log des données pour vérifier leur structure
+        console.log('Data for chart:', data);
+    
+        Highcharts.chart(containerId, {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: titleText
+            },
+            xAxis: {
+                type: 'category',
+                categories: ['Jour', 'Semaine', 'Mois', 'Année'] // Assurez-vous que cela correspond aux données
+            },
+            yAxis: {
+                title: {
+                    text: titleText
+                }
+            },
+            series: [
+                { name: 'Jour', data: data[0] },     // Assurez-vous que data[0] a le bon nombre d'éléments
+                { name: 'Semaine', data: data[1] },  // Assurez-vous que data[1] a le bon nombre d'éléments
+                { name: 'Mois', data: data[2] },     // Assurez-vous que data[2] a le bon nombre d'éléments
+                { name: 'Année', data: data[3] }     // Assurez-vous que data[3] a le bon nombre d'éléments
+            ]
+        } as Highcharts.Options);
+    }
+    
+    
+      onTabChange(event: { index: number; }): void {
+        this.activeTabIndex = event.index; // Met à jour l'index de l'onglet actif
+        switch (this.activeTabIndex) {
+          case 1:
+            this.createChart('reservation-annulee', 'Nombre de Réservations Annulées', this.etablissements.map(e => e.nombreReservationsAnnulees));
+            break;
+          case 2:
+            this.createChart('montant-reservation', 'Montant des Réservations', this.etablissements.map(e => e.montantReservations));
+            break;
+          case 3:
+            this.createChart('montant-commission', 'Montant des Commissions', this.etablissements.map(e => e.montantCommissions));
+            break;
+        }
+      }
 }
