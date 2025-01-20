@@ -179,5 +179,47 @@
       </mat-tab>
     </mat-tab-group>
   </div>
-  <div class="details" *ngIf="showDetails">Je suis une div !!!</div>
+  <div class="details" *ngIf="showDetails">
+    <h2>{{ selectedFactureName }}</h2>
+    <button class="revenir" (click)="revenir()">
+      Revenir à la synthèse des comptes propriétaires
+    </button>
+    <div class="container_facture">
+      <h2>Aperçu des factures</h2>
+      <div class="ligne"></div>
+
+      <div class="factures_payes">
+        <br />
+        <div class="entete1">
+          <h2>Factures payées ({{ getTotalPaid() }})</h2>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;le 14 avr. 2024
+        </div>
+
+        <div class="contenu_facture" *ngFor="let facture of paidFactures">
+          <div>{{ facture.dateLimite }}</div>
+          <div>{{ facture.id }}</div>
+          <div>{{ facture.commissionPayee }}</div>
+        </div>
+        <br /><br />
+        <div class="payement">
+          <p>Paiement par :</p>
+          <p>Montant payé: 500.000 Fcfa</p>
+        </div>
+      </div>
+      <br />
+      <div class="factures_impayes">
+        <div>
+          <h2>Factures impayées ({{ getTotalUnpaid() }})</h2>
+        </div>
+        <div class="contenu_facture" *ngFor="let facture of unpaidFactures">
+          <div style="color: red">{{ facture.dateLimite }}</div>
+          <div>{{ facture.id }}</div>
+          <div>{{ facture.resteAPayer }}</div>
+        </div>
+        <div class="aPayer">
+          <p>Montant à payer: <span style="color: red">500.000 Fcfa</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

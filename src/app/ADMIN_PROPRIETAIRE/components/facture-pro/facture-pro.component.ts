@@ -22,7 +22,7 @@ interface Facture {
   styleUrls: ['./facture-pro.component.css'],
 })
 export class FactureProComponent implements OnInit {
-  showDetails: boolean = true;
+  showDetails: boolean = false;
   selectedStatut: string = "Vue d'ensemble"; // Valeur par défaut
   statutsFiltres: string[] = ["Vue d'ensemble", 'Hotellerrie', 'Tourisme'];
   selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
@@ -45,7 +45,7 @@ export class FactureProComponent implements OnInit {
 
   factures: Facture[] = [
     {
-      nom: 'Facture A',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-31',
       commission: '500.00 FCFA',
@@ -55,7 +55,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Senegal',
     },
     {
-      nom: 'Facture B',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En attente',
       dateLimite: '2025-02-15',
       commission: '1000.00 FCFA',
@@ -65,7 +65,7 @@ export class FactureProComponent implements OnInit {
       pays: 'RDC',
     },
     {
-      nom: 'Facture C',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En retard',
       dateLimite: '2025-01-10',
       commission: '750.00 FCFA',
@@ -75,7 +75,7 @@ export class FactureProComponent implements OnInit {
       pays: 'RDC',
     },
     {
-      nom: 'Facture D',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-20',
       commission: '1200.00 FCFA',
@@ -85,7 +85,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Mali',
     },
     {
-      nom: 'Facture E',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Partiellement payée',
       dateLimite: '2025-02-01',
       commission: '1500.00 FCFA',
@@ -95,7 +95,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Gabon',
     },
     {
-      nom: 'Facture F',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Partiellement payée',
       dateLimite: '2025-02-01',
       commission: '1500.00 FCFA',
@@ -105,7 +105,7 @@ export class FactureProComponent implements OnInit {
       pays: 'South Africa',
     },
     {
-      nom: 'Facture G',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-05',
       commission: '2000.00 FCFA',
@@ -115,7 +115,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Ivory Coast',
     },
     {
-      nom: 'Facture H',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En retard',
       dateLimite: '2025-02-10',
       commission: '500.00 FCFA',
@@ -125,7 +125,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Nigeria',
     },
     {
-      nom: 'Facture I',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En attente',
       dateLimite: '2025-03-01',
       commission: '1800.00 FCFA',
@@ -135,7 +135,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Togo',
     },
     {
-      nom: 'Facture J',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-12',
       commission: '3000.00 FCFA',
@@ -145,7 +145,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Benin',
     },
     {
-      nom: 'Facture K',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En attente',
       dateLimite: '2025-02-28',
       commission: '1000.00 FCFA',
@@ -155,7 +155,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Guinea',
     },
     {
-      nom: 'Facture L',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En retard',
       dateLimite: '2025-01-25',
       commission: '2500.00 FCFA',
@@ -165,7 +165,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Cameroon',
     },
     {
-      nom: 'Facture M',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-02-05',
       commission: '4000.00 FCFA',
@@ -175,7 +175,7 @@ export class FactureProComponent implements OnInit {
       pays: 'Senegal',
     },
     {
-      nom: 'Facture N',
+      nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Partiellement payée',
       dateLimite: '2025-02-15',
       commission: '3500.00 FCFA',
@@ -184,8 +184,19 @@ export class FactureProComponent implements OnInit {
       id: 14,
       pays: 'Burkina Faso',
     },
+    {
+      nom: 'Hotel Luis vitton de Sotéga',
+      statut: 'Payée',
+      dateLimite: '2025-01-31',
+      commission: '53300.00 FCFA',
+      commissionPayee: '500.00 FCFA',
+      resteAPayer: '0.00 FCFA',
+      id: 1,
+      pays: 'Senegal',
+    },
   ];
-
+  selectedFacture: Facture | null = null; // Facture sélectionnée // ... autres propriétés et méthodes
+  selectedFactureName: string = ''; // Nom de la facture sélectionnée // ... autres propriétés et méthodes
   constructor() {
     // Initialiser le sous-statut en fonction du statut par défaut
     this.onStatutChange();
@@ -217,8 +228,9 @@ export class FactureProComponent implements OnInit {
   }
 
   afficherDetails(facture: Facture) {
-    console.log('Détails de la facture:', facture);
-    alert(`Détails de la facture ${facture.nom}`);
+    this.showDetails = !this.showDetails;
+    this.selectedFacture = facture;
+    this.selectedFactureName = facture.nom;
   }
 
   // Filtrer les factures en fonction du pays sélectionné
@@ -258,5 +270,10 @@ export class FactureProComponent implements OnInit {
 
   getTotalUnavailable(): number {
     return this.unavailableFactures.length;
+  }
+  revenir() {
+    this.selectedFacture = null;
+    this.selectedFactureName = '';
+    this.showDetails = false;
   }
 }
