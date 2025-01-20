@@ -22,7 +22,7 @@ interface Facture {
   styleUrls: ['./facture-pro.component.css'],
 })
 export class FactureProComponent implements OnInit {
-  showDetails: boolean = false;
+  showDetails: boolean = true;
   selectedStatut: string = "Vue d'ensemble"; // Valeur par défaut
   statutsFiltres: string[] = ["Vue d'ensemble", 'Hotellerrie', 'Tourisme'];
   selectedSousStatut: string = ''; // Initialiser comme une chaîne vide
