@@ -8,9 +8,9 @@ interface Facture {
   nom: string;
   statut: string;
   dateLimite: string;
-  commission: string;
-  commissionPayee: string;
-  resteAPayer: string;
+  commission: number;
+  commissionPayee: number;
+  resteAPayer: number;
   pays: string;
 }
 
@@ -48,9 +48,9 @@ export class FactureProComponent implements OnInit {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-31',
-      commission: '500.00 FCFA',
-      commissionPayee: '500.00 FCFA',
-      resteAPayer: '0.00 FCFA',
+      commission: 250000,
+      commissionPayee: 250000,
+      resteAPayer: 0,
       id: 1,
       pays: 'Senegal',
     },
@@ -58,143 +58,144 @@ export class FactureProComponent implements OnInit {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En attente',
       dateLimite: '2025-02-15',
-      commission: '1000.00 FCFA',
-      commissionPayee: '700.00 FCFA',
-      resteAPayer: '300.00 FCFA',
+      commission: 100000,
+      commissionPayee: 70000,
+      resteAPayer: 30000,
       id: 2,
       pays: 'RDC',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
-      statut: 'En retard',
-      dateLimite: '2025-01-10',
-      commission: '750.00 FCFA',
-      commissionPayee: '500.00 FCFA',
-      resteAPayer: '250.00 FCFA',
+      statut: 'Partiellement payée',
+      dateLimite: '2025-02-01',
+      commission: 150000,
+      commissionPayee: 100000,
+      resteAPayer: 50000,
       id: 3,
-      pays: 'RDC',
+      pays: 'Ivory Coast',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-20',
-      commission: '1200.00 FCFA',
-      commissionPayee: '1200.00 FCFA',
-      resteAPayer: '0.00 FCFA',
+      commission: 120000,
+      commissionPayee: 120000,
+      resteAPayer: 0,
       id: 4,
-      pays: 'Mali',
-    },
-    {
-      nom: 'Hotel Luis vitton de Sotéga',
-      statut: 'Partiellement payée',
-      dateLimite: '2025-02-01',
-      commission: '1500.00 FCFA',
-      commissionPayee: '1000.00 FCFA',
-      resteAPayer: '500.00 FCFA',
-      id: 5,
       pays: 'Gabon',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
-      statut: 'Partiellement payée',
-      dateLimite: '2025-02-01',
-      commission: '1500.00 FCFA',
-      commissionPayee: '1000.00 FCFA',
-      resteAPayer: '500.00 FCFA',
-      id: 6,
-      pays: 'South Africa',
+      statut: 'En retard',
+      dateLimite: '2025-01-10',
+      commission: 75000,
+      commissionPayee: 50000,
+      resteAPayer: 25000,
+      id: 5,
+      pays: 'Nigeria',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-05',
-      commission: '2000.00 FCFA',
-      commissionPayee: '2000.00 FCFA',
-      resteAPayer: '0.00 FCFA',
-      id: 7,
-      pays: 'Ivory Coast',
+      commission: 200000,
+      commissionPayee: 200000,
+      resteAPayer: 0,
+      id: 6,
+      pays: 'Ghana',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
-      statut: 'En retard',
+      statut: 'Partiellement payée',
       dateLimite: '2025-02-10',
-      commission: '500.00 FCFA',
-      commissionPayee: '300.00 FCFA',
-      resteAPayer: '200.00 FCFA',
-      id: 8,
-      pays: 'Nigeria',
-    },
-    {
-      nom: 'Hotel Luis vitton de Sotéga',
-      statut: 'En attente',
-      dateLimite: '2025-03-01',
-      commission: '1800.00 FCFA',
-      commissionPayee: '800.00 FCFA',
-      resteAPayer: '1000.00 FCFA',
-      id: 9,
+      commission: 350000,
+      commissionPayee: 200000,
+      resteAPayer: 150000,
+      id: 7,
       pays: 'Togo',
-    },
-    {
-      nom: 'Hotel Luis vitton de Sotéga',
-      statut: 'Payée',
-      dateLimite: '2025-01-12',
-      commission: '3000.00 FCFA',
-      commissionPayee: '3000.00 FCFA',
-      resteAPayer: '0.00 FCFA',
-      id: 10,
-      pays: 'Benin',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En attente',
       dateLimite: '2025-02-28',
-      commission: '1000.00 FCFA',
-      commissionPayee: '0.00 FCFA',
-      resteAPayer: '1000.00 FCFA',
-      id: 11,
-      pays: 'Guinea',
+      commission: 180000,
+      commissionPayee: 80000,
+      resteAPayer: 100000,
+      id: 8,
+      pays: 'Mali',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'En retard',
       dateLimite: '2025-01-25',
-      commission: '2500.00 FCFA',
-      commissionPayee: '1500.00 FCFA',
-      resteAPayer: '1000.00 FCFA',
-      id: 12,
-      pays: 'Cameroon',
+      commission: 250000,
+      commissionPayee: 150000,
+      resteAPayer: 100000,
+      id: 9,
+      pays: 'Rwanda',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-02-05',
-      commission: '4000.00 FCFA',
-      commissionPayee: '4000.00 FCFA',
-      resteAPayer: '0.00 FCFA',
-      id: 13,
-      pays: 'Senegal',
+      commission: 400000,
+      commissionPayee: 400000,
+      resteAPayer: 0,
+      id: 10,
+      pays: 'Ivory Coast',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Partiellement payée',
       dateLimite: '2025-02-15',
-      commission: '3500.00 FCFA',
-      commissionPayee: '2000.00 FCFA',
-      resteAPayer: '1500.00 FCFA',
-      id: 14,
+      commission: 500000,
+      commissionPayee: 300000,
+      resteAPayer: 200000,
+      id: 11,
       pays: 'Burkina Faso',
     },
     {
       nom: 'Hotel Luis vitton de Sotéga',
       statut: 'Payée',
       dateLimite: '2025-01-31',
-      commission: '53300.00 FCFA',
-      commissionPayee: '500.00 FCFA',
-      resteAPayer: '0.00 FCFA',
-      id: 1,
-      pays: 'Senegal',
+      commission: 150000,
+      commissionPayee: 150000,
+      resteAPayer: 0,
+      id: 12,
+      pays: 'South Africa',
+    },
+    {
+      nom: 'Hotel Luis vitton de Sotéga',
+      statut: 'En attente',
+      dateLimite: '2025-03-01',
+      commission: 220000,
+      commissionPayee: 120000,
+      resteAPayer: 100000,
+      id: 13,
+      pays: 'Algeria',
+    },
+    {
+      nom: 'Hotel Luis vitton de Sotéga',
+      statut: 'En retard',
+      dateLimite: '2025-02-10',
+      commission: 300000,
+      commissionPayee: 150000,
+      resteAPayer: 150000,
+      id: 14,
+      pays: 'Guinea-Bissau',
+    },
+    {
+      nom: 'Hotel Luis vitton de Sotéga',
+      statut: 'Payée',
+      dateLimite: '2025-01-31',
+      commission: 500000,
+      commissionPayee: 500,
+      resteAPayer: 0,
+      id: 15,
+      pays: 'Mauritania',
     },
   ];
+
   selectedFacture: Facture | null = null; // Facture sélectionnée // ... autres propriétés et méthodes
   selectedFactureName: string = ''; // Nom de la facture sélectionnée // ... autres propriétés et méthodes
   currentPage: number = 1;
@@ -308,5 +309,24 @@ export class FactureProComponent implements OnInit {
   getPaginatedFactures(factures: Facture[]): Facture[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     return factures.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+  getTotalCommissionPaid(): number {
+    return this.factures
+      .filter((facture) => facture.statut === 'Payée')
+      .reduce((total, facture) => total + facture.commissionPayee, 0);
+  }
+  getTotalCommissionUnPaid(): number {
+    return this.factures
+      .filter(
+        (facture) =>
+          facture.statut === 'En attente' ||
+          facture.statut === 'Partiellement payée'
+      )
+      .reduce((total, facture) => total + facture.resteAPayer, 0);
+  }
+  getTotalCommissionUnavailable(): number {
+    return this.factures
+      .filter((facture) => facture.statut === 'En retard')
+      .reduce((total, facture) => total + facture.resteAPayer, 0);
   }
 }

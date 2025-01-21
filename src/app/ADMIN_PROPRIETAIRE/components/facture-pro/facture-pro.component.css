@@ -669,4 +669,8 @@ ul {
   background-color: white;
   margin-top: 50px;
   padding: 20px;
+  font-weight: bold;
+}
+.rouge {
+  color: red;
 }
