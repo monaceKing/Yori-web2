@@ -69,7 +69,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let facture of paidFactures">
+              <tr *ngFor="let facture of getPaginatedFactures(paidFactures)">
                 <td style="color: #77b5fe">{{ facture.nom }}</td>
                 <td>{{ facture.pays }}</td>
                 <td>{{ facture.statut }}</td>
@@ -87,6 +87,40 @@
                   <a class="open-div2" (click)="afficherDetails(facture)"
                     >voir plus</a
                   >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="10" class="td-pag">
+                  <div>
+                    <button
+                      class="btn-pag"
+                      (click)="goToPage(currentPage - 1)"
+                      [disabled]="currentPage === 1"
+                    >
+                      &lt; Précédent
+                    </button>
+                    |
+                    <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+                    |
+                    <button
+                      class="btn-pag"
+                      (click)="goToPage(currentPage + 1)"
+                      [disabled]="currentPage === totalPages"
+                    >
+                      Suivant &gt;
+                    </button>
+                    <select
+                      id="itemsPerPage"
+                      (change)="onItemsPerPageChange($event)"
+                    >
+                      <option
+                        *ngFor="let option of itemsPerPageOptions"
+                        [value]="option"
+                      >
+                        Afficher {{ option }} réservations
+                      </option>
+                    </select>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -111,7 +145,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let facture of unpaidFactures">
+              <tr *ngFor="let facture of getPaginatedFactures(unpaidFactures)">
                 <td style="color: #77b5fe">{{ facture.nom }}</td>
                 <td>{{ facture.pays }}</td>
                 <td>{{ facture.statut }}</td>
@@ -129,6 +163,40 @@
                   <a class="open-div2" (click)="afficherDetails(facture)"
                     >voir plus</a
                   >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="10" class="td-pag">
+                  <div>
+                    <button
+                      class="btn-pag"
+                      (click)="goToPage(currentPage - 1)"
+                      [disabled]="currentPage === 1"
+                    >
+                      &lt; Précédent
+                    </button>
+                    |
+                    <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+                    |
+                    <button
+                      class="btn-pag"
+                      (click)="goToPage(currentPage + 1)"
+                      [disabled]="currentPage === totalPages"
+                    >
+                      Suivant &gt;
+                    </button>
+                    <select
+                      id="itemsPerPage"
+                      (change)="onItemsPerPageChange($event)"
+                    >
+                      <option
+                        *ngFor="let option of itemsPerPageOptions"
+                        [value]="option"
+                      >
+                        Afficher {{ option }} réservations
+                      </option>
+                    </select>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -153,7 +221,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let facture of unavailableFactures">
+              <tr
+                *ngFor="
+                  let facture of getPaginatedFactures(unavailableFactures)
+                "
+              >
                 <td style="color: #77b5fe">{{ facture.nom }}</td>
                 <td>{{ facture.pays }}</td>
                 <td>{{ facture.statut }}</td>
@@ -171,6 +243,40 @@
                   <a class="open-div2" (click)="afficherDetails(facture)"
                     >voir plus</a
                   >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="10" class="td-pag">
+                  <div>
+                    <button
+                      class="btn-pag"
+                      (click)="goToPage(currentPage - 1)"
+                      [disabled]="currentPage === 1"
+                    >
+                      &lt; Précédent
+                    </button>
+                    |
+                    <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+                    |
+                    <button
+                      class="btn-pag"
+                      (click)="goToPage(currentPage + 1)"
+                      [disabled]="currentPage === totalPages"
+                    >
+                      Suivant &gt;
+                    </button>
+                    <select
+                      id="itemsPerPage"
+                      (change)="onItemsPerPageChange($event)"
+                    >
+                      <option
+                        *ngFor="let option of itemsPerPageOptions"
+                        [value]="option"
+                      >
+                        Afficher {{ option }} réservations
+                      </option>
+                    </select>
+                  </div>
                 </td>
               </tr>
             </tbody>

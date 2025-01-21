@@ -197,6 +197,11 @@ export class FactureProComponent implements OnInit {
   ];
   selectedFacture: Facture | null = null; // Facture sélectionnée // ... autres propriétés et méthodes
   selectedFactureName: string = ''; // Nom de la facture sélectionnée // ... autres propriétés et méthodes
+  currentPage: number = 1;
+  itemsPerPage: number = 5; // Nombre d'éléments par page
+  itemsPerPageOptions: number[] = [5, 10, 20]; // Options disponibles
+  totalPages: number = 1;
+
   constructor() {
     // Initialiser le sous-statut en fonction du statut par défaut
     this.onStatutChange();
@@ -213,7 +218,9 @@ export class FactureProComponent implements OnInit {
     this.filterFacturesByCountry(); // Appliquer les filtres au démarrage
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.calculateTotalPages(); // Calculer les pages dès le chargement
+  }
 
   onStatutChange() {
     // Réinitialiser la sélection du sous-statut lorsque le statut change
@@ -275,5 +282,31 @@ export class FactureProComponent implements OnInit {
     this.selectedFacture = null;
     this.selectedFactureName = '';
     this.showDetails = false;
+  }
+  // Méthode pour aller à une page spécifique
+  goToPage(page: number): void {
+    if (page > 0 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+
+  // Méthode appelée lorsqu'on change le nombre d'éléments par page
+  onItemsPerPageChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    this.itemsPerPage = parseInt(selectElement.value, 10);
+    this.currentPage = 1; // Réinitialiser à la première page
+    this.calculateTotalPages(); // Recalculer le nombre total de pages
+  }
+
+  // Méthode pour calculer le nombre total de pages
+  calculateTotalPages(): void {
+    const totalItems = this.unpaidFactures.length; // Vous pouvez adapter pour chaque type de facture
+    this.totalPages = Math.ceil(totalItems / this.itemsPerPage);
+  }
+
+  // Méthode pour obtenir les éléments à afficher sur la page actuelle
+  getPaginatedFactures(factures: Facture[]): Facture[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return factures.slice(startIndex, startIndex + this.itemsPerPage);
   }
 }
