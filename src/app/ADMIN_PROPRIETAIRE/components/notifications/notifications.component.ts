@@ -24,7 +24,7 @@ export interface AjoutEtablissement {
   buttonText?: string;
   examStatus: 'pending' | 'approved' | 'declined' | 'waiting'; // État d'examen
 }
-
+ 
 @Component({
   selector: 'app-notifications',
   standalone: true,

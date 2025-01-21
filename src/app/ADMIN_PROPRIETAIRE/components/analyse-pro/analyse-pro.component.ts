@@ -91,7 +91,7 @@ export class AnalyseProComponent implements OnInit, AfterViewInit{
             statut: 'hôtellerie',
             nom: 'Hotel Paradis',
             pays: 'Gabon',
-            nombreReservations: { jour: 5, semaine: 30, mois: 100, annee: 1200 },
+            nombreReservations: { jour: 120, semaine: 300, mois: 1000, annee: 12000 },
             nombreReservationsAnnulees: { jour: 1, semaine: 3, mois: 10, annee: 50 },
             montantReservations: { jour: 500, semaine: 3000, mois: 10000, annee: 120000 },
             montantCommissions: { jour: 50, semaine: 300, mois: 1000, annee: 12000 }
@@ -151,14 +151,6 @@ export class AnalyseProComponent implements OnInit, AfterViewInit{
             montantCommissions:{jour :120 ,semaine :600 ,mois :2500 ,annee :30000}
         }
     ];
-
-    this.calculateTotals(); // Calcul initial des totaux
-
-    // Écoute les changements dans le sujet de filtre sans délai
-    this.filterSubject.subscribe(() => {
-        this.calculateTotals();  // Recalcule les totaux immédiatement après chaque changement de filtre
-        this.cdRef.detectChanges();  // Forcer la détection des changements
-      });
     
     }
 
@@ -190,7 +182,6 @@ export class AnalyseProComponent implements OnInit, AfterViewInit{
         this.totalAnnuleeAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.nombreReservationsAnnulees.annee, 0);
         this.totalCommissionAnnee = filteredEtablissements.reduce((acc, etablissement) => acc + etablissement.montantCommissions.annee, 0);
       
-        console.log('Total Montant Annee:', this.totalMontantAnnee);  // Debugging line
       }
       
 
@@ -231,7 +222,7 @@ export class AnalyseProComponent implements OnInit, AfterViewInit{
     
         Highcharts.chart(containerId, {
             chart: {
-                type: 'column'
+                type: 'line'
             },
             title: {
                 text: titleText
@@ -255,18 +246,88 @@ export class AnalyseProComponent implements OnInit, AfterViewInit{
     }
     
     
-      onTabChange(event: { index: number; }): void {
+    onTabChange(event: { index: number }): void {
         this.activeTabIndex = event.index; // Met à jour l'index de l'onglet actif
         switch (this.activeTabIndex) {
-          case 1:
-            this.createChart('reservation-annulee', 'Nombre de Réservations Annulées', this.etablissements.map(e => e.nombreReservationsAnnulees));
-            break;
-          case 2:
-            this.createChart('montant-reservation', 'Montant des Réservations', this.etablissements.map(e => e.montantReservations));
-            break;
-          case 3:
-            this.createChart('montant-commission', 'Montant des Commissions', this.etablissements.map(e => e.montantCommissions));
-            break;
+            case 0:
+                this.createChart('reservation', 'Nombre de Réservations', this.etablissements.map(e => e.nombreReservations));
+                break;
+            case 1:
+                this.createChart('reservation-annulee', 'Nombre de Réservations Annulées', this.etablissements.map(e => e.nombreReservationsAnnulees));
+                break;
+            case 2:
+                this.createChart('montant-reservation', 'Montant des Réservations', this.etablissements.map(e => e.montantReservations));
+                break;
+            case 3:
+                this.createChart('montant-commission', 'Montant des Commissions', this.etablissements.map(e => e.montantCommissions));
+                break;
+            case 4:
+                this.createPerformanceCharts(); // Appel à la méthode pour créer les graphiques de performances
+                break;
         }
-      }
+    }
+
+
+    createPerformanceCharts(): void {
+        const container = document.getElementById('performances');
+        if (!container) {
+            console.error('Le conteneur pour les performances est introuvable.');
+            return;
+        }
+    
+        // Exemple de données pour les performances
+        const performanceData = [
+            { name: 'Total Réservations', value: this.calculateTotal('nombreReservations') },
+            { name: 'Total Réservations Annulées', value: this.calculateTotal('nombreReservationsAnnulees') },
+            { name: 'Total Montant des Réservations', value: this.calculateTotal('montantReservations') },
+            { name: 'Total Montant des Commissions', value: this.calculateTotal('montantCommissions') }
+        ];
+    
+        // Créer un conteneur unique pour le graphique
+        const chartContainer = document.createElement('div');
+        chartContainer.id = 'performance-chart';
+        chartContainer.style.width = '100%';
+        chartContainer.style.height = '400px'; // Ajustez la hauteur selon vos besoins
+    
+        container.appendChild(chartContainer); // Ajouter le conteneur au conteneur principal
+    
+        // Créer le graphique de type "pie"
+        Highcharts.chart(chartContainer.id, {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Performances Totales'
+            },
+            series: [{
+                name: 'Totaux',
+                data: performanceData.map(data => ({
+                    name: data.name,
+                    y: data.value
+                })),
+                showInLegend: true, // Afficher la légende
+                dataLabels: {
+                    enabled: true, // Activer les étiquettes de données
+                    format: '{point.name}: <b>{point.y}</b>' // Format d'affichage des étiquettes
+                }
+            }]
+        } as Highcharts.Options);
+    }
+    
+    
+    
+    // Méthode pour calculer le total d'une propriété spécifique
+    calculateTotal(propertyName: keyof Etablissement): number {
+        return this.etablissements.reduce((total, e) => {
+            const propertyValue = e[propertyName];
+
+            // Utilisation de l'assertion de type
+            if (typeof propertyValue === 'object' && propertyValue !== null) {
+                return total + (propertyValue as { jour: number }).jour; // Assertion de type pour accéder à 'jour'
+            }
+
+            return total; // Si la propriété n'est pas un objet ou est null, retourner le total actuel
+        }, 0);
+    }
+    
 }

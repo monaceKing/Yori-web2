@@ -56,7 +56,6 @@
     <div
       *ngIf="data.photos.length > 8"
       class="photo-item last-photo"
-      (click)="openPhotoGallery(data.photos.slice(8))"
     >
       <img
         [src]="data.photos[7].url"
@@ -77,7 +76,5 @@
     <button mat-button (click)="decline()" class="btn-notif" id="btn-decline">
       Décliner
     </button>
-    <!-- <button mat-button (click)="waiting()">En attente d'examen</button> -->
   </div>
-  <!-- <button mat-button (click)="close()">Fermer</button> -->
 </div>

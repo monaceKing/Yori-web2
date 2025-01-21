@@ -1,15 +1,9 @@
 .container {
-  padding: 20px 60px;
+  margin: 50px 100px 50px 100px;
 }
 
-/* .group{
-    width: 80%;
-    flex-wrap: wrap;
-  } */
-
 .fixed-width {
-  width: 90%; /* Largeur fixe ou souhaitée */
-  max-width: 1000px; /* Limite la largeur maximale si nécessaire */
+  width: 100%; /* Largeur fixe ou souhaitée */
 }
 
 .mat-tab-group {

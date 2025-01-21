@@ -69,3 +69,19 @@
   background-color: #77b5fe;
   border-radius: 5px;
 }
+
+
+
+
+.custom-dialog-container {
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+}
+
+.custom-dialog-container .mat-dialog-title {
+  font-size: 24px; /* Taille du titre */
+}
+
+.custom-dialog-container .mat-dialog-content {
+  font-size: 16px; /* Taille du contenu */
+}
