@@ -4,7 +4,7 @@
 .etablissement-container {
   margin: 1px 0; /* Espacement entre les établissements */
 }
-
+ 
 .etablissement-preview {
   display: flex; /* Utilisation de flexbox pour l'alignement */
   justify-content: space-between; /* Espace entre les éléments */
