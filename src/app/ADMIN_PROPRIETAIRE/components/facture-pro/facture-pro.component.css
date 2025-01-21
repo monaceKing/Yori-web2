@@ -664,3 +664,13 @@ ul {
   display: flex;
   justify-content: space-between;
 }
+.totalPayeText {
+  text-align: center;
+  background-color: white;
+  margin-top: 50px;
+  padding: 20px;
+  font-weight: bold;
+}
+.rouge {
+  color: red;
+}

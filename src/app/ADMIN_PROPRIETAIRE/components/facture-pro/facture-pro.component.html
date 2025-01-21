@@ -74,14 +74,15 @@
                 <td>{{ facture.pays }}</td>
                 <td>{{ facture.statut }}</td>
                 <td>{{ facture.dateLimite }}</td>
-                <td>{{ facture.commission }}</td>
-                <td>{{ facture.commissionPayee }}</td>
+                <td>{{ facture.commission }} Fcfa</td>
+                <td>{{ facture.commissionPayee }} Fcfa</td>
+
                 <td
                   [ngStyle]="{
-                    color: facture.resteAPayer !== '0' ? 'red' : 'black'
+                    color: facture.resteAPayer !== 0 ? 'red' : 'black'
                   }"
                 >
-                  <b>{{ facture.resteAPayer }}</b>
+                  <b>{{ facture.resteAPayer }} Fcfa</b>
                 </td>
                 <td>
                   <a class="open-div2" (click)="afficherDetails(facture)"
@@ -126,6 +127,11 @@
             </tbody>
           </table>
         </div>
+        <div class="totalPaye">
+          <p class="totalPayeText">
+            Commision payée : {{ getTotalCommissionPaid() | number }} F cfa
+          </p>
+        </div>
       </mat-tab>
 
       <!-- Onglet "Impayé" -->
@@ -150,14 +156,14 @@
                 <td>{{ facture.pays }}</td>
                 <td>{{ facture.statut }}</td>
                 <td>{{ facture.dateLimite }}</td>
-                <td>{{ facture.commission }}</td>
-                <td>{{ facture.commissionPayee }}</td>
+                <td>{{ facture.commission }} Fcfa</td>
+                <td>{{ facture.commissionPayee }} Fcfa</td>
                 <td
                   [ngStyle]="{
-                    color: facture.resteAPayer !== '0' ? 'red' : 'black'
+                    color: facture.resteAPayer !== 0 ? 'red' : 'black'
                   }"
                 >
-                  <b>{{ facture.resteAPayer }}</b>
+                  <b>{{ facture.resteAPayer }} Fcfa</b>
                 </td>
                 <td>
                   <a class="open-div2" (click)="afficherDetails(facture)"
@@ -201,6 +207,12 @@
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="totalPayeText">
+          Commision impayée :
+          <span class="rouge"
+            >{{ getTotalCommissionUnPaid() | number }} F cfa</span
+          >
         </div>
       </mat-tab>
 
@@ -230,14 +242,15 @@
                 <td>{{ facture.pays }}</td>
                 <td>{{ facture.statut }}</td>
                 <td>{{ facture.dateLimite }}</td>
-                <td>{{ facture.commission }}</td>
-                <td>{{ facture.commissionPayee }}</td>
+                <td>{{ facture.commission }} Fcfa</td>
+                <td>{{ facture.commissionPayee }} Fcfa</td>
+
                 <td
                   [ngStyle]="{
-                    color: facture.resteAPayer !== '0' ? 'red' : 'black'
+                    color: facture.resteAPayer !== 0 ? 'red' : 'black'
                   }"
                 >
-                  <b>{{ facture.resteAPayer }}</b>
+                  <b>{{ facture.resteAPayer }} Fcfa</b>
                 </td>
                 <td>
                   <a class="open-div2" (click)="afficherDetails(facture)"
@@ -282,6 +295,14 @@
             </tbody>
           </table>
         </div>
+        <div class="totalPaye">
+          <p class="totalPayeText">
+            Commision indisponible:
+            <span class="rouge"
+              >{{ getTotalCommissionUnavailable() | number }} F cfa</span
+            >
+          </p>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </div>
@@ -309,7 +330,7 @@
         <br /><br />
         <div class="payement">
           <p>Paiement par :</p>
-          <p>Montant payé: 500.000 Fcfa</p>
+          <p>Montant payé: {{ getTotalCommissionPaid() | number }} Fcfa</p>
         </div>
       </div>
       <br />
@@ -323,7 +344,12 @@
           <div>{{ facture.resteAPayer }}</div>
         </div>
         <div class="aPayer">
-          <p>Montant à payer: <span style="color: red">500.000 Fcfa</span></p>
+          <p>
+            Montant à payer:
+            <span style="color: red"
+              >{{ getTotalCommissionUnPaid() | number }} Fcfa</span
+            >
+          </p>
         </div>
       </div>
     </div>
