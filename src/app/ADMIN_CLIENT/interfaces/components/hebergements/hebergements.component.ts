@@ -6,7 +6,6 @@ import { UpdateChambreComponent } from '../update-chambre/update-chambre.compone
 import { UpdateTarifsComponent } from "../update-tarifs/update-tarifs.component";
 import { AjoutPhotosComponent } from "../ajout-photos/ajout-photos.component";
 import { AddPhotoComponent } from "../add-photo/add-photo.component";
-import { AddCategorieComponent } from "../add-categorie/add-categorie.component";
 
 
 
@@ -20,8 +19,7 @@ import { AddCategorieComponent } from "../add-categorie/add-categorie.component"
     UpdateChambreComponent,
     UpdateTarifsComponent,
     AjoutPhotosComponent,
-    AddPhotoComponent,
-    AddCategorieComponent
+    AddPhotoComponent
 ],
   templateUrl: './hebergements.component.html',
   styleUrl: './hebergements.component.css'
