@@ -141,7 +141,14 @@
         <tbody>
           <tr *ngFor="let client of paginatedClients">
             <td style="color: #77b5fe">{{ client.nom }}</td>
-            <td>{{ client.pays }}</td>
+            <td class="pays_structure">
+              {{ client.pays }}
+              <img
+                [src]="'assets/flags/' + client.pays + '.png'"
+                alt="{{ client.pays }} flag"
+                class="pays"
+              />
+            </td>
             <td>{{ client.statut }}</td>
             <td>{{ client.type_propriete }}</td>
             <td>{{ client.duree }}</td>
@@ -433,7 +440,7 @@
                 <tr>
                   <td colspan="3">
                     <!-- <b>ELOKO SAMA JOSPH WILLIAM</b> -->
-                    <b>{{ selectedClient.nom }}</b>
+                    <b class="Nom_proprietaire">{{ selectedClient.nom }}</b>
                   </td>
                 </tr>
                 <tr>
@@ -448,7 +455,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <b>{{ selectedClient.nom }}</b>
+                    <b class="Nom_proprietaire">{{ selectedClient.nom }}</b>
                   </td>
                   <td
                     [ngStyle]="{
@@ -458,7 +465,9 @@
                           : 'black'
                     }"
                   >
-                    <b>{{ selectedClient.evaluation }}</b>
+                    <b class="Nom_proprietaire">{{
+                      selectedClient.evaluation
+                    }}</b>
                   </td>
                   <td>Sotéga</td>
                 </tr>
@@ -469,9 +478,16 @@
                 </tr>
                 <tr>
                   <td>
-                    <b>{{ selectedClient.statut }}</b>
+                    <b class="Nom_proprietaire">{{ selectedClient.statut }}</b>
                   </td>
-                  <td><b>3 étoiles ***</b></td>
+                  <td>
+                    <b class="Nom_proprietaire"
+                      >3 étoiles
+                      <i class="fas fa-star" style="color: yellow"></i
+                      ><i class="fas fa-star" style="color: yellow"></i
+                      ><i class="fas fa-star" style="color: yellow"></i
+                    ></b>
+                  </td>
                   <td>français, anglais, espagnol</td>
                 </tr>
                 <tr>
@@ -481,9 +497,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <b>{{ selectedClient.type_propriete }}</b>
+                    <b class="Nom_proprietaire">{{
+                      selectedClient.type_propriete
+                    }}</b>
                   </td>
-                  <td><b>4</b></td>
+                  <td><b class="Nom_proprietaire">4</b></td>
                   <td>7407389081</td>
                 </tr>
                 <tr>
@@ -492,8 +510,15 @@
                   <td>Mode de paiement</td>
                 </tr>
                 <tr>
-                  <td><b>dim.19 juil 2022</b></td>
-                  <td>{{ selectedClient.pays }}</td>
+                  <td><b class="Nom_proprietaire">dim.19 juil 2022</b></td>
+                  <td class="pays_structure">
+                    {{ selectedClient.pays }}
+                    <img
+                      [src]="'assets/flags/' + selectedClient.pays + '.png'"
+                      alt="{{ selectedClient.pays }} flag"
+                      class="pays"
+                    />
+                  </td>
                   <td>
                     <ul
                       style="
@@ -516,9 +541,9 @@
                 </tr>
                 <tr>
                   <td>
-                    <b>{{ selectedClient.duree }}</b>
+                    <b class="Nom_proprietaire">{{ selectedClient.duree }}</b>
                   </td>
-                  <td>Libreville</td>
+                  <td><b>Libreville</b></td>
                 </tr>
               </table>
             </mat-tab>

@@ -730,3 +730,16 @@ ul {
   font-size: 25px;
   color: gray;
 }
+.pays {
+  width: 20px;
+  height: 15px;
+  margin-right: 5px;
+}
+.pays_structure {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.Nom_proprietaire {
+  font-size: x-large;
+}
