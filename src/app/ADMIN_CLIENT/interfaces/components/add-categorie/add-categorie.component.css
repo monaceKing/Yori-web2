@@ -1,0 +1,176 @@
+.container {
+    padding: 20px 30px;
+  }
+  
+  #hebergement{
+    margin: 10px 0;
+    height:  25px;
+    padding: 2px;
+  }
+  
+  #inputNumber{
+    margin: 10px 0;
+    height: 25px;
+    width: 50px;
+  }
+  
+  #inputNumber2{
+    width: 100px;
+    height: 25px;
+  }
+  
+  
+  #mettre{
+    width: 110px;
+    height: 31px;
+  }
+  
+  
+  label {
+    font-weight: bold;
+    /* margin-left: 20px; */
+  }
+  
+  .photo{
+    margin-left: -20px;
+  }
+  
+  mat-card-content{
+    padding-left: 50px;
+  }
+  
+  /* Styles pour toutes les cases à cocher */
+  input[type="checkbox"] {
+    margin: 5px;
+  }
+  
+  .custom-icon {
+    color: white;
+    background-color: black;
+    border-radius: 5%;
+    padding: 5px;
+  }
+  
+  .main-card {
+    background-color: white;
+  }
+  
+  
+  .example-card {
+    border: none;
+    max-width: 40%;
+    margin: 10px 0;
+    background-color: inherit;
+  }
+  
+  .lit-info {
+    display: flex;
+    align-items: center; /* Aligne verticalement l'image et le texte */
+    flex-wrap: wrap; /* Permet au contenu de se répartir sur plusieurs lignes si nécessaire */
+  }
+  
+  .lit-image {
+    margin-bottom: 20px;
+    height: 40px; /* Hauteur fixe pour l'image */
+    width: 40px; /* Largeur fixe pour l'image */
+  }
+  
+  .lit-details {
+    font-size: 14px; /* Taille du texte */
+    margin-left: 5px; /* Espace entre l'image et le texte */
+  }
+  
+  
+  
+  .quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #a9a8a8;
+    padding: 1px;
+    height: 30px;
+    width: 120px;
+  }
+  
+  .quantity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 40px;
+    height: 40px; /* Hauteur ajustée pour une meilleure interaction */
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-black {
+    background-color: inherit;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+  
+  .btn-blue {
+    background-color: inherit;
+    color: #77B5FE;
+    font-size: 25px;
+    /* margin-bottom: 15px; */
+  }
+  
+  .inputbox {
+    background-color: inherit;
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  
+  ul {
+    margin-top: 50px;
+  }
+  
+  /* Ajout de styles pour la responsivité */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Passage en colonne sur petits écrans */
+      padding: 10px; /* Réduction du padding sur petits écrans */
+    }
+  
+    .main-card{
+      width: 100%; /* Prendre 100% de la largeur sur petits écrans */
+    }
+  
+    .example-card {
+      max-width: 100%; /* Permettre à la carte d'occuper toute la largeur */
+    }
+  
+    .quantity-container {
+      width: 100%; /* S'assurer que le conteneur de quantité prend toute la largeur */
+    }
+  
+    .inputbox {
+      width: 40px; /* Réduire la largeur de l'input sur petits écrans */
+    }
+  
+    .btn {
+      height: 35px; /* Ajuster la hauteur des boutons pour de petits écrans */
+    }
+  }
+  
+  .search-input {
+    width: 98.5%; /* Largeur de 100% */
+    padding: 10px; /* Ajoute un peu d'espace intérieur */
+    margin: 20px 0;
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 4px; /* Coins arrondis */
+    font-size: 16px; /* Taille de la police */
+  }
+  
+  .search-input:focus {
+    border-color: #007bff; /* Couleur de la bordure au focus */
+    outline: none; /* Supprime l'outline par défaut */
+  }
+  

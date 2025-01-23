@@ -65,9 +65,6 @@ export class AnalyseComponent implements OnInit{
 
       // Mettre à jour le composant actif en fonction de l'onglet sélectionné
       this.activeComponent = this.items[tabIndex].component;
-
-      // Actualiser la page (recharger le composant)
-      window.location.reload(); // Cela rechargera la page et affichera le bon onglet
   }
 }
  
