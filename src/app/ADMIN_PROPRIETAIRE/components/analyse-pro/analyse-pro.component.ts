@@ -151,7 +151,13 @@ export class AnalyseProComponent implements OnInit, AfterViewInit{
             montantCommissions:{jour :120 ,semaine :600 ,mois :2500 ,annee :30000}
         }
     ];
-    
+
+    this.calculateTotals(); // Calcul initial des totaux
+    // Écoute les changements dans le sujet de filtre sans délai
+    this.filterSubject.subscribe(() => {
+        this.calculateTotals();  // Recalcule les totaux immédiatement après chaque changement de filtre
+        this.cdRef.detectChanges();  // Forcer la détection des changements
+      });
     }
 
     calculateTotals() {
