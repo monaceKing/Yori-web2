@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="haut">
         <div class="gauche jr1">
@@ -66,8 +67,13 @@
                 <button type="button" class="jr4"></button>
             </div>
         </div>
-        <div class="graph">
-            <div id="container"></div>
+        <div class="graph"> 
+            <!-- <div id="container"></div> -->
+            <highcharts-chart 
+                [Highcharts]="Highcharts" 
+                [options]="options" 
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
         </div>
     </div>
 </div>
