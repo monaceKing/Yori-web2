@@ -141,7 +141,14 @@
         <tbody>
           <tr *ngFor="let client of paginatedClients">
             <td style="color: #77b5fe">{{ client.nom }}</td>
-            <td>{{ client.pays }}</td>
+            <td class="pays_structure">
+              {{ client.pays }}
+              <img
+                [src]="'assets/flags/' + client.pays + '.png'"
+                alt="{{ client.pays }} flag"
+                class="pays"
+              />
+            </td>
             <td>{{ client.contact }}</td>
             <td>{{ client.email }}</td>
             <td>
@@ -455,8 +462,13 @@
                   <td>Pays/Region</td>
                 </tr>
                 <tr>
-                  <td>
-                    <b>{{ selectedClient.pays }}</b>
+                  <td class="pays_structure">
+                    {{ selectedClient.pays }}
+                    <img
+                      [src]="'assets/flags/' + selectedClient.pays + '.png'"
+                      alt="{{ selectedClient.pays }} flag"
+                      class="pays"
+                    />
                   </td>
                 </tr>
                 <tr>

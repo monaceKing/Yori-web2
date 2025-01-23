@@ -716,3 +716,13 @@ ul {
   margin: auto;
   margin-top: 30px;
 }
+.pays_structure {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.pays {
+  width: 20px;
+  height: 15px;
+  margin-right: 5px;
+}
