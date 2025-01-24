@@ -1,5 +1,6 @@
 .container {
-  margin: 50px 100px 50px 100px;
+  padding: 50px 100px 50px 100px;
+  background-color: rgba(250, 250, 250, 1);
 }
 
 .fixed-width {
@@ -19,11 +20,11 @@
 
 .send-message {
   background-color: white;
+  border: 2px solid lightgray;
+  margin-top: 5px;
   height: 30px;
   display: flex;
   gap: 5px;
-  /* border: 0.2px solid #d1cfcf; */
-  border: none;
 }
 
 .send-message span {
@@ -31,7 +32,12 @@
 }
 
 .btn-send2 {
-  background-color: #77b5fe; /* Couleur de fond bleu pour le bouton "Envoyer" */
+  background-color: rgba(
+    13,
+    13,
+    197,
+    0.8
+  ); /* Couleur de fond bleu pour le bouton "Envoyer" */
   color: white; /* Texte blanc pour le bouton "Envoyer" */
   margin: 0 20px 0 5px;
   border-radius: 5px;
@@ -119,7 +125,7 @@
   align-items: center;
   font-size: 1.5em;
   color: #ffffff;
-  background-color: #77b5fe80;
+  background-color: rgba(13, 13, 197, 0.8) 80;
   width: 100%;
   height: 45px;
   border-radius: 8px 8px 0 0;
@@ -194,7 +200,12 @@
 }
 
 .btn-send {
-  background-color: #77b5fe; /* Couleur de fond bleu pour le bouton "Envoyer" */
+  background-color: rgba(
+    13,
+    13,
+    197,
+    0.8
+  ); /* Couleur de fond bleu pour le bouton "Envoyer" */
   color: white; /* Texte blanc pour le bouton "Envoyer" */
 }
 

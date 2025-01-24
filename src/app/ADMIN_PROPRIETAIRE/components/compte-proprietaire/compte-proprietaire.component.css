@@ -1,7 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 16px; /* Ajoutez un peu d'espace autour */
+  padding: 50px 50px 100px 50px;
+  background-color: rgba(250, 250, 250, 1);
 }
 
 .first {
@@ -16,15 +17,14 @@
   display: flex;
   flex-direction: column; /* Les labels et inputs sont en colonnes */
   align-items: flex-start; /* Aligne les éléments au début */
-  margin-bottom: 20px; /* Espacement sous le filtre */
-  margin-left: 35px;
+  margin-left: 30px;
 }
 
 .titre {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 5px;
+  margin-left: 0px;
 }
 
 .inputs {
@@ -41,27 +41,27 @@
 }
 
 .style-5 {
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
 }
 
 .voir {
-  background-color: #77b5fe;
+  background-color: rgba(13, 13, 197, 0.8);
   color: white;
-  border: solid #77b5fe;
+  border: solid rgba(13, 13, 197, 0.8);
   height: 30px;
 }
 
 .table {
   border-collapse: collapse;
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: 10px;
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid black;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+  border: 2px solid lightgray;
   background-color: white;
-  width: 85%; /* Utiliser 100% pour prendre toute la largeur disponible */
+  width: 95%; /* Utiliser 100% pour prendre toute la largeur disponible */
   height: auto;
   overflow-x: auto;
   table-layout: auto; /* Utiliser auto pour permettre aux colonnes de s'ajuster */
@@ -144,20 +144,21 @@
 }
 
 .open-div2 {
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
   text-decoration: underline;
   cursor: pointer;
 }
 
 .resultats-info {
   display: flex;
-  gap: 820px;
-  margin-left: 15px;
+  gap: 850px;
+  margin-left: 0px;
+  margin-top: 30px;
   width: 100%;
 }
 
 .btn-pag {
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
   border: none;
   background-color: initial;
 }
@@ -175,11 +176,11 @@
   cursor: pointer;
   width: 101px;
   height: 15px;
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
 }
 
 a {
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
 }
 
 .custom-select {
@@ -195,8 +196,8 @@ a {
 }
 
 .select {
-  border: 0.5px solid #77b5fe;
-  color: #77b5fe;
+  border: 0.5px solid rgba(13, 13, 197, 0.8);
+  color: rgba(13, 13, 197, 0.8);
   background-color: white;
   width: 129px;
   height: 30px;
@@ -335,7 +336,7 @@ a {
   font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
   font-weight: 500;
   font-size: 16.85px;
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
 }
 
 /* moa */
@@ -456,7 +457,7 @@ a {
 }
 .supprimer-btn {
   padding: 10px;
-  background-color: #77b5fe;
+  background-color: rgba(13, 13, 197, 0.8);
   color: white;
   border: none;
   cursor: pointer;
@@ -478,7 +479,7 @@ a {
   display: flex;
   justify-content: space-between;
   color: white;
-  background-color: #77b5fe;
+  background-color: rgba(13, 13, 197, 0.8);
   padding: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -553,7 +554,7 @@ a {
 
 #logoCheck {
   font-size: 50px;
-  color: #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
 }
 
 /* <<<<<<< HEAD */
@@ -585,8 +586,8 @@ a {
 .annuler-btn {
   padding: 10px;
   background-color: white;
-  color: #77b5fe;
-  border: 1px solid #77b5fe;
+  color: rgba(13, 13, 197, 0.8);
+  border: 1px solid rgba(13, 13, 197, 0.8);
   cursor: pointer;
   border-radius: 10px;
 }

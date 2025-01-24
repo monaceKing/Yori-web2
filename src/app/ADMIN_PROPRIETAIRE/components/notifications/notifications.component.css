@@ -1,10 +1,11 @@
 .container {
-  margin: 50px 100px 50px 100px;
+  padding: 50px 100px 50px 100px;
+  background-color: rgba(250, 250, 250, 1);
 }
 .etablissement-container {
   margin: 1px 0; /* Espacement entre les établissements */
 }
- 
+
 .etablissement-preview {
   display: flex; /* Utilisation de flexbox pour l'alignement */
   justify-content: space-between; /* Espace entre les éléments */
@@ -26,7 +27,7 @@
 
 .examiner-button {
   margin-left: 20px; /* Espacement à gauche du bouton pour éloigner de la date */
-  background-color: #77b5fe; /* Couleur de fond du bouton */
+  background-color: rgba(13, 13, 197, 0.8); /* Couleur de fond du bouton */
   color: white; /* Couleur du texte du bouton */
   border: none; /* Pas de bordure */
   padding: 5px 10px; /* Espacement interne du bouton */
@@ -39,7 +40,7 @@
 }
 
 .approved {
-  color: #77b5fe; /* Couleur bleue pour approuvé */
+  color: rgba(13, 13, 197, 0.8); /* Couleur bleue pour approuvé */
   font-weight: 400; /* Texte en gras */
 }
 
