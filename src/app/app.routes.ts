@@ -46,121 +46,123 @@ import { ServiceClientCodeComponent } from './ADMIN_CLIENT/components/service-cl
 import { ServiceClientComponent } from './ADMIN_CLIENT/components/service-client/service-client.component';
 import { InterfaceLayout2Component } from './ADMIN_PROPRIETAIRE/layout/interface-layout2/interface-layout2.component';
 
-export const routes: Routes =  [
-    {
-      path: '',
-      component: MainLayoutComponent,
-      children: [
-        { path: '', component: Acceuil1Component }, // Route par défaut
-        { path:'home', component:HomeComponent}
-        // Ajoutez d'autres routes nécessitant le header1 et footer ici
-      ]
-    },
+export const routes: Routes = [
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: Acceuil1Component }, // Route par défaut
+      { path: 'home', component: HomeComponent },
+      // Ajoutez d'autres routes nécessitant le header1 et footer ici
+    ],
+  },
 
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'choix-etablissement', component: ChoixEtablissementComponent },
+      // Ajoutez d'autres routes nécessitant pas le header et footer ici
+    ],
+  },
 
-    {
-      path: '',
-      component: AuthLayoutComponent,
-      children: [
-        { path: 'login', component: LoginComponent },
-        { path: 'register', component: RegisterComponent},
-        { path: 'choix-etablissement', component: ChoixEtablissementComponent},
-        // Ajoutez d'autres routes nécessitant pas le header et footer ici
-      ]
-    },
+  // Côté Hotel
+  {
+    path: '',
+    component: ClientLayoutComponent,
+    children: [
+      { path: 'espace1', component: Espace1Component },
+      { path: 'list', component: ListeEtablissementsComponent },
 
-        // Côté Hotel
-    {
-      path: '',
-      component: ClientLayoutComponent,
-      children: [
-        { path: 'espace1', component: Espace1Component },
-        { path: 'list', component: ListeEtablissementsComponent },
+      // Ajoutez d'autres routes nécessitant le header2 et footer ici
+    ],
+  },
+  {
+    path: '',
+    component: AjoutEtablissementComponent,
+    children: [
+      { path: 'ajout-hotel', component: ProgressionComponent },
+      { path: 'info-hotel', component: Progression2Component },
+      { path: 'enregistrement-hotel', component: Progression3Component },
+      { path: 'finalisation', component: Progression4Component },
+      // Ajoutez d'autres routes nécessitant le header3 et footer ici
+    ],
+  },
 
-        // Ajoutez d'autres routes nécessitant le header2 et footer ici
-      ]
-    },
-    {
-      path: '',
-      component: AjoutEtablissementComponent,
-      children: [
-        { path: 'ajout-hotel', component:ProgressionComponent},
-        { path: 'info-hotel', component: Progression2Component},
-        { path: 'enregistrement-hotel', component: Progression3Component},
-        { path: 'finalisation', component: Progression4Component},
-        // Ajoutez d'autres routes nécessitant le header3 et footer ici
-      ]
-    },
+  //Côté Tourisme
 
+  {
+    path: '',
+    component: LayoutTourismComponent,
+    children: [
+      { path: 'ajout-tourism', component: TourimsProgression1Component },
+      { path: 'photo-tourism', component: TourimsProgression2Component },
+      { path: 'complement-tourism', component: TourimsProgression3Component },
+    ],
+  },
 
-    //Côté Tourisme
+  //ADMIN_CLIENT
 
-    {
-      path: '',
-      component: LayoutTourismComponent,
-      children:[
-        { path: 'ajout-tourism', component:TourimsProgression1Component},
-        { path: 'photo-tourism', component:TourimsProgression2Component},
-        { path: 'complement-tourism', component:TourimsProgression3Component},
-      ]
-    },
-
-
-      //ADMIN_CLIENT
-
-      // 1 Auth
+  // 1 Auth
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'connectez-vous', component: NomUtilisateurComponent },
+      { path: 'mot-de-passe', component: MotDePasseComponent },
+      { path: 'probleme-connexion', component: ProblemeConnexionComponent },
+      { path: 'passe-oublier', component: PasseOublieComponent },
+      { path: 'creer-compte', component: CreerCompteComponent },
+      { path: 'infos-utilisateur', component: InfosUtilisateurComponent },
+      { path: 'creer-passe', component: CreerPasseComponent },
+      { path: 'contacter-equipe', component: ContacterEquipeComponent },
+      { path: 'confirme-identite', component: ConfirmeIdentiteComponent },
+      { path: 'selectionne-phone', component: SelectionnePhoneComponent },
       {
-        path:'',
-        component:AuthLayoutComponent,
-        children:[
-          {path:'connectez-vous', component:NomUtilisateurComponent},
-          {path:'mot-de-passe', component:MotDePasseComponent},
-          {path:'probleme-connexion', component:ProblemeConnexionComponent},
-          {path:'passe-oublier', component:PasseOublieComponent},
-          {path:'creer-compte', component:CreerCompteComponent},
-          {path:'infos-utilisateur', component:InfosUtilisateurComponent},
-          {path:'creer-passe', component:CreerPasseComponent},
-          {path:'contacter-equipe', component:ContacterEquipeComponent},
-          {path:'confirme-identite', component:ConfirmeIdentiteComponent},
-          {path:'selectionne-phone', component:SelectionnePhoneComponent},
-          {path:'authentification2facteurs', component:Authentification2facteursComponent},
-          {path:'changer-passe', component:ChangerPasseComponent},
-          {path:'probleme-verification', component:ProblemeVerificationComponent},
-          {path:'service-client-code', component:ServiceClientCodeComponent},
-          {path:'service-client', component:ServiceClientComponent},
-        ]
+        path: 'authentification2facteurs',
+        component: Authentification2facteursComponent,
       },
-
-
-      // 2 Interface
+      { path: 'changer-passe', component: ChangerPasseComponent },
       {
-        path:'interface',
-        component:InterfaceLayoutComponent,
-        children:[
-            { path: 'amour', component: AmourComponent },
-            { path: 'claudel', component: ClaudelComponent },
-            { path: 'nombre-reservation', component: FransdaComponent },
-            { path: 'inel', component: InelComponent },
-        ]
+        path: 'probleme-verification',
+        component: ProblemeVerificationComponent,
       },
+      { path: 'service-client-code', component: ServiceClientCodeComponent },
+      { path: 'service-client', component: ServiceClientComponent },
+    ],
+  },
 
-      {
-        path:'pro',
-        component:InterfaceLayout2Component
-      },
+  // 2 Interface
+  {
+    path: 'interface',
+    component: InterfaceLayoutComponent,
+    children: [
+      { path: 'amour', component: AmourComponent },
+      { path: 'claudel', component: ClaudelComponent },
+      { path: 'nombre-reservation', component: FransdaComponent },
+      { path: 'inel', component: InelComponent },
+    ],
+  },
 
-    { path:'loading', component: LoadingComponent},
-    { path: '**', component: PageErrorComponent } // Redirige pour les routes inconnues
-  ];
+  {
+    path: 'pro',
+    component: InterfaceLayout2Component,
+  },
+
+  { path: 'loading', component: LoadingComponent },
+  { path: '**', component: PageErrorComponent }, // Redirige pour les routes inconnues
+];
 
 @NgModule({
-    imports: [
-      RouterModule.forRoot(routes),
-      CommonModule,
-      FormsModule,
-      ReactiveFormsModule,
-      BrowserModule
-    ],
-    exports: [RouterModule]
-  })
-  export class AppRoutingModule { }
+  imports: [
+    RouterModule.forRoot(routes),
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

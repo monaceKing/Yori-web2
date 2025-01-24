@@ -15,11 +15,11 @@
   flex-direction: column; /* Aligne les éléments verticalement */
 }
 
-.Tsections{
+.Tsections {
   margin: 0 100px;
 }
 
-#fin{
+#fin {
   background-color: rgba(242, 240, 240, 0.87);
   border-radius: 10px;
   height: 100px;
@@ -31,13 +31,12 @@
   background-color: #78b9ff;
   text-align: center;
   display: inline-block; /* Permet au bouton de s'ajuster à la taille du texte */
- /* Ajoute un peu d'espace autour du texte */
+  /* Ajoute un peu d'espace autour du texte */
   border: none; /* Enlève la bordure par défaut */
   border-radius: 5px; /* Ajoute un léger arrondi aux coins */
   cursor: pointer; /* Change le curseur au survol */
   font-size: 16px; /* Ajuste la taille de la police selon tes besoins */
 }
-
 
 .logo-section {
   display: flex;
@@ -65,7 +64,12 @@ button {
   padding: 10px 20px;
   font-size: calc(12px + 0.5vw); /* Taille du texte responsive */
   border-radius: 10px;
-  background-color: rgba(254, 254, 254, 0.1); /* Ajusté pour meilleure visibilité */
+  background-color: rgba(
+    254,
+    254,
+    254,
+    0.1
+  ); /* Ajusté pour meilleure visibilité */
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -85,7 +89,7 @@ button:hover {
   background-color: #ffffff0e; /* Couleur de fond */
 }
 
-.akg{
+.akg {
   width: 95%;
 }
 
@@ -112,7 +116,7 @@ button:hover {
   padding: 0px; /* Ajoute un peu d'espace intérieur */
 }
 
-.image-card{
+.image-card {
   flex: 0 0 auto; /* Permet de ne pas étirer cette carte */
   display: flex; /* Flex pour centrer l'image */
   align-items: center; /* Centrer verticalement l'image */
@@ -123,7 +127,8 @@ button:hover {
   width: auto; /* Conserve le ratio de l'image */
 }
 
-.border-left, .border-right {
+.border-left,
+.border-right {
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
@@ -154,7 +159,6 @@ button:hover {
 /* .content-left, .content-left2, .content-right {
   padding: 10px;
 } */
-
 
 .content-left {
   font-size: 1.5em;
@@ -245,7 +249,8 @@ button:hover {
     box-sizing: border-box;
   }
 
-  .text-card, .image-card {
+  .text-card,
+  .image-card {
     width: 100%;
     margin-bottom: 20px; /* Ajoute un espace entre les cartes */
   }

@@ -7,10 +7,10 @@
 
 .top-bar {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   height: 70px;
-  background-color: #77B5FE;
-} 
+  background-color: rgba(13, 13, 197, 0.8);
+}
 
 .logo {
   padding-left: 20px;
@@ -35,7 +35,7 @@
 }
 
 #select {
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.1);
   border: none;
   color: white;
   font-size: 15px;
@@ -81,7 +81,7 @@
   right: 0; /* Aligne le menu à droite du bouton */
   width: 150px;
   background-color: #ffffff; /* Fond du menu déroulant */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre portée pour le menu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée pour le menu */
   border-radius: 4px; /* Coins arrondis pour le menu */
   z-index: 500; /* Assure que le menu s'affiche au-dessus des autres éléments */
 }
@@ -103,39 +103,39 @@
 }
 
 .icon {
- margin-right: 2px; /* Ajustement de l'espacement des icônes */
- color: white;
+  margin-right: 2px; /* Ajustement de l'espacement des icônes */
+  color: white;
 }
 
 /* Media Queries pour la responsivité */
 
 @media (max-width: 768px) {
-  .dropdown-menu{
+  .dropdown-menu {
     width: auto;
   }
 
- .top-bar {
-     flex-direction: column; /* Empile les éléments en colonne sur petits écrans */
-     align-items: flex-start; /* Aligne les éléments à gauche */
-     height:auto; /* Ajuste la hauteur pour s'adapter au contenu */
- }
+  .top-bar {
+    flex-direction: column; /* Empile les éléments en colonne sur petits écrans */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+    height: auto; /* Ajuste la hauteur pour s'adapter au contenu */
+  }
 
- .logo p {
-     margin-left: 10px; /* Réduit l'espacement sur petits écrans */
-     font-size: 14px; /* Réduit la taille de police si nécessaire */
- }
+  .logo p {
+    margin-left: 10px; /* Réduit l'espacement sur petits écrans */
+    font-size: 14px; /* Réduit la taille de police si nécessaire */
+  }
 
- .dropdown2 {
-     margin-left:auto; /* Centre le dropdown sur petits écrans */
-     margin-top: 10px; /* Ajoute un espace au-dessus sur petits écrans */
- }
+  .dropdown2 {
+    margin-left: auto; /* Centre le dropdown sur petits écrans */
+    margin-top: 10px; /* Ajoute un espace au-dessus sur petits écrans */
+  }
 
- .icon {
-     margin-right: 10px; /* Réduit l'espacement des icônes sur petits écrans */
- }
+  .icon {
+    margin-right: 10px; /* Réduit l'espacement des icônes sur petits écrans */
+  }
 
- #select {
-     width: 100%; /* Rendre le select responsive */
-     margin-bottom : 10px; /* Ajoute un espace en bas sur petits écrans */
- }
+  #select {
+    width: 100%; /* Rendre le select responsive */
+    margin-bottom: 10px; /* Ajoute un espace en bas sur petits écrans */
+  }
 }
