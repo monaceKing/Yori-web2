@@ -22,7 +22,7 @@ export interface AjoutEtablissement {
   adresse: string;
   photos?: { url: string; alt?: string }[]; 
   buttonText?: string;
-  examStatus: 'pending' | 'approved' | 'declined' | 'waiting'; // État d'examen
+  examStatus: 'pending' | 'approved' | 'declined' | 'waiting';
 }
  
 @Component({
@@ -197,17 +197,16 @@ export class NotificationsComponent {
 
   openPopup(etablissement: AjoutEtablissement) {
     const dialogRef = this.dialog.open(EtablissementPopupComponent, {
-    data: etablissement, // Passez les données de l'établissement au pop-up
-    width: '100%', // Largeur de 100%
-    maxWidth: '800px', // Limite la largeur maximale à 600px (ajustez selon vos besoins)
-    height: '100%', // Hauteur automatique
-    panelClass: 'custom-dialog', // Ajoute une classe CSS personnalisée
-
-    
+      data: etablissement, // Passez les données de l'établissement au pop-up
+      width: '100%', // Largeur de 100%
+      maxWidth: '800px', // Limite la largeur maximale à 800px (ajustez selon vos besoins)
+      height: '100%', // Hauteur automatique
+      panelClass: 'custom-dialog', // Ajoute une classe CSS personnalisée
     });
-
+  
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        // Vérifiez si le résultat contient un statut
         if (result.status === 'approved') {
           etablissement.buttonText = 'Approuvé';
           etablissement.examStatus = 'approved'; // Mettez à jour l'état
@@ -217,9 +216,15 @@ export class NotificationsComponent {
         }
       } else {
         // Si aucun résultat n'est retourné, cela signifie que le pop-up a été fermé sans sélection
-        etablissement.buttonText = "En attente d'examen";
-        etablissement.examStatus = 'waiting'; // Mettez à jour l'état
+        // Vérifiez si l'établissement n'est pas déjà approuvé ou décliné avant de mettre à jour l'état
+        if (etablissement.examStatus !== 'approved' && etablissement.examStatus !== 'declined') {
+          etablissement.buttonText = "En attente d'examen";
+          etablissement.examStatus = 'waiting'; // Mettez à jour l'état uniquement si ce n'est pas déjà approuvé ou décliné
+        }
       }
     });
   }
+  
+  
+  
 }

@@ -14,13 +14,14 @@ import { ValidationDialogComponent } from '../validation-dialog/validation-dialo
   styleUrl: './etablissement-popup.component.css'
 })
 export class EtablissementPopupComponent {
-  // constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EtablissementPopupComponent>,
     private dialog: MatDialog
-  ) {}
+  ) {
+    console.log(this.data.examStatus); // Affiche le statut de l'établissement
+  }
 
   approve() {
     // Ferme le dialogue actuel avec l'état 'approved'
