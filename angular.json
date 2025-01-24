@@ -29,9 +29,13 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css",
-              "node_modules/intl-tel-input/build/css/intlTelInput.css"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": ["src/assets/js/mon-script.js"]
+            "scripts": [
+              "src/assets/js/mon-script.js",
+              "node_modules/leaflet/dist/leaflet.js"
+            ]
           },
           "configurations": {
             "production": {
