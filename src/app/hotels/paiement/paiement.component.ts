@@ -1,11 +1,7 @@
-import { JsonPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCard, MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
-import { MatDivider } from '@angular/material/divider';
-import { MatIcon } from '@angular/material/icon';
-import { MatSelectionList, MatListOption } from '@angular/material/list';
-import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
 
 @Component({
   selector: 'app-paiement',
@@ -17,7 +13,7 @@ import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
     MatCardTitle,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule,
+    CommonModule, 
   ],
   templateUrl: './paiement.component.html',
   styleUrl: './paiement.component.css'
@@ -27,6 +23,7 @@ export class PaiementComponent implements OnInit{
   ngOnInit() {}
 
   items = [
+    { label: 'aucune de carte pour le moment', checked: false},
     { label: 'Carte de crédit/débit', checked: false, images: ['assets/img/visa.png', 'assets/img/visa-yellow.png', 'assets/img/GB-card.png'] },
     { label: 'Paiement digital', checked: false, images: ['assets/img/paypal.png'] },
     { label: 'Paysing', checked: false, images: ['assets/img/GB-card.png'] },

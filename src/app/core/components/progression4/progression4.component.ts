@@ -12,9 +12,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-progression4',
-  standalone: true,
+  standalone: true, 
   imports: [
-    MatCard,
     MatTab,
     MatTabGroup,
     CommonModule,
@@ -23,8 +22,6 @@ import { RouterLink } from '@angular/router';
     EtapeEnregistrementComponent,
     ProprietaireComponent,
     MatTabsModule,
-    MatProgressBar,
-    MatIcon,
     RouterLink 
 ],
   templateUrl: './progression4.component.html',
@@ -39,11 +36,6 @@ export class Progression4Component implements AfterViewInit {
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
   activeTabIndex: number = 0;
 
-  // ngAfterViewInit() {
-  //   setTimeout(() => {
-  //     this.selectTab(this.activeTabIndex);
-  //   });
-  // }
 
   onTabChange(event: any) {
     this.activeTabIndex = event.index;
