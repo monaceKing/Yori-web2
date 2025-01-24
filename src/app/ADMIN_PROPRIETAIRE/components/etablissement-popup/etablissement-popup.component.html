@@ -70,11 +70,29 @@
   </ng-template>
 
   <div class="popup-actions">
-    <button mat-button (click)="approve()" class="btn-notif" id="btn-approuve">
-      Approuver
-    </button>
-    <button mat-button (click)="decline()" class="btn-notif" id="btn-decline">
-      Décliner
-    </button>
+    <!-- Vérifiez si l'établissement est en attente ou en attente d'examen -->
+    <ng-container *ngIf="data.examStatus === 'waiting' || data.examStatus === 'pending'; else statusDisplay">
+      <button mat-button (click)="approve()" class="btn-notif" id="btn-approuve">
+        Approuver
+      </button>
+      <button mat-button (click)="decline()" class="btn-notif" id="btn-decline">
+        Décliner
+      </button>
+    </ng-container>
+  
+    <!-- Template alternatif pour afficher le statut uniquement s'il est approuvé ou décliné -->
+    <ng-template #statusDisplay>
+      <div *ngIf="data.examStatus === 'approved' || data.examStatus === 'declined'">
+        <p>
+          <span [ngClass]="{'approved': data.examStatus === 'approved', 'declined': data.examStatus === 'declined'}">
+            {{ data.examStatus === 'approved' ? 'Approuvé' : 'Décliné' }}
+          </span>
+        </p>
+      </div>
+    </ng-template>
   </div>
+  
+  
+  
+  
 </div>

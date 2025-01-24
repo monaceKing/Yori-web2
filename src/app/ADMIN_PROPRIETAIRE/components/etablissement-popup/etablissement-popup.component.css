@@ -85,3 +85,14 @@
 .custom-dialog-container .mat-dialog-content {
   font-size: 16px; /* Taille du contenu */
 }
+
+
+.approved {
+  color: blue; /* Couleur bleue pour "Approuvé" */
+  font-weight: bold; /* Gras */
+}
+
+.declined {
+  color: red; /* Couleur rouge pour "Décliné" */
+  font-weight: bold; /* Gras */
+}
