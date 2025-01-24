@@ -55,8 +55,8 @@
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid black;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+  border: 2px solid lightgray;
   background-color: white;
   width: 100%; /* Utiliser 100% pour prendre toute la largeur disponible */
   height: auto;
@@ -642,7 +642,7 @@ ul {
   color: gray;
 }
 .container_facture {
-  background-color: white;
+  background-color: rgba(211, 211, 211, 0.3);
   width: 55%;
   height: auto;
   padding: 10px 30px 10px 30px;
