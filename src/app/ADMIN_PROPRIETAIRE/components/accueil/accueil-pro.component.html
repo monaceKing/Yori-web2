@@ -412,7 +412,10 @@
         </div>
 
         <div>
-          <mat-tab-group class="fixed-width">
+          <mat-tab-group
+            class="fixed-width"
+            (selectedTabChange)="onTabChange($event)"
+          >
             <mat-tab label="Information sur l'établissements">
               <div
                 *ngIf="selectedClient.evaluation == 'Mauvais'"
@@ -568,11 +571,7 @@
             </mat-tab>
 
             <mat-tab label="Géolocalisation">
-              <section class="section">
-                <div class="image-gallery1">
-                  <img src="assets/img/geoLoc.png" alt="" />
-                </div>
-              </section>
+              <app-map *ngIf="!showMap"></app-map>
             </mat-tab>
 
             <mat-tab label="Avis">

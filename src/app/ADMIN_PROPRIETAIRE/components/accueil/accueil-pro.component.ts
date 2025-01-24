@@ -7,6 +7,7 @@ import { ClaudelComponent } from '../../../ADMIN_CLIENT/interfaces/components/an
 import { FransdaComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/fransda/fransda.component';
 import { AmourComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/amour/amour.component';
 import { InelComponent } from '../../../ADMIN_CLIENT/interfaces/components/analyse/inel/inel.component';
+import { MapComponent } from '../map/map.component';
 
 interface Client {
   id: number;
@@ -37,6 +38,7 @@ export interface Comment {
     MatTabGroup,
     MatTab,
     MatTabsModule,
+    MapComponent,
   ],
   templateUrl: './accueil-pro.component.html',
   styleUrl: './accueil-pro.component.css',
@@ -195,6 +197,7 @@ export class AccueilProComponent implements OnInit {
 
   statutsFiltres: string[] = ["Vue d'ensemble", 'Hotellerrie', 'Tourisme'];
   selectedStatut: string = "Vue d'ensemble"; // Valeur par défaut
+  showMap = false;
 
   items = [
     {
@@ -498,5 +501,13 @@ export class AccueilProComponent implements OnInit {
   afficherNotifSuppr() {
     this.validerSuppr = !this.validerSuppr;
     this.estSupprimer = !this.estSupprimer;
+  }
+  onTabChange(event: any) {
+    if (event.index === 1) {
+      // Assurez-vous que l'index correspond à l'onglet
+      this.showMap = true;
+    } else {
+      this.showMap = false;
+    }
   }
 }
