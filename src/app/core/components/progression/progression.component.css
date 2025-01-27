@@ -2,7 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: auto;
   margin: 0;
   width: auto;
 }
@@ -10,15 +10,16 @@ body {
 .tab-navigation{
   padding-bottom: 10px;
 }
-
+ 
 .tab-navigation-buttons {
   display: flex;
-  justify-content: space-between;
-  gap: 10px; 
+  justify-content: center;
+  padding-left: 35px;
+  gap: 10px;
   margin-top: 5px;
 }
 
-.tab-navigation-buttons button {
+.tab-navigation-buttons button { 
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -109,9 +110,25 @@ mat-tab {
 
 .tab-navigation.style2,.tab-navigation.style6{
   margin-right: 395px;
-  margin-left: 400px;
+  margin-left: 290px;
 }
 
 .tab-navigation.style0{
-  margin-left: 450px;
+  margin-left: 10px;
 }
+
+
+@media (max-width: 768px) {
+  .tab-navigation.style1, .tab-navigation.style3, .tab-navigation.style4,.tab-navigation.style5,.tab-navigation.style2,.tab-navigation.style6 {
+    margin: auto;
+  }
+  body{
+    height: auto;
+    margin: 0;
+    width: auto;
+  }
+
+  .tab-container{
+    width: 100%;
+  }
+} 

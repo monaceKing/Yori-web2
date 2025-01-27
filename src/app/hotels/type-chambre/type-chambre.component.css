@@ -19,10 +19,11 @@ mat-label {
 
 .main-card {
   background-color: white;
+  flex: 1 1 580px; 
 }
 
 .sub-card {
-  flex: 1 1 40%;
+  flex:1 320px; 
 }
 
 #haut{
@@ -88,7 +89,7 @@ mat-label {
 
 .btn-blue {
   background-color: inherit;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   font-size: 25px;
   margin-bottom: 15px;
 }
@@ -114,29 +115,15 @@ ul {
 /* Ajout de styles pour la responsivité */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* Passage en colonne sur petits écrans */
-    padding: 10px; /* Réduction du padding sur petits écrans */
+    flex-direction: column;
+    padding: 10px;
+    width: 95%;
+  }
+  .main-card, .sub-card {
+    flex: 1 1 100%; /* Prendre toute la largeur sur mobile */
   }
 
-  .main-card,
-  .sub-card {
-    width: 100%; /* Prendre 100% de la largeur sur petits écrans */
-    margin:10px  0; /* Éliminer les marges pour éviter les débordements */
-  }
-
-  .example-card {
-    max-width: 100%; /* Permettre à la carte d'occuper toute la largeur */
-  }
-
-  .quantity-container {
-    width: 100%; /* S'assurer que le conteneur de quantité prend toute la largeur */
-  }
-
-  .inputbox {
-    width: 40px; /* Réduire la largeur de l'input sur petits écrans */
-  }
-
-  .btn {
-    height: 35px; /* Ajuster la hauteur des boutons pour de petits écrans */
+  .haut{
+    height: 100%;
   }
 }

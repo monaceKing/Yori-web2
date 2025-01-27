@@ -14,7 +14,8 @@
 
 .main-card {
   background-color: white; /* Optionnel si l'héritage est déjà voulu */
-  width: 100%; /* S'assurer que la carte utilise toute la largeur */
+  width: 100%; 
+  border-radius: 10px;
 }
 
 .example-radio-group {
@@ -49,6 +50,11 @@ label {
 
 @media (max-width: 768px) {
   .container {
-    padding: 10px; /* Réduire le padding sur les petits écrans */
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
   }
+
 }

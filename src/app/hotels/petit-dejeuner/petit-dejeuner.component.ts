@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDivider } from '@angular/material/divider';
-import { MatIcon } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 
 
@@ -12,7 +11,6 @@ import { MatRadioModule } from '@angular/material/radio';
   selector: 'app-petit-dejeuner',
   standalone: true,
   imports: [
-    MatCard,
     MatCardContent,
     MatCardTitle,
     MatCardHeader,
@@ -21,7 +19,6 @@ import { MatRadioModule } from '@angular/material/radio';
     MatDivider,
     MatChipsModule,
     CommonModule,
-    MatIcon,
   ],
   templateUrl: './petit-dejeuner.component.html',
   styleUrl: './petit-dejeuner.component.css'

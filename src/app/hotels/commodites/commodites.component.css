@@ -3,29 +3,29 @@
   justify-content: center;
   gap: 20px;
   background-color: initial;
-  padding: 20px 0 20px 0;
+  padding: 20px 0;
   width: 100%;
   border-radius: 10px;
 }
 
 
 .main-card {
-  flex: 1 1 80%; /* 60% de la largeur */
+  flex: 1 1 580px; 
+}
+
+.form{
   background-color: white;
-  min-width: 300px; /* Assure une largeur minimale */
+  width: 100%;
 }
 
 .sub-card {
-  flex:1 1 40%; /* 30% de la largeur */
+  flex:1 320px; 
 }
 
-#haut {
-  margin-top: 0px; /* Superposition avec la carte en dessous */
-  background-color: red;
-  flex:1 30%; /* 30% de la largeur */
+.haut {
+  margin-top: 0px;
   background-color: rgb(255, 255, 255);
-  height: 300px;
-  width: auto;
+  height: 200px;
 }
 
 
@@ -37,7 +37,16 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    width: 95%;
+  }
   .main-card, .sub-card {
     flex: 1 1 100%; /* Prendre toute la largeur sur mobile */
+  }
+
+  .haut{
+    height: 100%;
   }
 }

@@ -1,29 +1,30 @@
 <div class="container">
-  <!-- Première carte qui prend 60% de la largeur -->
-  <form action="">
-    <mat-card class="main-card" id="grand">
-      <mat-card-header>
-        <mat-card-title>Quels équipements proposez-vous dans votre établissement?</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-selection-list #shoes>
-          @for (shoe of typesOfShoes; track shoe) {
-            <mat-list-option>{{shoe}}</mat-list-option>
-          }
-        </mat-selection-list>
-
-        <p>
-          Options selected: {{shoes.selectedOptions.selected.length}}
-        </p>
-
-      </mat-card-content>
-      <!-- <mat-divider></mat-divider> -->
-    </mat-card>
-  </form>
+  <div class="main-card">
+    <form action="" >
+      <mat-card class="form">
+        <mat-card-header>
+          <mat-card-title>Quels équipements proposez-vous dans votre établissement?</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-selection-list #shoes>
+            @for (shoe of typesOfShoes; track shoe) {
+              <mat-list-option>{{shoe}}</mat-list-option>
+            }
+          </mat-selection-list>
+  
+          <p>
+            Options selected: {{shoes.selectedOptions.selected.length}}
+          </p>
+  
+        </mat-card-content>
+        <!-- <mat-divider></mat-divider> -->
+      </mat-card>
+    </form>
+  </div>
 
   <!-- Deuxième carte qui est superposée au-dessus de la troisième -->
   <div class="sub-card">
-    <mat-card id="haut">
+    <mat-card class="haut">
       <mat-card-header>
         <mat-icon class="custom-icon" style="padding-right: 10px;"> highlight</mat-icon>
         <p>

@@ -56,9 +56,8 @@ ul {
 
   .main-card,
   .sub-card {
-    width: 100%; /* Prendre 100% de la largeur sur petits écrans */
-    margin-left: 0; /* Suppression de la marge gauche */
-    margin-right: 0; /* Suppression de la marge droite */
+    width: 90%; /* Prendre 100% de la largeur sur petits écrans */
+  
   }
 
   #haut {

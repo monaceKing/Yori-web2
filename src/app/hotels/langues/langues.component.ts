@@ -1,21 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle } from '@angular/material/card';
-import { MatListOption, MatSelectionList } from '@angular/material/list';
+import { MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-langues',
   standalone: true,
   imports: [
-    MatCard,
     MatCardHeader,
-    MatCardFooter,
     MatCardTitle,
     MatCardContent,
-    MatSelectionList,
-    MatListOption,
     CommonModule
-  ],
+],
   templateUrl: './langues.component.html',
   styleUrl: './langues.component.css'
 })

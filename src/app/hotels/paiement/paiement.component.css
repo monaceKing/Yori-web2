@@ -18,3 +18,12 @@ mat-label{
 }
 
 
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+  }
+}

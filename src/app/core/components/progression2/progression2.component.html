@@ -61,15 +61,6 @@
     </mat-tab>
   </mat-tab-group>
 
-
-  <!-- <div class="tab-navigation-buttons" *ngIf="activeTabIndex < 5">
-    <button *ngIf="activeTabIndex > 0" (click)="previousTab()">
-      <span class="chevron">&#9664;</span> Précédent
-    </button>
-    <button (click)="nextTab()">
-      Prochaine étape <span class="chevron">&#9654;</span>
-    </button>
-  </div> -->
   <div class="tab-navigation tab-navigation-buttons" *ngIf="activeTabIndex < 5" 
      [ngClass]="{
        'style0': activeTabIndex === 0,
@@ -86,3 +77,4 @@
   </button>
 </div>
 </div>
+ 

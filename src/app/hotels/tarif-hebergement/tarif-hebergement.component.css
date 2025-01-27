@@ -58,7 +58,7 @@ ul {
 
   .main-card,
   .sub-card {
-    flex: 1 1 100%; /* Prend toute la largeur sur petits écrans */
+    width: 93%; /* Prend toute la largeur sur petits écrans */
     margin: 10px 0; /* Marges verticales */
   }
 }

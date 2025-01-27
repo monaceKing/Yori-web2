@@ -1,10 +1,9 @@
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCard, MatCardTitle, MatCardHeader, MatCardContent } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
-import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
 @Component({
   selector: 'app-salle-bain',
@@ -17,14 +16,10 @@ import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
     MatRadioGroup,
     MatRadioButton,
     MatDivider,
-    JsonPipe,
     ReactiveFormsModule,
     FormsModule,
     MatIcon,
     CommonModule,
-    MatSelectionList,
-    MatListOption,
-
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './salle-bain.component.html',

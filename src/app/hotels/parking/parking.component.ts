@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardContent, MatCardTitle, MatCardHeader } from '@angular/material/card';
+import { MatCardContent, MatCardTitle, MatCardHeader } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDivider } from '@angular/material/divider';
 import { MatMenu, MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
@@ -11,7 +11,6 @@ import { MatRadioModule } from '@angular/material/radio';
   selector: 'app-parking',
   standalone: true,
   imports: [
-    MatCard,
     MatCardContent,
     MatCardTitle,
     MatCardHeader,
@@ -25,7 +24,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatMenuModule
   ],
   templateUrl: './parking.component.html',
-  styleUrl: './parking.component.css'
+  styleUrl: './parking.component.css' 
 })
 export class ParkingComponent {
   breakfastServed: string | undefined;
