@@ -37,7 +37,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #33aefb;
+    background-color: rgba(13, 13, 197, 0.8);
     color: white;
     display: inline-flex;
     align-items: center;

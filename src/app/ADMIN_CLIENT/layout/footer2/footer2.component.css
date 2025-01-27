@@ -1,17 +1,17 @@
 .container {
     margin-top: 30px;
-    background-color: #77B5FE;
+    background-color: rgba(13, 13, 197, 0.8);;
     height: 100%;
-    padding: 20px; /* Ajout d'un padding pour éviter que le contenu touche les bords */
+    padding: 20px;
 }
 
 .card {
-    padding: 20px; /* Padding interne pour la carte */
+    padding: 20px; 
 }
 
 .top {
     display: flex;
-    gap: 100px; /* Espace entre les éléments */
+    gap: 100px; 
     margin-left: 50px;
 }
 button{
@@ -30,7 +30,7 @@ button{
     border: none;
     font-size: 15px;
     color: white;
-    border-radius: 5px; /* Coins arrondis pour le bouton */
+    border-radius: 5px; 
 }
 
 .Copyright {
@@ -41,27 +41,26 @@ p {
     color: white;
 }
 
-/* Media Queries pour la responsivité */
 @media (max-width: 768px) {
     .top {
-        flex-direction: column; /* Empile les éléments en colonne sur petits écrans */
-        align-items: center; /* Centre les éléments horizontalement */
-        margin-left: 0; /* Supprime la marge gauche sur petits écrans */
-        gap: 20px; /* Réduit l'espace entre les éléments */
+        flex-direction: column; 
+        align-items: center; 
+        margin-left: 0; 
+        gap: 20px; 
     }
 
     .button {
-        margin-left: 0; /* Supprime la marge gauche sur petits écrans */
-        text-align: center; /* Centre le bouton sur petits écrans */
+        margin-left: 0; 
+        text-align: center; 
     }
 
     .button button {
-        width: 100%; /* Rendre le bouton responsive */
-        max-width: 200px; /* Limite la largeur maximale du bouton */
+        width: 100%; 
+        max-width: 200px; 
     }
 
     .Copyright {
-        text-align: center; /* Centre le texte de copyright sur petits écrans */
-        margin-left: 0; /* Supprime la marge gauche sur petits écrans */
+        text-align: center; 
+        margin-left: 0; 
     }
 }

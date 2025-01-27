@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 40vh; /* Ajuste la hauteur selon tes besoins */
-    background: #77B5FE;
+    background: rgba(13, 13, 197, 0.8);
     padding-left: 30px;
     width: auto;
     border-radius: 5px;
@@ -50,7 +50,7 @@
     text-align: center;
     color: white;
     margin-bottom: 30px;
-    background-color: #77B5FE; 
+    background-color: initial; 
     margin-right: 300px;
 }
 .droit {

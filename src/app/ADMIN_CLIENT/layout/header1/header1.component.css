@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center; /* Centrer verticalement les éléments */
   height: 70px;
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.8);;
   padding: 0 20px; /* Ajout d'un padding horizontal */
 }
 

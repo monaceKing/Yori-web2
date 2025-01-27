@@ -4,7 +4,7 @@ body {
   align-items: center;
   height: 80px;
   margin: 0;
-  width: 100%;
+  width: auto;
 }
 
 .tab-navigation{
@@ -13,10 +13,9 @@ body {
 
 .tab-navigation-buttons {
   display: flex;
-  /* justify-content: center; */
   justify-content: space-between;
-  gap: 10px; /* Espacement entre les boutons */
-  margin-top: 5px; /* Espace au-dessus des boutons */
+  gap: 10px; 
+  margin-top: 5px;
 }
 
 .tab-navigation-buttons button {
@@ -29,7 +28,7 @@ body {
   transition: background-color 0.3s, transform 0.2s;
   display: flex;
   align-items: center;
-  gap: 5px; /* Espacement entre l'icône et le texte */
+  gap: 5px; 
 }
 
 mat-tab {
@@ -37,14 +36,14 @@ mat-tab {
 }
 
 .tab-navigation-buttons button:first-child {
-  background-color: #fff; /* Couleur de fond du bouton "Précédent" */
-  color: #77B5FE; /* Couleur du texte du bouton "Précédent" */
-  border: 2px solid #77B5FE; /* Bordure pour le bouton "Précédent" */
+  background-color: #fff;
+  color: rgba(13, 13, 197, 0.8);; 
+  border: 2px solid rgba(13, 13, 197, 0.8);; 
 }
 
 .tab-navigation-buttons button:last-child {
-  background-color: #77B5FE; /* Couleur de fond du bouton "Suivant" */
-  color: #fff; /* Couleur du texte du bouton "Suivant" */
+  background-color: rgba(13, 13, 197, 0.8);; 
+  color: #fff; 
 }
 
 .tab-navigation-buttons button:hover {
@@ -56,7 +55,7 @@ mat-tab {
 }
 
 .chevron {
-  font-size: 20px; /* Taille des chevrons */
+  font-size: 20px; 
 }
 
 
@@ -93,7 +92,7 @@ mat-tab {
 }
 
 .circle.active {
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.8);;
 }
 
 .circle-title {
