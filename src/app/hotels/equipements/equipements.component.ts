@@ -1,12 +1,10 @@
-import { JsonPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCard, MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
-import { MatSelectionList, MatListOption } from '@angular/material/list';
-import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
 import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
@@ -17,16 +15,11 @@ import { MatOption, MatSelect } from '@angular/material/select';
     MatCardHeader,
     MatCardContent,
     MatCardTitle,
-    MatRadioGroup,
-    MatRadioButton,
     MatDivider,
-    JsonPipe,
     ReactiveFormsModule,
     FormsModule,
     MatIcon,
     CommonModule,
-    MatSelectionList,
-    MatListOption,
     MatFormField,
     MatLabel,
     MatSelect,

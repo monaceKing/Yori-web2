@@ -9,12 +9,13 @@
 }
 
 .main-card {
-  flex: 1 1 80%;
+  flex: 1 1 580px; 
   background-color: white;
+  border-radius: 10px;
 }
 
 .sub-card {
-  flex: 1 1 40%;
+  flex:1 320px;
 }
 
 
@@ -67,4 +68,16 @@ mat-card-title{
   background-color: black;
   border-radius: 50%;
   padding: 5px;
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+  }
 }

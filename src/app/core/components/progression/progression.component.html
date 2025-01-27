@@ -8,10 +8,10 @@
             <div class="circle-title">Localisation</div>
           </div>
         </ng-template>
-        <app-form-info-generales></app-form-info-generales>
+        <app-form-info-generales></app-form-info-generales> 
       </mat-tab>
 
-      <mat-tab>
+      <mat-tab> 
         <ng-template mat-tab-label>
           <div class="circle-container">
             <div class="circle" [ngClass]="{'active': activeTabIndex >= 1}">2</div>
@@ -87,10 +87,10 @@
        'style2': activeTabIndex === 2,
        'style6': activeTabIndex === 6,
      }">
-  <button *ngIf="activeTabIndex > 0" (click)="previousTab()">
+  <button *ngIf="activeTabIndex > 0" (click)="previousTab()" class="btn-precedent">
     <span class="chevron">&#9664;</span> Précédent
   </button>
-  <button (click)="nextTab()">
+  <button (click)="nextTab()" class="btn-suivant">
     prochaine étape <span class="chevron">&#9654;</span>
   </button>
 </div>

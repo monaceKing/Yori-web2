@@ -9,6 +9,7 @@
   margin-bottom: 15px;
 }
 
+
 .tab-navigation {
   padding-bottom: 10px;
 }
@@ -72,6 +73,10 @@ mat-tab {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.circle.active {
+  background-color: rgba(197, 13, 13, 0.8);;
 }
 
 .mat-form-field {

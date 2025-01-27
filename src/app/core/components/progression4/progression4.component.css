@@ -3,16 +3,25 @@ body {
   justify-content: center;
   align-items: center;
   height: 100px;
-  background-color: #3600f9;
 
 }
 
+
 .tab-navigation.style1{
-  margin-left: 150px;
+  margin-left: 240px;
 }
 
 .tab-navigation.style0{
-  margin-left: 270px; 
+  margin-left: 370px; 
+} 
+
+.tab-navigation.style2{
+  background-color: #3600f9;
+  width: 58.5%;
+  border-radius: 10px;
+} 
+.tab-navigation.style2 button{
+  background-color: inherit;
 } 
 
 
@@ -20,18 +29,15 @@ body {
 .tab-navigation-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px; /* Espacement entre les boutons */
-  margin-top: 20px; /* Espace au-dessus des boutons */
+  gap: 10px; 
+  margin-top: 10px;
   padding-bottom: 10px;
 }
 
 
-#un, #deux {
-  margin: 0 10px; /* Espace autour des boutons */
-}
 
 .tab-navigation-buttons button {
-  padding: 5px 10px;
+  padding: 5px 5px;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -46,15 +52,15 @@ body {
 
 .tab-navigation-buttons button:first-child {
   text-align: center;
-  background-color: #fff; /* Couleur de fond du bouton "Précédent" */
-  color: #77B5FE; /* Couleur du texte du bouton "Précédent" */
-  border: 2px solid #77B5FE; /* Bordure pour le bouton "Précédent" */
+  background-color: #fff; 
+  color: rgba(13, 13, 197, 0.8);;
+  border: 2px solid rgba(13, 13, 197, 0.8);
 }
 
 .tab-navigation-buttons button:last-child {
   text-align: center;
-  background-color: #77B5FE; /* Couleur de fond du bouton "Suivant" */
-  color: #fff; /* Couleur du texte du bouton "Suivant" */
+  background-color: rgba(13, 13, 197, 0.8);
+  color: #fff; 
 }
 
 .tab-navigation-buttons button:hover {
@@ -66,7 +72,7 @@ body {
 }
 
 .chevron {
-  font-size: 20px; /* Taille des chevrons */
+  font-size: 20px; 
   text-align: center;
 }
 
@@ -104,14 +110,13 @@ body {
 }
 
 .circle.active {
-  background-color: #77B5FE; /* Couleur bleue pour les étapes complétées */
+  background-color: rgba(13, 13, 197, 0.8);
 }
 
 .circle-title {
-  margin-top: 5px; /* Espace entre le cercle et le titre */
+  margin-top: 5px; 
   font-size: 12px;
-  color: #333; /* Couleur du texte */
-  /* oui  */
+  color: #333; 
   text-align: center;
 }
 
@@ -129,8 +134,25 @@ body {
 .full-width-button1 {
   width: 4200px;
   display: block;
-  /* margin-top: 10px; */
   margin-bottom: 10px; 
   margin-right: 450px;
   height: 40px;
 }
+
+
+@media (max-width: 768px) {
+  .tab-navigation.style0, .tab-navigation.style1,.tab-navigation.style2,.tab-navigation.style3{
+    margin: 0;
+  }
+
+  body{
+    height: auto;
+    margin: 0;
+    width: auto;
+  }
+
+  .tab-container{
+    width: 90%;
+    justify-content: center;
+  }
+}  

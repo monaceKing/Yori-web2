@@ -9,9 +9,7 @@ body {
 
 }
 
-/* mat-tab{
-  background-color: #24ccff;
-} */
+
 
 
 .tab-navigation-buttons {
@@ -38,12 +36,12 @@ body {
 
 .tab-navigation-buttons button:first-child {
   background-color: #fff; /* Couleur de fond du bouton "Précédent" */
-  color: #77B5FE; /* Couleur du texte du bouton "Précédent" */
-  border: 2px solid #77B5FE; /* Bordure pour le bouton "Précédent" */
+  color: rgba(13, 13, 197, 0.8); /* Couleur du texte du bouton "Précédent" */
+  border: 2px solid rgba(13, 13, 197, 0.8); /* Bordure pour le bouton "Précédent" */
 }
 
 .tab-navigation-buttons button:last-child {
-  background-color: #77B5FE; /* Couleur de fond du bouton "Suivant" */
+  background-color: rgba(13, 13, 197, 0.8); /* Couleur de fond du bouton "Suivant" */
   color: #fff; /* Couleur du texte du bouton "Suivant" */
 }
 
@@ -93,7 +91,7 @@ body {
 }
 
 .circle.active {
-  background-color: #77B5FE; /* Couleur bleue pour les étapes complétées */
+  background-color: rgba(13, 13, 197, 0.8); /* Couleur bleue pour les étapes complétées */
 }
 
 .circle-title {
@@ -104,3 +102,18 @@ body {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .tab-navigation.style1, .tab-navigation.style3, .tab-navigation.style4,.tab-navigation.style5,.tab-navigation.style2,.tab-navigation.style6 {
+    margin: auto;
+  }
+  body{
+    height: auto;
+    margin: 0;
+    width: auto;
+  }
+
+  .tab-container{
+    width: 90%;
+    justify-content: center;
+  }
+}  

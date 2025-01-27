@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle, MatCardTitleGroup } from '@angular/material/card';
-import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatOption, MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 const THUMBUP_ICON =
@@ -42,9 +41,9 @@ const THUMBUP_ICON =
 export class FormInfoGeneralesComponent {
   currentRoute: string = '';
   ngOnInit(): void {
-    this.currentRoute = this.router.url; // Récupère la route actuelle
+    this.currentRoute = this.router.url; 
     this.router.events.subscribe(() => {
-      this.currentRoute = this.router.url; // Met à jour la route si elle change
+      this.currentRoute = this.router.url;
     });
   }
 

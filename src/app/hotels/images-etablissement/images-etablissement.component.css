@@ -56,13 +56,13 @@ ul{
 }
 
 .ma-div:hover {
-  border-color: #77B5FE; /* Changer la couleur de la bordure au survol */
+  border-color: rgba(13, 13, 197, 0.8); /* Changer la couleur de la bordure au survol */
 }
 
 .button{
   background-color: inherit;
-  color: #77B5FE;
-  border: 2px solid #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
+  border: 2px solid rgba(13, 13, 197, 0.8);
   border-radius: 5px;
   cursor: pointer;
   height: 40px;
@@ -120,17 +120,16 @@ ul{
     margin-right: 35px;
   }
 
-  mat-card-content{
-    flex: 1 1 100%;
-  }
-
   .button{
     font-size: 10px;
   }
 
-  .main-card,
-  .sub-card {
-    flex: 1 1 100%; /* Prend toute la largeur sur petits écrans */
+  .main-card {
+   width: 90%; /* Prend toute la largeur sur petits écrans */
     margin: 10px 0; /* Marges verticales */
+  }
+
+  .sub-card{
+    width: 95%;
   }
 }

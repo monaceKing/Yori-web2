@@ -1,13 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatCard } from '@angular/material/card';
 import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { PaiementComponent } from "../../../hotels/paiement/paiement.component";
 import { ASavoirComponent } from "../../../hotels/a-savoir/a-savoir.component";
 import { EtapeEnregistrementComponent } from "../../../hotels/etape-enregistrement/etape-enregistrement.component";
 import { ProprietaireComponent } from "../../../hotels/proprietaire/proprietaire.component";
-import { MatProgressBar } from '@angular/material/progress-bar';
-import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
 @Component({

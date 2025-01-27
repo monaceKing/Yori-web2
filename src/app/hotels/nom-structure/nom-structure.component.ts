@@ -18,7 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './nom-structure.component.html',
   styleUrl: './nom-structure.component.css'
 })
-export class NomStructureComponent {
+export class NomStructureComponent { 
 
   favoriteSeason: string | undefined;
   seasons: string[] = ['N/A', '1 étoile', '2 étoiles', '3 étoiles', '4 étoiles', '5 étoiles'];
