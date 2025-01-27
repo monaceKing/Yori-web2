@@ -129,19 +129,19 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Nom structure</th>
-            <th>Pays/region</th>
-            <th>Contact</th>
-            <th>Adresse e-mail</th>
-            <th>Nombre de structure inscrite(s)</th>
-            <th>Durée du compte</th>
-            <th>Plus d'infos</th>
+            <th class="head1">Nom structure</th>
+            <th class="head1">Pays/region</th>
+            <th class="head1">Contact</th>
+            <th class="head1">Adresse e-mail</th>
+            <th class="head1">Nombre de structure inscrite(s)</th>
+            <th class="head1">Durée du compte</th>
+            <th class="head1">Plus d'infos</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let client of paginatedClients">
-            <td style="color: #77b5fe">{{ client.nom }}</td>
-            <td class="pays_structure">
+            <td class="td1" style="color: #77b5fe">{{ client.nom }}</td>
+            <td class="td1" class="pays_structure">
               {{ client.pays }}
               <img
                 [src]="'assets/flags/' + client.pays + '.png'"
@@ -149,13 +149,13 @@
                 class="pays"
               />
             </td>
-            <td>{{ client.contact }}</td>
-            <td>{{ client.email }}</td>
-            <td>
+            <td class="td1">{{ client.contact }}</td>
+            <td class="td1">{{ client.email }}</td>
+            <td class="td1">
               <b>{{ client.nombre_structure }}</b>
             </td>
-            <td>{{ client.duree }} an(s)</td>
-            <td>
+            <td class="td1">{{ client.duree }} an(s)</td>
+            <td class="td1">
               <a class="open-div2" (click)="afficherDetails(client)">
                 <!-- {{ client.id }} -->
                 voir plus
@@ -163,7 +163,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="10" class="td-pag">
+            <td class="td1" colspan="10" class="td-pag">
               <div>
                 <button
                   class="btn-pag"
