@@ -50,6 +50,7 @@
         </div>
       </div>
     </div>
+    <br /><br />
 
     <mat-tab-group class="fixed-width" id="menu-comptes">
       <!-- Onglet "Payé" -->
@@ -58,40 +59,41 @@
           <table class="table" id="table-payé">
             <thead>
               <tr>
-                <th>Nom</th>
-                <th>Pays</th>
-                <th>Statut</th>
-                <th>Date limite</th>
-                <th>Commission</th>
-                <th>Commission Payée</th>
-                <th>Reste à Payer</th>
-                <th>Plus d'infos</th>
+                <th class="head1">Nom</th>
+                <th class="head1">Pays</th>
+                <th class="head1">Statut</th>
+                <th class="head1">Date limite</th>
+                <th class="head1">Commission</th>
+                <th class="head1">Commission Payée</th>
+                <th class="head1">Reste à Payer</th>
+                <th class="head1">Plus d'infos</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let facture of getPaginatedFactures(paidFactures)">
-                <td style="color: #77b5fe">{{ facture.nom }}</td>
-                <td>{{ facture.pays }}</td>
-                <td>{{ facture.statut }}</td>
-                <td>{{ facture.dateLimite }}</td>
-                <td>{{ facture.commission }} Fcfa</td>
-                <td>{{ facture.commissionPayee }} Fcfa</td>
+                <td class="td1" style="color: #77b5fe">{{ facture.nom }}</td>
+                <td class="td1">{{ facture.pays }}</td>
+                <td class="td1">{{ facture.statut }}</td>
+                <td class="td1">{{ facture.dateLimite }}</td>
+                <td class="td1">{{ facture.commission }} Fcfa</td>
+                <td class="td1">{{ facture.commissionPayee }} Fcfa</td>
 
                 <td
+                  class="td1"
                   [ngStyle]="{
                     color: facture.resteAPayer !== 0 ? 'red' : 'black'
                   }"
                 >
                   <b>{{ facture.resteAPayer }} Fcfa</b>
                 </td>
-                <td>
+                <td class="td1">
                   <a class="open-div2" (click)="afficherDetails(facture)"
                     >voir plus</a
                   >
                 </td>
               </tr>
               <tr>
-                <td colspan="10" class="td-pag">
+                <td class="td1" colspan="10" class="td-pag">
                   <div>
                     <button
                       class="btn-pag"
@@ -140,39 +142,40 @@
           <table class="table" id="table-impayé">
             <thead>
               <tr>
-                <th>Nom</th>
-                <th>Pays</th>
-                <th>Statut</th>
-                <th>Date limite</th>
-                <th>Commission</th>
-                <th>Commission Payée</th>
-                <th>Reste à Payer</th>
-                <th>Plus d'infos</th>
+                <th class="head1">Nom</th>
+                <th class="head1">Pays</th>
+                <th class="head1">Statut</th>
+                <th class="head1">Date limite</th>
+                <th class="head1">Commission</th>
+                <th class="head1">Commission Payée</th>
+                <th class="head1">Reste à Payer</th>
+                <th class="head1">Plus d'infos</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let facture of getPaginatedFactures(unpaidFactures)">
-                <td style="color: #77b5fe">{{ facture.nom }}</td>
-                <td>{{ facture.pays }}</td>
-                <td>{{ facture.statut }}</td>
-                <td>{{ facture.dateLimite }}</td>
-                <td>{{ facture.commission }} Fcfa</td>
-                <td>{{ facture.commissionPayee }} Fcfa</td>
+                <td class="td1" style="color: #77b5fe">{{ facture.nom }}</td>
+                <td class="td1">{{ facture.pays }}</td>
+                <td class="td1">{{ facture.statut }}</td>
+                <td class="td1">{{ facture.dateLimite }}</td>
+                <td class="td1">{{ facture.commission }} Fcfa</td>
+                <td class="td1">{{ facture.commissionPayee }} Fcfa</td>
                 <td
+                  class="td1"
                   [ngStyle]="{
                     color: facture.resteAPayer !== 0 ? 'red' : 'black'
                   }"
                 >
                   <b>{{ facture.resteAPayer }} Fcfa</b>
                 </td>
-                <td>
+                <td class="td1">
                   <a class="open-div2" (click)="afficherDetails(facture)"
                     >voir plus</a
                   >
                 </td>
               </tr>
               <tr>
-                <td colspan="10" class="td-pag">
+                <td class="td1" colspan="10" class="td-pag">
                   <div>
                     <button
                       class="btn-pag"
@@ -222,14 +225,14 @@
           <table class="table" id="table-indisponible">
             <thead>
               <tr>
-                <th>Nom</th>
-                <th>Pays</th>
-                <th>Statut</th>
-                <th>Date limite</th>
-                <th>Commission</th>
-                <th>Commission Payée</th>
-                <th>Reste à Payer</th>
-                <th>Plus d'infos</th>
+                <th class="head1">Nom</th>
+                <th class="head1">Pays</th>
+                <th class="head1">Statut</th>
+                <th class="head1">Date limite</th>
+                <th class="head1">Commission</th>
+                <th class="head1">Commission Payée</th>
+                <th class="head1">Reste à Payer</th>
+                <th class="head1">Plus d'infos</th>
               </tr>
             </thead>
             <tbody>
@@ -238,28 +241,29 @@
                   let facture of getPaginatedFactures(unavailableFactures)
                 "
               >
-                <td style="color: #77b5fe">{{ facture.nom }}</td>
-                <td>{{ facture.pays }}</td>
-                <td>{{ facture.statut }}</td>
-                <td>{{ facture.dateLimite }}</td>
-                <td>{{ facture.commission }} Fcfa</td>
-                <td>{{ facture.commissionPayee }} Fcfa</td>
+                <td class="td1" style="color: #77b5fe">{{ facture.nom }}</td>
+                <td class="td1">{{ facture.pays }}</td>
+                <td class="td1">{{ facture.statut }}</td>
+                <td class="td1">{{ facture.dateLimite }}</td>
+                <td class="td1">{{ facture.commission }} Fcfa</td>
+                <td class="td1">{{ facture.commissionPayee }} Fcfa</td>
 
                 <td
+                  class="td1"
                   [ngStyle]="{
                     color: facture.resteAPayer !== 0 ? 'red' : 'black'
                   }"
                 >
                   <b>{{ facture.resteAPayer }} Fcfa</b>
                 </td>
-                <td>
+                <td class="td1">
                   <a class="open-div2" (click)="afficherDetails(facture)"
                     >voir plus</a
                   >
                 </td>
               </tr>
               <tr>
-                <td colspan="10" class="td-pag">
+                <td class="td1" colspan="10" class="td-pag">
                   <div>
                     <button
                       class="btn-pag"

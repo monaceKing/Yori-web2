@@ -675,3 +675,9 @@ ul {
 .rouge {
   color: red;
 }
+.td1,
+.head1 {
+  height: 50px; /* Ajuste la hauteur des cellules */
+  line-height: 50px; /* Centrer verticalement le texte si nécessaire */
+  text-align: center; /* Centrer le contenu horizontalement */
+}

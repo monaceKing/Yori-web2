@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Informations du compte propiètaire</h2>
+  <h3>Informations du compte propiètaire</h3>
   <p>
     <span class="gras">Nom :</span>
     {{ data.nom }}
@@ -18,7 +18,7 @@
     {{ data.nombreEtablissement }}
   </p>
   <br />
-  <h2>Informations de l'établissement</h2>
+  <h3>Informations de l'établissement</h3>
   <p>
     <span class="gras">Pays/region :</span>
     {{ data.pays }}
@@ -53,10 +53,7 @@
     </ng-container>
 
     <!-- Badge pour la dernière photo si plus de 8 photos -->
-    <div
-      *ngIf="data.photos.length > 8"
-      class="photo-item last-photo"
-    >
+    <div *ngIf="data.photos.length > 8" class="photo-item last-photo">
       <img
         [src]="data.photos[7].url"
         [alt]="data.photos[7].alt || 'Photo de l\'établissement'"
@@ -71,28 +68,41 @@
 
   <div class="popup-actions">
     <!-- Vérifiez si l'établissement est en attente ou en attente d'examen -->
-    <ng-container *ngIf="data.examStatus === 'waiting' || data.examStatus === 'pending'; else statusDisplay">
-      <button mat-button (click)="approve()" class="btn-notif" id="btn-approuve">
+    <ng-container
+      *ngIf="
+        data.examStatus === 'waiting' || data.examStatus === 'pending';
+        else statusDisplay
+      "
+    >
+      <button
+        mat-button
+        (click)="approve()"
+        class="btn-notif"
+        id="btn-approuve"
+      >
         Approuver
       </button>
       <button mat-button (click)="decline()" class="btn-notif" id="btn-decline">
         Décliner
       </button>
     </ng-container>
-  
+
     <!-- Template alternatif pour afficher le statut uniquement s'il est approuvé ou décliné -->
     <ng-template #statusDisplay>
-      <div *ngIf="data.examStatus === 'approved' || data.examStatus === 'declined'">
+      <div
+        *ngIf="data.examStatus === 'approved' || data.examStatus === 'declined'"
+      >
         <p>
-          <span [ngClass]="{'approved': data.examStatus === 'approved', 'declined': data.examStatus === 'declined'}">
-            {{ data.examStatus === 'approved' ? 'Approuvé' : 'Décliné' }}
+          <span
+            [ngClass]="{
+              approved: data.examStatus === 'approved',
+              declined: data.examStatus === 'declined'
+            }"
+          >
+            {{ data.examStatus === "approved" ? "Approuvé" : "Décliné" }}
           </span>
         </p>
       </div>
     </ng-template>
   </div>
-  
-  
-  
-  
 </div>
