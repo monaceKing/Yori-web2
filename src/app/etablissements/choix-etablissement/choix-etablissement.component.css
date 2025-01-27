@@ -1,17 +1,14 @@
-  /* Style général pour la section */
 .feature-cards-section {
     margin-top: 5px;
     padding: 2px;
 }
   
-/* Style pour l'introduction avant les cartes */
 .feature-intro {
     text-align: center;
-    margin-bottom: 40px; /* Espace entre l'introduction et les cartes */
+    margin-bottom: 40px; 
 }
   
 .feature-intro h1 {
-    /* font-size: 2rem; */
     margin-bottom: 10px;
 }
   
@@ -21,49 +18,47 @@
 }
 
 .feature-card-wrapper {
-    justify-content: center;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
     gap: 100px;
     
 }
   
-/* Style pour chaque carte */
 .feature-card {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Largeur maximale pour chaque carte */
-    height: 400px; /* Hauteur fixe pour les cartes */
+    max-width: 300px;
+    height: 400px; 
     border-radius: 8px;
     overflow: hidden;
-    background-size: cover; /* Assure que l'image de fond couvre la carte */
-    background-position: center; /* Centre l'image de fond */
+    background-size: cover;
+    background-position: center; 
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Place le contenu en bas */
-    margin-bottom: 50px; /* Espace entre les cartes */
+    justify-content: flex-end; 
+    margin-bottom: 50px; 
 }
   
-/* Image de fond pour chaque carte */
 .feature-card:nth-of-type(1) {
-    background-image: url('../../../../public/assets/img/card1.png') /* Remplacez par l'image souhaitée */
+    background-image: url('../../../../public/assets/img/card1.png')
 }
   
 .feature-card:nth-of-type(2) {
-    background-image: url('../../../../public/assets/img/card2.png') /* Remplacez par l'image souhaitée */
+    background-image: url('../../../../public/assets/img/card2.png')
 }
   
 .feature-card:nth-of-type(3) {
-    background-image: url('../../../../public/assets/img/card3.png') /* Remplacez par l'image souhaitée */
+    background-image: url('../../../../public/assets/img/card3.png')
 }
   
-/* Style pour le contenu de la carte */
 .feature-card-content {
     margin-left: 10px;
     width: 80%;
     margin-bottom: 80px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité du texte */
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     height: 200px;
 }
@@ -78,13 +73,12 @@
     margin-top: 15px;
 }
   
-/* Style pour le bouton de la carte */
 .feature-card-button {
     position: relative;
     bottom: 10px;
     left: 37%;
     transform: translateX(-50%);
-    background-color: #42baff; /* Couleur du bouton */
+    background-color: rgba(13, 13, 197, 0.8); 
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -96,5 +90,5 @@
 }
   
 .feature-card-button:hover {
-    background-color: #0056b3; /* Couleur du bouton au survol */
+    background-color: #0056b3; 
 }

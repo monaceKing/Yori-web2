@@ -1,11 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardContent, MatCardFooter, MatCardModule, MatCardTitle } from '@angular/material/card';
+import { MatCard, MatCardContent, MatCardModule, MatCardTitle } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
-import { MatIcon } from '@angular/material/icon';
-import { MatList, MatListItem } from '@angular/material/list';
-import { MatMenu, MatMenuItem, MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatMenu, MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { Router, RouterLink } from '@angular/router';
 
@@ -21,15 +18,9 @@ import { Router, RouterLink } from '@angular/router';
     MatCardContent,
     MatCardTitle,
     MatMenu,
-    MatIcon,
-    // MatMenuTrigger,
     MatMenuModule,
-    // MatButtonModule,
     MatMenuItem,
-    // MatCardFooter,
     MatDivider,
-    // MatList,
-    // MatListItem,
     MatTableModule,
     CommonModule,
     MatCardModule

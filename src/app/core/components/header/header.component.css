@@ -43,7 +43,7 @@
 
 
   .premier{
-    background-color: hsl(202, 100%, 62%);
+    background-color: rgba(13, 13, 197, 0.8);
   }
 
 
@@ -67,16 +67,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
     gap: 10px; /* Espace entre les boutons */
-  }
+    padding: 10px; /* Ajoutez un padding pour l'espacement intérieur */
+}
+
 
 
   .initial-circle {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #3f51b5;
+    background-color: rgba(13, 13, 197, 0.8);
     color: white;
     display: inline-flex;
     align-items: center;
@@ -105,3 +107,18 @@
   }
 
 
+  @media (max-width: 768px) {
+    button {
+        padding: 8px 16px; /* Réduit le padding sur les petits écrans */
+        font-size: calc(10px + 0.5vw); /* Ajuste la taille du texte */
+        border-radius: 8px; /* Ajuste le border-radius */
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        padding: 6px 12px; /* Réduit encore plus le padding pour les très petits écrans */
+        font-size: calc(8px + 0.5vw); /* Ajuste davantage la taille du texte */
+        border-radius: 6px; /* Ajuste le border-radius pour un look plus compact */
+    }
+}
