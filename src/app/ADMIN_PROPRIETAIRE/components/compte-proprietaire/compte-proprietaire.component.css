@@ -206,6 +206,7 @@ a {
 .select1 {
   width: 129px;
   height: 30px;
+  border: 2px solid lightgray;
 }
 
 .checkbox {
@@ -213,6 +214,8 @@ a {
   margin-top: 10px;
   width: 100%;
   background-color: white;
+  border: 2px solid lightgray;
+  margin-left: -30px;
 }
 
 .title {
@@ -227,7 +230,7 @@ a {
   flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
   gap: 15px; /* Espacement entre les cases à cocher */
   justify-content: flex-start;
-  width: 100%;
+  width: 20%;
   margin: 15px;
 }
 
@@ -726,4 +729,12 @@ ul {
   width: 20px;
   height: 15px;
   margin-right: 5px;
+  margin-top: 18px;
+  margin-left: 5px;
+}
+.td1,
+.head1 {
+  height: 50px; /* Ajuste la hauteur des cellules */
+  line-height: 50px; /* Centrer verticalement le texte si nécessaire */
+  text-align: center; /* Centrer le contenu horizontalement */
 }

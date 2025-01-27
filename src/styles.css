@@ -1,4 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; background-color:rgba(235, 235, 235, 0.826);}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  background-color: rgba(235, 235, 235, 0.826);
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/* Classes pour Poppins */
+.poppins-light {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+/* Style global pour les titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", serif;
+  font-weight: 700; /* Bold pour les titres */
+}
+
+/* Style pour les boutons et les liens */
+button,
+a {
+  font-family: "Poppins", serif;
+  font-weight: 600; /* Semi-bold pour les boutons et les liens */
+}
+
+/* Style pour les paragraphes et autres textes */
+p,
+span,
+label {
+  font-family: "Poppins", serif;
+  font-weight: 300; /* Light pour les écritures */
+}
