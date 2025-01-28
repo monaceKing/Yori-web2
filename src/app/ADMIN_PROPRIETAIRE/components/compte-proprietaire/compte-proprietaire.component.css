@@ -68,11 +68,12 @@
 }
 
 .table2 {
-  border: 1px solid #000000;
+  border: 2px solid lightgray;
   border-collapse: collapse; /* Pour éviter les espaces entre les cellules */
   width: 100%; /* Si vous voulez que le tableau prenne toute la largeur */
   margin-top: 20px;
   background-color: white;
+  height: 518px;
 }
 
 .table2 td {
@@ -729,7 +730,7 @@ ul {
   width: 20px;
   height: 15px;
   margin-right: 5px;
-  margin-top: 18px;
+  margin-top: px;
   margin-left: 5px;
 }
 .td1,
@@ -737,4 +738,7 @@ ul {
   height: 50px; /* Ajuste la hauteur des cellules */
   line-height: 50px; /* Centrer verticalement le texte si nécessaire */
   text-align: center; /* Centrer le contenu horizontalement */
+}
+.bold {
+  font-size: large;
 }

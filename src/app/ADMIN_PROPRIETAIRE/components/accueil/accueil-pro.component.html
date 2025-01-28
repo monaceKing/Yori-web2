@@ -380,7 +380,7 @@
         « Voulez-vous supprimer cet établissement ? Si oui, appuyez sur
         "Valider". »
       </p>
-      <br /><br />
+
       <div class="boutonValiderAnnulerSuppression">
         <div>
           <button class="annuler-btn" (click)="estSupprimeEtablissement()">
@@ -418,6 +418,7 @@
 
         <div>
           <mat-tab-group
+            id="onglet1"
             class="fixed-width"
             (selectedTabChange)="onTabChange($event)"
           >
@@ -576,7 +577,9 @@
             </mat-tab>
 
             <mat-tab label="Géolocalisation">
-              <app-map *ngIf="!showMap"></app-map>
+              <div class="geo">
+                <app-map *ngIf="!showMap"></app-map>
+              </div>
             </mat-tab>
 
             <mat-tab label="Avis">
@@ -632,7 +635,9 @@
             </mat-tab>
 
             <mat-tab label="Chiffre d'affaire et commission">
-              <div style="display: flex; background-color: white">
+              <div
+                style="display: flex; background-color: white; margin-top: 30px"
+              >
                 <div class="container-sid">
                   <div class="sidenav-nav">
                     <nav>
@@ -671,7 +676,9 @@
             </mat-tab>
 
             <mat-tab label="Nombre de réservations">
-              <div style="display: flex; background-color: white">
+              <div
+                style="display: flex; background-color: white; margin-top: 30px"
+              >
                 <div class="container-sid">
                   <div class="sidenav-nav">
                     <nav>

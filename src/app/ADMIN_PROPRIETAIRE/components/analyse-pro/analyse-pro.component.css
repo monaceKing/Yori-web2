@@ -149,3 +149,11 @@ button {
   width: 100%;
   height: auto; /* ou une hauteur fixe comme "400px" */
 }
+.jr1,
+.jr2,
+.jr3,
+.jr4 {
+  width: 48%;
+  height: 250px;
+  margin: auto;
+}
