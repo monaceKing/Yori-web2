@@ -1,100 +1,109 @@
-.container{
-    padding: 20px;
+.container {
+  padding: 20px;
 }
 
-.haut,.milieu,.graphique{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.haut,
+.milieu,
+.graphique {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-
-.milieu{
-    margin: 20px 0;
+.milieu {
+  margin: 20px 0;
 }
 
-.text{
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    color: white;
+.text {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
 }
 
-.jr1{
-    background-color: #AFD75C;
+.jr1 {
+  background-color: #afd75c;
 }
 
-.jr2{
-    background-color: #FF4D50;
+.jr2 {
+  background-color: #ff4d50;
 }
 
-.jr3{
-    background-color: #F9C620;
+.jr3 {
+  background-color: #f9c620;
 }
 
-.jr4{
-    background-color: #4E71CB;
+.jr4 {
+  background-color: #4e71cb;
 }
 
-label{
-    font-size: 17px;
-    font-weight: 500;
+label {
+  font-size: 17px;
+  font-weight: 500;
 }
 
-.gauche, .droit{
-    width: 300px;
-    height: 150px;
+.gauche,
+.droit {
+  width: 300px;
+  height: 150px;
 }
 
-.gauche{
-    margin-right: 20px;
+.gauche {
+  margin-right: 20px;
 }
 
-.argent{
-    display: inline;
-    text-align: center;
-    justify-content: center;
+.argent {
+  display: inline;
+  text-align: center;
+  justify-content: center;
 }
 
-.argent p{
-    color: white;
-    font-size: 20px;
+.argent p {
+  color: white;
+  font-size: 20px;
 }
 
-.image{
-    background-color: aliceblue;
-    width:50px;
-    margin-left: 40%;
-    border-radius: 90%;
-    padding: 5px;
+.image {
+  background-color: aliceblue;
+  width: 50px;
+  margin-left: 40%;
+  border-radius: 90%;
+  padding: 5px;
 }
 
-.graphique .jours{
-    display: flex;
-    justify-content: space-between;
+.graphique .jours {
+  display: flex;
+  justify-content: space-between;
 }
 
-button{
-    margin: 0 3px;
+button {
+  margin: 0 3px;
 }
 
-.jours button{
-    border-radius: 15px;
-    border: 0.2px solid #77B5FE;
-    color: #77B5FE;
-    background-color: white;
-    padding: 5px 10px;
-    cursor: pointer;
+.jours button {
+  border-radius: 15px;
+  border: 0.2px solid #77b5fe;
+  color: #77b5fe;
+  background-color: white;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.jours button:hover{
-    background-color: #77B5FE;
-    color: white;
+.jours button:hover {
+  background-color: #77b5fe;
+  color: white;
 }
 
-.bars button{
-    border: none;
-    height: 4px;
-    width: 20px;
-    border-radius: 5px;
+.bars button {
+  border: none;
+  height: 4px;
+  width: 20px;
+  border-radius: 5px;
+}
+.jr1,
+.jr2,
+.jr3,
+.jr4 {
+  width: 49%;
+  height: 250px;
 }

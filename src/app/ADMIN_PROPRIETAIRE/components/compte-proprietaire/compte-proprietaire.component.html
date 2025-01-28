@@ -428,10 +428,10 @@
                 </tr>
                 <tr>
                   <td>
-                    <b>{{ selectedClient.nom }}</b>
+                    <b class="bold">{{ selectedClient.nom }}</b>
                   </td>
                   <td>
-                    <b>1</b>
+                    <b class="bold">1</b>
                   </td>
                 </tr>
                 <tr>
@@ -440,23 +440,25 @@
                 </tr>
                 <tr>
                   <td>
-                    <b>+241 76131948</b>
+                    <b class="bold">+241 76131948</b>
                   </td>
                   <td>
-                    <b>0</b>
+                    <b class="bold">0</b>
                   </td>
                 </tr>
                 <tr>
                   <td>Adresse E-mail</td>
                 </tr>
                 <tr>
-                  <td><b>olokosamagmail.com</b></td>
+                  <td><b class="bold">olokosamagmail.com</b></td>
                 </tr>
                 <tr>
                   <td>Durée du compte</td>
                 </tr>
                 <tr>
-                  <td>{{ selectedClient.duree }} an(s)</td>
+                  <td>
+                    <b class="bold">{{ selectedClient.duree }} an(s)</b>
+                  </td>
                 </tr>
                 <tr>
                   <td>Pays/Region</td>
@@ -475,13 +477,13 @@
                   <td>Nombre de structure inscrite(s)</td>
                 </tr>
                 <tr>
-                  <td><b>4</b></td>
+                  <td><b class="bold">4</b></td>
                 </tr>
                 <tr>
                   <td>Nombre de structure actif(s)</td>
                 </tr>
                 <tr>
-                  <td><b>3</b></td>
+                  <td><b class="bold">3</b></td>
                 </tr>
               </table>
             </mat-tab>
@@ -491,23 +493,33 @@
                 <table class="table" id="table-structure">
                   <thead>
                     <tr>
-                      <th>Nom structure</th>
-                      <th>Pays/region</th>
-                      <th>statut</th>
-                      <th>Statut de la structure</th>
-                      <th>Durée d'inscription</th>
-                      <th>Evaluation</th>
-                      <th>Plus d'infos</th>
+                      <th class="head1">Nom structure</th>
+                      <th class="head1">Pays/region</th>
+                      <th class="head1">statut</th>
+                      <th class="head1">Statut de la structure</th>
+                      <th class="head1">Durée d'inscription</th>
+                      <th class="head1">Evaluation</th>
+                      <th class="head1">Plus d'infos</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let client of paginatedClients">
-                      <td style="color: #77b5fe">{{ client.nom }}</td>
-                      <td>{{ client.pays }}</td>
-                      <td>
+                      <td class="td1" style="color: #77b5fe">
+                        {{ client.nom }}
+                      </td>
+                      <td class="td1" class="pays_structure">
+                        {{ client.pays }}
+                        <img
+                          [src]="'assets/flags/' + client.pays + '.png'"
+                          alt="{{ client.pays }} flag"
+                          class="pays"
+                        />
+                      </td>
+                      <td class="td1">
                         {{ client.statut }}
                       </td>
                       <td
+                        class="td1"
                         [ngStyle]="{
                           color:
                             client.statut_structure === 'Fermé' ||
@@ -518,8 +530,9 @@
                       >
                         {{ client.statut_structure }}
                       </td>
-                      <td>{{ client.duree }}</td>
+                      <td class="td1">{{ client.duree }}</td>
                       <td
+                        class="td1"
                         [ngStyle]="{
                           color:
                             client.evaluation === 'Mauvais' ? 'red' : 'black'
@@ -527,7 +540,7 @@
                       >
                         <b>{{ client.evaluation }}</b>
                       </td>
-                      <td>
+                      <td class="td1">
                         <a class="open-div2" (click)="afficherDetails(client)">
                           <!-- {{ client.id }} -->
                           voir plus
@@ -535,7 +548,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="10" class="td-pag">
+                      <td class="td1" colspan="10" class="td-pag">
                         <div>
                           <button
                             class="btn-pag"
