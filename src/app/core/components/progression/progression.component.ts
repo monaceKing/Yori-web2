@@ -31,10 +31,8 @@ import { EtapeEnregistrementComponent } from "../../../hotels/etape-enregistreme
   styleUrl: './progression.component.css'
 })
  
-export class ProgressionComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class ProgressionComponent {
+
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
   activeTabIndex: number = 0;
 
@@ -48,7 +46,7 @@ export class ProgressionComponent implements AfterViewInit {
     localStorage.setItem('activeTabIndex', index.toString());
     this.tabGroup.selectedIndex = index;
   }
-
+ 
   previousTab() {
     if (this.activeTabIndex > 0) {
       this.selectTab(this.activeTabIndex - 1);

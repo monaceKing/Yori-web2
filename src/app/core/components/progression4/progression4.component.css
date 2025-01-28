@@ -24,9 +24,21 @@ body {
   background-color: inherit;
 } 
 
+.tab-navigation.style3{
+  background-color: #3600f9;
+  width: 50%;
+  border-radius: 10px;
+} 
+.tab-navigation.style3 button{
+  background-color: inherit;
+} 
 
+.tab-navigation button {
+  pointer-events: none; /* Les boutons n'interfèrent pas avec le clic de la div */
+}
 
 .tab-navigation-buttons {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   gap: 10px; 

@@ -27,7 +27,7 @@ mat-card-title{
 #haut{
   margin-bottom: 10px;
   background-color: rgb(255, 255, 255);
-  height: 300px;
+  height: auto;
   width: auto;
 }
 

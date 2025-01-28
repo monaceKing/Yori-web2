@@ -41,32 +41,37 @@
     </mat-tab>
   </mat-tab-group>
 
-  <div class="tab-navigation tab-navigation-buttons"
+  <div 
+  class="tab-navigation tab-navigation-buttons"
   [ngClass]="{
     'style0': activeTabIndex === 0,
     'style1': activeTabIndex === 1,
     'style2': activeTabIndex === 2,
-    'style3': activeTabIndex === 3,
-  }">
-    <button *ngIf="activeTabIndex === 0" (click)="nextTab()">
-      Prochaine étape <span class="chevron">&#9654;</span>
-    </button>
+    'style3': activeTabIndex === 3
+  }"
+  (click)="handleDivClick()"
+>
+  <button *ngIf="activeTabIndex === 0" (click)="nextTab($event)">
+    Prochaine étape <span class="chevron">&#9654;</span>
+  </button>
 
-    <button *ngIf="activeTabIndex === 1" (click)="previousTab()">
-      <span class="chevron">&#9664;</span> Précédent
-    </button>
-    <button *ngIf="activeTabIndex === 1" (click)="nextTab()">
-      Prochaine étape <span class="chevron">&#9654;</span>
-    </button>
+  <button *ngIf="activeTabIndex === 1" (click)="previousTab($event)">
+    <span class="chevron">&#9664;</span> Précédent
+  </button>
+  <button *ngIf="activeTabIndex === 1" (click)="nextTab($event)">
+    Prochaine étape <span class="chevron">&#9654;</span>
+  </button>
 
-    <button type="button" *ngIf="activeTabIndex === 2" (click)="nextTab()" style="background-color: transparent; border: none;" >
-      Finaliser l'inscription
-    </button>
+  <button *ngIf="activeTabIndex === 2" (click)="nextTab($event)" style="background-color: transparent; border: none;">
+    Finaliser l'inscription
+  </button>
 
-    <button type="button" *ngIf="activeTabIndex === 3" [routerLink]="['/loading']">
-      Enregistrer
-    </button>
-  </div>
-
+  <button *ngIf="activeTabIndex === 3" [routerLink]="['/loading']" style="background-color: transparent; border: none;" (click)="navigateToRoute($event)">
+    Enregistrer
+  </button>
 </div>
+
+
+
+</div> 
  

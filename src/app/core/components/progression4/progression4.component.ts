@@ -5,7 +5,7 @@ import { PaiementComponent } from "../../../hotels/paiement/paiement.component";
 import { ASavoirComponent } from "../../../hotels/a-savoir/a-savoir.component";
 import { EtapeEnregistrementComponent } from "../../../hotels/etape-enregistrement/etape-enregistrement.component";
 import { ProprietaireComponent } from "../../../hotels/proprietaire/proprietaire.component";
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-progression4',
@@ -24,10 +24,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: './progression4.component.html',
   styleUrl: './progression4.component.css'
 })
-export class Progression4Component implements AfterViewInit {
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class Progression4Component  {
+  constructor(private router: Router) {}
 
 
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
@@ -44,16 +42,51 @@ export class Progression4Component implements AfterViewInit {
     localStorage.setItem('activeTabIndex', index.toString());
   }
 
-  previousTab() {
+  previousTab(event?: Event) {
     if (this.activeTabIndex > 0) {
       this.activeTabIndex--;
     }
+
+    if (event) {
+      event.stopPropagation(); // Empêche le clic du bouton de remonter à la div
+    }
   }
 
-  nextTab() {
+  nextTab(event?: Event) {
     if (this.activeTabIndex < 3) {
       this.activeTabIndex++;
     }
+
+    if (event) {
+      event.stopPropagation(); // Empêche le clic du bouton de remonter à la div
+    }
+  }
+  
+
+  handleDivClick(): void {
+    switch (this.activeTabIndex) {
+      case 0:
+        this.nextTab();
+        break;
+      case 1:
+        this.nextTab();
+        break;
+      case 2:
+        this.nextTab();
+        break;
+      case 3:
+        this.router.navigate(['/loading']);
+        break;
+      default:
+        break;
+    }
+  }
+
+  navigateToRoute(event?: Event): void {
+    if (event) {
+      event.stopPropagation(); // Empêche la propagation du clic vers la `div`
+    }
+    this.router.navigate(['/loading']);
   }
 
 }
