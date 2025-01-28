@@ -42,6 +42,7 @@ h5,
 h6 {
   font-family: "Poppins", serif;
   font-weight: 700; /* Bold pour les titres */
+  color: rgba(43, 43, 43, 1);
 }
 
 /* Style pour les boutons et les liens */
@@ -49,6 +50,7 @@ button,
 a {
   font-family: "Poppins", serif;
   font-weight: 600; /* Semi-bold pour les boutons et les liens */
+  color: rgba(43, 43, 43, 1);
 }
 
 /* Style pour les paragraphes et autres textes */
@@ -57,4 +59,5 @@ span,
 label {
   font-family: "Poppins", serif;
   font-weight: 300; /* Light pour les écritures */
+  color: rgba(43, 43, 43, 1);
 }
