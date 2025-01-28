@@ -14,8 +14,11 @@ body {
   .tab-navigation.style0{
     margin-left: 270px;
   } 
-  
-  
+
+  .tab-navigation.style2{
+    width: 97%;
+  }
+
   
   .tab-navigation-buttons {
     display: flex;
@@ -47,13 +50,13 @@ body {
   .tab-navigation-buttons button:first-child {
     text-align: center;
     background-color: #fff; /* Couleur de fond du bouton "Précédent" */
-    color: #77B5FE; /* Couleur du texte du bouton "Précédent" */
-    border: 2px solid #77B5FE; /* Bordure pour le bouton "Précédent" */
+    color: rgba(13, 13, 197, 0.8); /* Couleur du texte du bouton "Précédent" */
+    border: 2px solid rgba(13, 13, 197, 0.8); /* Bordure pour le bouton "Précédent" */
   }
   
   .tab-navigation-buttons button:last-child {
     text-align: center;
-    background-color: #77B5FE; /* Couleur de fond du bouton "Suivant" */
+    background-color: rgba(13, 13, 197, 0.8); /* Couleur de fond du bouton "Suivant" */
     color: #fff; /* Couleur du texte du bouton "Suivant" */
   }
   
@@ -104,7 +107,7 @@ body {
   }
   
   .circle.active {
-    background-color: #77B5FE; /* Couleur bleue pour les étapes complétées */
+    background-color: rgba(13, 13, 197, 0.8); /* Couleur bleue pour les étapes complétées */
   }
   
   .circle-title {

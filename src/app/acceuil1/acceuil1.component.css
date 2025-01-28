@@ -28,7 +28,7 @@
 }
 
 .premier {
-  background-color: #78b9ff;
+  background-color: rgba(13, 13, 197, 0.8);
   text-align: center;
   display: inline-block; /* Permet au bouton de s'ajuster à la taille du texte */
   /* Ajoute un peu d'espace autour du texte */
@@ -146,12 +146,12 @@ button:hover {
 .a-link button {
   font-size: 15px;
   background-color: #ffffff;
-  color: #78b9ff;
+  color: rgba(13, 13, 197, 0.8);
   font-weight: bold;
   border-radius: 10px;
   height: 40px;
   margin-top: 30px;
-  border: 1px solid #78b9ff;
+  border: 1px solid rgba(13, 13, 197, 0.8);
   cursor: pointer;
   width: 50%; /* Ajuste la largeur pour petits écrans */
 }
