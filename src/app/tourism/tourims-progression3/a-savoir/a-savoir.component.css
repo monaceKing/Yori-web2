@@ -45,3 +45,16 @@ mat-label{
 .title{
   margin-bottom: 30px;
 }
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    width: 95%;
+  }
+
+  .main-card{
+    width: auto;
+  }
+}

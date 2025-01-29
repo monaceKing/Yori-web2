@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
-import { MatProgressBar } from '@angular/material/progress-bar';
 import { MatTab, MatTabChangeEvent, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { FinEtape1Component } from "../tourims-progression1/fin-etape1/fin-etape1.component";
 import { ImagesEtablissementComponent } from "../tourims-progression2/images-tourism/images-etablissement.component";
@@ -13,13 +11,11 @@ import { ImagesEtablissementComponent } from "../tourims-progression2/images-tou
     MatTab,
     MatTabGroup,
     MatTabsModule,
-    MatProgressBar,
     CommonModule,
-    MatIcon,
     FinEtape1Component,
     ImagesEtablissementComponent
 ],
-  templateUrl: './tourims-progression2.component.html',
+  templateUrl: './tourims-progression2.component.html', 
   styleUrl: './tourims-progression2.component.css'
 })
 export class TourimsProgression2Component implements AfterViewInit{

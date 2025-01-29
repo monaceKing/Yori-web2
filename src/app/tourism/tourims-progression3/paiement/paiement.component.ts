@@ -1,11 +1,7 @@
-import { JsonPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCard, MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
-import { MatDivider } from '@angular/material/divider';
-import { MatIcon } from '@angular/material/icon';
-import { MatSelectionList, MatListOption } from '@angular/material/list';
-import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
 
 @Component({
   selector: 'app-paiement',
@@ -15,17 +11,10 @@ import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
     MatCardHeader,
     MatCardContent,
     MatCardTitle,
-    MatRadioGroup,
-    MatRadioButton,
-    MatDivider,
-    JsonPipe,
     ReactiveFormsModule,
     FormsModule,
-    MatIcon,
-    CommonModule,
-    MatSelectionList,
-    MatListOption,
-  ],
+    CommonModule
+],
   templateUrl: './paiement.component.html',
   styleUrl: './paiement.component.css'
 })

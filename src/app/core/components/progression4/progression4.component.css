@@ -154,7 +154,8 @@ body {
 
 @media (max-width: 768px) {
   .tab-navigation.style0, .tab-navigation.style1,.tab-navigation.style2,.tab-navigation.style3{
-    margin: 0;
+    margin: auto;
+    margin-top: 10px;
   }
 
   body{
@@ -165,6 +166,5 @@ body {
 
   .tab-container{
     width: 90%;
-    justify-content: center;
   }
 }  

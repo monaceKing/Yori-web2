@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, FormsModule } from '@angular/forms';
-import { MatCard } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
 
@@ -9,12 +8,11 @@ import { MatIcon } from '@angular/material/icon';
   selector: 'app-tarifs',
   standalone: true,
   imports: [
-    MatCard,
     MatIcon,
     MatDivider,
     CommonModule,
-    FormsModule,
-  ],
+    FormsModule
+],
   templateUrl: './tarifs.component.html',
   styleUrl: './tarifs.component.css'
 })

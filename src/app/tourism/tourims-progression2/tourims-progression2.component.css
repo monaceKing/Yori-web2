@@ -38,12 +38,12 @@ body {
   
   .tab-navigation-buttons button:first-child {
     background-color: #fff; /* Couleur de fond du bouton "Précédent" */
-    color: #77B5FE; /* Couleur du texte du bouton "Précédent" */
-    border: 2px solid #77B5FE; /* Bordure pour le bouton "Précédent" */
+    color: rgba(13, 13, 197, 0.8); /* Couleur du texte du bouton "Précédent" */
+    border: 2px solid rgba(13, 13, 197, 0.8); /* Bordure pour le bouton "Précédent" */
   }
   
   .tab-navigation-buttons button:last-child {
-    background-color: #77B5FE; /* Couleur de fond du bouton "Suivant" */
+    background-color: rgba(13, 13, 197, 0.8); /* Couleur de fond du bouton "Suivant" */
     color: #fff; /* Couleur du texte du bouton "Suivant" */
   }
   
@@ -93,7 +93,7 @@ body {
   }
   
   .circle.active {
-    background-color: #77B5FE;
+    background-color: rgba(13, 13, 197, 0.8);
   }
   
   .circle-title {
@@ -103,7 +103,7 @@ body {
     text-align: center;
   }
   
-  .tab-navigation.style1, .tab-navigation.style3, .tab-navigation.style4,.tab-navigation.style5, .tab-navigation.style7{
+  .tab-navigation.style1, .tab-navigation.style0{
     margin-right: 460px;
     margin-left: 350px;
   }
@@ -115,4 +115,21 @@ body {
   
   .tab-navigation.style0{
     margin-left: 510px;
+  }
+
+
+  @media (max-width: 768px) {
+    .tab-navigation.style0, 
+    .tab-navigation.style1{
+      margin: auto;
+    }
+    body{
+      height: auto;
+      margin: 0;
+      width: auto;
+    }
+  
+    .tab-container{
+      width: 90%;
+    }
   }

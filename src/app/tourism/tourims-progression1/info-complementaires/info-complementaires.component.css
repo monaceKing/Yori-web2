@@ -11,9 +11,7 @@
   .main-card {
     padding-left: 20px;
     flex: 1 1 100%; /* S'assure que la carte utilise toute la largeur disponible */
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre pour un effet de profondeur */
+    background-color: initial;
   }
   
 #remboursable{
@@ -101,9 +99,15 @@ label {
 }
 
   
-  @media (max-width: 768px) {
-    .container {
-      padding: 10px; /* Réduire le padding sur les petits écrans */
-    }
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px; /* Réduction du padding sur petits écrans */
   }
+
+  .main-card, .full-width {
+    width: auto; 
+  }
+
+}
   

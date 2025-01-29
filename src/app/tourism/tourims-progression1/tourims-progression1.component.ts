@@ -40,8 +40,8 @@ export class TourimsProgression1Component {
     this.activeTabIndex = event.index;
     localStorage.setItem('activeTabIndex', this.activeTabIndex.toString());
   }
-
-  selectTab(index: number) {
+ 
+  selectTab(index: number) { 
     this.activeTabIndex = index;
     localStorage.setItem('activeTabIndex', index.toString());
     this.tabGroup.selectedIndex = index;

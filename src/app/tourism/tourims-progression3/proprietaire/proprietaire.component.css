@@ -47,13 +47,30 @@
 
 
 
+
 @media (max-width: 768px) {
-  /* Réduction de la taille du texte */
-  .main-card p, .main-card h3 {
-    font-size: 0.9em; /* Réduire la taille du texte */
+
+    /* Réduction de la taille du texte */
+    .main-card p, .main-card h3 {
+      font-size: 0.9em; /* Réduire la taille du texte */
+    }
+  
+    .joue {
+      margin-left: 0; /* Ajuste le margin pour la responsivité */
+    }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    width: 95%;
   }
 
-  .joue {
-    margin-left: 0; /* Ajuste le margin pour la responsivité */
+  .main-card, .sub-card-container {
+    width: auto;
+  }
+
+  .sub-card {
+    position: static;
+    margin-bottom: 10px;
   }
 }

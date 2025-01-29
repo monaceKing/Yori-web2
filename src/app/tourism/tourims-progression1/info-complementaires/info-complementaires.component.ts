@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatCard, MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
+import { MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-info-complementaires',
   standalone: true,
   imports: [
-    MatCard,
     MatCardHeader,
     MatCardContent,
-    MatCardTitle ,
-    CommonModule 
-  ],
+    MatCardTitle,
+    CommonModule
+],
   templateUrl: './info-complementaires.component.html',
   styleUrl: './info-complementaires.component.css'
 })

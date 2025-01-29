@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatTab, MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { PaiementComponent } from "../../../hotels/paiement/paiement.component";
 import { ASavoirComponent } from "../../../hotels/a-savoir/a-savoir.component";

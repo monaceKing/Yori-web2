@@ -19,6 +19,18 @@ body {
     width: 97%;
   }
 
+  .tab-navigation.style2 button{
+    width: 100%;
+  }
+
+  .tab-navigation.style3{
+    width: 97%;
+  }
+
+  .tab-navigation.style2 button, .tab-navigation.style3 button{
+    text-align: center;
+    justify-content: center;
+  }
   
   .tab-navigation-buttons {
     display: flex;
@@ -121,7 +133,7 @@ body {
   
   .full-width-button {
     width: 90%;
-    display: block;
+    display: flex;
     margin-top: 10px;
     margin-bottom: 10px; 
     margin-right: 570px;
@@ -131,10 +143,34 @@ body {
   
   .full-width-button1 {
     width: 4200px;
-    display: block;
-    /* margin-top: 10px; */
+    display: flex;
     margin-bottom: 10px; 
     margin-right: 450px;
     height: 40px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .tab-navigation.style0,.tab-navigation.style1, .tab-navigation.style2{
+      margin: auto;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+
+    .tab-navigation.style2 button, .tab-navigation.style3 button{
+      width: auto;
+      margin: 0;
+    }
+
+    body{
+      height: auto;
+      margin: 0;
+      width: auto;
+    }
+  
+    .tab-container{
+      width: 90%;
+    }
   }
   
