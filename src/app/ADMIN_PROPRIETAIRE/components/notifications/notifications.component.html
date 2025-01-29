@@ -28,9 +28,10 @@
             <div class="etablissement-content">
               <strong>{{ etablissement.title }}</strong>
             </div>
-            <span class="etablissement-date">{{
-              etablissement.date | date : "dd MMMM yyyy à HH:mm"
-            }}</span>
+            <span class="etablissement-date">
+              <i class="fa-solid fa-stopwatch-20" id="logoChrono"></i>
+              {{ etablissement.date | date : "dd MMMM yyyy à HH:mm" }}</span
+            >
 
             <!-- Afficher le bouton si l'état est 'pending' -->
             <ng-container
@@ -76,9 +77,10 @@
             <div class="etablissement-content">
               <strong>{{ etablissement.title }}</strong>
             </div>
-            <span class="etablissement-date">{{
-              etablissement.date | date : "dd MMMM yyyy à HH:mm"
-            }}</span>
+            <span class="etablissement-date">
+              <i class="fa-solid fa-stopwatch-20" id="logoChrono"></i>
+              {{ etablissement.date | date : "dd MMMM yyyy à HH:mm" }}</span
+            >
 
             <button class="examiner-button">
               {{ etablissement.buttonText }}
@@ -101,9 +103,10 @@
             <div class="etablissement-content">
               <strong>{{ etablissement.title }}</strong>
             </div>
-            <span class="etablissement-date">{{
-              etablissement.date | date : "dd MMMM yyyy à HH:mm"
-            }}</span>
+            <span class="etablissement-date">
+              <i class="fa-solid fa-stopwatch-20" id="logoChrono"></i>
+              {{ etablissement.date | date : "dd MMMM yyyy à HH:mm" }}</span
+            >
 
             <!-- Afficher le texte du statut comme un texte brut ou un bouton cliquable -->
             <ng-container *ngIf="etablissement.examStatus === 'waiting'">

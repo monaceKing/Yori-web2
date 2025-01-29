@@ -446,7 +446,7 @@ a {
   padding: 20px;
 }
 .ligne {
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid lightgray;
 }
 .destinataire {
   width: 100%;
@@ -642,11 +642,12 @@ ul {
   color: gray;
 }
 .container_facture {
-  background-color: rgba(211, 211, 211, 0.3);
+  background-color: white;
   width: 55%;
   height: auto;
   padding: 10px 30px 10px 30px;
   margin-top: 30px;
+  border: 2px solid lightgray;
 }
 .entete1 {
   display: flex;

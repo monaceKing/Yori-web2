@@ -136,7 +136,7 @@
 }
 
 .table tr {
-  border: 1px solid #000000;
+  border: 2px solid lightgray;
 }
 
 .table-responsive {
@@ -725,12 +725,14 @@ ul {
   display: flex;
   justify-content: flex-start;
   gap: 5px;
+  align-items: center;
+  margin-top: 15px;
 }
 .pays {
   width: 20px;
   height: 15px;
   margin-right: 5px;
-  margin-top: px;
+  margin-top: 0px;
   margin-left: 5px;
 }
 .td1,
