@@ -67,11 +67,10 @@ label {
   background-color: aliceblue;
   width: 50px;
   text-align: center;
-  margin-left: 43%;
+  margin-left: 45%;
   border-radius: 90%;
   padding: 5px;
 }
-
 .graphique .jours {
   display: flex;
   justify-content: space-between;
