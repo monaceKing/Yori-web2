@@ -67,7 +67,8 @@ label {
 .image {
   background-color: aliceblue;
   width: 50px;
-  margin-left: 40%;
+  text-align: center;
+  margin-left: 43%;
   border-radius: 90%;
   padding: 5px;
 }
