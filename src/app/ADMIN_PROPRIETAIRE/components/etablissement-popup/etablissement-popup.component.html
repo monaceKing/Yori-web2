@@ -45,10 +45,12 @@
   >
     <ng-container *ngFor="let photo of data.photos.slice(0, 7); let i = index">
       <div class="photo-item">
-        <img
-          [src]="photo.url"
-          [alt]="photo.alt || 'Photo de l\'établissement'"
-        />
+        <a [href]="photo.url" target="_blank">
+          <img
+            [src]="photo.url"
+            [alt]="photo.alt || 'Photo de l\'établissement'"
+          />
+        </a>
       </div>
     </ng-container>
 

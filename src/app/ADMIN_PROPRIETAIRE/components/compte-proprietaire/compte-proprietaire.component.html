@@ -108,7 +108,12 @@
               <label for="search" class="lab-search">Mots-clés</label>
             </div>
             <div>
-              <input type="search" name="search" class="input-search" />
+              <input
+                type="search"
+                name="search"
+                class="input-search"
+                placeholder="Mots-clés (facultatif)"
+              />
             </div>
           </div>
         </div>
@@ -507,7 +512,7 @@
                       <td class="td1" style="color: #77b5fe">
                         {{ client.nom }}
                       </td>
-                      <td class="td1" class="pays_structure">
+                      <td class="td1" class="pays_structure" id="pays">
                         {{ client.pays }}
                         <img
                           [src]="'assets/flags/' + client.pays + '.png'"
