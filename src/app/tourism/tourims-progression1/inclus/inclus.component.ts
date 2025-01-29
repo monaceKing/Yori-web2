@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatCard, MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
+import { MatCardHeader, MatCardContent, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-inclus',
   standalone: true,
-  imports: [ 
-    MatCard,
+  imports: [
     MatCardHeader,
     MatCardContent,
-    MatCardTitle ,
-    CommonModule   
-  ],
+    MatCardTitle,
+    CommonModule
+],
   templateUrl: './inclus.component.html',
   styleUrl: './inclus.component.css'
 })

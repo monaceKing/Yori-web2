@@ -11,9 +11,7 @@
   .main-card {
     padding-left: 20px;
     flex: 1 1 100%; /* S'assure que la carte utilise toute la largeur disponible */
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: initial;
   }
   
 #remboursable{
@@ -102,9 +100,14 @@ label {
 }
 
   
-  @media (max-width: 768px) {
-    .container {
-      padding: 10px; 
-    }
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px; /* Réduction du padding sur petits écrans */
   }
-  
+
+  .main-card, .full-width {
+    width: auto; 
+  }
+
+}

@@ -52,7 +52,6 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', component: Acceuil1Component }, // Route par défaut
-      { path: 'home', component: HomeComponent },
       // Ajoutez d'autres routes nécessitant le header1 et footer ici
     ],
   },

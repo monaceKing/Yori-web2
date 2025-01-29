@@ -56,13 +56,13 @@ ul{
 }
 
 .ma-div:hover {
-  border-color: #77B5FE; /* Changer la couleur de la bordure au survol */
+  border-color: rgba(13, 13, 197, 0.8); /* Changer la couleur de la bordure au survol */
 }
 
 .button{
   background-color: inherit;
-  color: #77B5FE;
-  border: 2px solid #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
+  border: 2px solid rgba(13, 13, 197, 0.8);
   border-radius: 5px;
   cursor: pointer;
   height: 40px;
@@ -114,6 +114,7 @@ ul{
 /* Ajout de styles pour la responsivité */
 @media (max-width: 768px) {
   .container {
+    width: 90%;
     flex-direction: column; /* Passe en colonne sur petits écrans */
     padding: 10px; /* Réduction du padding sur petits écrans */
     font-size: 12px;

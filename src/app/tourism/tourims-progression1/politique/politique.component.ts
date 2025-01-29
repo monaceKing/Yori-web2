@@ -1,9 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
-import { MatChip, MatChipSet } from '@angular/material/chips';
-import { MatDivider } from '@angular/material/divider';
 import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material/radio';
 
 @Component({
@@ -15,15 +12,8 @@ import { MatRadioButton, MatRadioGroup, MatRadioModule } from '@angular/material
     MatRadioGroup,
     MatRadioModule,
     CommonModule,
-    FormsModule,
-    MatCardContent,
-    MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatDivider,
-    MatChip,
-    MatChipSet
-  ],
+    FormsModule
+],
   templateUrl: './politique.component.html',
   styleUrl: './politique.component.css'
 })
