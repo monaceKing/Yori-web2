@@ -14,9 +14,13 @@ body {
 .tab-navigation-buttons {
   display: flex;
   justify-content: center;
-  padding-left: 35px;
+  padding-left: 30px;
   gap: 10px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+}
+
+.btn-suivant{
+  margin-right: 20px;
 }
 
 .tab-navigation-buttons button { 
@@ -29,7 +33,7 @@ body {
   transition: background-color 0.3s, transform 0.2s;
   display: flex;
   align-items: center;
-  gap: 5px; 
+  /* gap: 5px; */
 }
 
 mat-tab {

@@ -13,13 +13,13 @@ body {
   
   .tab-navigation-buttons {
     display: flex;
-    /* justify-content: center; */
-    justify-content: space-between;
-    gap: 10px; /* Espacement entre les boutons */
-    margin-top: 5px; /* Espace au-dessus des boutons */
+    justify-content: left;
+    padding-left: 90px;
+    gap: 10px;
+    /* margin-top: 5px; */
   }
   
-  .tab-navigation-buttons button {
+  .tab-navigation-buttons button { 
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -29,7 +29,7 @@ body {
     transition: background-color 0.3s, transform 0.2s;
     display: flex;
     align-items: center;
-    gap: 5px; /* Espacement entre l'icône et le texte */
+    /* gap: 5px; */
   }
   
   mat-tab {
