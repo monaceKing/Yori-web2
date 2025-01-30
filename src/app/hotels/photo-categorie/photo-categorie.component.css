@@ -4,7 +4,7 @@
   gap: 20px;
   background-color: inherit;
   width: 100%;
-  margin: 20px 0 20px 0;
+  margin: 20px 0 10px 0;
 }
 
 mat-label{
@@ -20,7 +20,7 @@ mat-label{
 }
 
 .main-card {
-  flex: 1 60%;
+  flex: 1 62%;
   background-color: white;
 }
 
