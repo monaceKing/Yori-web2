@@ -83,15 +83,15 @@ button {
 
 .jours button {
   border-radius: 15px;
-  border: 0.2px solid #77b5fe;
-  color: #77b5fe;
+  border: 0.2px solid rgba(13, 13, 197, 0.8);
+  color: rgba(13, 13, 197, 0.8);
   background-color: white;
   padding: 5px 10px;
   cursor: pointer;
 }
 
 .jours button:hover {
-  background-color: #77b5fe;
+  background-color: rgba(13, 13, 197, 0.8);
   color: white;
 }
 

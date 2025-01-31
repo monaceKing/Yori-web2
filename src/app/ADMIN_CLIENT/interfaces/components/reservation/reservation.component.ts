@@ -3,8 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 
-
-
 interface Client {
   nom: string;
   personne: number;
@@ -18,29 +16,22 @@ interface Client {
   commission: string;
   duree: string;
   numeroReservation: string;
+  pays: string;
 }
-
 
 @Component({
   selector: 'app-accueil-pro',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatIcon,
-    CommonModule
-  ],
+  imports: [CommonModule, FormsModule, MatIcon, CommonModule],
   templateUrl: './reservation.component.html',
-  styleUrl: './reservation.component.css'
+  styleUrl: './reservation.component.css',
 })
-
 export class ReservationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   ngOnDestroy(): void {}
 
-
-    clients: Client[] = [
+  clients: Client[] = [
     {
       nom: 'Jean Dupont',
       arrivee: '2024-11-01',
@@ -52,8 +43,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '50€',
       duree: '4 jours',
       numeroReservation: 'RES123456',
-      nombreHebergement:null,
-      personne: 0
+      nombreHebergement: null,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Marie Curie',
@@ -66,8 +58,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '80€',
       duree: '5 jours',
       numeroReservation: 'RES123457',
-      nombreHebergement:2,
-      personne: 0
+      nombreHebergement: 2,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Pierre Martin',
@@ -80,8 +73,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '40€',
       duree: '5 jours',
       numeroReservation: 'RES123458',
-      nombreHebergement:null,
-      personne: 0
+      nombreHebergement: null,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Sophie Germain',
@@ -94,8 +88,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '60€',
       duree: '5 jours',
       numeroReservation: 'RES123459',
-      nombreHebergement:4,
-      personne: 0
+      nombreHebergement: 4,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Lucie Aubrac',
@@ -108,8 +103,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '70€',
       duree: '5 jours',
       numeroReservation: 'RES123460',
-      nombreHebergement:null,
-      personne: 0
+      nombreHebergement: null,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Antoine Doinel',
@@ -122,8 +118,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '55€',
       duree: '5 jours',
       numeroReservation: 'RES123461',
-      nombreHebergement:4,
-      personne: 0
+      nombreHebergement: 4,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Clara Zetkin',
@@ -136,8 +133,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '45€',
       duree: '3 jours',
       numeroReservation: 'RES123462',
-      nombreHebergement:null,
-      personne: 0
+      nombreHebergement: null,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Gabriel Garcia',
@@ -150,8 +148,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '30€',
       duree: '3 jours',
       numeroReservation: 'RES123463',
-      nombreHebergement:2,
-      personne: 0
+      nombreHebergement: 2,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Nina Simone',
@@ -164,8 +163,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '40€',
       duree: '3 jours',
       numeroReservation: 'RES123464',
-      nombreHebergement:3,
-      personne: 0
+      nombreHebergement: 3,
+      personne: 0,
+      pays: 'Gabon',
     },
     {
       nom: 'Albert Camus',
@@ -178,136 +178,145 @@ export class ReservationComponent implements OnInit, OnDestroy {
       commission: '60€',
       duree: '7 jours',
       numeroReservation: 'RES123465',
-      nombreHebergement:5,
-      personne: 0
+      nombreHebergement: 5,
+      personne: 0,
+      pays: 'Gabon',
     },
   ];
 
+  statutsFiltres: string[] = [
+    'Tous',
+    'Réservation',
+    'Arrivées',
+    'Départs',
+    'Séjour en cours',
+    'A venir',
+    'Annulées',
+  ];
+  selectedStatut: string = 'Tous';
+  dateDebut: string = '';
+  dateFin: string = '';
+  showCheckboxes: boolean = false;
+  selectedStatuts: string[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+  itemsPerPageOptions: number[] = [5, 10, 50];
+  selectedClient: any = null;
+  showDetails: boolean = false;
+  numeroTelephone: boolean = false;
+  checkboxValues: { [key: string]: boolean } = {};
+  openFiltre: boolean = false;
 
-    statutsFiltres: string[] = ['Tous', 'Réservation', 'Arrivées', 'Départs', 'Séjour en cours', 'A venir', 'Annulées'];
-    selectedStatut: string = 'Tous';
-    dateDebut: string = '';
-    dateFin: string = '';
-    showCheckboxes: boolean = false;
-    selectedStatuts: string[] = [];
-    currentPage: number = 1;
-    itemsPerPage: number = 5;
-    itemsPerPageOptions: number[] = [5, 10, 50];
-    selectedClient: any = null;
-    showDetails: boolean = false;
-    numeroTelephone:boolean = false;
-    checkboxValues: { [key: string]: boolean } = {};
-    openFiltre: boolean = false;
-
-    afficherFiltre() {
+  afficherFiltre() {
     this.openFiltre = !this.openFiltre;
   }
 
-    labels = [
-      { for: 'statut', text: 'Date de ' },
-      { for: 'dateDebut', text: 'Du ' },
-      { for: 'dateFin', text: 'Au ' },
-      { for: 'filtre', text: 'Filtre ' }
-    ];
+  labels = [
+    { for: 'statut', text: 'Date de ' },
+    { for: 'dateDebut', text: 'Du ' },
+    { for: 'dateFin', text: 'Au ' },
+    { for: 'filtre', text: 'Filtre ' },
+  ];
 
-    // Fonction pour obtenir la classe dynamique
-    getLabelClass(index: number): string {
-      switch(index) {
-        case 0:
-          return 'label-style-1';
-        case 1:
-          return 'label-style-2';
-        case 2:
-          return 'label-style-3';
-        case 3:
-          return 'label-style-4';
-        default:
-          return '';
-      }
+  // Fonction pour obtenir la classe dynamique
+  getLabelClass(index: number): string {
+    switch (index) {
+      case 0:
+        return 'label-style-1';
+      case 1:
+        return 'label-style-2';
+      case 2:
+        return 'label-style-3';
+      case 3:
+        return 'label-style-4';
+      default:
+        return '';
     }
+  }
 
-    getClientsFiltres() {
-        return this.clients.filter(client => {
-            const dateArrivee = new Date(client.arrivee);
-            const dateDebutObj = new Date(this.dateDebut);
-            const dateFinObj = new Date(this.dateFin);
+  getClientsFiltres() {
+    return this.clients.filter((client) => {
+      const dateArrivee = new Date(client.arrivee);
+      const dateDebutObj = new Date(this.dateDebut);
+      const dateFinObj = new Date(this.dateFin);
 
-            const isStatutValide = this.selectedStatut === 'Tous' || client.statuts === this.selectedStatut;
-            const isDateValide = (!this.dateDebut || dateArrivee >= dateDebutObj) && (!this.dateFin || dateArrivee <= dateFinObj);
+      const isStatutValide =
+        this.selectedStatut === 'Tous' ||
+        client.statuts === this.selectedStatut;
+      const isDateValide =
+        (!this.dateDebut || dateArrivee >= dateDebutObj) &&
+        (!this.dateFin || dateArrivee <= dateFinObj);
 
-            return isStatutValide && isDateValide;
-        });
-    }
+      return isStatutValide && isDateValide;
+    });
+  }
 
-    totalTarif(): number {
-        return this.getClientsFiltres().reduce((total, client) => {
-            const tarif = Number(client.tarif.replace('€', '').trim()) || 0; // Retire le symbole et convertit
-            return total + tarif;
-        }, 0);
-    }
+  totalTarif(): number {
+    return this.getClientsFiltres().reduce((total, client) => {
+      const tarif = Number(client.tarif.replace('€', '').trim()) || 0; // Retire le symbole et convertit
+      return total + tarif;
+    }, 0);
+  }
 
-    totalCommission(): number {
-        return this.getClientsFiltres().reduce((total, client) => {
-            const commission = Number(client.commission.replace('€', '').trim()) || 0; // Retire le symbole et convertit
-            return total + commission;
-        }, 0);
-    }
+  totalCommission(): number {
+    return this.getClientsFiltres().reduce((total, client) => {
+      const commission = Number(client.commission.replace('€', '').trim()) || 0; // Retire le symbole et convertit
+      return total + commission;
+    }, 0);
+  }
 
-    printPage() {
-        window.print();
-    }
+  printPage() {
+    window.print();
+  }
 
-    toggleCheckboxes() {
-      this.showCheckboxes = !this.showCheckboxes;
-    }
+  toggleCheckboxes() {
+    this.showCheckboxes = !this.showCheckboxes;
+  }
 
-    toggleStatutSelection(statut: string, event: Event) {
+  toggleStatutSelection(statut: string, event: Event) {
     const checkbox = event.target as HTMLInputElement;
     if (checkbox.checked) {
-        this.selectedStatuts.push(statut);
+      this.selectedStatuts.push(statut);
     } else {
-        this.selectedStatuts = this.selectedStatuts.filter(s => s !== statut);
+      this.selectedStatuts = this.selectedStatuts.filter((s) => s !== statut);
     }
     console.log(this.selectedStatuts); // Pour déboguer et voir les statuts sélectionnés
+  }
+
+  get paginatedClients() {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    return this.getClientsFiltres().slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.ceil(this.getClientsFiltres().length / this.itemsPerPage);
+  }
+
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
     }
+  }
 
-    get paginatedClients() {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
-      return this.getClientsFiltres().slice(start, start + this.itemsPerPage);
-    }
+  onItemsPerPageChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.itemsPerPage = Number(selectElement.value);
+    this.currentPage = 1; // Réinitialiser à la première page
+  }
 
-    get totalPages() {
-      return Math.ceil(this.getClientsFiltres().length / this.itemsPerPage);
-    }
+  // Méthode appelée lors du clic sur le lien
+  afficherDetails(client: Client) {
+    this.selectedClient = client;
+    this.showDetails = true; // On affiche la div conditionnée
+  }
 
-    goToPage(page: number) {
-      if (page >= 1 && page <= this.totalPages) {
-        this.currentPage = page;
-      }
-    }
+  afficherTelephone() {
+    this.numeroTelephone = !this.numeroTelephone;
+  }
 
-    onItemsPerPageChange(event: Event) {
-      const selectElement = event.target as HTMLSelectElement;
-      this.itemsPerPage = Number(selectElement.value);
-      this.currentPage = 1; // Réinitialiser à la première page
-    }
-
-
-    // Méthode appelée lors du clic sur le lien
-    afficherDetails(client: Client) {
-      this.selectedClient = client;
-      this.showDetails = true; // On affiche la div conditionnée
-    }
-
-    afficherTelephone(){
-      this.numeroTelephone = !this.numeroTelephone
-    }
-
-      // Méthode pour revenir à la vue par défaut
-    revenir() {
-      this.selectedClient  = null;
-      this.showDetails = false; // On cache la div conditionnée
-    }
-
-
+  // Méthode pour revenir à la vue par défaut
+  revenir() {
+    this.selectedClient = null;
+    this.showDetails = false; // On cache la div conditionnée
+  }
 }

@@ -1,26 +1,26 @@
-.gallery-container, .container-chambre {
+.gallery-container,
+.container-chambre {
   width: 90%;
   margin: 20px;
   text-align: center;
 }
 
-
-.revenir{
+.revenir {
   margin: 10px 30px;
   height: 30px;
 }
 
-.titre{
+.titre {
   margin-left: 80px;
   text-align: left;
 }
 
-.section{
-    width: 90%; /* Largeur du conteneur */
-    max-width: 1200px; /* Largeur maximale pour éviter que le conteneur ne devienne trop large sur les grands écrans */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-    padding: 16px; /* Ajoute un peu d'espace intérieur */
-    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+.section {
+  width: 90%; /* Largeur du conteneur */
+  max-width: 1200px; /* Largeur maximale pour éviter que le conteneur ne devienne trop large sur les grands écrans */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  padding: 16px; /* Ajoute un peu d'espace intérieur */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
 }
 
 .controls {
@@ -33,57 +33,51 @@
   border-bottom: 0.2px solid rgb(212, 212, 212);
 }
 
-
-.text{
+.text {
   background-color: white;
   text-align: left;
   padding: 10px;
 }
 
-.btn, .btn-1 {
+.btn,
+.btn-1 {
   font-size: 16px;
   margin-right: 10px;
   cursor: pointer;
-  border: 0.2px solid #77B5FE;
+  border: 0.2px solid rgba(13, 13, 197, 0.8);
   background-color: white;
-  color: #77B5FE;
-
+  color: rgba(13, 13, 197, 0.8);
 }
 
-.btn-1{
-    color: #77B5FE;
+.btn-1 {
+  color: rgba(13, 13, 197, 0.8);
 }
 
-.btn2{
-    background-color: #77B5FE;
-    color: white;
-    border: none;
-    cursor: pointer;
+.btn2 {
+  background-color: rgba(13, 13, 197, 0.8);
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-
-.one-btn{
+.one-btn {
   margin: 5px 0;
 }
 
-
-.all-btn{
+.all-btn {
   background-color: white;
   display: flex;
-  padding:20px;
+  padding: 20px;
   margin-top: -2.5px;
   margin-left: 4px;
   width: 291px;
-
 }
 
-.all-btn button{
+.all-btn button {
   font-size: 25px;
 }
 
-
-
-.btn-add{
+.btn-add {
   margin-top: 5px;
   padding-top: 20px;
   width: 290px;
@@ -93,30 +87,28 @@
   border: 0.2px solid rgb(212, 212, 212);
 }
 
-
-.btn-add button{
+.btn-add button {
   cursor: pointer;
   font-size: 25px;
   font-weight: 200;
   border: none;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   background-color: initial;
 }
 
-.btn-add mat-icon{
+.btn-add mat-icon {
   font-size: 25px;
   cursor: pointer;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
 }
 
-.btn-add img{
+.btn-add img {
   cursor: pointer;
 }
 
 input[type="file"] {
   margin-top: 10px;
 }
-
 
 .image-gallery {
   /* background-color: blue; */
@@ -126,7 +118,6 @@ input[type="file"] {
   padding: 10px;
   height: 100%;
 }
-
 
 .image-item {
   /* background-color: white; */
@@ -144,26 +135,27 @@ input[type="file"] {
   z-index: 10;
 }
 
-
 .image-item label {
   cursor: pointer;
 }
 
-
 .image-item img {
   width: 330px;
-  height: 250px;  /* Garde les proportions de l'image */
+  height: 250px; /* Garde les proportions de l'image */
   object-fit: cover; /* Assure que l'image couvre la cellule sans déformation */
 }
-
-
 
 .image-caption {
   position: absolute; /* Positionnement absolu */
   bottom: 11px; /* Aligne le texte en bas */
   left: 5px; /* Aligne à gauche */
   right: 0; /* Aligne à droite */
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fond semi-transparent pour améliorer la lisibilité */
   color: white; /* Couleur du texte */
   text-align: center; /* Centre le texte */
   padding: 15px 0; /* Ajoute un peu d'espace autour du texte */
@@ -171,12 +163,9 @@ input[type="file"] {
   width: 330px;
 }
 
-
 mat-label {
   font-weight: 500;
 }
-
-
 
 .main-card {
   background-color: white;
@@ -186,7 +175,7 @@ mat-label {
   flex: 1 1 40%;
 }
 
-#haut{
+#haut {
   margin-bottom: 10px;
   background-color: white;
 }
@@ -249,7 +238,7 @@ mat-label {
 
 .btn-blue {
   background-color: inherit;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   font-size: 25px;
   margin-bottom: 15px;
 }
@@ -282,7 +271,7 @@ ul {
   .main-card,
   .sub-card {
     width: 100%; /* Prendre 100% de la largeur sur petits écrans */
-    margin:10px  0; /* Éliminer les marges pour éviter les débordements */
+    margin: 10px 0; /* Éliminer les marges pour éviter les débordements */
   }
 
   .example-card {

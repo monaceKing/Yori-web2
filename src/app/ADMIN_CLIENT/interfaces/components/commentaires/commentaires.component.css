@@ -1,12 +1,12 @@
-.container{
+.container {
   margin-top: -20px;
   padding-left: 30px;
 }
 
-.comment{
-width: 30%;
-background-color: white;
-padding: 30px;
+.comment {
+  width: 30%;
+  background-color: white;
+  padding: 30px;
 }
 
 .comment-rating {
@@ -41,29 +41,29 @@ padding: 30px;
 
 .reply-button {
   border: none;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   display: block;
   margin-top: 5px;
   margin-left: 250px;
   background-color: initial;
-  font-weight:bold;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .commentaire {
   background-color: rgb(224, 224, 224);
-  width: 300px;          /* Largeur fixe de 300 pixels */
-  height: auto;          /* Hauteur automatique */
+  width: 300px; /* Largeur fixe de 300 pixels */
+  height: auto; /* Hauteur automatique */
   display: inline-block; /* Permet à la div de s'ajuster à son contenu */
-  padding: 10px;         /* Ajoute de l'espace intérieur */
-  margin: 5px 0;        /* Ajoute un espacement vertical entre les commentaires */
+  padding: 10px; /* Ajoute de l'espace intérieur */
+  margin: 5px 0; /* Ajoute un espacement vertical entre les commentaires */
   border: 1px solid #ccc; /* Optionnel : ajoute une bordure pour visualiser la div */
-  border-radius: 5px;   /* Optionnel : arrondit les coins de la bordure */
+  border-radius: 5px; /* Optionnel : arrondit les coins de la bordure */
   word-wrap: break-word; /* Permet au texte de revenir à la ligne si trop long */
 }
 
-.reponse{
-margin-bottom: 20px;
+.reponse {
+  margin-bottom: 20px;
 }
 
 .profile-icon {
@@ -82,31 +82,27 @@ margin-bottom: 20px;
   align-items: center;
 }
 
-
-
 @media (max-width: 768px) {
   .commentaire {
     background-color: rgb(224, 224, 224);
-    width: auto;          /* Largeur fixe de 300 pixels */
-    height: auto;          /* Hauteur automatique */
+    width: auto; /* Largeur fixe de 300 pixels */
+    height: auto; /* Hauteur automatique */
     display: inline-block; /* Permet à la div de s'ajuster à son contenu */
-    padding: 2px;         /* Ajoute de l'espace intérieur */
-    margin: 0;        /* Ajoute un espacement vertical entre les commentaires */
+    padding: 2px; /* Ajoute de l'espace intérieur */
+    margin: 0; /* Ajoute un espacement vertical entre les commentaires */
     border: 1px solid #ccc; /* Optionnel : ajoute une bordure pour visualiser la div */
-    border-radius: 5px;   /* Optionnel : arrondit les coins de la bordure */
+    border-radius: 5px; /* Optionnel : arrondit les coins de la bordure */
     word-wrap: break-word; /* Permet au texte de revenir à la ligne si trop long */
   }
 
-
   .reply-button {
     border: none;
-    color: #77B5FE;
+    color: rgba(13, 13, 197, 0.8);
     display: block;
     margin-top: 5px;
     margin-left: auto;
     background-color: initial;
-    font-weight:bold;
+    font-weight: bold;
     cursor: pointer;
   }
-  
 }

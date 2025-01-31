@@ -1,4 +1,4 @@
-.container{
+.container {
   padding: 20px 60px;
 }
 
@@ -23,36 +23,34 @@
   min-width: 150px; /* Largeur minimale pour chaque onglet */
 }
 
-
-
-.send-message{
+.send-message {
   background-color: white;
   height: 30px;
   display: flex;
   gap: 5px;
   /* border: 0.2px solid #d1cfcf; */
-  border:none;
+  border: none;
 }
 
-
-.send-message span{
+.send-message span {
   padding-top: 5px;
 }
 
-
 .btn-send2 {
-  background-color: #77B5FE; /* Couleur de fond bleu pour le bouton "Envoyer" */
+  background-color: rgba(
+    13,
+    13,
+    197,
+    0.8
+  ); /* Couleur de fond bleu pour le bouton "Envoyer" */
   color: white; /* Texte blanc pour le bouton "Envoyer" */
   margin: 0 20px 0 5px;
   border-radius: 5px;
 }
 
-
-
 .btn-send2:hover {
   background-color: #0056b3; /* Couleur plus foncée au survol du bouton "Envoyer" */
 }
-
 
 .message-preview {
   display: flex; /* Utilise flexbox pour aligner les éléments sur la même ligne */
@@ -91,7 +89,7 @@
   color: #666; /* Couleur grise pour la date */
 }
 
-.message-text{
+.message-text {
   border: 0.5px solid #ccc;
   margin: 5px;
   padding: 5px;
@@ -126,15 +124,13 @@
   height: 200px;
 }
 
-
-
 .reply-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.5em;
   color: #ffffff;
-  background-color: #77B5FE80;
+  background-color: rgba(13, 13, 197, 0.8) 80;
   width: 100%;
   height: 45px;
   border-radius: 8px 8px 0 0;
@@ -152,7 +148,8 @@
   border-radius: 8px 8px 0 0;
 }
 
-.reply-title p,  .reply-title2 p{
+.reply-title p,
+.reply-title2 p {
   padding: 10px;
 }
 
@@ -167,15 +164,15 @@
   font-weight: bold; /* Met le texte en gras */
 }
 
-.reply-textarea{
+.reply-textarea {
   width: calc(100% - 20px); /* Largeur complète en tenant compte du padding */
   padding: 10px; /* Padding interne */
   margin-top: 20px; /* Espace au-dessus des champs */
-  border:none;/* Bordure grise */
+  border: none; /* Bordure grise */
   box-sizing: border-box; /* Inclut padding et bordure dans la largeur totale */
 }
 
-.reply-input{
+.reply-input {
   border: none;
   border-bottom: 0.2px solid #ccc;
   border-top: 0.2px solid #ccc;
@@ -189,7 +186,6 @@
 .reply-textarea {
   height: 100px; /* Hauteur fixe pour la zone de texte */
 }
-
 
 .reply-file-input {
   margin-bottom: 0;
@@ -208,7 +204,12 @@
 }
 
 .btn-send {
-  background-color: #77B5FE; /* Couleur de fond bleu pour le bouton "Envoyer" */
+  background-color: rgba(
+    13,
+    13,
+    197,
+    0.8
+  ); /* Couleur de fond bleu pour le bouton "Envoyer" */
   color: white; /* Texte blanc pour le bouton "Envoyer" */
 }
 
@@ -216,22 +217,19 @@
   background-color: #0056b3; /* Couleur plus foncée au survol du bouton "Envoyer" */
 }
 
-
-.btn-cancel{
- color: white;
- background-color: initial;
- font-size: 20px;
- font-weight: bold;
+.btn-cancel {
+  color: white;
+  background-color: initial;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-
-.btn-cancel2{
- color: rgb(0, 0, 0);
- background-color: initial;
- font-size: 15px;
- font-weight: bold;
+.btn-cancel2 {
+  color: rgb(0, 0, 0);
+  background-color: initial;
+  font-size: 15px;
+  font-weight: bold;
 }
-
 
 .overlay {
   position: fixed;
@@ -243,10 +241,8 @@
   z-index: 999; /* Juste en dessous du pop-up */
 }
 
-
-
 @media (max-width: 768px) {
-  .group{
+  .group {
     width: 100%;
   }
 }

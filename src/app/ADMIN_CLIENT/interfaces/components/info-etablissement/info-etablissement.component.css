@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
@@ -22,7 +22,6 @@ tr:last-child {
   border-bottom: none;
 }
 
-
 /* Supprimer la bordure sous la dernière ligne */
 tr:last-child {
   border-bottom: none;
@@ -32,7 +31,6 @@ tr:last-child {
 .multi-line {
   display: flex;
   flex-direction: column; /* Afficher le contenu sur deux lignes */
-
 }
 
 /* S'assurer que le texte est en gras pour l'étiquette */
@@ -53,7 +51,7 @@ input[type="text"] {
 /* Bouton de soumission */
 input[type="submit"] {
   padding: 10px 20px;
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.8);
   color: white;
   border: none;
   cursor: pointer;
@@ -63,34 +61,32 @@ input[type="submit"] {
 
 /* Changer la couleur du bouton quand on passe dessus */
 input[type="submit"]:hover {
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.8);
 }
 
-.link{
-  color: #77B5FE;
+.link {
+  color: rgba(13, 13, 197, 0.8);
   cursor: pointer;
   text-decoration: underline;
 }
 
-
-.icon{
+.icon {
   cursor: pointer;
   border: none;
   background-color: initial;
   font-size: 10px;
 }
 
-.btn-send{
+.btn-send {
   color: white;
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.8);
   border: none;
   margin: 16px 0;
-  display: flex ;
+  display: flex;
   justify-content: right;
   text-align: right;
   padding: 8px;
 }
 
 @media (max-width: 768px) {
-
 }

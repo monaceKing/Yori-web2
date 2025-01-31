@@ -2,40 +2,38 @@
   padding: 20px 30px;
 }
 
-#hebergement{
+#hebergement {
   margin: 10px 0;
-  height:  25px;
+  height: 25px;
   padding: 2px;
 }
 
-#inputNumber{
+#inputNumber {
   margin: 10px 0;
   height: 25px;
   width: 50px;
 }
 
-#inputNumber2{
+#inputNumber2 {
   width: 100px;
   height: 25px;
 }
 
-
-#mettre{
+#mettre {
   width: 110px;
   height: 31px;
 }
-
 
 label {
   font-weight: bold;
   /* margin-left: 20px; */
 }
 
-.photo{
+.photo {
   margin-left: -20px;
 }
 
-mat-card-content{
+mat-card-content {
   padding-left: 50px;
 }
 
@@ -54,7 +52,6 @@ input[type="checkbox"] {
 .main-card {
   background-color: white;
 }
-
 
 .example-card {
   border: none;
@@ -79,8 +76,6 @@ input[type="checkbox"] {
   font-size: 14px; /* Taille du texte */
   margin-left: 5px; /* Espace entre l'image et le texte */
 }
-
-
 
 .quantity-container {
   display: flex;
@@ -114,7 +109,7 @@ input[type="checkbox"] {
 
 .btn-blue {
   background-color: inherit;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   font-size: 25px;
   /* margin-bottom: 15px; */
 }
@@ -127,7 +122,6 @@ input[type="checkbox"] {
   font-weight: bold;
 }
 
-
 ul {
   margin-top: 50px;
 }
@@ -139,7 +133,7 @@ ul {
     padding: 10px; /* Réduction du padding sur petits écrans */
   }
 
-  .main-card{
+  .main-card {
     width: 100%; /* Prendre 100% de la largeur sur petits écrans */
   }
 

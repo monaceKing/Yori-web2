@@ -1,55 +1,53 @@
-.container{
-    margin-top: -20px; /*espace entre le composant et le header */
-    display: flex;
-    flex-direction: column; /* Aligne les enfants en colonne */
-    justify-content: center; /* Centre verticalement */
-    align-items: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-    padding: 20px; /* Ajoute un peu d'espace autour */
+.container {
+  margin-top: -20px; /*espace entre le composant et le header */
+  display: flex;
+  flex-direction: column; /* Aligne les enfants en colonne */
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  text-align: center; /* Centre le texte */
+  padding: 20px; /* Ajoute un peu d'espace autour */
 }
 
-.form{
-    margin-top: 10px;
+.form {
+  margin-top: 10px;
 }
 
 .card {
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column; /* Aligne les enfants en colonne */
-    justify-content: left; /* Centre verticalement */
-    align-items: left; /* Centre horizontalement */
-    text-align: left; /* Centre le texte */
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column; /* Aligne les enfants en colonne */
+  justify-content: left; /* Centre verticalement */
+  align-items: left; /* Centre horizontalement */
+  text-align: left; /* Centre le texte */
 }
 
-.icons{
-    margin-right: 5px;
-    margin-bottom: -8px;
-    font-weight: 400;
-    color: #77B5FE;
+.icons {
+  margin-right: 5px;
+  margin-bottom: -8px;
+  font-weight: 400;
+  color: rgba(13, 13, 197, 0.8);
 }
 
-.hr{
-    width: 473px;
+.hr {
+  width: 473px;
 }
 
-
-.link a{
-    font-weight: 400;
-    text-decoration: none;
-    color: #77B5FE;
+.link a {
+  font-weight: 400;
+  text-decoration: none;
+  color: rgba(13, 13, 197, 0.8);
 }
 
-.link{
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
+.link {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.div-top{
-    margin-bottom: 20px;
+.div-top {
+  margin-bottom: 20px;
 }
 
-
-.para{
-    margin: 40px 0;
+.para {
+  margin: 40px 0;
 }

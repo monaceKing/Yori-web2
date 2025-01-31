@@ -1,81 +1,84 @@
 <div class="container">
-    <div class="first" *ngIf="!showDetails">
+  <div class="first" *ngIf="!showDetails">
     <div>
-            <h2 class="titre">Réservations</h2>
-            <div class="filtre">
-                <div class="labels">
-                    <label *ngFor="let label of labels; let i = index"
-                           [ngClass]="getLabelClass(i)"
-                           [attr.for]="label.for"
-                           (click)="toggleCheckboxes()">
-                      {{ label.text }}
-                    </label> 
-                  </div>
-              <div class="inputs">
-                  <select id="statut" [(ngModel)]="selectedStatut">
-                      <option *ngFor="let statut of statutsFiltres" [value]="statut">{{ statut }}</option>
-                  </select>
+      <h2 class="titre">Réservations</h2>
+      <div class="filtre">
+        <div class="labels">
+          <label
+            *ngFor="let label of labels; let i = index"
+            [ngClass]="getLabelClass(i)"
+            [attr.for]="label.for"
+            (click)="toggleCheckboxes()"
+          >
+            {{ label.text }}
+          </label>
+        </div>
+        <div class="inputs">
+          <select id="statut" [(ngModel)]="selectedStatut">
+            <option *ngFor="let statut of statutsFiltres" [value]="statut">
+              {{ statut }}
+            </option>
+          </select>
 
-                  <input type="date" id="dateDebut" [(ngModel)]="dateDebut" />
-                  <input type="date" id="dateFin" [(ngModel)]="dateFin" />
-                  <button type="button" class="select" (click)="afficherFiltre()">Plus de filtres</button>
-                  <button type="button" class="voir">Voir les résultats</button>
-              </div>
-              <div *ngIf="openFiltre" class="checkbox">
-                <div class="checkbox-container">
-                  <div>
-                    <label for="">Statut de la réservation</label>
-                  </div>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="tous" /> Tous
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="reservation" /> Réservation
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="arrivees" /> Arrivées
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="departures" /> Départs
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="sejour-en-cours" /> Séjour en cours
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="a-venir" /> A venir
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="annulees" /> Annulées
-                  </label>
-                </div>
-                <div class="all-search">
-                  <div>
-                    <label for="search" class="lab-search">Mots-clés</label>
-                  </div>
-                  <div>
-                    <input type="search" name="search" class="input-search">
-                  </div>
-                </div>
-              </div>
+          <input type="date" id="dateDebut" [(ngModel)]="dateDebut" />
+          <input type="date" id="dateFin" [(ngModel)]="dateFin" />
+          <button type="button" class="select" (click)="afficherFiltre()">
+            Plus de filtres
+          </button>
+          <button type="button" class="voir">Voir les résultats</button>
+        </div>
+        <div *ngIf="openFiltre" class="checkbox">
+          <div class="checkbox-container">
+            <div id="stat">
+              <label for="">Statut de la réservation</label>
             </div>
-            <div class="resultats-info">
-                <div>
-                    {{ selectedStatut }}
-                ({{ getClientsFiltres().length }})
-                </div>
-                <button class="printPage" (click)="printPage()">
-                    <mat-icon>
-                    print
-                    </mat-icon>
-                    Imprimer la liste des réservations
-                </button>
+            <label class="checkbox-item">
+              <input type="checkbox" id="tous" /> Tous
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="reservation" /> Réservation
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="arrivees" /> Arrivées
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="departures" /> Départs
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="sejour-en-cours" /> Séjour en cours
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="a-venir" /> A venir
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="annulees" /> Annulées
+            </label>
+          </div>
+          <div class="all-search">
+            <div>
+              <label for="search" class="lab-search">Mots-clés</label>
             </div>
+            <div>
+              <input type="search" name="search" class="input-search" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="resultats-info">
+        <div>
+          <span> {{ selectedStatut }} ({{ getClientsFiltres().length }})</span>
+        </div>
+        <button class="printPage" (click)="printPage()">
+          <mat-icon> print </mat-icon>
+          Imprimer la liste des réservations
+        </button>
+      </div>
     </div>
 
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <tr>
+          <tr>
             <th>Nom du client</th>
             <th>Arrivée</th>
             <th>Départ</th>
@@ -86,144 +89,201 @@
             <th>Commission</th>
             <th>Durée</th>
             <th>Numéro de réservation</th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
           <tr *ngFor="let client of paginatedClients">
             <td>
-                <span style="color: #77B5FE;">{{ client.nom }}</span> <br>
-                {{ client.personne }} personne(s)
+              <span style="color: #77b5fe">{{ client.nom }}</span> <br />
+              {{ client.personne }} personne(s)
             </td>
             <td>{{ client.arrivee }}</td>
             <td>{{ client.depart }}</td>
             <td>
-                {{ client.hebergement }}
-                <br>
-                <span *ngIf="(client.nombreHebergement ?? 0) > 0">x{{ client.nombreHebergement }}</span>
+              {{ client.hebergement }}
+              <br />
+              <span *ngIf="(client.nombreHebergement ?? 0) > 0"
+                >x{{ client.nombreHebergement }}</span
+              >
             </td>
             <td>{{ client.reserveLe }}</td>
             <!-- <td><b>{{ client.statuts }}</b></td> -->
-            <td [ngStyle]="{'color': client.statuts === 'Annulées' ? 'red' : 'black'}">
+            <td
+              [ngStyle]="{
+                color: client.statuts === 'Annulées' ? 'red' : 'black'
+              }"
+            >
               <b>{{ client.statuts }}</b>
-          </td>
+            </td>
             <td>{{ client.tarif }}</td>
             <td>{{ client.commission }}</td>
             <td>{{ client.duree }}</td>
-            <td><a class="open-div2" (click)="afficherDetails(client)">{{ client.numeroReservation }}</a></td>
-        </tr>
-        <tr>
-            <td colspan="10" class="td-pag">
-                <div>
-                    <button class="btn-pag" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">&lt; Précédent</button>|
-                    <span>Page</span>
-                    |<button class="btn-pag" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Suivant &gt;</button>
-                    <select id="itemsPerPage" (change)="onItemsPerPageChange($event)">
-                        <option *ngFor="let option of itemsPerPageOptions" [value]="option">Afficher {{ option }} réservations</option>
-                    </select>
-                </div>
+            <td>
+              <a class="open-div2" (click)="afficherDetails(client)">{{
+                client.numeroReservation
+              }}</a>
             </td>
-        </tr>
+          </tr>
+          <tr>
+            <td colspan="10" class="td-pag">
+              <div>
+                <button
+                  class="btn-pag"
+                  (click)="goToPage(currentPage - 1)"
+                  [disabled]="currentPage === 1"
+                >
+                  &lt; Précédent</button
+                >|
+                <span>Page</span>
+                |<button
+                  class="btn-pag"
+                  (click)="goToPage(currentPage + 1)"
+                  [disabled]="currentPage === totalPages"
+                >
+                  Suivant &gt;
+                </button>
+                <select
+                  id="itemsPerPage"
+                  (change)="onItemsPerPageChange($event)"
+                >
+                  <option
+                    *ngFor="let option of itemsPerPageOptions"
+                    [value]="option"
+                  >
+                    Afficher {{ option }} réservations
+                  </option>
+                </select>
+              </div>
+            </td>
+          </tr>
         </tbody>
-    </table>
+      </table>
     </div>
     <div class="totaux">
-        <p>Total Commission : <strong>{{ totalCommission() | currency }}</strong></p>
-        <p>Total Tarif : <strong>{{ totalTarif() | currency }}</strong></p>
+      <p>
+        Total Commission : <strong>{{ totalCommission() | currency }}</strong>
+      </p>
+      <p>
+        Total Tarif : <strong>{{ totalTarif() | currency }}</strong>
+      </p>
     </div>
+  </div>
+
+  <div *ngIf="showDetails">
+    <div class="retour">
+      <h2>Détails de la réservation</h2>
+      <b>&lt;</b
+      ><button class="revenir" (click)="revenir()">
+        Revenir à la synthèse des réservations
+      </button>
     </div>
-
-
-    <div *ngIf="showDetails">
-        <div class="retour">
-            <h2>Détails de la réservation</h2>
-            <b>&lt;</b><button class="revenir" (click)="revenir()">Revenir à la synthèse des réservations</button>
-        </div>
-        <span class="span">
-            <button class="printPage2" (click)="printPage()">
-                <mat-icon>
-                print
-                </mat-icon>
-                Imprimer la liste des réservations
-            </button>
-        </span>
-        <div *ngIf="selectedClient.statuts == 'Annulées'" class="fact-annulee">
-            <mat-icon style="color: brown;">
-                error
-            </mat-icon>
-            Réservation annulée
-        </div>
-        <table class="table2">
-            <tr>
-                <td>Date d'arrivée</td>
-                <td>Nom du client :</td>
-            </tr>
-            <tr>
-                <td>{{ selectedClient.arrivee }}</td>
-                <td>{{ selectedClient.nom }}</td>
-            </tr>
-            <tr>
-                <td>Date de départ</td>
-                <td>Pays de résidence</td>
-            </tr>
-            <tr>
-                <td>{{ selectedClient.depart }}</td>
-                <td>gab</td>
-            </tr>
-            <tr>
-                <td>Durée de la reservation :</td>
-                <td>
-                    <span style="display: inline-flex; align-items: center;">
-                        <mat-icon style="font-size: 15px; margin-top: 5px;">visibility</mat-icon>
-                        <a (click)="afficherTelephone()" style="cursor: pointer;">Afficher le numéro de téléphone</a>
-                    </span><br>
-                    <span *ngIf="numeroTelephone"> {{+221776438111}} </span>
-                </td>
-
-            </tr>
-            <tr>
-                <td>{{ selectedClient.duree }}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Nombre de personnes :</td>
-                <td>Langue préferée</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>français</td>
-            </tr>
-            <tr>
-                <td>Nombre de logements :</td>
-                <td>Canal :</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>yori.com</td>
-            </tr>
-            <tr>
-                <td>Montant total</td>
-                <td>Numéro de réservation:</td>
-            </tr>
-            <tr>
-                <td>100.000 Fcfa</td>
-                <td>{{ selectedClient.numeroReservation }}</td>
-            </tr>
-            <tr>
-                <td>Commission :</td>
-                <td>Paiement :</td>
-            </tr>
-            <tr>
-                <td>15.000 FCFA</td>
-                <td>Paysing</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Reçu</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>mar. 14 juil. 2024</td>
-            </tr>
-        </table>
+    <br /><br />
+    <span class="span">
+      <button class="printPage2" (click)="printPage()">
+        <mat-icon> print </mat-icon>
+        Imprimer la liste des réservations
+      </button>
+    </span>
+    <div *ngIf="selectedClient.statuts == 'Annulées'" class="fact-annulee">
+      <mat-icon style="color: brown"> error </mat-icon>
+      Réservation annulée
     </div>
+    <table class="table2">
+      <tr>
+        <td>Date d'arrivée</td>
+        <td>Nom du client :</td>
+      </tr>
+      <tr>
+        <td>
+          <b class="Nom_proprietaire">{{ selectedClient.arrivee }}</b>
+        </td>
+        <td>
+          <b class="Nom_proprietaire">
+            {{ selectedClient.nom }}
+          </b>
+        </td>
+      </tr>
+      <tr>
+        <td>Date de départ</td>
+        <td>Pays de résidence</td>
+      </tr>
+      <tr>
+        <td>
+          <b class="Nom_proprietaire">{{ selectedClient.depart }}</b>
+        </td>
+        <td class="td1" class="pays_structure">
+          <b>{{ selectedClient.pays }}</b>
+          <img
+            [src]="'assets/flags/' + selectedClient.pays + '.png'"
+            alt="{{ selectedClient.pays }} flag"
+            class="pays"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Durée de la reservation :</td>
+        <td>
+          <span style="display: inline-flex; align-items: center">
+            <mat-icon style="font-size: 15px; margin-top: 5px"
+              >visibility</mat-icon
+            >
+            <a (click)="afficherTelephone()" style="cursor: pointer"
+              >Afficher le numéro de téléphone</a
+            > </span
+          ><br />
+          <span *ngIf="numeroTelephone"
+            ><b> {{ +221776438111 }}</b>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>{{ selectedClient.duree }}</b>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Nombre de personnes :</td>
+        <td>Langue préferée</td>
+      </tr>
+      <tr>
+        <td><b>4</b></td>
+        <td><b>français</b></td>
+      </tr>
+      <tr>
+        <td>Nombre de logements :</td>
+        <td>Canal :</td>
+      </tr>
+      <tr>
+        <td><b>2</b></td>
+        <td><b>yori.com</b></td>
+      </tr>
+      <tr>
+        <td>Montant total</td>
+        <td>Numéro de réservation:</td>
+      </tr>
+      <tr>
+        <td><b class="Nom_proprietaire">100.000 Fcfa</b></td>
+        <td>
+          <b>{{ selectedClient.numeroReservation }}</b>
+        </td>
+      </tr>
+      <tr>
+        <td>Commission :</td>
+        <td>Paiement :</td>
+      </tr>
+      <tr>
+        <td><b>15.000 FCFA</b></td>
+        <td><b>Paysing</b></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Reçu</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><b>mar. 14 juil. 2024</b></td>
+      </tr>
+    </table>
+  </div>
 </div>

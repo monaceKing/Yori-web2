@@ -2,7 +2,7 @@
   padding: 20px;
 }
 
-.section{
+.section {
   background-color: white;
   padding: 10px 0 0 40px;
 }
@@ -12,41 +12,37 @@
   width: 550px;
 }
 
-
-.photo{
+.photo {
   width: 100px;
   height: 100px;
   font-size: 15px;
 }
 
-.cadre{
+.cadre {
   text-align: center;
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 20px;
   background-color: white;
-  border: 5px dashed   black;
+  border: 5px dashed black;
   padding: 20px;
 }
 
-
-.all-btn{
+.all-btn {
   padding-top: 20px;
 }
 
-
 .add-photo-btn {
   background-color: white;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   padding: 5px 5px;
   font-size: 15px;
   cursor: pointer;
-  border: 0.2px solid #77B5FE;
+  border: 0.2px solid rgba(13, 13, 197, 0.8);
   margin: 0;
 }
 
-
-.btn-add{
+.btn-add {
   padding-top: 20px;
   width: 230px;
   height: 100px;
@@ -56,24 +52,22 @@
   border: 0.2px solid rgb(212, 212, 212);
 }
 
-
-.btn-add button{
+.btn-add button {
   cursor: pointer;
   font-weight: 200;
   border: none;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
   background-color: initial;
 }
 
-.btn-add mat-icon{
+.btn-add mat-icon {
   cursor: pointer;
-  color: #77B5FE;
+  color: rgba(13, 13, 197, 0.8);
 }
 
 input[type="file"] {
   margin-top: 10px;
 }
-
 
 .entête {
   padding: 5px;
@@ -84,10 +78,10 @@ input[type="file"] {
   margin-bottom: -25px;
 }
 
-.entête p{
+.entête p {
   color: white;
   display: inline-block;
-  background-color: #77B5FE;
+  background-color: rgba(13, 13, 197, 0.8);
   margin: 10px 0 0 50px;
   padding: 5px 10px;
 }
@@ -99,7 +93,6 @@ input[type="file"] {
   padding: 16px;
   width: 600px;
 }
-
 
 .image-item {
   position: relative;
@@ -128,17 +121,15 @@ input[type="file"] {
   cursor: pointer;
 }
 
-
 .image-item img {
   width: 250px;
-  height: 180px;  /* Garde les proportions de l'image */
+  height: 180px; /* Garde les proportions de l'image */
   object-fit: cover; /* Assure que l'image couvre la cellule sans déformation */
 }
 
 /* .image-item:hover img {
   transform: scale(1.05);
 } */
-
 
 .delete-icon {
   position: absolute;
@@ -153,23 +144,22 @@ input[type="file"] {
   background-color: #f0f0f0; /* Changez le fond au survol pour un effet visuel */
 }
 
-
 @media (max-width: 768px) {
-  .section{
+  .section {
     padding: 0;
   }
 
-  .cadre{
+  .cadre {
     margin: 0;
     padding: 0;
   }
 
-  .controls{
+  .controls {
     width: auto;
     margin: 0;
   }
 
-  .image-gallery{
+  .image-gallery {
     width: auto;
   }
 }
