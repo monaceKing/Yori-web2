@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { MatCard } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-footer',
@@ -9,8 +8,7 @@ import { MatCard } from '@angular/material/card';
   imports: [
     MatToolbarModule,
     MatIconModule,
-    MatIcon,
-    MatCard
+
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'

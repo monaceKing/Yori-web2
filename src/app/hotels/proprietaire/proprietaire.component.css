@@ -51,6 +51,9 @@
 
 
 @media (max-width: 768px) {
+  .container {
+    width:auto;
+  }
   /* Réduction de la taille du texte */
   .main-card p, .main-card h3 {
     font-size: 0.9em; /* Réduire la taille du texte */

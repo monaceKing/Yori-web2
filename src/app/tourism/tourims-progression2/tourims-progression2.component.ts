@@ -25,13 +25,6 @@ export class TourimsProgression2Component implements AfterViewInit{
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
   activeTabIndex: number = 0; 
 
-  // ngAfterViewInit() { 
-  //   setTimeout(() => {
-  //     const savedIndex = localStorage.getItem('activeTabIndex');
-  //     this.activeTabIndex = savedIndex ? +savedIndex : 0;
-  //     this.selectTab(this.activeTabIndex);
-  //   });
-  // }
 
   onTabChange(event: MatTabChangeEvent) {
     this.activeTabIndex = event.index;
