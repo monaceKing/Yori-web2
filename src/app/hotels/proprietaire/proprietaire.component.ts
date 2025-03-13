@@ -64,3 +64,4 @@ export class ProprietaireComponent implements OnInit{
   }
 
 }
+ 
